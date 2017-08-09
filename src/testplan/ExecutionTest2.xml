@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test form">
+	<test name="Create Client">
+		<classes>
+			<class name="com.totalamber.qa.SupportLoginTest">
+				<methods>
+					<include name="verifyClientSignup" />
+				</methods>
+			</class>
+
+			<class name="com.totalamber.qa.SalesManagerTest">
+				<methods>
+					<include name="verifyAssignClientToAM" />
+				</methods>
+			</class>
+
+			<class name="com.totalamber.qa.AccountManagerTest">
+				<methods>
+					<include name="accountManagerVerifyUserInfo" />
+				</methods>			
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Support User test">
+		<classes>
+			<class name="com.totalamber.qa.SupportLoginTest">
+				<methods>
+					<include name="verifyRequestAssignUsers"/>
+				</methods>
+			</class>
+			<class name="com.totalamber.qa.AccountManagerTest">
+				<methods>
+					<include name="assignUsers"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Activate Support User">
+		<classes>
+			<class name="com.totalamber.qa.SupportLoginTest">
+				<methods>
+					<include name="verifySuccessfullyActivateSupportUser"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Create Cases">
+		<classes>
+			<class name="com.totalamber.qa.SupportLoginTest">
+				<methods>
+					<include name="verifyUserAbleToViewClosedCases"/>					
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
+
+
+
+
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test form">
+	<test name="regression">
+		<classes>
+			<class name="com.WebQuarters.test.AccountManagerTest">
+				<methods>
+					<include name="ClientUserSignInNavigation" /> <include name="ClientRegistrationNavigation" 
+						/> <include name="ClientRegistrationFormFilling" /> <include name="DeleteSoftwareApplication" 
+						/>
+					<include name="checkSupportUserRequestedEmails" />
+				</methods>
+			</class>
+			<class name="com.WebQuarters.test.SupportLoginTest">
+				<methods>
+					<include name="verifyUserAbleToViewClosedCases" /> 
+				</methods>
+			</class>
+			<class name="com.WebQuarters.test.AccountManagerTest">
+				<methods>
+					<include name="assignUsers" /> 
+				</methods>
+			</class>
+			<class name="com.WebQuarters.test.SupportLoginTest">
+				<methods>
+					<include name="verifyClientRegistrationFormFilling" /> 
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite> -->
+
