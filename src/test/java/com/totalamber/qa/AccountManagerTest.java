@@ -239,6 +239,7 @@ public class AccountManagerTest extends WebQuartersTestBase {
 
 		supportLoginDom.reassignSupportUser(reassignSupportUser);
 		Thread.sleep(5000);
+		System.out.print("Reassigned Support user : "+ reassignSupportUser);
 
 		Assert.assertEquals(accountManagerDom.verifyDataEquals(AM_REASSIGNED_MESSAGE_XPATH),
 				userReassignedMsg + newSupportUserEmail + " to " + reassignSupportUser);

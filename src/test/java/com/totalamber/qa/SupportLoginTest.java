@@ -186,10 +186,8 @@ public class SupportLoginTest extends WebQuartersTestBase {
 
 		String siteUrl = data.getValueByName("url");
 		setSiteURL(siteUrl);
-		Thread.sleep(3000);
+		Thread.sleep(7000);
 
-		// seleniumBase.clickOnLogInLink();
-		Thread.sleep(6000);
 		supportLoginDom.clientLogin(userNameSU, passwordSU);
 		Thread.sleep(2000);
 	}
@@ -607,7 +605,6 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		passwordSU = splitedtempPW;
 
 		//	userNameSU = "testsupport546@mailcatch.com"; //----------testing-----------------
-		//	userNameSU = supportUserEmail;
 
 		System.out.println("Temp PW is" + tempPasword);
 		System.out.println("Splited PW is" + splitedtempPW);
@@ -676,6 +673,8 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		supportLoginDom.checkIsElementEnabled(SUPPORT_TILE_XPATH);				//Verify 24x7 Support tile is enabled
 		Thread.sleep(2000);
 
+        Assert.assertNotNull(supportLoginDom.dashboardSupportSPuserExists(), "Support Dashboard is available");
+        Thread.sleep(5000);
 
 	}
 
@@ -697,19 +696,19 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		String caseType3 = data.getValueByName("caseType3");
 		String caseUrgency3 = data.getValueByName("caseUrgency3");
 		String viewSupportCaseTitle = data.getValueByName("viewSupportCaseTitle");
-
+        String newPasswordSupportUser = data.getValueByName("newPasswordSupportUser");
 
 		//-----------------------------------------------------------------------------------------------
-		//	supportLoginDom.clientLogin("3b10c5a8-1d73-4d11-8021-ae69529241d8@mailcatch.com", "asdf1234@");
-		//	Thread.sleep(4000);
+			supportLoginDom.clientLogin(supportUserEmail, newPasswordSupportUser);
+           // supportLoginDom.clientLogin("7a99f3a9-eaf5-43e4-991e-2fadc49eac1a@mailcatch.com", "asdf1234@");
+            Thread.sleep(4000);
 
 
 		//------------------------------------------------------------------------------------------------
 
-		verifySuccessfullyActivateSupportUser();
+		//verifySuccessfullyActivateSupportUser();
 
-		Assert.assertNotNull(supportLoginDom.dashboardSupportSPuserExists(), "Support Dashboard is available");
-		Thread.sleep(2000);
+
 
 		supportLoginDom.clickSupportTile();
 		Thread.sleep(3000);
@@ -781,11 +780,12 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		String siteUrl = data.getValueByName("url");
 		String createCasePageTitle = data.getValueByName("createCasePageTitle");
 
+
 		setSiteURL(siteUrl);
 		Thread.sleep(3000);
 
 		supportLoginDom.clientLogin(clientEmail, passwordSU);
-		//supportLoginDom.clientLogin("f0ddadd7-4853-4e1f-b917-fd4efefef337@mailcatch.com", "asdf1234%");
+		//supportLoginDom.clientLogin("47685d50-fed0-432f-8a25-62be5f205cf2@mailcatch.com", "asdf1234%");
 		Thread.sleep(4000);
 
 		supportLoginDom.clickHomeTile();

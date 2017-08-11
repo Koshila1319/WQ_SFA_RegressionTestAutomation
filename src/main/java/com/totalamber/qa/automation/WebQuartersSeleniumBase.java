@@ -789,7 +789,7 @@ public class WebQuartersSeleniumBase {
 	}
 
 
-	//Check data equals
+	//Upload files
 	public void uploadFiles(String filePath, String elementName) {
 		// TODO Auto-generated method stub
 		WebElement element= driver.findElement(By.name(elementName));
