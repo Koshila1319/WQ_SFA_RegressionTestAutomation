@@ -8,12 +8,13 @@ import org.testng.annotations.Test;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.UUID;
 
 
 public class AccountManagerTest extends WebQuartersTestBase {
 
 	public static String splitedEmailDM = "", splitedRoleDM = "", splitedEmailSP = "", splitedRoleSP = "" , newSupportUserEmail;
-	
+
 	@BeforeMethod
 	public void NavigateToPage() throws IOException, InterruptedException {
 		initDomainObjects(DRIVER);
@@ -24,8 +25,8 @@ public class AccountManagerTest extends WebQuartersTestBase {
 
 	@AfterMethod
 	public void endingTest() {
-		// quitDriver();
-		//seleniumBase.clearCache();
+		//	quitDriver();
+		//	seleniumBase.clearCache();
 	}
 
 	@Test
@@ -33,7 +34,7 @@ public class AccountManagerTest extends WebQuartersTestBase {
 
 		String userNameAM = data.getValueByName("userNameAM");
 		String passwordAM = data.getValueByName("passwordAM");
-		
+
 		seleniumBase.login(userNameAM, passwordAM);
 		seleniumBase.selectSignInOption();
 		Thread.sleep(2000);
@@ -41,11 +42,11 @@ public class AccountManagerTest extends WebQuartersTestBase {
 
 	@Test
 	public void accountManagerViewUserDetails() throws InterruptedException, AWTException {
-		
+
 		String com = data.getValueByName("companyName");
-		
+
 		accountManagerSignInNavigation();
-		
+
 		accountManagerDom.enterTheCompnayName(com);
 		accountManagerDom.clickOnGoButton();
 		Thread.sleep(7000);
@@ -57,7 +58,7 @@ public class AccountManagerTest extends WebQuartersTestBase {
 	public void accountManagerViewInvalidCompanyDetails() throws InterruptedException, AWTException {
 
 		accountManagerViewUserDetails();
-		
+
 		String invalidCompany = "InvalidCompany";
 		accountManagerDom.enterTheCompnayName(invalidCompany);
 		accountManagerDom.clickOnGoButton();
@@ -69,22 +70,22 @@ public class AccountManagerTest extends WebQuartersTestBase {
 	@Test
 	public void accountManagerVerifyUserInfo() throws InterruptedException, AWTException {
 		String com = data.getValueByName("companyName");
-		
+
 		accountManagerViewInvalidCompanyDetails();
-		
+
 		accountManagerDom.clickOnData(com);
 		accountManagerDom.clickOnVerifyButton();
-		Thread.sleep(12000);
-		
+		Thread.sleep(6000);
+
 		// verify client details successfully approved
-	
+
 		//================================================================================================================================
-		accountManagerDom.enterTheCompnayName(com);
+		/*accountManagerDom.enterTheCompnayName(com);
 		Thread.sleep(5000);
 		accountManagerDom.clickOnGoButton();
 		Thread.sleep(6000);
 		Assert.assertEquals(accountManagerDom.companyNameVerify(), com);
-		Thread.sleep(2000);
+		Thread.sleep(2000);*/
 
 	}
 
@@ -100,17 +101,17 @@ public class AccountManagerTest extends WebQuartersTestBase {
 		accountManagerDom.clickOnRejectButtonInCommentBox();
 		Assert.assertEquals(accountManagerDom.commentVerification(), "Please enter the comment");
 	}
-	
-	
-//###################################################################################################	
-	
+
+
+//###################################################################################################
+
 	//-------------------Assign requested Users--------------------
 
-	
+
 	//Verify email client for requested support users
 	@Test
 	public void checkSupportUserRequestedEmails() throws InterruptedException, AWTException {
-	
+
 		String outlookURL = data.getValueByName("outlookURL");
 		String emailAM = data.getValueByName("emailAM");
 		String emailPasswordAM = data.getValueByName("emailPasswordAM");
@@ -123,119 +124,120 @@ public class AccountManagerTest extends WebQuartersTestBase {
 	//Verify AM able to get new assigned user Data from email
 	@Test
 	public void getNewUserAssignRequestData() throws InterruptedException, AWTException {
-		
+
 		String emailDataDM, roleDataDM, emailDataSP, roleDataSP;
-		
+
 		checkSupportUserRequestedEmails();
-		
+
 		//Click on new support user(DM) assign request
 		accountManagerDom.navigateToRequestAssignEmail(NEW_DM_SPUSER_ASSIGN_REQUEST_EMAIL_XPATH);
 		Thread.sleep(3000);
-		
+
 		//Get Support User(DM) data
 		emailDataDM = accountManagerDom.getDMSPUserEmailData();
 		roleDataDM = accountManagerDom.getDMSPUserRoleData();
-		
+
 		Thread.sleep(2000);
-		
-		splitedEmailDM = seleniumBase.splitTexts(emailDataDM, " : ");	
-		splitedRoleDM = seleniumBase.splitTexts(roleDataDM,  " : ");	
-		
+
+		splitedEmailDM = seleniumBase.splitTexts(emailDataDM, " : ");
+		splitedRoleDM = seleniumBase.splitTexts(roleDataDM,  " : ");
+
 		accountManagerDom.clickBrowserBackButton();
 		Thread.sleep(7000);
-		
+
 		//Click on new support user assign request
 		accountManagerDom.navigateToRequestAssignEmail(NEW_SPUSER_ASSIGN_REQUEST_EMAIL_XPATH);
 		Thread.sleep(3000);
-		
+
 		//Get Support User(DM) data
 		emailDataSP = accountManagerDom.getSPUserEmailData();
 		roleDataSP = accountManagerDom.getSPUserRoleData();
-		
-		splitedEmailSP = seleniumBase.splitTexts(emailDataSP, " : ");	
+
+		splitedEmailSP = seleniumBase.splitTexts(emailDataSP, " : ");
 		splitedRoleSP = seleniumBase.splitTexts(roleDataSP,  " : ");
-		
+
 	}
-	
+
 	@Test
 	public void assignUsers() throws InterruptedException, AWTException, IOException {
-		
+
 		String assignUsersPageTitle = data.getValueByName("assignUsersPageTitle");
 		String company = data.getValueByName("companyName");
 		String assignUsersSuccessMsg = data.getValueByName("assignUsersSuccessMsg");
-		newSupportUserEmail = "newsupportUser@mailinator.com";
-					
+		//	newSupportUserEmail = UUID.randomUUID().toString() + "@mailcatch.com";
+
 		getNewUserAssignRequestData();
-		
+
 		NavigateToPage();
 		accountManagerSignInNavigation();
-		
+
 		accountManagerDom.clickAssignUserTile();
 		Thread.sleep(2000);
-		
+
 		accountManagerDom.selectCompany(company); //Select Company
 		Thread.sleep(4000);
 		Assert.assertEquals(accountManagerDom.verifyDataEquals(AM_ASSIGN_USERS_TITLE_XPATH), assignUsersPageTitle); //verify navigated page title
-		Thread.sleep(2000); 
-		
+		Thread.sleep(2000);
+
 		accountManagerDom.addUsers(splitedEmailDM, splitedRoleDM); //Add DM as a support user
-		Thread.sleep(4000);	
+		Thread.sleep(4000);
 		Assert.assertEquals(accountManagerDom.verifyDataEquals(AM_SUCCESS_ACTIVATE_MESSAGE_XPATH), assignUsersSuccessMsg + splitedEmailDM);
-		Thread.sleep(2000); 
-				
+		Thread.sleep(2000);
+
 		verifyAssigningAlreadyExistingUser(); //Verify adding already existing user
-		
+
 		verifyReassigningUsers();   //Verify reassigning users
-		
+
 		verifydeactivatingUsers();
-		
+
 		//----------------------testing------------
-		
+
 		accountManagerDom.addUsers(splitedEmailSP, splitedRoleSP); //Add new user as a support user
 		Thread.sleep(3000);
-		
-	//	accountManagerDom.addUsers("testsupport546@mailcatch.com", splitedRoleSP); //Add new user as a support user
-	//	Thread.sleep(5000);
-		
+
+		//	accountManagerDom.addUsers("testsupport546@mailcatch.com", splitedRoleSP); //Add new user as a support user
+		//	Thread.sleep(5000);
+
 		//------------------------------------------
-		
+
 		Assert.assertEquals(accountManagerDom.verifyDataEquals(AM_SUCCESS_ACTIVATE_MESSAGE_XPATH), assignUsersSuccessMsg + splitedEmailSP);
-		Thread.sleep(5000);	
-		
+		Thread.sleep(5000);
+
 	}
-	
+
 
 	//Verify that unable to assign already existing support user
 	@Test
 	public void verifyAssigningAlreadyExistingUser() throws InterruptedException, AWTException {
-			
+
 		String userExistInSameGroupMsg = data.getValueByName("userExistInSameGroupMsg");
-		
+
 		//--------------testing------------------
 		accountManagerDom.addUsers(splitedEmailDM, splitedRoleDM);
-		
+
 		//accountManagerDom.addUsers("october@polyfaust.com", splitedRoleDM); //Add DM as a support user
 		Thread.sleep(3000);
-	
+
 		//----------------------------------------
-		
+
 		Assert.assertEquals(accountManagerDom.verifyDataEquals(AM_ADD_SAME_USER_ERROR_MSG_XPATH), userExistInSameGroupMsg);
 		Thread.sleep(4000);
-	
-		}
 
-	
+	}
+
+
 	// Verify that AM able to reassign users
 	@Test
 	public void verifyReassigningUsers() throws InterruptedException, AWTException {
 
 		String userReassignedMsg = data.getValueByName("userReassignedMsg");
-		String reassignSupportUser = "reassignedEmail@mailcatch.com";
+		String reassignSupportUser = UUID.randomUUID().toString() + "@mailcatch.com";
+		newSupportUserEmail = UUID.randomUUID().toString() + "@mailcatch.com";
 
 		accountManagerDom.addUsers(newSupportUserEmail, splitedRoleSP);
 		Thread.sleep(5000);
 
-		supportLoginDom.reassignSupportUser("reassignedEmail@mailcatch.com");
+		supportLoginDom.reassignSupportUser(reassignSupportUser);
 		Thread.sleep(5000);
 
 		Assert.assertEquals(accountManagerDom.verifyDataEquals(AM_REASSIGNED_MESSAGE_XPATH),
@@ -243,8 +245,8 @@ public class AccountManagerTest extends WebQuartersTestBase {
 		Thread.sleep(4000);
 
 	}
-		
-		
+
+
 	// Verify that AM able to deactivate users
 	@Test
 	public void verifydeactivatingUsers() throws InterruptedException, AWTException {

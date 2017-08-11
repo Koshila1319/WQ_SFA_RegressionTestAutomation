@@ -16,7 +16,7 @@ public class ClientRegistrationFormFiller {
 	}
 
 	public void fillingClientRegistrationForm(String companyName, String fName, String lName, String email,
-			String jobTitle, String address, String town, String contactNo) {
+											  String jobTitle, String address, String town, String contactNo) {
 
 		clientRegistrationFormFillerPage.enterClientInfo(companyName, fName, lName, email, jobTitle, address, town,
 				contactNo);

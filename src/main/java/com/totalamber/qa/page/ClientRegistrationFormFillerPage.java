@@ -3,7 +3,6 @@ package com.totalamber.qa.page;
 import com.totalamber.qa.automation.WebQuartersSeleniumBase;
 import com.totalamber.qa.objectproperty.ElementHolder;
 import org.openqa.selenium.WebDriver;
-
 public class ClientRegistrationFormFillerPage implements ElementHolder {
 
 	WebQuartersSeleniumBase seleniumBase;
@@ -14,7 +13,7 @@ public class ClientRegistrationFormFillerPage implements ElementHolder {
 	}
 
 	public void enterClientInfo(String companyName, String fName, String lName, String email, String jobTitle,
-			String address, String town, String contactNo) {
+								String address, String town, String contactNo) {
 		// TODO Auto-generated method stub
 		seleniumBase.type(ROBOFORM_FORM_CLIENT_COMPANY_NAME, companyName);
 		seleniumBase.type(ROBOFORM_FORM_CLIENT_FNAME, fName);
@@ -61,7 +60,7 @@ public class ClientRegistrationFormFillerPage implements ElementHolder {
 	// Filling update client profile billing details
 	public void updateClientBillingInfo(String noOfSites, String annualRevenue, String address, String town) {
 		// TODO Auto-generated method stub
-		
+
 		seleniumBase.type(ROBOFORM_FORM_CLIENT_BILLING_NO_OF_SITES_XPATH, noOfSites);
 		seleniumBase.type(ROBOFORM_FORM_CLIENT_BILLING_ANNUAL_REVENUE_XPATH, annualRevenue);
 		seleniumBase.type(ROBOFORM_FORM_CLIENT_BILLING_ADDRESS_XPATH, address);
@@ -71,7 +70,7 @@ public class ClientRegistrationFormFillerPage implements ElementHolder {
 	// Filling user information in manage request page
 
 	public void userInformationPopup(String spUserEmail, String spUserFname, String spUserLname,
-			String spUserDesignation) {
+									 String spUserDesignation) {
 
 		//seleniumBase.switchedToiFrame("DlgFrame7ff0e024-e410-420a-86a5-c043baa580d6.ms-dlgFrame");
 		seleniumBase.type(ROBOFORM_FORM_USER_INFO_EMAIL_NAME, spUserEmail);
@@ -82,3 +81,4 @@ public class ClientRegistrationFormFillerPage implements ElementHolder {
 	}
 
 }
+

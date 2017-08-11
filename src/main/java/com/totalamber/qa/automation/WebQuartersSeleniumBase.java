@@ -20,6 +20,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+
 public class WebQuartersSeleniumBase {
 
 	// public static WebDriver DRIVER;
@@ -80,7 +81,7 @@ public class WebQuartersSeleniumBase {
 
 	/**
 	 * Set the site URL
-	 * 
+	 *
 	 * @param siteUrl
 	 *            - site URL
 	 */
@@ -110,7 +111,7 @@ public class WebQuartersSeleniumBase {
 	// Get element by CSS, ID, name and xPath
 	/**
 	 * This is to find the element by CSS, ID, Name and XPath.
-	 * 
+	 *
 	 * @param cSS
 	 * @param id
 	 * @param name
@@ -147,7 +148,7 @@ public class WebQuartersSeleniumBase {
 
 	/**
 	 * This is to find the element by CSS, Name and XPath.
-	 * 
+	 *
 	 * @param cSS
 	 * @param name
 	 * @param xPath
@@ -179,7 +180,7 @@ public class WebQuartersSeleniumBase {
 
 	/**
 	 * This is to find the element by CSS and XPath.
-	 * 
+	 *
 	 * @param cSS
 	 * @param xPath
 	 * @return Return the created object of the element
@@ -202,7 +203,7 @@ public class WebQuartersSeleniumBase {
 
 	/**
 	 * This is to find the list of element by CSS and XPath.
-	 * 
+	 *
 	 * @param cSS
 	 * @param xPath
 	 * @return Return the created list object of the element
@@ -225,7 +226,7 @@ public class WebQuartersSeleniumBase {
 
 	// Get list of element by tag
 	/**
-	 * 
+	 *
 	 * @param tag
 	 * @return
 	 */
@@ -243,7 +244,7 @@ public class WebQuartersSeleniumBase {
 	// Selenium type function with parameter CSS, id, name and xPath
 
 	/**
-	 * 
+	 *
 	 * @param objectName
 	 * @param textToEnter
 	 */
@@ -254,7 +255,7 @@ public class WebQuartersSeleniumBase {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param cSS
 	 * @param objectName
 	 * @param xPath
@@ -265,7 +266,7 @@ public class WebQuartersSeleniumBase {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param cSS
 	 * @param xPath
 	 * @param textToEnter
@@ -279,7 +280,7 @@ public class WebQuartersSeleniumBase {
 
 	/**
 	 * Click event by CSS, ID, Name and XPath
-	 * 
+	 *
 	 * @param xPath
 	 * @param cSS
 	 * @param id
@@ -290,7 +291,7 @@ public class WebQuartersSeleniumBase {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param xPath
 	 * @param cSS
 	 */
@@ -743,7 +744,7 @@ public class WebQuartersSeleniumBase {
 
 	}
 
-	//Hard reload the 
+	//Hard reload the
 	public void hardReaload() {
 		Keys.chord(Keys.CONTROL, Keys.SHIFT, "R");
 
@@ -759,10 +760,10 @@ public class WebQuartersSeleniumBase {
 
 	//Switch to a popup
 	public void swichToPopup(int frameIndex) throws InterruptedException {
-		
+
 		driver.switchTo().frame(frameIndex);
 	}
-	
+
 	//Check whether the element is enabled
 	public void checkIsElementEnabled(String elementPath) {
 
@@ -786,16 +787,16 @@ public class WebQuartersSeleniumBase {
 		// TODO Auto-generated method stub
 		return getText("", data);
 	}
-	
-	
+
+
 	//Check data equals
-		public void uploadFiles(String filePath, String elementName) {
-			// TODO Auto-generated method stub
-			WebElement element= driver.findElement(By.name(elementName));
-			element.sendKeys(filePath);
-		}
-	
-		
+	public void uploadFiles(String filePath, String elementName) {
+		// TODO Auto-generated method stub
+		WebElement element= driver.findElement(By.name(elementName));
+		element.sendKeys(filePath);
+	}
+
+
 	// Replace Texts
 	public void replaceText(String cSS, String xPath, String textToReplace) {
 		getElement(cSS, xPath).sendKeys(Keys.chord(Keys.CONTROL, "a"), textToReplace);
@@ -803,7 +804,7 @@ public class WebQuartersSeleniumBase {
 
 	public void clickBrowserBackButton() {
 		// TODO Auto-generated method stub
-		 driver.navigate().back();
+		driver.navigate().back();
 	}
 
 	public void backToMain() {
@@ -811,10 +812,10 @@ public class WebQuartersSeleniumBase {
 		driver.switchTo().defaultContent();
 	}
 
-	
+
 	public void switchToNewTab(){
-	 ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
-	    driver.switchTo().window(tabs2.get(1));
+		ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
+		driver.switchTo().window(tabs2.get(1));
 	   /* driver.close();
 	    driver.switchTo().window(tabs2.get(0));*/
 	}

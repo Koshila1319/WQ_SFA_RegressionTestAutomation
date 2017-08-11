@@ -10,14 +10,13 @@ import org.testng.asserts.SoftAssert;
 import java.io.IOException;
 import java.util.UUID;
 
-
 public class SupportLoginTest extends WebQuartersTestBase {
 
 	SoftAssert s_assert = new SoftAssert();
-	
+
 	public static final String clientEmail = UUID.randomUUID().toString() + "@mailcatch.com";
 	public static final String supportUserEmail = UUID.randomUUID().toString() + "@mailcatch.com";
-	
+
 	@BeforeMethod
 	public void NavigateToPage() throws IOException, InterruptedException {
 		initDomainObjects(DRIVER);
@@ -59,10 +58,8 @@ public class SupportLoginTest extends WebQuartersTestBase {
 	@Test
 	public void verifyClientRegistrationDataExist() throws InterruptedException {
 		String ClientRegistrationPageTitle = data.getValueByName("ClientRegistrationPageTitle");
-		
-		
-		verifyClientRegistrationNavigation();
-		
+
+
 		Assert.assertEquals(supportLoginDom.PageTextVerify(CLIENT_REGISTRATION_PAGE_TITLE_XPATH),
 				ClientRegistrationPageTitle);
 		Assert.assertNotNull(supportLoginDom.CompanyNameTextBoxExists(),
@@ -81,6 +78,8 @@ public class SupportLoginTest extends WebQuartersTestBase {
 				"Town/City text box is available in Client Registration Page.");
 		Assert.assertNotNull(supportLoginDom.ContactNoTextBoxExists(),
 				"Contact Number text box is available in Client Registration Page.");
+
+		Thread.sleep(3000);
 	}
 
 	@Test
@@ -88,7 +87,7 @@ public class SupportLoginTest extends WebQuartersTestBase {
 
 		String companyName = data.getValueByName("companyName");
 		String fName = data.getValueByName("fname");
-		String lName = data.getValueByName("lName");
+		String lName = data.getValueByName("lname");
 		String email = clientEmail;
 		String jobTitle = data.getValueByName("jobTitle");
 		String address = data.getValueByName("address");
@@ -96,6 +95,8 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		String contactNo = data.getValueByName("contactNo");
 
 		verifyClientRegistrationNavigation();
+
+		verifyClientRegistrationDataExist();
 
 		// Filling client details
 		clientRegistrationFormFiller.fillingClientRegistrationForm(companyName, fName, lName, email, jobTitle, address,
@@ -136,7 +137,7 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		Thread.sleep(3000);
 
 		// open client email and click on verification link
-		
+
 		String mailcatchURL = data.getValueByName("mailcatchURL");
 		supportLoginDom.checkMailcatchEmail(mailcatchURL,clientEmail, CLIENT_EMAIL_VERIFICATION_LINK_XPATH );
 
@@ -152,19 +153,24 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		verifyClientRegistrationFormFilling();
 		// Remove Software Application
 		supportLoginDom.removeSoftwareApplications();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		supportLoginDom.signupSupportUser();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
+
+		String aa = supportLoginDom.verifyRemoveSoftwareApplications(ERROR_MESSAGE_XPATH);
+
+		System.out.println(aa);
 
 		Assert.assertEquals(supportLoginDom.verifyRemoveSoftwareApplications(ERROR_MESSAGE_XPATH), errorMsg);
+
 	}
 
 	// View Client verification email
 	@Test
 	public void verifyClientLogin() throws InterruptedException {
-		
+
 		String mailcatchURL = data.getValueByName("mailcatchURL");
-		
+
 		supportLoginDom.clickOnVerificationEmail(mailcatchURL, clientEmail);
 
 		String tempPasword = supportLoginDom.getTemporaryPassword();
@@ -252,7 +258,7 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		supportLoginPage.clickLicenseCategoryContinueButton();
 		Thread.sleep(3000);
 
-	
+
 		String errorLicenseCategory = data.getValueByName("errorLicenseCategory");
 
 		Assert.assertEquals(supportLoginDom.verifyDataEquals(ERROR_LICENSE_CATEGORY_XPATH), errorLicenseCategory);
@@ -295,7 +301,7 @@ public class SupportLoginTest extends WebQuartersTestBase {
 	public void verifyAddPaymentMethodSucessfully() throws InterruptedException {
 
 		String paymentMethod = data.getValueByName("paymentMethod");
-		
+
 		clickContinueWithoutFillingData();
 
 		supportLoginPage.selectPaymentMethod(paymentMethod);
@@ -402,7 +408,7 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		Thread.sleep(3000);
 	}
 
-	
+
 	// Verify that client able to delete additional License
 	@Test
 	public void verifyDeleteAdditionalLicense() throws InterruptedException {
@@ -428,7 +434,7 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		String wqPaymentMethod = data.getValueByName("wqPaymentMethod");
 
 		verifyDeleteAdditionalLicense();
-		
+
 		//Navigate to WebQuaters Beta Page
 		supportLoginPage.selectPaymentMethod(paymentMethod);
 		Thread.sleep(4000);
@@ -458,161 +464,160 @@ public class SupportLoginTest extends WebQuartersTestBase {
 
 		String homePageURL = data.getValueByName("url");
 		String currentURL = seleniumBase.getCurrentUrl();
-		
+
 
 		verifyWebQuartersBetaPage();
 
 		seleniumBase.getCurrentUrl();
 		Thread.sleep(6000);
-		
+
 		System.out.println("Current url - " + currentURL);
-				
+
 		Assert.assertEquals(currentURL, homePageURL);
 		Thread.sleep(4000);
-		
+
 		System.out.println("Succesfully completed Licence process...!");
 		Thread.sleep(2000);
 
 	}
-		
-	
+
+
 	//---------------------------Request to Assign users--------------------
-	
+
 	//Verify that client able to navigate assign users
 	@Test
 	public void verifyAssignUsers() throws InterruptedException {
-		
+
 		String manageRequestPageTitle = data.getValueByName("manageRequestPageTitle");
-		
+
 		//-----------for testing purpose---------------------
-		
-	//	supportLoginDom.clientLogin("095bffdc-af29-44f5-b4ce-4c4ca84fca6b@mailcatch.com", "asdf1234%");
-	//	Thread.sleep(2000);
-		
+
+		//	supportLoginDom.clientLogin("095bffdc-af29-44f5-b4ce-4c4ca84fca6b@mailcatch.com", "asdf1234%");
+		//	Thread.sleep(2000);
+
 		//---------------------------------------------------
-			
+
 		verifyCompleteLicenseDetails();
-		
+
 		supportLoginDom.clickHomeTile();
 		Thread.sleep(5000);
 		supportLoginDom.clickAssignUsersTile();
 		Thread.sleep(5000);
-	
-		//Assert.assertEquals(supportLoginDom.verifyDataEquals(MANAGE_REQUEST_PAGE_TITLE), manageRequestPageTitle); //verify the title of the manage request page 
-		Thread.sleep(5000);
-		
+
+		//	Assert.assertEquals(supportLoginDom.verifyDataEquals(MANAGE_REQUEST_PAGE_TITLE), manageRequestPageTitle); //verify the title of the manage request page
+		//Thread.sleep(5000);
+
 	}
-	
-	
-	//Verify that client able to request for users	@Test
+
+
+	//Verify that client able to request for users
+	@Test
 	public void verifyRequestAssignUsers() throws InterruptedException {
 
 		String requestSuccessMsg = data.getValueByName("requestSuccessMsg");
-		
+
 		String popupTitle = data.getValueByName("popupTitle");
 
 		// Already created client(DM) as the Support User
 		String spUserFname1 = data.getValueByName("fname");
-		String spUserLname1 = data.getValueByName("lName");
+		String spUserLname1 = data.getValueByName("lname");
 		String spUserDesignation1 = data.getValueByName("jobTitle");
-	//	String spUserEmail1 = clientEmail;
 
 		// New client as the Support User
 		String spUserFname2 = data.getValueByName("fNameSU");
 		String spUserLname2 = data.getValueByName("lNameSU");
 		String spUserDesignation2 = data.getValueByName("spUserDesignation");
-	//	String spUserEmail2 = supportUserEmail;
 
-		
+
 		verifyAssignUsers();
-		
+
 		//Request already created client(DM) as the Support User
-		
+
 		supportLoginDom.clickRequestAssignButton1();
 		Thread.sleep(3000);
 
 		seleniumBase.swichToPopup(1);
 		Thread.sleep(3000);
-	
+
 		Assert.assertEquals(supportLoginDom.verifyDataEquals(POPUP_TITLE_XPATH), popupTitle);
-		
+
 		clientRegistrationFormFiller.userInformationPopup(clientEmail, spUserFname1, spUserLname1, spUserDesignation1); //Fill data for DM as a support user
 		Thread.sleep(3000);
 		System.out.println("Support user email : "+ clientEmail);
 
 		supportLoginDom.clickRequestButton();
 		Thread.sleep(2000);
-		
+
 		Assert.assertEquals(supportLoginDom.verifyDataEquals(REQUEST_SUCCESS_MESSAGE_XPATH), requestSuccessMsg); //verify request success message
 		Thread.sleep(3000);
-		
+
 		supportLoginDom.clickCancelButton();
-		
-		
+
+
 		//New client as the Support User
-		
+
 		supportLoginDom.clickRequestAssignButton2();
 		Thread.sleep(3000);
-		
+
 		seleniumBase.swichToPopup(1);
 		Thread.sleep(3000);
-			
+
 		clientRegistrationFormFiller.userInformationPopup(supportUserEmail, spUserFname2, spUserLname2, spUserDesignation2); //Fill data
 		Thread.sleep(3000);
 		System.out.println("Support user email : "+ supportUserEmail);
 
 		supportLoginDom.clickRequestButton();
 		Thread.sleep(2000);
-		
+
 		Assert.assertEquals(supportLoginDom.verifyDataEquals(REQUEST_SUCCESS_MESSAGE_XPATH), requestSuccessMsg); //verify request success message
 		Thread.sleep(3000);
-		
+
 		supportLoginDom.clickCancelButton();
 		Thread.sleep(3000);
 	}
-	
+
 
 	//######################################################################################################################
-	
-	
+
+
 	//---------------------------------Activate newly assign user------------------------------------
-	
+
 	// Verify that able activate newly assigned user
 	@Test
 	public void verifyActivateNewlyAssignedUser() throws InterruptedException {
-		
-		String tempPasword, splitedtempPW, userNameSU, passwordSU;
-		
+
+		String tempPasword, splitedtempPW, passwordSU;
+
 		String mailcatchURL = data.getValueByName("mailcatchURL");
-		
-		//supportLoginDom.checkMailcatchEmail(mailcatchURL, supportUserEmail);		
-		
+
+		//supportLoginDom.checkMailcatchEmail(mailcatchURL, supportUserEmail);
+
 		//-----------------for testing purposes-------------------
-		
-			
+
+
 		//supportLoginDom.clickOnVerificationEmail(mailcatchURL, "testsupport546@mailcatch.com");
-		
+
 		//---------------------------------------------------------
-		
+
 		supportLoginDom.clickOnVerificationEmail(mailcatchURL, supportUserEmail);
 
 		tempPasword = supportLoginDom.getNewUserTemporaryPassword();
 		Thread.sleep(4000);
 		splitedtempPW = seleniumBase.splitTexts(tempPasword, ": ");
-
-	//	userNameSU = "testsupport546@mailcatch.com"; //----------testing-----------------
-	//	userNameSU = supportUserEmail; 
 		passwordSU = splitedtempPW;
+
+		//	userNameSU = "testsupport546@mailcatch.com"; //----------testing-----------------
+		//	userNameSU = supportUserEmail;
 
 		System.out.println("Temp PW is" + tempPasword);
 		System.out.println("Splited PW is" + splitedtempPW);
-
 		Thread.sleep(5000);
+
 		seleniumBase.backToMain();
-		
+
 		supportLoginDom.clickSupportUserVerificationLink();
 		Thread.sleep(4000);
-		
+
 		System.out.println(supportUserEmail);
 
 		supportLoginDom.supportUserLogin(supportUserEmail, passwordSU);
@@ -620,7 +625,7 @@ public class SupportLoginTest extends WebQuartersTestBase {
 
 	}
 
-	
+
 	// Verify that support user able to change the password
 	@Test
 	public void verifyChangePasswordSupportUser() throws InterruptedException {
@@ -628,94 +633,195 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		String newPasswordSupportUser = data.getValueByName("newPasswordSupportUser");
 
 		verifyActivateNewlyAssignedUser();
-		
+
 		supportLoginDom.EnterNewPasswordSU(newPasswordSupportUser, newPasswordSupportUser);
 		Thread.sleep(3000);
 	}
-	
-	
+
+
 	//Verify that able to update support user profile
 	@Test
 	public void verifyUpdateSupportUserProfile() throws InterruptedException {
 
-		String userUpdateProfilePageTitle = data.getValueByName("");
-		
+		String userUpdateProfilePageTitle = data.getValueByName("userUpdateProfilePageTitle");
+
 		String fNameSU = data.getValueByName("fNameSU");
 		String lNameSU = data.getValueByName("lNameSU");
-		
+
 		verifyChangePasswordSupportUser();
 		Thread.sleep(5000);
-		
+
+		Assert.assertEquals(supportLoginDom.verifyDataEquals(NEW_SP_USER_PROFILE_UPDATE_PAGE_TITLE_XPATH), userUpdateProfilePageTitle);    //Verify case title cleared
+		Thread.sleep(2000);
+
 		supportLoginDom.fillSupportUserDetails(fNameSU, lNameSU);
 		Thread.sleep(4000);
-		
-		Assert.assertEquals(supportLoginDom.verifyDataEquals(NEW_SP_USER_PROFILE_UPDATE_PAGE_TITLE_XPATH), userUpdateProfilePageTitle);    //Verify case title cleared
-		Thread.sleep(2000);	
 
 	}
-	
-	
+
+
 	//Verify that able to activate support user successfully
 	@Test
 	public void verifySuccessfullyActivateSupportUser() throws InterruptedException {
-		
+
 		String currentUrl;
 		String spDashboardUrl = data.getValueByName("spDashboardUrl");
-		
+
 		verifyUpdateSupportUserProfile();
-		
+
 		currentUrl = supportLoginDom.verifySupportUserPageNavigation();
-		
+
 		Assert.assertEquals(currentUrl, spDashboardUrl);						//Verify support user navigating to correct page
-	
+
 		supportLoginDom.checkIsElementEnabled(SUPPORT_TILE_XPATH);				//Verify 24x7 Support tile is enabled
 		Thread.sleep(2000);
-		
-		
+
+
 	}
 
-		
-    
+	//################################# Create Cases ##########################################
+
+	// ----------------------------Create cases by support user who is only support user---------------------------------
+
+	//Verify that new Support user able to create request case by assigning new support user
+	@Test
+	public void verifyCreateSupportCaseIncidentBySupportUser() throws InterruptedException {
+
+		// Case3
+
+		String fNameSU = data.getValueByName("fNameSU");
+		String lNameSU = data.getValueByName("lNameSU");
+		String contract3 = fNameSU + " " + lNameSU;
+		String caseTitle3 = data.getValueByName("caseTitle3");
+		String caseDescription3 = data.getValueByName("caseDescription3");
+		String caseType3 = data.getValueByName("caseType3");
+		String caseUrgency3 = data.getValueByName("caseUrgency3");
+		String viewSupportCaseTitle = data.getValueByName("viewSupportCaseTitle");
+
+
+		//-----------------------------------------------------------------------------------------------
+		//	supportLoginDom.clientLogin("3b10c5a8-1d73-4d11-8021-ae69529241d8@mailcatch.com", "asdf1234@");
+		//	Thread.sleep(4000);
+
+
+		//------------------------------------------------------------------------------------------------
+
+		verifySuccessfullyActivateSupportUser();
+
+		Assert.assertNotNull(supportLoginDom.dashboardSupportSPuserExists(), "Support Dashboard is available");
+		Thread.sleep(2000);
+
+		supportLoginDom.clickSupportTile();
+		Thread.sleep(3000);
+
+		supportLoginDom.selectContract(contract3);
+		Thread.sleep(2000);
+		supportLoginDom.addCaseData(caseTitle3, caseDescription3);
+		Thread.sleep(2000);
+		supportLoginDom.selectCaseType(caseType3);
+		Thread.sleep(5000);
+		supportLoginDom.selectUrgency(caseUrgency3);
+		Thread.sleep(8000);
+
+		supportLoginDom.clickCreateButton();
+		Thread.sleep(5000);
+
+		Assert.assertEquals(supportLoginDom.verifyDataEquals(VIEW_SUPPORT_CASE_PAGE_TITLE_XPATH), viewSupportCaseTitle); // verify view support case page title
+		Thread.sleep(3000);
+
+	}
+
+	//Verify that new Support user able to create request case by assigning new support user(DM)
+	@Test
+	public void verifyCreateSupportCaseRequestBySupportUser() throws InterruptedException {
+
+		// Case4
+
+		String fName = data.getValueByName("fname");
+		String lName = data.getValueByName("lname");
+		String contract4 = fName + " " + lName;
+		String caseTitle4 = data.getValueByName("caseTitle4");
+		String caseDescription4 = data.getValueByName("caseDescription4");
+		String caseType4 = data.getValueByName("caseType4");
+		String caseUrgency4 = data.getValueByName("caseUrgency4");
+		String viewSupportCaseTitle = data.getValueByName("viewSupportCaseTitle");
+		String createCaselink = data.getValueByName("createCaselink");
+
+
+		verifyCreateSupportCaseIncidentBySupportUser();
+
+		supportLoginDom.clickCreateCaseLink(createCaselink);
+		Thread.sleep(3000);
+
+		supportLoginDom.selectContract(contract4);
+		Thread.sleep(3000);
+		supportLoginDom.addCaseData(caseTitle4, caseDescription4);
+		Thread.sleep(2000);
+		supportLoginDom.selectCaseType(caseType4);
+		Thread.sleep(6000);
+		supportLoginDom.selectUrgency(caseUrgency4);
+		Thread.sleep(8000);
+
+		supportLoginDom.clickCreateButton();
+		Thread.sleep(6000);
+
+		Assert.assertEquals(supportLoginDom.verifyDataEquals(VIEW_SUPPORT_CASE_PAGE_TITLE_XPATH), viewSupportCaseTitle); // verify view support case page title
+		Thread.sleep(3000);
+
+	}
+
+
+
 	//----------------------------Create cases by support user who is also the DM---------------------------------
-	
+
 	@Test
 	public void verifyNavigateToCreateSupportCasesPage() throws InterruptedException {
 
 		String passwordSU = data.getValueByName("newPasswordClient");
-	//	String siteUrl = data.getValueByName("url");
-		
+		String siteUrl = data.getValueByName("url");
 		String createCasePageTitle = data.getValueByName("createCasePageTitle");
 
-		
+		setSiteURL(siteUrl);
+		Thread.sleep(3000);
+
 		supportLoginDom.clientLogin(clientEmail, passwordSU);
-	//	supportLoginDom.clientLogin("596b2cf8-5fe3-4a42-95b0-2dc4845148c4@mailcatch.com", "asdf1234%");
+		//supportLoginDom.clientLogin("f0ddadd7-4853-4e1f-b917-fd4efefef337@mailcatch.com", "asdf1234%");
 		Thread.sleep(4000);
+
+		supportLoginDom.clickHomeTile();
+		Thread.sleep(3000);
+
+		Assert.assertNotNull(supportLoginDom.dashboardSupportExists(), "Support Dashboard is available");
+		Thread.sleep(2000);
+
+		Assert.assertNotNull(supportLoginDom.dashboardDMExists(), "DM Dashboard is available");
+		Thread.sleep(2000);
 
 		supportLoginDom.checkIsElementEnabled(SUPPORT_TILE_XPATH);
 		Thread.sleep(2000);
-		
+
 		supportLoginDom.clickSupportTile();
 		Thread.sleep(3000);
 
-		Assert.assertEquals(supportLoginDom.verifyDataEquals(SUPPORT_PAGE_TITLE_XPATH), createCasePageTitle); // verify page title																																																							
+		Assert.assertEquals(supportLoginDom.verifyDataEquals(SUPPORT_PAGE_TITLE_XPATH), createCasePageTitle); // verify page title
 		Thread.sleep(3000);
 
 	}
-	
-	//Verify that user unable to add attachments without selecting them 
+
+	//Verify that user unable to add attachments without selecting them
 	@Test
 	public void verifyClickingAddButtonWithoutAttachments() throws InterruptedException {
-		
+
 		String attachmentError = data.getValueByName("attachmentError");
-		
+
 		supportLoginDom.clickAddAttachmentButton();
-		
-		Assert.assertEquals(supportLoginDom.verifyDataEquals(CREATE_CASE_ADD_ATTACHMENT_ERROR_XPATH), attachmentError); // verify error message																																																						
+
+		Assert.assertEquals(supportLoginDom.verifyDataEquals(CREATE_CASE_ADD_ATTACHMENT_ERROR_XPATH), attachmentError); // verify error message
 		Thread.sleep(3000);
 
 	}
-	
-	
+
+
 	// Verify that user able to successfully add attachments
 	@Test
 	public void verifyAddAttachments() throws InterruptedException {
@@ -723,27 +829,27 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		String attachedFile, splitedFile;
 		String filePath = data.getValueByName("filePath");
 		String fileName = data.getValueByName("fileName");
-		
-		
+
+
 		supportLoginDom.clickChooseFileButton(filePath, UPLOAD_ATTACHMENT_NAME);
 		Thread.sleep(3000);
 		supportLoginDom.clickAddAttachmentButton();
 		Thread.sleep(3000);
-		
+
 		attachedFile = supportLoginDom.getAttachmentName();
 		splitedFile = seleniumBase.splitTexts(attachedFile, "_");
-		
-		Assert.assertEquals(splitedFile, fileName); // verify file name attached																																																						
+
+		Assert.assertEquals(splitedFile, fileName); // verify file name attached
 		Thread.sleep(3000);
 
 	}
-	
+
 	// Verify that user able to clear data
 	@Test
 	public void verifyUserAbleToClearData() throws InterruptedException {
 
-		String fName = data.getValueByName("fName");
-		String lName = data.getValueByName("lName");
+		String fName = data.getValueByName("fname");
+		String lName = data.getValueByName("lname");
 		String contract1 = fName + " " + lName;
 		String caseTitle1 = data.getValueByName("caseTitle1");
 		String caseDescription1 = data.getValueByName("caseDescription1");
@@ -761,114 +867,115 @@ public class SupportLoginTest extends WebQuartersTestBase {
 
 		supportLoginDom.clickClearButton();
 		Thread.sleep(4000);
-				
+
 		Assert.assertEquals(supportLoginDom.verifyDataEquals(CREATE_CASE_TITLE_XPATH), "input");    //Verify case title cleared
 		Thread.sleep(2000);
 		Assert.assertEquals(supportLoginDom.verifyDataEquals(CREATE_CASE_DESCRIPTION_XPATH), "");   //Verify case description cleared
 		Thread.sleep(2000);
-				
+
 	}
-	
+
 	//Verify that Support user(DM) able to create request case by assigning new support user
-	
 	@Test
 	public void verifyCreateSupportCaseRequestByDM() throws InterruptedException {
 
 		//Case2
-		
-		String fNameSU = data.getValueByName("fName");
-		String lNameSU = data.getValueByName("lName");
-		String contract2 = fNameSU+" "+lNameSU;
-		String caseTitle2 = data.getValueByName("caseTitle2");
-		String caseDescription2 = data.getValueByName("caseDescription2");
-		String caseType2 = data.getValueByName("caseType2");
-		String caseUrgency2 = data.getValueByName("caseurgency2");
-		String viewSupportCaseTitle = data.getValueByName("viewSupportCaseTitle");
-		String createCaselink = data.getValueByName("createCaselink");
-		
-		verifyNavigateToCreateSupportCasesPage();  
-		
-		supportLoginDom.clickCreateCaseLink(createCaselink);
-		Thread.sleep(2000);			
-		supportLoginDom.selectContract(contract2);
-		Thread.sleep(2000);
-		supportLoginDom.addCaseData(caseTitle2, caseDescription2);
-		Thread.sleep(2000);
-		supportLoginDom.selectCaseType(caseType2);
-		Thread.sleep(2000);
-		supportLoginDom.selectUrgency(caseUrgency2);
-		Thread.sleep(2000);	
-		
-		Assert.assertEquals(supportLoginDom.verifyDataEquals(VIEW_SUPPORT_CASE_PAGE_TITLE_XPATH), viewSupportCaseTitle); // verify view support case page title																																																					
-		Thread.sleep(3000);
-				
-	}
-		
-	
-	//Verify that Support user(DM) able to create incident case by assigning Support user(DM)
-	@Test
-	public void verifyCreateSupportCaseIncidentByDM() throws InterruptedException {
 
-		//Case1 
-		
-		String fName = data.getValueByName("fName");
-		String lName = data.getValueByName("lName");
-		String contract1 =fName+" "+lName;
+		String fNameSU = data.getValueByName("fNameSU");
+		String lNameSU = data.getValueByName("lNameSU");
+		String contract1 = fNameSU+" "+lNameSU;
 		String caseTitle1 = data.getValueByName("caseTitle1");
 		String caseDescription1 = data.getValueByName("caseDescription1");
 		String caseType1 = data.getValueByName("caseType1");
 		String caseUrgency1 = data.getValueByName("caseUrgency1");
 		String viewSupportCaseTitle = data.getValueByName("viewSupportCaseTitle");
-		
+
+		verifyCreateSupportCaseRequestBySupportUser();
+
+		verifyNavigateToCreateSupportCasesPage();
+
+		supportLoginDom.selectContract(contract1);
+		Thread.sleep(2000);
+		supportLoginDom.addCaseData(caseTitle1, caseDescription1);
+		Thread.sleep(2000);
+		supportLoginDom.selectCaseType(caseType1);
+		Thread.sleep(5000);
+		supportLoginDom.selectUrgency(caseUrgency1);
+		Thread.sleep(8000);
+
+		supportLoginDom.clickCreateButton();
+		Thread.sleep(5000);
+
+		Assert.assertEquals(supportLoginDom.verifyDataEquals(VIEW_SUPPORT_CASE_PAGE_TITLE_XPATH), viewSupportCaseTitle); // verify view support case page title
+		Thread.sleep(3000);
+
+	}
+
+
+	//Verify that Support user(DM) able to create incident case by assigning Support user(DM)
+	@Test
+	public void verifyCreateSupportCaseIncidentByDM() throws InterruptedException {
+
+		//Case1
+
+		String fName = data.getValueByName("fname");
+		String lName = data.getValueByName("lname");
+		String contract2 =fName+" "+lName;
+		String caseTitle2 = data.getValueByName("caseTitle2");
+		String caseDescription2 = data.getValueByName("caseDescription2");
+		String caseType2 = data.getValueByName("caseType2");
+		String caseUrgency2 = data.getValueByName("caseUrgency2");
+		String viewSupportCaseTitle = data.getValueByName("viewSupportCaseTitle");
+
 		verifyCreateSupportCaseRequestByDM();
-		
+
 		supportLoginDom.clickSupportTile();		//Navigate to create case page
-		Thread.sleep(3000);  
-		
+		Thread.sleep(3000);
+
 		verifyUserAbleToClearData();	//Clear data
-		
+
 		verifyClickingAddButtonWithoutAttachments();   //Add attachments without adding
 		Thread.sleep(3000);
-			
-		System.out.println(contract1);
-		supportLoginDom.selectContract(contract1);
+
+		System.out.println(contract2);
+		supportLoginDom.selectContract(contract2);
 		Thread.sleep(3000);
-		supportLoginDom.addCaseData(caseTitle1, caseDescription1);
+		supportLoginDom.addCaseData(caseTitle2, caseDescription2);
 		Thread.sleep(3000);
-		
+
 		verifyAddAttachments();
 		Thread.sleep(2000);
-		
-		supportLoginDom.selectCaseType(caseType1);
+
+		supportLoginDom.selectCaseType(caseType2);
 		Thread.sleep(3000);
-		supportLoginDom.selectUrgency(caseUrgency1);
+		supportLoginDom.selectUrgency(caseUrgency2);
 		Thread.sleep(10000);
-		
+
 		supportLoginDom.clickCreateButton();
-		
+
 		Thread.sleep(6000);
-		
-		Assert.assertEquals(supportLoginDom.verifyDataEquals(VIEW_SUPPORT_CASE_PAGE_TITLE_XPATH), viewSupportCaseTitle); // verify view case page title																																																						
+
+		Assert.assertEquals(supportLoginDom.verifyDataEquals(VIEW_SUPPORT_CASE_PAGE_TITLE_XPATH), viewSupportCaseTitle); // verify view case page title
 		Thread.sleep(3000);
-		
-		Assert.assertEquals(supportLoginDom.verifyDataEquals(VIEW_CASE_CREATED_BY_XPATH), contract1); // verify created by data																																																						
+
+		Assert.assertEquals(supportLoginDom.verifyDataEquals(VIEW_CASE_CREATED_BY_XPATH), contract2); // verify created by data
 		Thread.sleep(3000);
-		
+
 	}
-	
-		
+
+
 	// Verify that user able to view ongoingCases
 	@Test
 	public void verifyUserAbleToViewOngoingCases() throws InterruptedException {
 
 		String caseID;
 		String homePageURL = data.getValueByName("url");
-		String currentURL = seleniumBase.getCurrentUrl();	
+		String currentURL = seleniumBase.getCurrentUrl();
 		String ongoingCaselink = data.getValueByName("ongoingCaselink");
 		String ongoingSupportCaseTitle = data.getValueByName("ongoingSupportCaseTitle");
-		
+
 		verifyCreateSupportCaseIncidentByDM();
-			
+
 		caseID = supportLoginDom.getCaseID();
 		System.out.println(caseID);
 
@@ -877,7 +984,7 @@ public class SupportLoginTest extends WebQuartersTestBase {
 
 		Assert.assertEquals(currentURL, homePageURL);    //Verify user able to navigate to home page when click cancel button
 		Thread.sleep(4000);
-			
+
 		supportLoginDom.clickSupportTile();
 		Thread.sleep(3000);
 
@@ -885,100 +992,100 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		Thread.sleep(4000);
 		Assert.assertEquals(supportLoginDom.verifyDataEquals(ONGOING_CASE_PAGE_TITLE_XPATH), ongoingSupportCaseTitle);    //Verify case title cleared
 		Thread.sleep(2000);
-		
+
 		/////////////////////Need to verify filtering options after finish creating cases scenarios
-		
+
 		Assert.assertEquals(supportLoginDom.verifyDataEquals(ONGOING_CASE_CASE_ID_BUTTON_XPATH), caseID);    //Verify case id is correct
 		Thread.sleep(2000);
 		Assert.assertEquals(supportLoginDom.verifyDataEquals(ONGOING_CASE_CASE_STATUS_BUTTON_XPATH), "Open");    //Verify case status is open
 		Thread.sleep(2000);
-		
+
 		supportLoginDom.clickViewCaseLink();
-		Thread.sleep(3000);	
-		
+		Thread.sleep(3000);
+
 	}
-	
-	
+
+
 	// Verify that user able to update cases
 	@Test
 	public void verifyUserAbleToUpdateCases() throws InterruptedException {
 
 		String updateCasePageTitle = data.getValueByName("updateCasePageTitle");
 		String viewSupportCaseTitle = data.getValueByName("viewSupportCaseTitle");
-		
+
 		verifyUserAbleToViewOngoingCases();
-		
+
 		//Verify navigating update case page
 		supportLoginDom.clickEditButton();
 		Thread.sleep(5000);
-		
-		Assert.assertEquals(supportLoginDom.verifyDataEquals(UPDATE_CASE_PAGE_TITLE_XPATH), updateCasePageTitle); // verify update case page title																																																						
+
+		Assert.assertEquals(supportLoginDom.verifyDataEquals(UPDATE_CASE_PAGE_TITLE_XPATH), updateCasePageTitle); // verify update case page title
 		Thread.sleep(5000);
-		
+
 		//Verify navigating back to view case page
 		supportLoginDom.clickBackToViewCaseLink();
-		Thread.sleep(4000);
-		
-		Assert.assertEquals(supportLoginDom.verifyDataEquals(VIEW_SUPPORT_CASE_PAGE_TITLE_XPATH), viewSupportCaseTitle); // verify user is in the view case page																																																						
+		Thread.sleep(6000);
+
+		Assert.assertEquals(supportLoginDom.verifyDataEquals(VIEW_SUPPORT_CASE_PAGE_TITLE_XPATH), viewSupportCaseTitle); // verify user is in the view case page
 		Thread.sleep(3000);
-		
+
 		supportLoginDom.clickEditButton();
 		Thread.sleep(5000);
 
 		verifySaveWithoutChanges();
-		
+
 		verifySaveUpdatedChanges();
-		
+
 	}
-	
+
 	//Verify that system generates an error message when save without making changes
 	@Test
 	public void verifySaveWithoutChanges() throws InterruptedException {
-		
+
 		String noPendingChangesMsg = data.getValueByName("noPendingChangesMsg");
-		
+
 		supportLoginDom.clickUpdateCaseSaveButton();
 		Thread.sleep(6000);
-		
-		Assert.assertEquals(supportLoginDom.verifyDataEquals(NO_PENDING_CHANGES_MSG_XPATH), noPendingChangesMsg); // verify user is in the view case page																																																						
+
+		Assert.assertEquals(supportLoginDom.verifyDataEquals(NO_PENDING_CHANGES_MSG_XPATH), noPendingChangesMsg); // verify user is in the view case page
 		Thread.sleep(4000);
-				
+
 	}
-	
+
 	//Verify that user able to save the updated changes
 	@Test
 	public void verifySaveUpdatedChanges() throws InterruptedException {
-		
+
 		String logData = data.getValueByName("logData");
 		String fName = data.getValueByName("fNameSU");
 		String lName = data.getValueByName("lNameSU");
 		String newContact = fName+" "+lName;
 		String changesSubmittedMsg = data.getValueByName("changesSubmittedMsg");
-		
+
 		supportLoginDom.addNewLog(logData);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		supportLoginDom.changeContactUser(newContact);
-		Thread.sleep(3000);
-		
+		Thread.sleep(5000);
+
 		supportLoginDom.clickUpdateCaseSaveButton();
 		Thread.sleep(6000);
-		
-		Assert.assertEquals(supportLoginDom.verifyDataEquals(CHANGES_SUBMITTED_MSG_XPATH), changesSubmittedMsg); // verify user is in the view case page																																																						
+
+		Assert.assertEquals(supportLoginDom.verifyDataEquals(CHANGES_SUBMITTED_MSG_XPATH), changesSubmittedMsg); // verify user is in the view case page
 		Thread.sleep(4000);
-	
+
 	}
-	
-	//Verify user able to view latest update 
+
+	//Verify user able to view latest update
 	public void verifyUserAbleToViewLatestUpdate() throws InterruptedException {
-		
-		String logData = data.getValueByName("logData"); 
-		
+
+		String logData = data.getValueByName("logData");
+
 		verifyUserAbleToUpdateCases();
-		
+
 		supportLoginDom.clickUpdateCaseCancelButton();
 		Thread.sleep(5000);
-		
-		Assert.assertEquals(supportLoginDom.verifyDataEquals(LATEST_UPDATE_XPATH), logData); // verify user is in the view case page																																																						
+
+		Assert.assertEquals(supportLoginDom.verifyDataEquals(LATEST_UPDATE_XPATH), logData); // verify user is in the view case page
 		Thread.sleep(4000);
 	}
 
@@ -993,16 +1100,11 @@ public class SupportLoginTest extends WebQuartersTestBase {
 
 		supportLoginDom.verifyClosedCases(closedCaseLink);
 		Thread.sleep(4000);
-		
+
 		Assert.assertEquals(supportLoginDom.verifyDataEquals(CLOSED_CASE_PAGE_TITLE_XPATH), closedSupportCaseTitle);    //Verify case title cleared
 		Thread.sleep(2000);
-			
+
 	}
-	
 
-	
-	
-	// ----------------------------Create cases by support user who is only support user---------------------------------
 
-	
 }
