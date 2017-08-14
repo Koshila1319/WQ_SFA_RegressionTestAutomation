@@ -7,17 +7,17 @@ import org.openqa.selenium.WebDriver;
 public class SalesManagerDom {
 
 	SalesManagerPage salesManagerPage;
-	
+
 	public SalesManagerDom(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 		salesManagerPage = new SalesManagerPage(driver);
 	}
-	
+
 	public void selectAuthentication() {
 		// TODO Auto-generated method stub
 		salesManagerPage.selectAuthentication();
 	}
-	
+
 	public void enterUsernamePassword(String userName, String password) {
 		// TODO Auto-generated method stub
 		salesManagerPage.enterUsernamePassword(userName,password );
@@ -32,7 +32,7 @@ public class SalesManagerDom {
 		// TODO Auto-generated method stub
 		salesManagerPage.assignToAM(am);
 	}
-	
+
 
 	public void AssignAM() {
 		// TODO Auto-generated method stub

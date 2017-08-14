@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Test form">
+<suite name="Regression">
 	<test name="Create Client">
 		<classes>
 			<class name="com.totalamber.qa.SupportLoginTest">
 				<methods>
+					<include name="verifyDeleteSoftwareApplication" />
 					<include name="verifyClientSignup" />
 				</methods>
 			</class>
@@ -17,12 +18,12 @@
 			<class name="com.totalamber.qa.AccountManagerTest">
 				<methods>
 					<include name="accountManagerVerifyUserInfo" />
-				</methods>			
+				</methods>
 			</class>
 		</classes>
 	</test>
-	
-	<test name="Support User test">
+
+	<test name="Support User Activation">
 		<classes>
 			<class name="com.totalamber.qa.SupportLoginTest">
 				<methods>
@@ -36,7 +37,7 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<test name="Activate Support User">
 		<classes>
 			<class name="com.totalamber.qa.SupportLoginTest">
@@ -46,12 +47,12 @@
 			</class>
 		</classes>
 	</test>
-	
+
 	<test name="Create Cases">
 		<classes>
 			<class name="com.totalamber.qa.SupportLoginTest">
 				<methods>
-					<include name="verifyUserAbleToViewClosedCases"/>					
+					<include name="verifyUserAbleToViewClosedCases"/>
 				</methods>
 			</class>
 		</classes>

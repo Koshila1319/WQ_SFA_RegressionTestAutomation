@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-
 public class SalesManagerTest extends WebQuartersTestBase {
 
 	@BeforeMethod
@@ -22,7 +21,7 @@ public class SalesManagerTest extends WebQuartersTestBase {
 	@AfterMethod
 	public void endingTest() {
 		// quitDriver();
-		 seleniumBase.clearCache();
+		// seleniumBase.clearCache();
 	}
 
 	@Test
@@ -35,25 +34,24 @@ public class SalesManagerTest extends WebQuartersTestBase {
 		salesManagerDom.selectAuthentication();
 		Thread.sleep(10000);
 	}
-	
+
 	@Test
 	public void verifyAssignClientToAM() throws InterruptedException {
 
 		String company = ".//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_ErrorPanel']/div";
 		String companyName = data.getValueByName("companyName");
 		String am = data.getValueByName("am");
-		
+
 		verifySMLoginPageNavigation();
-		
+
 		salesManagerDom.selectClientLink(companyName);
 		Thread.sleep(2000);
-		
+
 		Assert.assertEquals(salesManagerDom.verifyAssignPage(company),companyName);
-		
+
 		salesManagerDom.assignToAM(am);
 		Thread.sleep(1000);
 		salesManagerDom.AssignAM();
 	}
-	
 
 }
