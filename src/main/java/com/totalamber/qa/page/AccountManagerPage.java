@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 
 
-public class AccountManagerPage implements ElementHolder {
+public class AccountManagerPage implements ElementHolder{
 
 	WebQuartersSeleniumBase seleniumBase;
 
@@ -19,7 +19,7 @@ public class AccountManagerPage implements ElementHolder {
 	public void enterTheCompanyDetails(String com) {
 		// TODO Auto-generated method stub
 		seleniumBase.replaceText(AM_COMPANY_NAME_CSS, AM_COMPANY_NAME_XPATH,com);
-		
+
 	}
 
 	public void clickOnGoButtonAccountManagerPage() {
@@ -71,7 +71,7 @@ public class AccountManagerPage implements ElementHolder {
 		// TODO Auto-generated method stub
 		seleniumBase.clickOnLink(com);
 	}
-	
+
 	public void checkOutlookEmail(String outlookURL, String email, String emailPassword) throws InterruptedException {
 		// TODO Auto-generated method stub
 		seleniumBase.openTab(outlookURL);
@@ -134,7 +134,7 @@ public class AccountManagerPage implements ElementHolder {
 		Thread.sleep(3000);
 		seleniumBase.click(AM_USER_ROLE_ACTIVATE_BUTTON_XPATH, AM_USER_ROLE_ACTIVATE_BUTTON_CSS);
 		Thread.sleep(3000);
-		
+
 	}
 
 	public String verifyDataEquals(String data) {
@@ -146,7 +146,5 @@ public class AccountManagerPage implements ElementHolder {
 		// TODO Auto-generated method stub
 		seleniumBase.clickBrowserBackButton();
 	}
-	 
 
 }
-

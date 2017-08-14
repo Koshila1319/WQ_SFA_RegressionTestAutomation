@@ -65,7 +65,7 @@ public class SupportLoginPage implements ElementHolder {
 		// TODO Auto-generated method stub
 		return seleniumBase.getText("", signupMsg);
 	}
-	
+
 	public void clickOnVerificationEmail(String mailcatchURL, String clientEmail) throws InterruptedException {
 		// TODO Auto-generated method stub
 		seleniumBase.openTab(mailcatchURL);
@@ -349,7 +349,7 @@ public class SupportLoginPage implements ElementHolder {
 		Thread.sleep(4000);
 		seleniumBase.hardReaload();
 		Thread.sleep(4000);
-		
+
 		seleniumBase.confirmationEmail(VERIFICATION_EMAIL_XPATH);
 		Thread.sleep(5000);
 		seleniumBase.clickOnTheVerificationLink(linkXpath);
@@ -359,7 +359,7 @@ public class SupportLoginPage implements ElementHolder {
 
 	public void clickChooseFileButton(String filePath, String elementName) throws InterruptedException {
 		// TODO Auto-generated method stub
-	//	seleniumBase.click(CREATE_CASE_CHOOSE_FILE_BUTTON_XPATH, CREATE_CASE_CHOOSE_FILE_BUTTON_CSS);
+		//	seleniumBase.click(CREATE_CASE_CHOOSE_FILE_BUTTON_XPATH, CREATE_CASE_CHOOSE_FILE_BUTTON_CSS);
 		Thread.sleep(3000);
 		seleniumBase.uploadFiles(filePath, elementName);
 	}
@@ -377,7 +377,7 @@ public class SupportLoginPage implements ElementHolder {
 	public void clickClearButton() {
 		// TODO Auto-generated method stub
 		seleniumBase.click(CREATE_CASE_CLEAR_BUTTON_XPATH, CREATE_CASE_CLEAR_BUTTON_CSS);
-	
+
 	}
 
 	public void clickCreateCaseLink(String createCaselink) {
@@ -389,7 +389,7 @@ public class SupportLoginPage implements ElementHolder {
 		// TODO Auto-generated method stub
 		seleniumBase.clickOnLink(ongoingCaselink);
 	}
-	
+
 	public void verifyClosedCases(String closedCaselink) {
 		// TODO Auto-generated method stub
 		seleniumBase.clickOnLink(closedCaselink);
@@ -439,7 +439,7 @@ public class SupportLoginPage implements ElementHolder {
 		// TODO Auto-generated method stub
 		seleniumBase.click(ONGOING_CASE_VIEW_CASE_LINK_XPATH, ONGOING_CASE_VIEW_CASE_LINK_CSS);
 	}
-	
+
 	//Activate Support User
 
 	public void clickSupportUserVerificationLink() throws InterruptedException {
@@ -447,13 +447,13 @@ public class SupportLoginPage implements ElementHolder {
 		seleniumBase.clickOnTheVerificationLink(NEW_SP_USER_EMAIL_VERIFICATION_LINK_XPATH);
 		Thread.sleep(3000);
 		seleniumBase.switchToNewTab();
-	}											
+	}
 
 	public String getNewUserTemporaryPassword() {
 		// TODO Auto-generated method stub
 		seleniumBase.switchedToiFrame("emailframe");
 		return seleniumBase.getText(NEW_SP_USER_TEMP_PASSWORD_CSS, NEW_SP_USER_TEMP_PASSWORD_XPATH);
-		
+
 	}
 
 	public void enterFname(String fNameSU) {
@@ -491,6 +491,24 @@ public class SupportLoginPage implements ElementHolder {
 		seleniumBase.replaceText(AM_REASSIGN_EMAIL_BOX_CSS, AM_REASSIGN_EMAIL_BOX_XPATH, reassignEmail);
 		seleniumBase.click(AM_REASSIGN_BUTTON_XPATH, AM_REASSIGN_BUTTON_CSS);
 	}
-	
+
+	public Object dashboardSupportExists() {
+		// TODO Auto-generated method stub
+		return seleniumBase.getElement(DASHBOARD_SUPPORT_CSS, DASHBOARD_SUPPORT_XPATH);
+		//	return seleniumBase.getElement(UP_CSS, UP_XPATH);
+
+	}
+
+	public Object dashboardDMExists() {
+		// TODO Auto-generated method stub
+		return seleniumBase.getElement(DASHBOARD_DM_CSS, DASHBOARD_DM_XPATH);
+	}
+
+	public Object dashboardSupportSPuserExists() {
+		// TODO Auto-generated method stub
+		return seleniumBase.getElement(DASHBOARD_SUPPORT_SP_USER_CSS, DASHBOARD_SUPPORT_SP_USER_XPATH);
+	}
+
+
 
 }

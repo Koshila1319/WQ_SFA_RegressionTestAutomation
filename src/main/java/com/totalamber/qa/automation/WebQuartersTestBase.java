@@ -22,16 +22,16 @@ public class WebQuartersTestBase implements ElementHolder {
 	protected WebQuartersSeleniumBase seleniumBase;
 	protected FormFiller formFiller;
 	protected ClientRegistrationFormFiller clientRegistrationFormFiller;
-	
+
 	protected SalesManagerDom salesManagerDom;
 	protected SalesManagerPage salesManagerPage;
-	
+
 	protected AccountManagerDom accountManagerDom;
 	protected AccountManagerPage accountManagerPage;
 
 	protected SupportLoginDom supportLoginDom;
 	protected SupportLoginPage supportLoginPage;
-	
+
 	public WebQuartersTestBase() {
 		// TODO Auto-generated constructor stub
 		WebQuartersTestBase webQuartersTestBase;
@@ -42,16 +42,16 @@ public class WebQuartersTestBase implements ElementHolder {
 		clientRegistrationFormFiller = new ClientRegistrationFormFiller(driver);
 		supportLoginDom = new SupportLoginDom(driver);
 		supportLoginPage = new SupportLoginPage(driver);
-		
+
 		salesManagerDom = new SalesManagerDom(driver);
 		salesManagerPage = new SalesManagerPage(driver);
-		
+
 		accountManagerDom = new AccountManagerDom(driver);
 		accountManagerPage = new AccountManagerPage(driver);
 
 		data = new Dataprovider(); // Create object of Dataprovider class
 		System.out.println("**************** START TESTING ****************");
-		
+
 		String useremail = UUID.randomUUID().toString() + "@mailcatch.com";
 	}
 
@@ -62,11 +62,6 @@ public class WebQuartersTestBase implements ElementHolder {
 
 	public void quitDriver() {
 		seleniumBase.endDriver();
-	}
-
-	public void setmailinatorURL(String mailinatorURL) {
-		seleniumBase = new WebQuartersSeleniumBase(DRIVER);
-		seleniumBase.enterURL(mailinatorURL);
 	}
 
 }

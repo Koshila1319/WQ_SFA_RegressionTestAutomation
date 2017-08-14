@@ -34,5 +34,15 @@ public class BasicFlowTest extends WebQuartersTestBase {
 		
 	
 	}
+
+	@Test
+	public void basicFlow2() throws InterruptedException {
+
+		String aaa = seleniumBase.splitTexts("TemporaryPassword: S25$^BW", ": ");
+		System.out.println(aaa);
+
+
+
+	}
 	
 }

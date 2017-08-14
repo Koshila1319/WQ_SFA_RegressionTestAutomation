@@ -66,7 +66,7 @@
 <suite name="Test form">
 	<test name="regression">
 		<classes>
-			<class name="com.WebQuarters.test.AccountManagerTest">
+			<class name="com.totalamber.qaAccountManagerTest">
 				<methods>
 					<include name="ClientUserSignInNavigation" /> <include name="ClientRegistrationNavigation" 
 						/> <include name="ClientRegistrationFormFilling" /> <include name="DeleteSoftwareApplication" 

@@ -5,14 +5,14 @@ import org.openqa.selenium.WebDriver;
 
 
 public class AccountManagerDom {
-	
+
 	AccountManagerPage accountManagerPage;
 
 	public AccountManagerDom(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 		accountManagerPage = new AccountManagerPage(driver);
 	}
-	
+
 	public void enterTheCompnayName(String com) {
 		// TODO Auto-generated method stub
 		accountManagerPage.enterTheCompanyDetails(com);
@@ -25,7 +25,7 @@ public class AccountManagerDom {
 
 	public String companyNameVerify() {
 		// TODO Auto-generated method stub
-		
+
 		return accountManagerPage.verifyMessage();
 	}
 
@@ -68,7 +68,7 @@ public class AccountManagerDom {
 		// TODO Auto-generated method stub
 		accountManagerPage.selectCompanyLink(com);
 	}
-	
+
 	public void checkOutlookEmail(String outlookURL, String email, String emailPassword) throws InterruptedException {
 		// TODO Auto-generated method stub
 		accountManagerPage.checkOutlookEmail(outlookURL, email, emailPassword);
