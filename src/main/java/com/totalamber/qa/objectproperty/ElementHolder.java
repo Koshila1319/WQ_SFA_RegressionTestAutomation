@@ -532,4 +532,83 @@ public interface ElementHolder {
 	public final String SM_ASSIGN_AM_COMPANY_NAME_XPATH = ".//*[@id='ctl00_ctl39_g_2E672EEA_79B1_421C_9778_283A618EF560_ctl00_companyNameLabel']";
 	public final String SM_ASSIGN_AM_COMPANY_NAME_CSS = "";
 
+
+
+
+	//################################ SysAid ########################################
+
+	public final String SYSAID_USERNAME_XPATH = ".//*[contains(@name,'userName')]";
+	public final String SYSAID_USERNAME_CSS = "";
+	public final String SYSAID_PASSWORD_XPATH = ".//*[contains(@name,'password')]";
+	public final String SYSAID_PASSWORD_CSS = "";
+	public final String SYSAID_LOGIN_XPATH = ".//*[contains(@class,'ButtonLabel')]";
+	public final String SYSAID_LOGIN_CSS = "";
+
+	public final String SYSAID_SEARCHCASEID_XPATH = ".//*[contains(@class,'sr-searchfield')]";
+	public final String SYSAID_SEARCHCASEID_CSS = "";
+	public final String SYSAID_CLICKSEARCHCASEID_XPATH = ".//*[contains(@class,'sr-submit')]";
+	public final String SYSAID_CLICKSEARCHCASEID_CSS = "";
+
+
+	//-------------------------- SysAid - Case View
+	public final String SYSAID_SUBTYPE_INCIDENT_XPATH = "//div[contains(@id,'_sub_type')]/div/div[1]/span";
+	public final String SYSAID_SUBTYPE_INCIDENT_CSS = "";
+
+	public final String SYSAID_CATEGORY_PRODUCT_DIV_XPATH = ".//*[contains(@id,'_problem_type')]/div";
+	public final String SYSAID_CATEGORY_PRODUCT_DIV_CSS = "";
+
+	public final String SYSAID_CATEGORY_PRODUCT_XPATH = "//*[@id='addScroll_problem_type_CustomSelect']";
+	public final String SYSAID_CATEGORY_PRODUCT_CSS = "";
+
+	/*public final String SYSAID_CATEGORY_PRODUCT_SELECT_XPATH = "//*[@id='addScroll_problem_type_CustomSelect']/ul";
+	public final String SYSAID_CATEGORY_PRODUCT_SELECT_CSS = "";*/
+
+	public final String SYSAID_CATEGORY_SUPPORTLAYER_DIV_XPATH = "//*[@id='addScroll_subcategory_CustomSelect']";
+	public final String SYSAID_CATEGORY_SUPPORTLAYER_DIV_CSS = "";
+
+	public final String SYSAID_CATEGORY_SERVICE_XPATH = ".//div[contains(@id,'thirdLevelCategory')]/div/div[1]";
+	public final String SYSAID_CATEGORY_SERVICE_CSS = "";
+
+
+	public final String SYSAID_CASESTATUS_REQUEST_XPATH = ".//div[contains(@id,'_status')]/div/div[1]";
+	public final String SYSAID_CASESTATUS_REQUEST_CSS = "";
+	public final String SYSAID_PLANNEDDATE_XPATH = ".//div[contains(@class,'hasDatepicker')]/div/div[1]";
+	public final String SYSAID_PLANNEDDATE_CSS = "";
+	public final String SYSAID_URGENCY_XPATH = ".//div[contains(@id,'_selectUrgency')]/div/div[1]";
+	public final String SYSAID_URGENCY_CSS = "";
+	public final String SYSAID_PRIORITY_XPATH = ".//div[contains(@id,'_selectPriority')]/div/div[1]";
+	public final String SYSAID_PRIORITY_CSS = "";
+
+	public final String SYSAID_CASEOWNER_XPATH = "";
+	public final String SYSAID_CASEOWNER_CSS = "";
+	public final String SYSAID_ASSIGNEETEAM_XPATH = "";
+	public final String SYSAID_ASSIGNEETEAM_CSS = "";
+	public final String SYSAID_ASSIGNEDTO_XPATH = "";
+	public final String SYSAID_ASSIGNEDTO_CSS = "";
+	public final String SYSAID_ADD_ATTACHMENT_XPATH = "";
+	public final String SYSAID_ADD_ATTACHMENT_CSS = "";
+
+
+	//--------------Resolve Case - SysAid
+	public final String SYSAID_CASESTATUS_ASSIGNED_XPATH = "//*[@id='32_status']";
+	public final String SYSAID_CASESTATUS_ASSIGNED_CSS = "";
+
+	public final String SYSAID_ADD_ACTIVITY_ADD_START_TIME_XPATH = "//*[@name='sract_fromTime_time']";
+	public final String SYSAID_ADD_ACTIVITY_ADD_START_TIME_CSS = "";
+
+	public final String SYSAID_ADD_ACTIVITY_ADD_END_TIME_XPATH = "//*[@name='sract_toTime_time']";
+	public final String SYSAID_ADD_ACTIVITY_ADD_END_TIME_CSS = "";
+
+	public final String SYSAID_ADD_ACTIVITY_TYPE_XPATH = ".//*[@id='32_custList1']/div/div[1]";
+	public final String SYSAID_ADD_ACTIVITY_TYPE_CSS = "";
+
+	public final String SYSAID_ADD_ACTIVITY_DESCRIPTION_XPATH = ".//*[@id='sract_description']";
+	public final String SYSAID_ADD_ACTIVITY_DESCRIPTION_CSS = "";
+
+	public final String SYSAID_ADD_ACTIVITY_DESCRIPTION_TB_XPATH = ".//*[@id='Form_Ctrl_Fields FieldBox']";
+	public final String SYSAID_ADD_ACTIVITY_DESCRIPTION_TB_CSS = "";
+
+	public final String SYSAID_ADD_ACTIVITY_ADD_BUTTON_XPATH = ".//*[@id='sract_OKBtn']";
+	public final String SYSAID_ADD_ACTIVITY_ADD_BUTTON_CSS = "";
+
 }

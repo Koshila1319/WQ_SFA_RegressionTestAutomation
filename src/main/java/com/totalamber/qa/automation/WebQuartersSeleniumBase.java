@@ -796,7 +796,6 @@ public class WebQuartersSeleniumBase {
 		element.sendKeys(filePath);
 	}
 
-
 	// Replace Texts
 	public void replaceText(String cSS, String xPath, String textToReplace) {
 		getElement(cSS, xPath).sendKeys(Keys.chord(Keys.CONTROL, "a"), textToReplace);
@@ -812,12 +811,29 @@ public class WebQuartersSeleniumBase {
 		driver.switchTo().defaultContent();
 	}
 
-
 	public void switchToNewTab(){
 		ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
 		driver.switchTo().window(tabs2.get(1));
 	   /* driver.close();
 	    driver.switchTo().window(tabs2.get(0));*/
 	}
+
+	//Select Drop down values with list
+	public void switchToDropDown(String divxpath) {
+		driver.findElement(By.xpath(divxpath)).click();
+	}
+
+	public void selectSysAidDropDown(String listItem){
+
+		driver.findElement(By.xpath("//li[contains(text(),'"+listItem+"')][@class='option_"+listItem+"_option']")).click();
+	}
+
+
+	//Select Drop down list with option value
+	public void selectSysAidDropDownTextAndOption(String textValue, String optionValue){
+
+		driver.findElement(By.xpath("//li[contains(text(),'"+textValue+"')][@class='option_"+optionValue+"_option']")).click();
+	}
+
 
 }

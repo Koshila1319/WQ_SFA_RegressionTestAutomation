@@ -509,6 +509,4 @@ public class SupportLoginPage implements ElementHolder {
 		return seleniumBase.getElement(DASHBOARD_SUPPORT_SP_USER_CSS, DASHBOARD_SUPPORT_SP_USER_XPATH);
 	}
 
-
-
 }
