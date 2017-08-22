@@ -60,13 +60,38 @@ public class SysAidCaseDom {
     }
 
 
-    public void addActivityStartAndEndTime(String startTime, String endTime, String activityType, String activityTypeOptionValue, String description) throws InterruptedException {
+    public void addActivityDetails(String startTime, String endTime, String activityType, String activityTypeOptionValue, String description) throws InterruptedException {
 
         sysAidCasePage.addStartTime(startTime);
         sysAidCasePage.addEndTime(endTime);
         sysAidCasePage.addActivityType(activityType, activityTypeOptionValue);
-        Thread.sleep(3000);
         sysAidCasePage.addDescription(description);
         sysAidCasePage.addActivityButton();
+    }
+
+    public Integer calculateTotalTime(int startTime, int endTime) {
+        return sysAidCasePage.calculateTotalTime(startTime, endTime);
+
+    }
+
+    public void selectActivityAddedCheckBox() throws InterruptedException {
+        sysAidCasePage.selectActivityAddedCheckBox();
+    }
+
+
+    public void clickOkButton() {
+        sysAidCasePage.clickOkButton();
+    }
+
+    public String getPopupMsg() {
+        return sysAidCasePage.getPopupMsg();
+    }
+
+    public void acceptAlert() {
+        sysAidCasePage.acceptAlert();
+    }
+
+    public void deleteActivity() {
+        sysAidCasePage.deleteActivity();
     }
 }

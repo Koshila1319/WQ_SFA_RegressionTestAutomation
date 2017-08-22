@@ -22,7 +22,7 @@ public class SysAidHomeTest extends WebQuartersTestBase {
     @Test
     public void caseSearch() throws InterruptedException{
 
-        CaseID = "49006";
+        CaseID = "49007";
 
         sysAidHomeDom.searchOpenCase(CaseID);
         Thread.sleep(10000);

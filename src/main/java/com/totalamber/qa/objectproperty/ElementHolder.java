@@ -591,7 +591,6 @@ public interface ElementHolder {
 
 	//--------------Resolve Case - SysAid
 	public final String SYSAID_CASESTATUS_ASSIGNED_XPATH = "//*[@id='32_status']";
-	public final String SYSAID_CASESTATUS_ASSIGNED_CSS = "";
 
 	public final String SYSAID_ADD_ACTIVITY_ADD_START_TIME_XPATH = "//*[@name='sract_fromTime_time']";
 	public final String SYSAID_ADD_ACTIVITY_ADD_START_TIME_CSS = "";
@@ -600,15 +599,26 @@ public interface ElementHolder {
 	public final String SYSAID_ADD_ACTIVITY_ADD_END_TIME_CSS = "";
 
 	public final String SYSAID_ADD_ACTIVITY_TYPE_XPATH = ".//*[@id='32_custList1']/div/div[1]";
-	public final String SYSAID_ADD_ACTIVITY_TYPE_CSS = "";
 
 	public final String SYSAID_ADD_ACTIVITY_DESCRIPTION_XPATH = ".//*[@id='sract_description']";
 	public final String SYSAID_ADD_ACTIVITY_DESCRIPTION_CSS = "";
 
-	public final String SYSAID_ADD_ACTIVITY_DESCRIPTION_TB_XPATH = ".//*[@id='Form_Ctrl_Fields FieldBox']";
-	public final String SYSAID_ADD_ACTIVITY_DESCRIPTION_TB_CSS = "";
-
 	public final String SYSAID_ADD_ACTIVITY_ADD_BUTTON_XPATH = ".//*[@id='sract_OKBtn']";
 	public final String SYSAID_ADD_ACTIVITY_ADD_BUTTON_CSS = "";
+
+	public final String SYSAID_ADD_ACTIVITY_TOTAL_RESOLVE_TIME_XPATH = ".//*[@id='tr_labelId_activities']/td/table/tbody/tr/td/table/tbody/tr/td[2]/table/tbody/tr[4]/td[2]/table/tbody/tr/td/input[1]";
+
+	public final String SYSAID_ACTIVITY_ADDED_CHECKBOX_XPATH ="//*[@id='tr_labelId_CustomColumn79sr']/td[3]/label";
+	public final String SYSAID_ACTIVITY_ADDED_CHECKBOX_CSS = "";
+
+	public final String SYSAID_OK_BUTTON_XPATH = ".//*[@id='OKBtn']/tbody/tr/td[1]";
+	public final String SYSAID_OK_BUTTON_CSS = "";
+
+	public final String SYSAID_DESCRIPTION_IN_ACTIVITY_TABLE_XPATH = "//*[@id='t']/tbody/tr[2]/td[5]";
+
+	public final String SYSAID_ACTIVITY_TYPE_IN_ACTIVITY_TABLE_XPATH = "//*[@id='t']/tbody/tr[2]/td[6]";
+
+	public final String SYSAID_DELETE_BUTTON_IN_ACTIVITY_TABLE_XPATH ="//*[@id='t']/tbody/tr[2]/td[8]/table/tbody/tr/td[2]";
+	public final String SYSAID_DELETE_BUTTON_IN_ACTIVITY_TABLE_CSS = "";
 
 }

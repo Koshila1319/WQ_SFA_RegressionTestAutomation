@@ -835,5 +835,45 @@ public class WebQuartersSeleniumBase {
 		driver.findElement(By.xpath("//li[contains(text(),'"+textValue+"')][@class='option_"+optionValue+"_option']")).click();
 	}
 
+	public Integer calculateTotalTime(int startTime, int endTime) {
 
+		int total = endTime - startTime ;
+		return total;
+	}
+
+	// Spit words and replace
+	public String splitReplaceConcatText(String word, String delimiter, String concatValue) {
+
+		String[] sp = word.split(delimiter);
+		System.out.println("Splited data 1 is " + sp[0]);
+		System.out.println("Splited data 2 is " + sp[1]);
+
+		String first = sp[0];
+		String second = sp[1];
+
+		String concatText = first+concatValue+second;
+		System.out.println("concat is " + concatText);
+		return concatText;
+
+	}
+
+	//Get alert text
+	public String getAlertText() {
+		return driver.switchTo().alert().getText();
+    }
+
+	//Dismiss alert
+	public void dismissAlert() {
+		driver.switchTo().alert().dismiss();
+	}
+
+	//Get alert Text
+	public void acceptAlert() {
+		driver.switchTo().alert().accept();
+	}
+
+	//Send text to alert
+	public void sentTextToAlert() {
+	driver.switchTo().alert().sendKeys("Text");
+	}
 }

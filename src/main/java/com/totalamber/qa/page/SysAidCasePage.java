@@ -107,7 +107,6 @@ public class SysAidCasePage implements ElementHolder {
 
     public void addActivityType(String addType, String addTypeOptionValue) throws InterruptedException {
 
-       // seleniumBase.switchedToiFrame("contentFrame");
         seleniumBase.switchToDropDown(SYSAID_ADD_ACTIVITY_TYPE_XPATH);
         Thread.sleep(5000);
         seleniumBase.selectSysAidDropDownTextAndOption(addType,addTypeOptionValue);
@@ -121,5 +120,30 @@ public class SysAidCasePage implements ElementHolder {
 
     public void addActivityButton() {
         seleniumBase.click(SYSAID_ADD_ACTIVITY_ADD_BUTTON_XPATH, SYSAID_ADD_ACTIVITY_ADD_BUTTON_CSS);
+    }
+
+    public Integer calculateTotalTime(int startTime, int endTime) {
+        return seleniumBase.calculateTotalTime(startTime, endTime);
+    }
+
+    public void selectActivityAddedCheckBox() throws InterruptedException  {
+        seleniumBase.selectCheckBox(SYSAID_ACTIVITY_ADDED_CHECKBOX_XPATH);
+    }
+
+    public void clickOkButton() {
+        seleniumBase.click(SYSAID_OK_BUTTON_XPATH, SYSAID_OK_BUTTON_CSS);
+    }
+
+    public String getPopupMsg() {
+
+        return seleniumBase.getAlertText();
+    }
+
+    public void acceptAlert() {
+        seleniumBase.acceptAlert();
+    }
+
+    public void deleteActivity() {
+        seleniumBase.click(SYSAID_DELETE_BUTTON_IN_ACTIVITY_TABLE_XPATH, SYSAID_DELETE_BUTTON_IN_ACTIVITY_TABLE_CSS);
     }
 }

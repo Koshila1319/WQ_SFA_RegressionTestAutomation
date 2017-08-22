@@ -1119,12 +1119,6 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		Assert.assertEquals(supportLoginDom.verifyDataEquals(CLOSED_CASE_PAGE_TITLE_XPATH), closedSupportCaseTitle);    //Verify case title cleared
 		Thread.sleep(2000);
 
-
-
 	}
-
-
-
-
 
 }
