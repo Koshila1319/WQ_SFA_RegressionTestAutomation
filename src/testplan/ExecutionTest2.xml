@@ -1,57 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Test form">
-	<test name="Create Client">
+	<test name="SysAid Testing">
 		<classes>
-			<class name="com.totalamber.qa.SupportLoginTest">
+			<class name ="com.totalamber.qa.SysAidTest.SysAidLoginTest">
 				<methods>
-					<include name="verifyClientSignup" />
+					<include name = "loginSysAid"/>
 				</methods>
 			</class>
-
-			<class name="com.totalamber.qa.SalesManagerTest">
+			<class name ="com.totalamber.qa.SysAidTest.SysAidHomeTest">
 				<methods>
-					<include name="verifyAssignClientToAM" />
+					<include name = "caseSearch"/>
 				</methods>
 			</class>
-
-			<class name="com.totalamber.qa.AccountManagerTest">
+			<!--<class name ="com.totalamber.qa.SysAidTest.SysAidResolveTest">
 				<methods>
-					<include name="accountManagerVerifyUserInfo" />
-				</methods>			
-			</class>
-		</classes>
-	</test>
-	
-	<test name="Support User test">
-		<classes>
-			<class name="com.totalamber.qa.SupportLoginTest">
-				<methods>
-					<include name="verifyRequestAssignUsers"/>
+					<include name = "verifySysAidUserAbleToResolveCase"/>
 				</methods>
-			</class>
-			<class name="com.totalamber.qa.AccountManagerTest">
+			</class>-->
+			<class name ="com.totalamber.qa.WQTest.WQResolveViewTest">
 				<methods>
-					<include name="assignUsers"/>
-				</methods>
-			</class>
-		</classes>
-	</test>
-	
-	<test name="Activate Support User">
-		<classes>
-			<class name="com.totalamber.qa.SupportLoginTest">
-				<methods>
-					<include name="verifySuccessfullyActivateSupportUser"/>
-				</methods>
-			</class>
-		</classes>
-	</test>
-	
-	<test name="Create Cases">
-		<classes>
-			<class name="com.totalamber.qa.SupportLoginTest">
-				<methods>
-					<include name="verifyUserAbleToViewClosedCases"/>					
+					<include name = "verifyUserAbleToViewResolvedCasesFromResolveCasePage"/>
 				</methods>
 			</class>
 		</classes>
@@ -62,34 +30,29 @@
 
 
 
-<!-- <?xml version="1.0" encoding="UTF-8"?>
+
+
+
+
+
+
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
 <suite name="Test form">
-	<test name="regression">
+	<test name="Cases">
 		<classes>
-			<class name="com.totalamber.qaAccountManagerTest">
+			<class name="com.totalamber.qa.SysAidTestTest.SysAidLoginTest">
 				<methods>
-					<include name="ClientUserSignInNavigation" /> <include name="ClientRegistrationNavigation" 
-						/> <include name="ClientRegistrationFormFilling" /> <include name="DeleteSoftwareApplication" 
-						/>
-					<include name="checkSupportUserRequestedEmails" />
-				</methods>
-			</class>
-			<class name="com.WebQuarters.test.SupportLoginTest">
-				<methods>
-					<include name="verifyUserAbleToViewClosedCases" /> 
-				</methods>
-			</class>
-			<class name="com.WebQuarters.test.AccountManagerTest">
-				<methods>
-					<include name="assignUsers" /> 
-				</methods>
-			</class>
-			<class name="com.WebQuarters.test.SupportLoginTest">
-				<methods>
-					<include name="verifyClientRegistrationFormFilling" /> 
+					<include name="AssignCase"/>
 				</methods>
 			</class>
 		</classes>
 	</test>
-</suite> -->
+</suite>
+-->
+
+
+
+
+
 

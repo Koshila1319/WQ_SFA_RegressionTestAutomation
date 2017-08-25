@@ -25,9 +25,6 @@ public class Dataprovider {
 				System.exit(0);
 			}
 		}
-
-
-		
 	}
 
 	public static Dataprovider getConfigs() {

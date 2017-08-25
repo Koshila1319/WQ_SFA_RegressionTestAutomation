@@ -14,8 +14,10 @@ public class SupportLoginTest extends WebQuartersTestBase {
 
 	SoftAssert s_assert = new SoftAssert();
 
+	WebQuartersTestBase aaa = new WebQuartersTestBase();
+
 	public static final String clientEmail = UUID.randomUUID().toString() + "@mailcatch.com";
-	public static final String supportUserEmail = UUID.randomUUID().toString() + "@mailcatch.com";
+	public static final String supportUserEmail = SupportUserEmail;
 
 	@BeforeMethod
 	public void NavigateToPage() throws IOException, InterruptedException {
@@ -39,6 +41,9 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		String spPageURL = data.getValueByName("spPageURL");
 		String currentspPage = supportLoginDom.verifySignUpPageNavigation();
 		Assert.assertEquals(currentspPage, spPageURL);
+
+
+
 	}
 
 	@Test
@@ -53,6 +58,14 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		String crPageURL = data.getValueByName("crPageURL");
 		String currentcrPage = supportLoginDom.verifyClientRegistrationPageNavigation();
 		Assert.assertEquals(currentcrPage, crPageURL);
+
+
+		CaseID = "49006";
+
+		System.out.print("SPLoging page = "+ supportUserEmail);
+
+
+		System.out.print("SPLoging page by TestBase = "+ SupportUserEmail);
 	}
 
 	@Test
@@ -80,6 +93,7 @@ public class SupportLoginTest extends WebQuartersTestBase {
 				"Contact Number text box is available in Client Registration Page.");
 
 		Thread.sleep(3000);
+
 	}
 
 	@Test
@@ -157,9 +171,9 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		supportLoginDom.signupSupportUser();
 		Thread.sleep(5000);
 
-		String aa = supportLoginDom.verifyRemoveSoftwareApplications(ERROR_MESSAGE_XPATH);
+		String error = supportLoginDom.verifyRemoveSoftwareApplications(ERROR_MESSAGE_XPATH);
 
-		System.out.println(aa);
+		System.out.println(error);
 
 		Assert.assertEquals(supportLoginDom.verifyRemoveSoftwareApplications(ERROR_MESSAGE_XPATH), errorMsg);
 
@@ -730,7 +744,7 @@ public class SupportLoginTest extends WebQuartersTestBase {
 
 	}
 
-	//Verify that new Support user able to create request case by assigning new support user(DM)
+	//Verify that new Support user able to create request case by assigning new support user
 	@Test
 	public void verifyCreateSupportCaseRequestBySupportUser() throws InterruptedException {
 
@@ -968,7 +982,7 @@ public class SupportLoginTest extends WebQuartersTestBase {
 	@Test
 	public void verifyUserAbleToViewOngoingCases() throws InterruptedException {
 
-		String caseID;
+		//String caseID;
 		String homePageURL = data.getValueByName("url");
 		String currentURL = seleniumBase.getCurrentUrl();
 		String ongoingCaselink = data.getValueByName("ongoingCaselink");
@@ -976,8 +990,9 @@ public class SupportLoginTest extends WebQuartersTestBase {
 
 		verifyCreateSupportCaseIncidentByDM();
 
-		caseID = supportLoginDom.getCaseID();
-		System.out.println(caseID);
+		CaseID = supportLoginDom.getCaseID();
+
+		System.out.println("Case ID in Support Loging page"+CaseID);
 
 		supportLoginDom.clickViewCaseCancelButton();
 		Thread.sleep(3000);
@@ -995,7 +1010,7 @@ public class SupportLoginTest extends WebQuartersTestBase {
 
 		/////////////////////Need to verify filtering options after finish creating cases scenarios
 
-		Assert.assertEquals(supportLoginDom.verifyDataEquals(ONGOING_CASE_CASE_ID_BUTTON_XPATH), caseID);    //Verify case id is correct
+		Assert.assertEquals(supportLoginDom.verifyDataEquals(ONGOING_CASE_CASE_ID_BUTTON_XPATH), CaseID);    //Verify case id is correct
 		Thread.sleep(2000);
 		Assert.assertEquals(supportLoginDom.verifyDataEquals(ONGOING_CASE_CASE_STATUS_BUTTON_XPATH), "Open");    //Verify case status is open
 		Thread.sleep(2000);
@@ -1105,6 +1120,5 @@ public class SupportLoginTest extends WebQuartersTestBase {
 		Thread.sleep(2000);
 
 	}
-
 
 }

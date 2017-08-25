@@ -392,6 +392,7 @@ public class SupportLoginPage implements ElementHolder {
 
 	public void verifyClosedCases(String closedCaselink) {
 		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
 		seleniumBase.clickOnLink(closedCaselink);
 	}
 
@@ -508,7 +509,5 @@ public class SupportLoginPage implements ElementHolder {
 		// TODO Auto-generated method stub
 		return seleniumBase.getElement(DASHBOARD_SUPPORT_SP_USER_CSS, DASHBOARD_SUPPORT_SP_USER_XPATH);
 	}
-
-
 
 }
