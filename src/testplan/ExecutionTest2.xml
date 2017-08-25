@@ -2,19 +2,24 @@
 <suite name="Test form">
 	<test name="SysAid Testing">
 		<classes>
-			<class name ="com.totalamber.qa.SysAidLoginTest">
+			<class name ="com.totalamber.qa.SysAidTest.SysAidLoginTest">
 				<methods>
 					<include name = "loginSysAid"/>
 				</methods>
 			</class>
-			<class name ="com.totalamber.qa.SysAidHomeTest">
+			<class name ="com.totalamber.qa.SysAidTest.SysAidHomeTest">
 				<methods>
 					<include name = "caseSearch"/>
 				</methods>
 			</class>
-			<class name ="com.totalamber.qa.SysAidResolveTest">
+			<!--<class name ="com.totalamber.qa.SysAidTest.SysAidResolveTest">
 				<methods>
 					<include name = "verifySysAidUserAbleToResolveCase"/>
+				</methods>
+			</class>-->
+			<class name ="com.totalamber.qa.WQTest.WQResolveViewTest">
+				<methods>
+					<include name = "verifyUserAbleToViewResolvedCasesFromResolveCasePage"/>
 				</methods>
 			</class>
 		</classes>
@@ -36,7 +41,7 @@
 <suite name="Test form">
 	<test name="Cases">
 		<classes>
-			<class name="com.totalamber.qa.SysAidLoginTest">
+			<class name="com.totalamber.qa.SysAidTestTest.SysAidLoginTest">
 				<methods>
 					<include name="AssignCase"/>
 				</methods>

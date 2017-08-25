@@ -55,7 +55,7 @@
 					<include name="verifyUserAbleToViewClosedCases"/>
 				</methods>
 			</class>
-			<class name ="com.totalamber.qa.SysAidLoginTest">
+			<class name ="com.totalamber.qa.SysAidTest.SysAidLoginTest">
 				<methods>
 					<include name = "AssignCase"/>
 				</methods>

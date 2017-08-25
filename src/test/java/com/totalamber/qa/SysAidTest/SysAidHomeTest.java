@@ -1,4 +1,4 @@
-package com.totalamber.qa;
+package com.totalamber.qa.SysAidTest;
 
 import com.totalamber.qa.automation.WebQuartersTestBase;
 import org.testng.annotations.AfterMethod;
@@ -27,9 +27,9 @@ public class SysAidHomeTest extends WebQuartersTestBase {
         sysAidHomeDom.searchOpenCase(CaseID);
         Thread.sleep(10000);
 
-        System.out.print("SysAid page Email= "+  SupportUserEmail);
+        System.out.print("SysAidTest page Email= "+  SupportUserEmail);
 
-        System.out.print("SysAid page caseID = "+  CaseID);
+        System.out.print("SysAidTest page caseID = "+  CaseID);
 
     }
 

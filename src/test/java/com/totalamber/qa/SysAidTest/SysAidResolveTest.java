@@ -1,4 +1,4 @@
-package com.totalamber.qa;
+package com.totalamber.qa.SysAidTest;
 
 import com.totalamber.qa.automation.WebQuartersTestBase;
 import org.testng.Assert;
@@ -39,8 +39,8 @@ public class SysAidResolveTest extends WebQuartersTestBase {
         sysAidCasePage.addEndTime(endTime);
         sysAidCasePage.addActivityButton();
 
-        System.out.print("AlertMsg = " + sysAidCaseDom.getPopupMsg() );
-        Assert.assertEquals(sysAidCaseDom.getPopupMsg(), activityTypePopupMsg);
+        System.out.println("AlertMsg = " + sysAidCaseDom.getPopupMsg() );
+        Assert.assertEquals(sysAidCaseDom.getPopupMsg(), activityTypePopupMsg , "Activity Type not added Popup Verified !");
 
         sysAidCaseDom.acceptAlert();
 
@@ -49,9 +49,10 @@ public class SysAidResolveTest extends WebQuartersTestBase {
         sysAidCasePage.addActivityButton();
 
         System.out.println("AlertMsg = " + sysAidCaseDom.getPopupMsg() );
-        Assert.assertEquals(sysAidCaseDom.getPopupMsg(), activityDescriptionPopupMsg);
+        Assert.assertEquals(sysAidCaseDom.getPopupMsg(), activityDescriptionPopupMsg,  "Description not added Popup Verified !");
 
         sysAidCaseDom.acceptAlert();
+
 
     }
 
@@ -73,8 +74,8 @@ public class SysAidResolveTest extends WebQuartersTestBase {
         System.out.println("AT = " + supportLoginDom.verifyDataEquals( SYSAID_DESCRIPTION_IN_ACTIVITY_TABLE_XPATH));
         System.out.println("des = " + supportLoginDom.verifyDataEquals(SYSAID_ACTIVITY_TYPE_IN_ACTIVITY_TABLE_XPATH));
 
-        Assert.assertEquals(supportLoginDom.verifyDataEquals(SYSAID_DESCRIPTION_IN_ACTIVITY_TABLE_XPATH), description);
-        Assert.assertEquals(supportLoginDom.verifyDataEquals(SYSAID_ACTIVITY_TYPE_IN_ACTIVITY_TABLE_XPATH), activityType2);
+        Assert.assertEquals(supportLoginDom.verifyDataEquals(SYSAID_DESCRIPTION_IN_ACTIVITY_TABLE_XPATH), description,  "Description added !" );
+        Assert.assertEquals(supportLoginDom.verifyDataEquals(SYSAID_ACTIVITY_TYPE_IN_ACTIVITY_TABLE_XPATH), activityType2, "Activity Type added !");
 
         //Verify Total Time---------------
         //calculate total time and verify
@@ -117,8 +118,8 @@ public class SysAidResolveTest extends WebQuartersTestBase {
         sysAidCasePage.addActivityButton();
         Thread.sleep(2000);
 
-        Assert.assertEquals(supportLoginDom.verifyDataEquals(SYSAID_DESCRIPTION_IN_ACTIVITY_TABLE_XPATH), description);
-        Assert.assertEquals(supportLoginDom.verifyDataEquals(SYSAID_ACTIVITY_TYPE_IN_ACTIVITY_TABLE_XPATH), activityType2);
+        Assert.assertEquals(supportLoginDom.verifyDataEquals(SYSAID_DESCRIPTION_IN_ACTIVITY_TABLE_XPATH), description, "Description added !" );
+        Assert.assertEquals(supportLoginDom.verifyDataEquals(SYSAID_ACTIVITY_TYPE_IN_ACTIVITY_TABLE_XPATH), activityType2, "Activity Type added !" );
 
     }
 
@@ -134,8 +135,8 @@ public class SysAidResolveTest extends WebQuartersTestBase {
         sysAidCaseDom.clickOkButton();
         Thread.sleep(3000);
 
-        System.out.print("AlertMsg = " + sysAidCaseDom.getPopupMsg() );
-        Assert.assertEquals(sysAidCaseDom.getPopupMsg(), activityAddedPopupMsg);
+        System.out.println("AlertMsg = " + sysAidCaseDom.getPopupMsg() );
+        Assert.assertEquals(sysAidCaseDom.getPopupMsg(), activityAddedPopupMsg , "Activity Added not checked Popup Verified !");
 
         sysAidCaseDom.acceptAlert();
 

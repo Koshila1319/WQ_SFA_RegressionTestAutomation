@@ -1,6 +1,6 @@
-package com.totalamber.qa.domain;
+package com.totalamber.qa.domain.SysAidDom;
 
-import com.totalamber.qa.page.SysAidLoginPage;
+import com.totalamber.qa.page.SysAidPages.SysAidLoginPage;
 import org.openqa.selenium.WebDriver;
 
 /**

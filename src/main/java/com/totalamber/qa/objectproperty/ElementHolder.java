@@ -535,7 +535,7 @@ public interface ElementHolder {
 
 
 
-	//################################ SysAid ########################################
+	//################################ SysAidTest ########################################
 
 	public final String SYSAID_USERNAME_XPATH = ".//*[contains(@name,'userName')]";
 	public final String SYSAID_USERNAME_CSS = "";
@@ -550,7 +550,7 @@ public interface ElementHolder {
 	public final String SYSAID_CLICKSEARCHCASEID_CSS = "";
 
 
-	//-------------------------- SysAid - Case View
+	//-------------------------- SysAidTest - Case View
 	public final String SYSAID_SUBTYPE_INCIDENT_XPATH = "//div[contains(@id,'_sub_type')]/div/div[1]/span";
 	public final String SYSAID_SUBTYPE_INCIDENT_CSS = "";
 
@@ -589,7 +589,7 @@ public interface ElementHolder {
 	public final String SYSAID_ADD_ATTACHMENT_CSS = "";
 
 
-	//--------------Resolve Case - SysAid
+	//--------------Resolve Case - SysAidTest
 	public final String SYSAID_CASESTATUS_ASSIGNED_XPATH = "//*[@id='32_status']";
 
 	public final String SYSAID_ADD_ACTIVITY_ADD_START_TIME_XPATH = "//*[@name='sract_fromTime_time']";
@@ -620,5 +620,38 @@ public interface ElementHolder {
 
 	public final String SYSAID_DELETE_BUTTON_IN_ACTIVITY_TABLE_XPATH ="//*[@id='t']/tbody/tr[2]/td[8]/table/tbody/tr/td[2]";
 	public final String SYSAID_DELETE_BUTTON_IN_ACTIVITY_TABLE_CSS = "";
+
+	//--------------Resolve Case - WQTest
+
+	public final String SYSAID_DASHBOARD_CASE_TABLE_XPATH ="//*[@id='casefilter-results-list-table']";
+	public final String SYSAID_DASHBOARD_CASE_TABLE_CSS = "";
+
+	public final String SYSAID_DASHBOARD_CASE_SEARCH_TEXTBOX_XPATH ="//*[@id='ctl00_ctl39_g_E3D958EC_F656_47D3_9E58_0E6AAD1B9B17_ctl00_TextBoxSearchBox']";
+	public final String SYSAID_DASHBOARD_CASE_SEARCH_TEXTBOX_CSS = "";
+
+	public final String SYSAID_DASHBOARD_CASE_SEARCH_BUTTON_XPATH ="//*[@id='ctl00_ctl39_g_E3D958EC_F656_47D3_9E58_0E6AAD1B9B17_ctl00_ButtonSearchCase']";
+	public final String SYSAID_DASHBOARD_CASE_SEARCH_BUTTON_CSS = "";
+
+	public final String SYSAID_DASHBOARD_VIEW_CASE_LINK_XPATH ="//*[@id='ctl00_ctl39_g_E3D958EC_F656_47D3_9E58_0E6AAD1B9B17_ctl00_ListViewCaseFilterResult_ctrl0_HyperlinkViewCase']";
+	public final String SYSAID_DASHBOARD_VIEW_CASE_LINK_CSS = "";
+
+	public final String SYSAID_VIEW_CASE_PAGE_STATUS_XPATH ="//*[@id='ctl00_ctl39_g_ED88AAC2_62E8_464A_B8C3_AAD662828462_ctl00_statusDropDownList']";
+	public final String SYSAID_VIEW_CASE_PAGE_STATUS_CSS = "";
+
+	public final String SYSAID_APPROVE_BILLABLE_HOURS_TILE_XPATH ="//*[@id='ctl00_ctl39_g_370B224E_66FF_4AFE_84C5_BD2C9B70502D_ctl00_pendingApproval']/div";
+	public final String SYSAID_APPROVE_BILLABLE_HOURS_TILE_CSS = "";
+
+	public final String SYSAID_RESOLVE_CASE_PAGE_TABLE_XPATH ="//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']";
+	public final String SYSAID_RESOLVE_CASE_PAGE_TABLE_CSS = "";
+
+	public final String SYSAID_RESOLVE_CASE_PAGE_TITLE_XPATH ="//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_LabelHeaderName']";
+	public final String SYSAID_RESOLVE_CASE_PAGE_TITLE_CSS = "";
+
+
+
+
+
+
+
 
 }

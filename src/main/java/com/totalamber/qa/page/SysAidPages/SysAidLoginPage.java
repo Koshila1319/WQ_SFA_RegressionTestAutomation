@@ -1,4 +1,4 @@
-package com.totalamber.qa.page;
+package com.totalamber.qa.page.SysAidPages;
 
 import com.totalamber.qa.automation.WebQuartersSeleniumBase;
 import com.totalamber.qa.objectproperty.ElementHolder;

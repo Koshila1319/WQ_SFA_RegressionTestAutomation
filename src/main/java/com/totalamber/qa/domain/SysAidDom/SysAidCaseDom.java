@@ -1,6 +1,6 @@
-package com.totalamber.qa.domain;
+package com.totalamber.qa.domain.SysAidDom;
 
-import com.totalamber.qa.page.SysAidCasePage;
+import com.totalamber.qa.page.SysAidPages.SysAidCasePage;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -77,7 +77,6 @@ public class SysAidCaseDom {
     public void selectActivityAddedCheckBox() throws InterruptedException {
         sysAidCasePage.selectActivityAddedCheckBox();
     }
-
 
     public void clickOkButton() {
         sysAidCasePage.clickOkButton();

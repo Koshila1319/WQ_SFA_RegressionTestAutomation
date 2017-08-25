@@ -2,19 +2,27 @@ package com.totalamber.qa.automation;
 
 import com.totalamber.qa.data.Dataprovider;
 import com.totalamber.qa.domain.*;
+import com.totalamber.qa.domain.SysAidDom.SysAidCaseDom;
+import com.totalamber.qa.domain.SysAidDom.SysAidHomeDom;
+import com.totalamber.qa.domain.SysAidDom.SysAidLoginDom;
+import com.totalamber.qa.domain.WQDom.WQCaseViewDom;
+import com.totalamber.qa.domain.WQDom.WQResolveCasesDom;
+import com.totalamber.qa.domain.WQDom.WQSupportDashboardDom;
 import com.totalamber.qa.objectproperty.ElementHolder;
 import com.totalamber.qa.page.AccountManagerPage;
 import com.totalamber.qa.page.SalesManagerPage;
 import com.totalamber.qa.page.SupportLoginPage;
+import com.totalamber.qa.page.WQPages.WQCaseViewPage;
+import com.totalamber.qa.page.WQPages.WQResolveCasesPage;
+import com.totalamber.qa.page.WQPages.WQSupportDashboardPage;
 import org.openqa.selenium.WebDriver;
 
-import com.totalamber.qa.page.SysAidCasePage;
-import com.totalamber.qa.page.SysAidHomePage;
-import com.totalamber.qa.page.SysAidLoginPage;
+import com.totalamber.qa.page.SysAidPages.SysAidCasePage;
+import com.totalamber.qa.page.SysAidPages.SysAidHomePage;
+import com.totalamber.qa.page.SysAidPages.SysAidLoginPage;
 
 
 import java.io.IOException;
-import java.util.UUID;
 
 
 public class WebQuartersTestBase implements ElementHolder {
@@ -44,6 +52,15 @@ public class WebQuartersTestBase implements ElementHolder {
 
 	protected SysAidCasePage sysAidCasePage;
 	protected SysAidCaseDom sysAidCaseDom;
+
+	protected WQSupportDashboardPage wqSupportDashboardPage;
+	protected WQSupportDashboardDom wqSupportDashboardDom;
+
+	protected WQCaseViewDom wqCaseViewDom;
+	protected WQCaseViewPage wqCaseViewPage;
+
+	protected WQResolveCasesDom wqResolveCasesDom;
+	protected WQResolveCasesPage wqResolveCasePage;
 
 	public static String CaseID = "";
 
@@ -77,6 +94,15 @@ public class WebQuartersTestBase implements ElementHolder {
 
 		sysAidCasePage = new SysAidCasePage(driver);
 		sysAidCaseDom = new SysAidCaseDom(driver);
+
+		wqSupportDashboardPage = new WQSupportDashboardPage(driver);
+		wqSupportDashboardDom = new WQSupportDashboardDom(driver);
+
+		wqCaseViewPage = new WQCaseViewPage(driver);
+		wqCaseViewDom = new WQCaseViewDom(driver);
+
+		wqResolveCasePage = new WQResolveCasesPage(driver);
+		wqResolveCasesDom = new WQResolveCasesDom(driver);
 
 
 		data = new Dataprovider(); // Create object of Dataprovider class

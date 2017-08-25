@@ -744,7 +744,7 @@ public class SupportLoginTest extends WebQuartersTestBase {
 
 	}
 
-	//Verify that new Support user able to create request case by assigning new support user(DM)
+	//Verify that new Support user able to create request case by assigning new support user
 	@Test
 	public void verifyCreateSupportCaseRequestBySupportUser() throws InterruptedException {
 
