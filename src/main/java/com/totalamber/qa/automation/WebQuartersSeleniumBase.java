@@ -871,16 +871,20 @@ public class WebQuartersSeleniumBase {
 	}
 
 	//Check whether the element is enabled
-	public void checkIsValueExist(String tablePath, String value) {
+	public String checkIsValueExist(String tablePath, String value) {
 
+		String str = null;
 		WebElement table = driver.findElement(By.xpath(tablePath));
 		List<WebElement> columns = table.findElements(By.tagName("td"));
 
 		for (WebElement cell : columns) {
 			if (cell.getText().equals(value)) {
 				System.out.println("WQ value : "+ cell.getText() + " is Match with SysAid value : "+ value);
+				str = cell.getText();
 			}
+			break;
 		}
+		return str;
 	}
 
 	//Retrieve row values match with a given value
@@ -933,7 +937,7 @@ public class WebQuartersSeleniumBase {
        click(text,"");
 	}
 
-
+    //Click accept button of a case in Resolve Case Page
     public void clickResolveCaseAcceptButton(String caseID) {
 
         String text = null;
@@ -947,7 +951,7 @@ public class WebQuartersSeleniumBase {
 
                 if (xpathValue.equalsIgnoreCase(caseID)) {
 
-                    text = "//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']/tbody/tr[" + i + "]/td/li/table/tbody/tr[1]/td[4]/a";
+                    text = "//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']/tbody/tr[" + i + "]/td/li/table/tbody/tr[2]/td[4]/div/input";
                     System.out.println(text);
 
                     break;
@@ -956,7 +960,6 @@ public class WebQuartersSeleniumBase {
         }
 
         click(text,"");
-
     }
 
 

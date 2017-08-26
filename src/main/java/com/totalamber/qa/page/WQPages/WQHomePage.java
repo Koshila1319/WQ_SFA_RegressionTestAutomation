@@ -7,27 +7,23 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by e.koshila on 8/22/2017.
  */
-public class WQCaseViewPage implements ElementHolder {
+public class WQHomePage implements ElementHolder {
 
     WebQuartersSeleniumBase seleniumBase;
 
-    public WQCaseViewPage(WebDriver driver) {
+    public WQHomePage(WebDriver driver) {
 
         seleniumBase = new WebQuartersSeleniumBase(driver);
     }
 
-    public String verifyDataEquals(String data) {
-
-        return seleniumBase.verifyDataEquals(data);
-    }
-
-    public void navigateToHomePage() {
+    public void navigateToLoginPage() {
 
         seleniumBase.click(HOME_TILE_XPATH,HOME_TILE_CSS);
     }
 
-    public void navigateBackToResolveCasePage() {
-
-        seleniumBase.clickBrowserBackButton();
+    public void clickLoginButton() {
+        // TODO Auto-generated method stub
+        seleniumBase.click(CLIENT_LOGIN_BUTTON_XPATH, CLIENT_LOGIN_BUTTON_CSS);
     }
+
 }
