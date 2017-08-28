@@ -58,23 +58,27 @@ public class WebQuartersTestBase implements ElementHolder {
 	protected WQResolveCasesDom wqResolveCasesDom;
 	protected WQResolveCasesPage wqResolveCasePage;
 
-    protected WQHomeDom wqHomeDom;
-    protected WQHomePage wqHomePage;
+	protected WQHomeDom wqHomeDom;
+	protected WQHomePage wqHomePage;
 
-    protected WQLoginDom wqLoginDom;
-    protected WQLoginPage wqLoginPage;
+	protected WQLoginDom wqLoginDom;
+	protected WQLoginPage wqLoginPage;
 
-    protected WQMainDom wqMainDom;
-    protected WQMainPage wqMainPage;
+	protected WQMainDom wqMainDom;
+	protected WQMainPage wqMainPage;
 
-    protected WQDMDashboardDom wqdmDashboardDom;
-    protected WQDMDashboardPage wqdmDashboardPage;
+	protected WQDMDashboardDom wqdmDashboardDom;
+	protected WQDMDashboardPage wqdmDashboardPage;
+
+	protected WQCloseCasesPage wqCloseCasesPage;
+	protected WQCloseCasesDom wqCloseCasesDom;
+
 
 	public static String CaseID = "";
 
 //	public static final String SupportUserEmail = UUID.randomUUID().toString() + "@mailcatch.com";
 	public static final String SupportUserEmail ="7a99f3a9-eaf5-43e4-991e-2fadc49eac1a@mailcatch.com";
-
+	public static final String SupporUserEmail2 = "596b2cf8-5fe3-4a42-95b0-2dc4845148c4@mailcatch.com";
 
 
 	public WebQuartersTestBase() {
@@ -112,17 +116,29 @@ public class WebQuartersTestBase implements ElementHolder {
 		wqResolveCasePage = new WQResolveCasesPage(driver);
 		wqResolveCasesDom = new WQResolveCasesDom(driver);
 
+
         wqHomePage = new WQHomePage(driver);
         wqHomeDom = new WQHomeDom(driver);
 
         wqLoginPage = new WQLoginPage(driver);
         wqLoginDom = new WQLoginDom(driver);
 
-        wqMainPage = new WQMainPage(driver);
-        wqMainDom = new WQMainDom(driver);
 
-        wqdmDashboardPage = new WQDMDashboardPage(driver);
-        wqdmDashboardDom = new WQDMDashboardDom(driver);
+
+
+
+		wqMainPage = new WQMainPage(driver);
+		wqMainDom = new WQMainDom(driver);
+
+		wqCloseCasesPage = new WQCloseCasesPage(driver);
+		wqCloseCasesDom = new WQCloseCasesDom(driver);
+
+		wqdmDashboardPage = new WQDMDashboardPage(driver);
+		wqdmDashboardDom = new WQDMDashboardDom(driver);
+
+
+
+
 
 
 		data = new Dataprovider(); // Create object of Dataprovider class

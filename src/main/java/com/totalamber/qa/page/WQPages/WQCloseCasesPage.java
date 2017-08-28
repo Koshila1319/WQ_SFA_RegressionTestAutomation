@@ -4,25 +4,15 @@ import com.totalamber.qa.automation.WebQuartersSeleniumBase;
 import com.totalamber.qa.objectproperty.ElementHolder;
 import org.openqa.selenium.WebDriver;
 
-
-
-
-
-public class WQDMDashboardPage implements ElementHolder {
+/**
+ * Created by s.wathsala on 8/25/2017.
+ */
+public class WQCloseCasesPage implements ElementHolder {
 
     WebQuartersSeleniumBase seleniumBase;
 
-    public WQDMDashboardPage(WebDriver driver) {
+    public WQCloseCasesPage(WebDriver driver) {
 
         seleniumBase = new WebQuartersSeleniumBase(driver);
-
     }
-
-    public void navigateToSupportDashboardPage() {
-
-        seleniumBase.click(DASHBOARD_SUPPORT_XPATH, DASHBOARD_SUPPORT_CSS);
-    }
-
-
-
 }

@@ -648,6 +648,29 @@ public interface ElementHolder {
 	public final String SYSAID_RESOLVE_CASE_PAGE_TITLE_CSS = "";
 
 
+//--------Close Case - WQTest
+
+	public final String WQ_HOME_ICON_XPATH="//*[@id='ctl00_MainTab11_ctl00_HyperLinkHome']/p";
+	public final String WQ_HOME_ICON_CSS="";
+
+	public final String WQ_SUPPORT_DASHBOARD_LINK_XPATH="//*[@id='ctl00_ctl39_g_74671772_2FB6_493E_8BA7_38664FE0D2EA_HyperLinkSMDashboard']";
+	public final String WQ_SUPPORT_DASHBOARD_LINK_CSS="";
+
+	public final String WQ_SUPPORTDASHBOARD_SEARCH_AREA_XPATH="//*[@id='ctl00_ctl39_g_E3D958EC_F656_47D3_9E58_0E6AAD1B9B17_ctl00_TextBoxSearchBox']";
+	public final String WQ_SUPPORTDASHBOARD_SEARCH_AREA_CSS="";
+
+	public final String WQ_SUPPORT_DASHBOARD_SEARCH_BUTTON_XPATH="//*[@id='ctl00_ctl39_g_E3D958EC_F656_47D3_9E58_0E6AAD1B9B17_ctl00_ButtonSearchCase']";
+	public final String WQ_SUPPORT_DASHBOARD_SEARCH_BUTTON_CSS="";
+
+	public final String WQ_VIEW_CASE_PAGE_STATUS_XPATH="//*[@id='ctl00_ctl39_g_E3D958EC_F656_47D3_9E58_0E6AAD1B9B17_ctl00_ListViewCaseFilterResult_ctrl0_LabelCaseStatus']";
+	public final String WQ_VIEW_CASE_PAGE_STATUS_CSS="";
+
+	public final String WQ_CLICK_VIEW_CASE_XPATH="//*[@id='ctl00_ctl39_g_E3D958EC_F656_47D3_9E58_0E6AAD1B9B17_ctl00_ListViewCaseFilterResult_ctrl0_HyperlinkViewCase']";
+	public final String WQ_CLICK_VIEW_CASE_CSS="";
+
+	public final String WEBQUARTERS_VIEW_CASE_PAGE_STATUS_XPATH ="//*[@id='ctl00_ctl39_g_ED88AAC2_62E8_464A_B8C3_AAD662828462_ctl00_statusDropDownList']";
+	public final String WEBQUARTERS_VIEW_CASE_PAGE_STATUS_CSS = "";
+
 
 
 

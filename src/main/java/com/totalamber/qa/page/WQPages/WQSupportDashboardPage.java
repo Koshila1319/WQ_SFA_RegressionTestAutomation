@@ -41,4 +41,20 @@ public class WQSupportDashboardPage implements ElementHolder {
     public void clickApproveBillableHoursTile() {
         seleniumBase.click(SYSAID_APPROVE_BILLABLE_HOURS_TILE_XPATH, SYSAID_APPROVE_BILLABLE_HOURS_TILE_CSS);
     }
+
+
+    public void searchWQCases(String caseID) {
+
+        seleniumBase.type(WQ_SUPPORTDASHBOARD_SEARCH_AREA_CSS,WQ_SUPPORTDASHBOARD_SEARCH_AREA_XPATH,caseID);
+        seleniumBase.click(WQ_SUPPORT_DASHBOARD_SEARCH_BUTTON_XPATH,WQ_SUPPORT_DASHBOARD_SEARCH_BUTTON_CSS);
+    }
+
+    public String verifyDataEquals(String data) {
+        return seleniumBase.verifyDataEquals(data);
+    }
+
+    public void clickViewCase() {
+
+        seleniumBase.click(WQ_CLICK_VIEW_CASE_XPATH,WQ_CLICK_VIEW_CASE_CSS);
+    }
 }

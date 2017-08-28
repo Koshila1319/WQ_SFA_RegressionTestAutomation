@@ -1,6 +1,5 @@
 package com.totalamber.qa.domain.WQDom;
 
-import com.totalamber.qa.data.Dataprovider;
 import com.totalamber.qa.page.WQPages.WQSupportDashboardPage;
 import org.openqa.selenium.WebDriver;
 
@@ -43,5 +42,20 @@ public class WQSupportDashboardDom {
 
         wqSupportDashboardPage.clickApproveBillableHoursTile();
 
+    }
+
+
+    public void searchCasesInWQ(String caseID) {
+
+        wqSupportDashboardPage.searchWQCases(caseID);
+    }
+
+    public String verifyDataEquals(String data) {
+        return wqSupportDashboardPage.verifyDataEquals(data);
+    }
+
+    public void clickOnViewCase() {
+
+        wqSupportDashboardPage.clickViewCase();
     }
 }

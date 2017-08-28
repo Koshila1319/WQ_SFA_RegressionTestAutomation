@@ -7,21 +7,27 @@
 					<include name = "loginSysAid"/>
 				</methods>
 			</class>
-			<class name ="com.totalamber.qa.SysAidTest.SysAidHomeTest">
+			<!--<class name ="com.totalamber.qa.SysAidTest.SysAidHomeTest">
 				<methods>
 					<include name = "caseSearch"/>
 				</methods>
 			</class>
-			<!--<class name ="com.totalamber.qa.SysAidTest.SysAidResolveTest">
+			&lt;!&ndash;<class name ="com.totalamber.qa.SysAidTest.SysAidResolveTest">
 				<methods>
 					<include name = "verifySysAidUserAbleToResolveCase"/>
 				</methods>
-			</class>-->
+			</class>&ndash;&gt;
 			<class name ="com.totalamber.qa.WQTest.WQResolveViewTest">
 				<methods>
 					<include name = "verifyUserAbleToAcceptCasesFromResolveCasePage"/>
 				</methods>
+			</class>-->
+			<class name ="com.totalamber.qa.WQTest.WQCloseViewCaseTest">
+				<methods>
+					<include name = "verifyUserAbleToViewCloseCasesFromDashboard"/>
+				</methods>
 			</class>
+
 		</classes>
 	</test>
 </suite>

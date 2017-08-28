@@ -749,7 +749,7 @@ public class WebQuartersSeleniumBase {
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		driver.switchTo().frame("emailframe");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(email)));
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(email)));
 		// ExpectedConditions.
 	}
 
@@ -872,7 +872,6 @@ public class WebQuartersSeleniumBase {
 
 	//Check whether the element is enabled
 	public String checkIsValueExist(String tablePath, String value) {
-
 		String str = null;
 		WebElement table = driver.findElement(By.xpath(tablePath));
 		List<WebElement> columns = table.findElements(By.tagName("td"));

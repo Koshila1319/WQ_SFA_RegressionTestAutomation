@@ -1,16 +1,12 @@
 package com.totalamber.qa.WQTest;
 
 import com.totalamber.qa.automation.WebQuartersTestBase;
-import com.totalamber.qa.domain.SupportLoginDom;
-import com.totalamber.qa.domain.WQDom.WQHomeDom;
-import com.totalamber.qa.domain.WQDom.WQSupportDashboardDom;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class WQResolveViewTest extends WebQuartersTestBase {
@@ -18,7 +14,7 @@ public class WQResolveViewTest extends WebQuartersTestBase {
     @BeforeMethod
     public void NavigateToPage() throws InterruptedException, IOException {
 
-        String passwordSU = data.getValueByName("newPasswordSupportUser");
+        String passwordSU = data.getValueByName("passwordSupportUser");
 
         initDomainObjects(DRIVER);
         String siteUrl = data.getValueByName("url");
