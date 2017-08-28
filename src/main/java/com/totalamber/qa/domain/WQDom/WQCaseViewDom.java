@@ -26,4 +26,9 @@ public class WQCaseViewDom {
         wqCaseViewPage.navigateToHomePage();
     }
 
+    public void navigateBackToResolveCasePage() {
+
+        wqCaseViewPage.navigateBackToResolveCasePage();
+    }
+
 }

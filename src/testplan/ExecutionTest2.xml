@@ -19,7 +19,7 @@
 			</class>-->
 			<class name ="com.totalamber.qa.WQTest.WQResolveViewTest">
 				<methods>
-					<include name = "verifyUserAbleToViewResolvedCasesFromResolveCasePage"/>
+					<include name = "verifyUserAbleToAcceptCasesFromResolveCasePage"/>
 				</methods>
 			</class>
 		</classes>

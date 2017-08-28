@@ -5,16 +5,12 @@ import com.totalamber.qa.domain.*;
 import com.totalamber.qa.domain.SysAidDom.SysAidCaseDom;
 import com.totalamber.qa.domain.SysAidDom.SysAidHomeDom;
 import com.totalamber.qa.domain.SysAidDom.SysAidLoginDom;
-import com.totalamber.qa.domain.WQDom.WQCaseViewDom;
-import com.totalamber.qa.domain.WQDom.WQResolveCasesDom;
-import com.totalamber.qa.domain.WQDom.WQSupportDashboardDom;
+import com.totalamber.qa.domain.WQDom.*;
 import com.totalamber.qa.objectproperty.ElementHolder;
 import com.totalamber.qa.page.AccountManagerPage;
 import com.totalamber.qa.page.SalesManagerPage;
 import com.totalamber.qa.page.SupportLoginPage;
-import com.totalamber.qa.page.WQPages.WQCaseViewPage;
-import com.totalamber.qa.page.WQPages.WQResolveCasesPage;
-import com.totalamber.qa.page.WQPages.WQSupportDashboardPage;
+import com.totalamber.qa.page.WQPages.*;
 import org.openqa.selenium.WebDriver;
 
 import com.totalamber.qa.page.SysAidPages.SysAidCasePage;
@@ -62,6 +58,18 @@ public class WebQuartersTestBase implements ElementHolder {
 	protected WQResolveCasesDom wqResolveCasesDom;
 	protected WQResolveCasesPage wqResolveCasePage;
 
+    protected WQHomeDom wqHomeDom;
+    protected WQHomePage wqHomePage;
+
+    protected WQLoginDom wqLoginDom;
+    protected WQLoginPage wqLoginPage;
+
+    protected WQMainDom wqMainDom;
+    protected WQMainPage wqMainPage;
+
+    protected WQDMDashboardDom wqdmDashboardDom;
+    protected WQDMDashboardPage wqdmDashboardPage;
+
 	public static String CaseID = "";
 
 //	public static final String SupportUserEmail = UUID.randomUUID().toString() + "@mailcatch.com";
@@ -103,6 +111,18 @@ public class WebQuartersTestBase implements ElementHolder {
 
 		wqResolveCasePage = new WQResolveCasesPage(driver);
 		wqResolveCasesDom = new WQResolveCasesDom(driver);
+
+        wqHomePage = new WQHomePage(driver);
+        wqHomeDom = new WQHomeDom(driver);
+
+        wqLoginPage = new WQLoginPage(driver);
+        wqLoginDom = new WQLoginDom(driver);
+
+        wqMainPage = new WQMainPage(driver);
+        wqMainDom = new WQMainDom(driver);
+
+        wqdmDashboardPage = new WQDMDashboardPage(driver);
+        wqdmDashboardDom = new WQDMDashboardDom(driver);
 
 
 		data = new Dataprovider(); // Create object of Dataprovider class

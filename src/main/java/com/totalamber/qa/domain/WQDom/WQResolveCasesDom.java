@@ -21,9 +21,9 @@ public class WQResolveCasesDom {
         return wqResolveCasesPage.verifyDataEquals(data);
     }
 
-    public void checkCaseInResolveCasePage(String caseID) {
+    public String checkCaseInResolveCasePage(String caseID) {
 
-        wqResolveCasesPage.checkCaseInResolveCasePage(caseID);
+       return wqResolveCasesPage.checkCaseInResolveCasePage(caseID);
     }
 
     public void clickResolveCaseViewButton(String caseID) {

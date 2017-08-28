@@ -20,8 +20,8 @@ public class WQResolveCasesPage implements ElementHolder {
         return seleniumBase.verifyDataEquals(data);
     }
 
-    public void checkCaseInResolveCasePage(String caseID) {
-        seleniumBase.checkIsValueExist(SYSAID_RESOLVE_CASE_PAGE_TABLE_XPATH,caseID);
+    public String checkCaseInResolveCasePage(String caseID) {
+       return seleniumBase.checkIsValueExist(SYSAID_RESOLVE_CASE_PAGE_TABLE_XPATH,caseID);
     }
 
     public void clickResolveCaseViewButton(String caseID) {
