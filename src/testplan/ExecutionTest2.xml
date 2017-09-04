@@ -22,7 +22,7 @@
 					<include name = "verifyUserAbleToAcceptCasesFromResolveCasePage"/>
 				</methods>
 			</class>-->
-			<class name ="com.totalamber.qa.WQTest.WQCloseViewCaseTest">
+			<class name ="com.totalamber.qa.WQTest.WQLoginTest">
 				<methods>
 					<include name = "verifyUserAbleToViewCloseCasesFromDashboard"/>
 				</methods>

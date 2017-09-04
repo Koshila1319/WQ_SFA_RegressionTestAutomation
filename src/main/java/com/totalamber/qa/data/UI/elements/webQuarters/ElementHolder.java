@@ -1,4 +1,4 @@
-package com.totalamber.qa.objectproperty;
+package com.totalamber.qa.data.UI.elements.webQuarters;
 
 public interface ElementHolder {
 

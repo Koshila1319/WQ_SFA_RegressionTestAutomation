@@ -10,7 +10,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -21,7 +20,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
-public class WebQuartersSeleniumBase {
+public class SeleniumBase {
 
 	// public static WebDriver DRIVER;
 	public static WebDriver driver;
@@ -37,7 +36,7 @@ public class WebQuartersSeleniumBase {
 		WebDriver driver = null;
 
 
-		browserName = WebQuartersTestBase.data.getValueByName("browser");
+		browserName = TestBase.data.getValueByName("browser");
 
 		if (browserName.equals("firefox")) {
 			driver = new FirefoxDriver();
@@ -74,7 +73,7 @@ public class WebQuartersSeleniumBase {
 	}
 
 
-	public WebQuartersSeleniumBase(WebDriver driver) {
+	public SeleniumBase(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -878,7 +877,7 @@ public class WebQuartersSeleniumBase {
 
 		for (WebElement cell : columns) {
 			if (cell.getText().equals(value)) {
-				System.out.println("WQ value : "+ cell.getText() + " is Match with SysAid value : "+ value);
+				System.out.println("webQuarters value : "+ cell.getText() + " is Match with SysAid value : "+ value);
 				str = cell.getText();
 			}
 			break;
