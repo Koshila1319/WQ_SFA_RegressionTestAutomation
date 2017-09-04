@@ -1,4 +1,4 @@
-package com.totalamber.qa.objectproperty;
+package com.totalamber.qa.data.UI.elements.webQuarters;
 
 public interface ElementHolder {
 
@@ -531,5 +531,150 @@ public interface ElementHolder {
 
 	public final String SM_ASSIGN_AM_COMPANY_NAME_XPATH = ".//*[@id='ctl00_ctl39_g_2E672EEA_79B1_421C_9778_283A618EF560_ctl00_companyNameLabel']";
 	public final String SM_ASSIGN_AM_COMPANY_NAME_CSS = "";
+
+
+
+
+	//################################ SysAidTest ########################################
+
+	public final String SYSAID_USERNAME_XPATH = ".//*[contains(@name,'userName')]";
+	public final String SYSAID_USERNAME_CSS = "";
+	public final String SYSAID_PASSWORD_XPATH = ".//*[contains(@name,'password')]";
+	public final String SYSAID_PASSWORD_CSS = "";
+	public final String SYSAID_LOGIN_XPATH = ".//*[contains(@class,'ButtonLabel')]";
+	public final String SYSAID_LOGIN_CSS = "";
+
+	public final String SYSAID_SEARCHCASEID_XPATH = ".//*[contains(@class,'sr-searchfield')]";
+	public final String SYSAID_SEARCHCASEID_CSS = "";
+	public final String SYSAID_CLICKSEARCHCASEID_XPATH = ".//*[contains(@class,'sr-submit')]";
+	public final String SYSAID_CLICKSEARCHCASEID_CSS = "";
+
+
+	//-------------------------- SysAidTest - Case View
+	public final String SYSAID_SUBTYPE_INCIDENT_XPATH = "//div[contains(@id,'_sub_type')]/div/div[1]/span";
+	public final String SYSAID_SUBTYPE_INCIDENT_CSS = "";
+
+	public final String SYSAID_CATEGORY_PRODUCT_DIV_XPATH = ".//*[contains(@id,'_problem_type')]/div";
+	public final String SYSAID_CATEGORY_PRODUCT_DIV_CSS = "";
+
+	public final String SYSAID_CATEGORY_PRODUCT_XPATH = "//*[@id='addScroll_problem_type_CustomSelect']";
+	public final String SYSAID_CATEGORY_PRODUCT_CSS = "";
+
+	/*public final String SYSAID_CATEGORY_PRODUCT_SELECT_XPATH = "//*[@id='addScroll_problem_type_CustomSelect']/ul";
+	public final String SYSAID_CATEGORY_PRODUCT_SELECT_CSS = "";*/
+
+	public final String SYSAID_CATEGORY_SUPPORTLAYER_DIV_XPATH = "//*[@id='addScroll_subcategory_CustomSelect']";
+	public final String SYSAID_CATEGORY_SUPPORTLAYER_DIV_CSS = "";
+
+	public final String SYSAID_CATEGORY_SERVICE_XPATH = ".//div[contains(@id,'thirdLevelCategory')]/div/div[1]";
+	public final String SYSAID_CATEGORY_SERVICE_CSS = "";
+
+
+	public final String SYSAID_CASESTATUS_REQUEST_XPATH = ".//div[contains(@id,'_status')]/div/div[1]";
+	public final String SYSAID_CASESTATUS_REQUEST_CSS = "";
+	public final String SYSAID_PLANNEDDATE_XPATH = ".//div[contains(@class,'hasDatepicker')]/div/div[1]";
+	public final String SYSAID_PLANNEDDATE_CSS = "";
+	public final String SYSAID_URGENCY_XPATH = ".//div[contains(@id,'_selectUrgency')]/div/div[1]";
+	public final String SYSAID_URGENCY_CSS = "";
+	public final String SYSAID_PRIORITY_XPATH = ".//div[contains(@id,'_selectPriority')]/div/div[1]";
+	public final String SYSAID_PRIORITY_CSS = "";
+
+	public final String SYSAID_CASEOWNER_XPATH = "";
+	public final String SYSAID_CASEOWNER_CSS = "";
+	public final String SYSAID_ASSIGNEETEAM_XPATH = "";
+	public final String SYSAID_ASSIGNEETEAM_CSS = "";
+	public final String SYSAID_ASSIGNEDTO_XPATH = "";
+	public final String SYSAID_ASSIGNEDTO_CSS = "";
+	public final String SYSAID_ADD_ATTACHMENT_XPATH = "";
+	public final String SYSAID_ADD_ATTACHMENT_CSS = "";
+
+
+	//--------------Resolve Case - SysAidTest
+	public final String SYSAID_CASESTATUS_ASSIGNED_XPATH = "//*[@id='32_status']";
+
+	public final String SYSAID_ADD_ACTIVITY_ADD_START_TIME_XPATH = "//*[@name='sract_fromTime_time']";
+	public final String SYSAID_ADD_ACTIVITY_ADD_START_TIME_CSS = "";
+
+	public final String SYSAID_ADD_ACTIVITY_ADD_END_TIME_XPATH = "//*[@name='sract_toTime_time']";
+	public final String SYSAID_ADD_ACTIVITY_ADD_END_TIME_CSS = "";
+
+	public final String SYSAID_ADD_ACTIVITY_TYPE_XPATH = ".//*[@id='32_custList1']/div/div[1]";
+
+	public final String SYSAID_ADD_ACTIVITY_DESCRIPTION_XPATH = ".//*[@id='sract_description']";
+	public final String SYSAID_ADD_ACTIVITY_DESCRIPTION_CSS = "";
+
+	public final String SYSAID_ADD_ACTIVITY_ADD_BUTTON_XPATH = ".//*[@id='sract_OKBtn']";
+	public final String SYSAID_ADD_ACTIVITY_ADD_BUTTON_CSS = "";
+
+	public final String SYSAID_ADD_ACTIVITY_TOTAL_RESOLVE_TIME_XPATH = ".//*[@id='tr_labelId_activities']/td/table/tbody/tr/td/table/tbody/tr/td[2]/table/tbody/tr[4]/td[2]/table/tbody/tr/td/input[1]";
+
+	public final String SYSAID_ACTIVITY_ADDED_CHECKBOX_XPATH ="//*[@id='tr_labelId_CustomColumn79sr']/td[3]/label";
+	public final String SYSAID_ACTIVITY_ADDED_CHECKBOX_CSS = "";
+
+	public final String SYSAID_OK_BUTTON_XPATH = ".//*[@id='OKBtn']/tbody/tr/td[1]";
+	public final String SYSAID_OK_BUTTON_CSS = "";
+
+	public final String SYSAID_DESCRIPTION_IN_ACTIVITY_TABLE_XPATH = "//*[@id='t']/tbody/tr[2]/td[5]";
+
+	public final String SYSAID_ACTIVITY_TYPE_IN_ACTIVITY_TABLE_XPATH = "//*[@id='t']/tbody/tr[2]/td[6]";
+
+	public final String SYSAID_DELETE_BUTTON_IN_ACTIVITY_TABLE_XPATH ="//*[@id='t']/tbody/tr[2]/td[8]/table/tbody/tr/td[2]";
+	public final String SYSAID_DELETE_BUTTON_IN_ACTIVITY_TABLE_CSS = "";
+
+	//--------------Resolve Case - WQTest
+
+	public final String SYSAID_DASHBOARD_CASE_TABLE_XPATH ="//*[@id='casefilter-results-list-table']";
+	public final String SYSAID_DASHBOARD_CASE_TABLE_CSS = "";
+
+	public final String SYSAID_DASHBOARD_CASE_SEARCH_TEXTBOX_XPATH ="//*[@id='ctl00_ctl39_g_E3D958EC_F656_47D3_9E58_0E6AAD1B9B17_ctl00_TextBoxSearchBox']";
+	public final String SYSAID_DASHBOARD_CASE_SEARCH_TEXTBOX_CSS = "";
+
+	public final String SYSAID_DASHBOARD_CASE_SEARCH_BUTTON_XPATH ="//*[@id='ctl00_ctl39_g_E3D958EC_F656_47D3_9E58_0E6AAD1B9B17_ctl00_ButtonSearchCase']";
+	public final String SYSAID_DASHBOARD_CASE_SEARCH_BUTTON_CSS = "";
+
+	public final String SYSAID_DASHBOARD_VIEW_CASE_LINK_XPATH ="//*[@id='ctl00_ctl39_g_E3D958EC_F656_47D3_9E58_0E6AAD1B9B17_ctl00_ListViewCaseFilterResult_ctrl0_HyperlinkViewCase']";
+	public final String SYSAID_DASHBOARD_VIEW_CASE_LINK_CSS = "";
+
+	public final String SYSAID_VIEW_CASE_PAGE_STATUS_XPATH ="//*[@id='ctl00_ctl39_g_ED88AAC2_62E8_464A_B8C3_AAD662828462_ctl00_statusDropDownList']";
+	public final String SYSAID_VIEW_CASE_PAGE_STATUS_CSS = "";
+
+	public final String SYSAID_APPROVE_BILLABLE_HOURS_TILE_XPATH ="//*[@id='ctl00_ctl39_g_370B224E_66FF_4AFE_84C5_BD2C9B70502D_ctl00_pendingApproval']/div";
+	public final String SYSAID_APPROVE_BILLABLE_HOURS_TILE_CSS = "";
+
+	public final String SYSAID_RESOLVE_CASE_PAGE_TABLE_XPATH ="//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']";
+	public final String SYSAID_RESOLVE_CASE_PAGE_TABLE_CSS = "";
+
+	public final String SYSAID_RESOLVE_CASE_PAGE_TITLE_XPATH ="//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_LabelHeaderName']";
+	public final String SYSAID_RESOLVE_CASE_PAGE_TITLE_CSS = "";
+
+
+//--------Close Case - WQTest
+
+	public final String WQ_HOME_ICON_XPATH="//*[@id='ctl00_MainTab11_ctl00_HyperLinkHome']/p";
+	public final String WQ_HOME_ICON_CSS="";
+
+	public final String WQ_SUPPORT_DASHBOARD_LINK_XPATH="//*[@id='ctl00_ctl39_g_74671772_2FB6_493E_8BA7_38664FE0D2EA_HyperLinkSMDashboard']";
+	public final String WQ_SUPPORT_DASHBOARD_LINK_CSS="";
+
+	public final String WQ_SUPPORTDASHBOARD_SEARCH_AREA_XPATH="//*[@id='ctl00_ctl39_g_E3D958EC_F656_47D3_9E58_0E6AAD1B9B17_ctl00_TextBoxSearchBox']";
+	public final String WQ_SUPPORTDASHBOARD_SEARCH_AREA_CSS="";
+
+	public final String WQ_SUPPORT_DASHBOARD_SEARCH_BUTTON_XPATH="//*[@id='ctl00_ctl39_g_E3D958EC_F656_47D3_9E58_0E6AAD1B9B17_ctl00_ButtonSearchCase']";
+	public final String WQ_SUPPORT_DASHBOARD_SEARCH_BUTTON_CSS="";
+
+	public final String WQ_VIEW_CASE_PAGE_STATUS_XPATH="//*[@id='ctl00_ctl39_g_E3D958EC_F656_47D3_9E58_0E6AAD1B9B17_ctl00_ListViewCaseFilterResult_ctrl0_LabelCaseStatus']";
+	public final String WQ_VIEW_CASE_PAGE_STATUS_CSS="";
+
+	public final String WQ_CLICK_VIEW_CASE_XPATH="//*[@id='ctl00_ctl39_g_E3D958EC_F656_47D3_9E58_0E6AAD1B9B17_ctl00_ListViewCaseFilterResult_ctrl0_HyperlinkViewCase']";
+	public final String WQ_CLICK_VIEW_CASE_CSS="";
+
+	public final String WEBQUARTERS_VIEW_CASE_PAGE_STATUS_XPATH ="//*[@id='ctl00_ctl39_g_ED88AAC2_62E8_464A_B8C3_AAD662828462_ctl00_statusDropDownList']";
+	public final String WEBQUARTERS_VIEW_CASE_PAGE_STATUS_CSS = "";
+
+
+
+
+
+
 
 }

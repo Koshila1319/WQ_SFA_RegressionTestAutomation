@@ -10,7 +10,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -21,7 +20,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
-public class WebQuartersSeleniumBase {
+public class SeleniumBase {
 
 	// public static WebDriver DRIVER;
 	public static WebDriver driver;
@@ -32,13 +31,12 @@ public class WebQuartersSeleniumBase {
 	String chromeDriverPath = "src\\resource\\chromedriver_win32\\";
 
 
-
 	public WebDriver getdriver() {
 
 		WebDriver driver = null;
 
 
-		browserName = WebQuartersTestBase.data.getValueByName("browser");
+		browserName = TestBase.data.getValueByName("browser");
 
 		if (browserName.equals("firefox")) {
 			driver = new FirefoxDriver();
@@ -46,7 +44,7 @@ public class WebQuartersSeleniumBase {
 		}
 
 		if (browserName.equals("chrome")) {
-			System.out.println( "Driver path is " + chromeDriverPath);
+			System.out.println("Driver path is " + chromeDriverPath);
 			driver = initChromeDriver();
 			System.out.println("STARTING CHROME BROWSER..............");
 		}
@@ -75,15 +73,14 @@ public class WebQuartersSeleniumBase {
 	}
 
 
-	public WebQuartersSeleniumBase(WebDriver driver) {
+	public SeleniumBase(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
 	 * Set the site URL
 	 *
-	 * @param siteUrl
-	 *            - site URL
+	 * @param siteUrl - site URL
 	 */
 	public void enterURL(String siteUrl) {
 		driver = getdriver();
@@ -109,6 +106,7 @@ public class WebQuartersSeleniumBase {
 	// *******************getEliment functions*************************
 
 	// Get element by CSS, ID, name and xPath
+
 	/**
 	 * This is to find the element by CSS, ID, Name and XPath.
 	 *
@@ -225,8 +223,8 @@ public class WebQuartersSeleniumBase {
 	}
 
 	// Get list of element by tag
+
 	/**
-	 *
 	 * @param tag
 	 * @return
 	 */
@@ -244,7 +242,6 @@ public class WebQuartersSeleniumBase {
 	// Selenium type function with parameter CSS, id, name and xPath
 
 	/**
-	 *
 	 * @param objectName
 	 * @param textToEnter
 	 */
@@ -255,7 +252,6 @@ public class WebQuartersSeleniumBase {
 	}
 
 	/**
-	 *
 	 * @param cSS
 	 * @param objectName
 	 * @param xPath
@@ -266,7 +262,6 @@ public class WebQuartersSeleniumBase {
 	}
 
 	/**
-	 *
 	 * @param cSS
 	 * @param xPath
 	 * @param textToEnter
@@ -291,7 +286,6 @@ public class WebQuartersSeleniumBase {
 	}
 
 	/**
-	 *
 	 * @param xPath
 	 * @param cSS
 	 */
@@ -754,7 +748,7 @@ public class WebQuartersSeleniumBase {
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		driver.switchTo().frame("emailframe");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(email)));
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(email)));
 		// ExpectedConditions.
 	}
 
@@ -774,9 +768,7 @@ public class WebQuartersSeleniumBase {
 
 		if (isElementEnabled = true) {
 			System.out.println("Element Enabled");
-		}
-		else
-		{
+		} else {
 			System.out.println("Element not Enabled");
 		}
 
@@ -792,10 +784,9 @@ public class WebQuartersSeleniumBase {
 	//Upload files
 	public void uploadFiles(String filePath, String elementName) {
 		// TODO Auto-generated method stub
-		WebElement element= driver.findElement(By.name(elementName));
+		WebElement element = driver.findElement(By.name(elementName));
 		element.sendKeys(filePath);
 	}
-
 
 	// Replace Texts
 	public void replaceText(String cSS, String xPath, String textToReplace) {
@@ -812,12 +803,162 @@ public class WebQuartersSeleniumBase {
 		driver.switchTo().defaultContent();
 	}
 
-
-	public void switchToNewTab(){
-		ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
+	public void switchToNewTab() {
+		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs2.get(1));
 	   /* driver.close();
 	    driver.switchTo().window(tabs2.get(0));*/
 	}
+
+	//Select Drop down values with list
+	public void switchToDropDown(String divxpath) {
+		driver.findElement(By.xpath(divxpath)).click();
+	}
+
+	public void selectSysAidDropDown(String listItem) {
+
+		driver.findElement(By.xpath("//li[contains(text(),'" + listItem + "')][@class='option_" + listItem + "_option']")).click();
+	}
+
+
+	//Select Drop down list with option value
+	public void selectSysAidDropDownTextAndOption(String textValue, String optionValue) {
+
+		driver.findElement(By.xpath("//li[contains(text(),'" + textValue + "')][@class='option_" + optionValue + "_option']")).click();
+	}
+
+	public Integer calculateTotalTime(int startTime, int endTime) {
+
+		int total = endTime - startTime;
+		return total;
+	}
+
+	// Spit words and replace
+	public String splitReplaceConcatText(String word, String delimiter, String concatValue) {
+
+		String[] sp = word.split(delimiter);
+		System.out.println("Splited data 1 is " + sp[0]);
+		System.out.println("Splited data 2 is " + sp[1]);
+
+		String first = sp[0];
+		String second = sp[1];
+
+		String concatText = first + concatValue + second;
+		System.out.println("concat is " + concatText);
+		return concatText;
+
+	}
+
+	//Get alert text
+	public String getAlertText() {
+		return driver.switchTo().alert().getText();
+	}
+
+	//Dismiss alert
+	public void dismissAlert() {
+		driver.switchTo().alert().dismiss();
+	}
+
+	//Get alert Text
+	public void acceptAlert() {
+		driver.switchTo().alert().accept();
+	}
+
+	//Send text to alert
+	public void sentTextToAlert() {
+		driver.switchTo().alert().sendKeys("Text");
+	}
+
+	//Check whether the element is enabled
+	public String checkIsValueExist(String tablePath, String value) {
+		String str = null;
+		WebElement table = driver.findElement(By.xpath(tablePath));
+		List<WebElement> columns = table.findElements(By.tagName("td"));
+
+		for (WebElement cell : columns) {
+			if (cell.getText().equals(value)) {
+				System.out.println("webQuarters value : "+ cell.getText() + " is Match with SysAid value : "+ value);
+				str = cell.getText();
+			}
+			break;
+		}
+		return str;
+	}
+
+	//Retrieve row values match with a given value
+	public List<String> matchWithRowValue(String xpathToTable, String value) {
+
+		List<String> list = new ArrayList<String>();
+
+			for (int i=1;i<=1;i++){
+				String sValue = null;
+				String sRowValue = null;
+
+				sValue = driver.findElement(By.xpath(xpathToTable+"/tbody/tr["+i+"]")).getText();
+
+				if(sValue.equalsIgnoreCase(value)) {
+
+					for (int j = 1; j <= 6; j++) {
+						list.add(sRowValue = driver.findElement(By.xpath(xpathToTable+"/tbody/tr[" + i + "]/td[" + j + "]")).getText());
+
+						System.out.println(sRowValue);
+					}
+					break;
+				}
+			}
+					System.out.println(list);
+			return list;
+		}
+
+	//Click view button of a case in Resolve Case Page
+	public void clickResolveCaseViewButton(String value) {
+
+		String text = null;
+
+		for (int i = 2; i <= 2; i++) {
+
+			for (int j = 2; j <= 3; i++) {
+				String xpathValue = null;
+
+                xpathValue = driver.findElement(By.xpath("//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']/tbody/tr[" + i + "]/td/li/table/tbody/tr/td[" + j + "]")).getText();
+
+				if (xpathValue.equalsIgnoreCase(value)) {
+
+                    text = "//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']/tbody/tr[" + i + "]/td/li/table/tbody/tr[1]/td[4]/a";
+					System.out.println(text);
+
+                    break;
+				}
+			}
+		}
+
+       click(text,"");
+	}
+
+    //Click accept button of a case in Resolve Case Page
+    public void clickResolveCaseAcceptButton(String caseID) {
+
+        String text = null;
+
+        for (int i = 2; i <= 2; i++) {
+
+            for (int j = 2; j <= 3; i++) {
+                String xpathValue = null;
+
+                xpathValue = driver.findElement(By.xpath("//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']/tbody/tr[" + i + "]/td/li/table/tbody/tr/td[" + j + "]")).getText();
+
+                if (xpathValue.equalsIgnoreCase(caseID)) {
+
+                    text = "//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']/tbody/tr[" + i + "]/td/li/table/tbody/tr[2]/td[4]/div/input";
+                    System.out.println(text);
+
+                    break;
+                }
+            }
+        }
+
+        click(text,"");
+    }
+
 
 }
