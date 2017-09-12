@@ -17,12 +17,12 @@ public class WQLoginTest extends TestBase {
     public void NavigateToPage() throws InterruptedException, IOException {
         initDomainObjects(DRIVER);
         String siteUrl = data.getValueByName("url");
-        setSiteURL(siteUrl);     ;
+        setSiteURL(siteUrl);
 
     }
     @AfterMethod
     public void endTestMethod() throws Throwable{
-       // quitDriver();
+        quitDriver();
     }
 
 

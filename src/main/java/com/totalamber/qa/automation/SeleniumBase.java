@@ -291,6 +291,8 @@ public class SeleniumBase {
 	 */
 	public void click(String xPath, String cSS) {
 		getElement(cSS, xPath).click();
+
+
 	}
 
 	/**
