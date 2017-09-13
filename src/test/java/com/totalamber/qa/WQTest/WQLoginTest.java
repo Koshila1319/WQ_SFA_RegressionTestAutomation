@@ -1,6 +1,7 @@
 package com.totalamber.qa.WQTest;
 
 import com.totalamber.qa.automation.TestBase;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -94,7 +95,48 @@ public class WQLoginTest extends TestBase {
                 check_And_Validate_Error_Message();
     }
 
+    //Login Features
 
+    @Test
+    public void verify_The_Login_Link_Is_Available(){
+
+        Assert.assertTrue(wqHomePage.check_Login_Link_Available(),"Login Link is Available");
+    }
+
+    @Test
+    public void verify_The_Login_Link_Text(){
+        Assert.assertEquals(wqHomePage.check_Login_Link_Text(),"Login");
+    }
+
+    @Test
+    public void verify_The_Login_Link_Leads_To_Login_Page()
+    {
+        wqHomePage.
+                action_Navigate_To_LoginPage().
+                check_Login_Page_URL();
+    }
+
+    //Sign Up Features
+
+    @Test
+    public void verify_The_SignUp_Link_Is_Available(){
+        wqHomePage.
+                check_SignUp_Link_Available();
+    }
+
+    @Test
+    public void verify_The_SignUp_Link_Text(){
+        wqHomePage.
+                check_SignUp_Link_Text();
+    }
+
+    @Test
+    public void verify_The_SignUp_Link_Leads_To_SignUp_Page()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page().
+                check_SignUp_Page_URL();
+    }
 
 
 }
