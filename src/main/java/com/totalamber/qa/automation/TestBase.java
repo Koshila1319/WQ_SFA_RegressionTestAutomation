@@ -1,6 +1,7 @@
 package com.totalamber.qa.automation;
 
 import com.totalamber.qa.data.property.Dataprovider;
+import com.totalamber.qa.page.webQuarters.WQBackOfficeLoginPage;
 import com.totalamber.qa.page.webQuarters.WQHomePage;
 import com.totalamber.qa.page.webQuarters.WQLoginPage;
 import org.openqa.selenium.WebDriver;
@@ -16,12 +17,13 @@ public class TestBase  {
 
 	protected WQLoginPage wqLoginPage;
 	protected WQHomePage wqHomePage;
+	protected WQBackOfficeLoginPage wqBackOfficeLoginPage;
 
 	public void initDomainObjects(WebDriver driver) throws IOException {
 		data = new Dataprovider();
 		wqLoginPage = new WQLoginPage(driver);
 		wqHomePage = new WQHomePage(driver);
-
+		wqBackOfficeLoginPage = new WQBackOfficeLoginPage(driver);
 
 	}
 
@@ -33,5 +35,7 @@ public class TestBase  {
 	public void quitDriver() {
 		seleniumBase.endDriver();
 	}
+
+
 
 }
