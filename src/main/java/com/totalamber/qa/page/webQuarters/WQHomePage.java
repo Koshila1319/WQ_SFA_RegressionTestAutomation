@@ -69,4 +69,10 @@ public class WQHomePage  implements wqHomePage {
         System.out.println("Sign Up Button Link Leads To SignUp Page");
         return this;
     }
+
+    public WQHomePage check_Login_Button_Text()  {
+        String text = seleniumBase.getTextByAttribute( HOMEPAGE_LOGIN_BTN_CSS,HOMEPAGE_LOGIN_BTN_XPATH,"value" );
+        System.out.println("Text is:" + text);
+        return this;
+    }
 }

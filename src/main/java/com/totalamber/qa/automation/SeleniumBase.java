@@ -365,6 +365,17 @@ public class SeleniumBase {
 
 	}
 
+	public String getTextByAttribute(String css,String xpath,String attribute){
+
+		String text;
+
+		text = getElement(css,xpath).getAttribute(attribute);
+
+		return text;
+
+	}
+
+
 	// ******************************* function for select value from dropdown
 	// *********************************
 

@@ -95,6 +95,13 @@ public class WQLoginTest extends TestBase {
                 check_And_Validate_Error_Message();
     }
 
+    @Test(enabled = true)
+    public void verify_User_Login_button_Text() throws Exception{
+        wqHomePage.
+                check_Login_Button_Text();
+
+
+    }
     //Login Features
 
     @Test
