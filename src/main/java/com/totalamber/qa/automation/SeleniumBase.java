@@ -31,6 +31,8 @@ public class SeleniumBase {
 	String chromeDriverPath = "src\\resource\\chromedriver_win32\\";
 
 
+
+
 	public WebDriver getdriver() {
 
 		WebDriver driver = null;
@@ -962,5 +964,24 @@ public class SeleniumBase {
         click(text,"");
     }
 
+
+    public void checkDropdownCount(String xPath) {
+        WebElement dropdown = SeleniumBase.driver.findElement(By.xpath(xPath));
+        Select select = new Select(dropdown);
+        List<WebElement> allOptions = select.getOptions();
+        System.out.print(allOptions.size());
+    }
+
+    public String checkDropdownTextValue(String xPath) {
+        String value= null;
+        WebElement dropdown = SeleniumBase.driver.findElement(By.xpath(xPath));
+        Select select = new Select(dropdown);
+        List<WebElement> allOptions = select.getOptions();
+        for (int i=0; i<allOptions.size(); i++){
+           value = allOptions.get(i).getText();
+            System.out.println(value);
+        }
+        return value;
+    }
 
 }
