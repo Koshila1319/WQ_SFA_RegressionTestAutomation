@@ -763,7 +763,7 @@ public class SeleniumBase {
 	}
 
 	//Check whether the element is enabled
-	public void checkIsElementEnabled(String elementPath) {
+	public boolean checkIsElementEnabled(String elementPath) {
 
 		WebElement element = driver.findElement(By.xpath(elementPath));
 		isElementEnabled = element.isEnabled();
@@ -775,6 +775,8 @@ public class SeleniumBase {
 		} else {
 			System.out.println("Element not Enabled");
 		}
+
+		return isElementEnabled;
 
 	}
 
@@ -962,7 +964,10 @@ public class SeleniumBase {
         }
 
         click(text,"");
+
+
     }
+
 
 
     public void checkDropdownCount(String xPath) {
@@ -983,5 +988,9 @@ public class SeleniumBase {
         }
         return value;
     }
+
+
+
+
 
 }

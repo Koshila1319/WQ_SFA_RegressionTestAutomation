@@ -8,6 +8,7 @@ public interface wqHomePage {
     public final String HOMEPAGE_LOGIN_BTN_XPATH = ".//*[contains(@id,'ButtonLogin')]";
     public final String HOMEPAGE_LOGIN_BTN_CSS = "";
 
+
     //SignUp Button
     public final String HOMEPAGE_SIGNUP_BTN_XPATH = ".//*[contains(@id,'ButtonSignUp')]";
     public final String HOMEPAGE_SIGNUP_BTN_CSS = "";
