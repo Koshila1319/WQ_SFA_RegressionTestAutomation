@@ -100,42 +100,74 @@ public class WQLoginTest extends TestBase {
     @Test
     public void verify_The_Login_Link_Is_Available(){
 
-        Assert.assertTrue(wqHomePage.check_Login_Link_Available(),"Login Link is Available");
+        Assert.assertTrue(wqHomePage.check_Login_Link_Available(),"Login Button is Available");
     }
 
     @Test
     public void verify_The_Login_Link_Text(){
         Assert.assertEquals(wqHomePage.check_Login_Link_Text(),"Login");
+       System.out.println("Login Text Verified");
     }
 
     @Test
     public void verify_The_Login_Link_Leads_To_Login_Page()
     {
+        String URL="http://qa.webquarters.com:33366/_layouts/15/TA.WQ.Web/Login.aspx";
         wqHomePage.
-                action_Navigate_To_LoginPage().
-                check_Login_Page_URL();
+                action_Navigate_To_LoginPage();
+        Assert.assertEquals(URL,wqHomePage.check_Login_Page_URL());
     }
 
     //Sign Up Features
 
     @Test
     public void verify_The_SignUp_Link_Is_Available(){
-        wqHomePage.
-                check_SignUp_Link_Available();
+
+        Assert.assertTrue(wqHomePage.check_SignUp_Link_Available(),"Login Button is Available");
+
     }
 
     @Test
     public void verify_The_SignUp_Link_Text(){
-        wqHomePage.
-                check_SignUp_Link_Text();
+
+        Assert.assertEquals(wqHomePage.check_SignUp_Link_Text(),"Sign Up");
+        System.out.println("Sign Up Text Verified");
     }
 
     @Test
     public void verify_The_SignUp_Link_Leads_To_SignUp_Page()
     {
+        String URL="http://qa.webquarters.com:33366/Pages/UserSignUp.aspx";
         wqHomePage.
-                action_Navigate_To_SignUp_Page().
-                check_SignUp_Page_URL();
+                action_Navigate_To_SignUp_Page();
+        Assert.assertEquals(URL,wqHomePage.check_SignUp_Page_URL());
+
+    }
+
+    //Activate Screen Sharing Features
+
+    @Test
+    public void verify_The_Active_Screen_Sharing_Link_Is_Available(){
+
+        Assert.assertTrue(wqHomePage.check_Active_Screen_Sharing_Link_Available(),"Activate Screen Sharing Button is Available");
+
+    }
+
+    @Test
+    public void verify_The_Active_Screen_Sharing_Link_Text(){
+
+        Assert.assertEquals(wqHomePage.check_Active_Screen_Sharing_Link_Text(),"Activate Screen Sharing");
+        System.out.println("Activate Screen Sharing Button Text Verified");
+    }
+
+    @Test
+    public void verify_The_Active_Screen_Sharing_Link_Leads_To_Activation_Screen_Overlay()
+    {
+      //  String URL="http://qa.webquarters.com:33366/Pages/UserSignUp.aspx";
+       // wqHomePage.
+             //   action_Navigate_To_Active_Screen_Sharing_Page();
+       // Assert.assertEquals(URL,wqHomePage.check_Active_Screen_Sharing_Page_URL());
+
     }
 
 

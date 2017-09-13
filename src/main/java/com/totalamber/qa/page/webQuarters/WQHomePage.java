@@ -29,44 +29,39 @@ public class WQHomePage  implements wqHomePage {
         return this;
     }
 
-
     public Boolean check_Login_Link_Available()  {
         return seleniumBase.checkIsElementEnabled(HOMEPAGE_LOGIN_BTN_XPATH);
-
-
     }
 
 
     public String check_Login_Link_Text() {
         return seleniumBase.getText(HOMEPAGE_LOGIN_BTN_CSS,HOMEPAGE_LOGIN_BTN_XPATH);
 
-    }
-
-    public WQHomePage check_Login_Page_URL() {
-        String URL= seleniumBase.getCurrentUrl();
-        Assert.assertEquals(URL,"http://qa.webquarters.com:33366/_layouts/15/TA.WQ.Web/Login.aspx");
-        System.out.println("Login Button Link Leads To Login Page");
-        return this;
-    }
-
-    public WQHomePage check_SignUp_Link_Available() {
-        seleniumBase.checkIsElementEnabled(HOMEPAGE_SIGNUP_BTN_XPATH);
-        return this;
-    }
-
-    public WQHomePage check_SignUp_Link_Text() {
-        String text=seleniumBase.getText(HOMEPAGE_SIGNUP_BTN_CSS,HOMEPAGE_SIGNUP_BTN_XPATH);
-        Assert.assertEquals(text,"Sign Up");
-        System.out.println("Sign Up Button Link Text Verified");
-        return this;
 
     }
 
-    public WQHomePage check_SignUp_Page_URL() {
+    public String check_Login_Page_URL() {
+        return seleniumBase.getCurrentUrl();
+    }
 
-        String URL= seleniumBase.getCurrentUrl();
-        Assert.assertEquals(URL,"http://qa.webquarters.com:33366/Pages/UserSignUp.aspx");
-        System.out.println("Sign Up Button Link Leads To SignUp Page");
-        return this;
+    public Boolean check_SignUp_Link_Available() {
+       return seleniumBase.checkIsElementEnabled(HOMEPAGE_SIGNUP_BTN_XPATH);
+
+    }
+
+    public String check_SignUp_Link_Text() {
+       return seleniumBase.getText(HOMEPAGE_SIGNUP_BTN_CSS,HOMEPAGE_SIGNUP_BTN_XPATH);
+    }
+
+    public String check_SignUp_Page_URL() {
+        return seleniumBase.getCurrentUrl();
+    }
+
+    public boolean check_Active_Screen_Sharing_Link_Available() {
+        return seleniumBase.checkIsElementEnabled(HOMEPAGE_ACTIVATE_SCREEN_SHARING_BTN_XPATH);
+    }
+
+    public String check_Active_Screen_Sharing_Link_Text() {
+        return seleniumBase.getText(HOMEPAGE_ACTIVATE_SCREEN_SHARING_BTN_CSS,HOMEPAGE_ACTIVATE_SCREEN_SHARING_BTN_XPATH);
     }
 }

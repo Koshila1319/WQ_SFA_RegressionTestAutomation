@@ -30,6 +30,7 @@
 					<include name="verify_The_SignUp_Link_Is_Available"/>
 					<include name="verify_The_SignUp_Link_Text"/>
 					<include name="verify_The_SignUp_Link_Leads_To_SignUp_Page"/>
+					<include name="verify_The_Active_Screen_Sharing_Link_Is_Available"/>
 				</methods>
 			</class>
 
