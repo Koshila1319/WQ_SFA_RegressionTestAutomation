@@ -3,6 +3,7 @@ package com.totalamber.qa.page.webQuarters;
 import com.totalamber.qa.automation.SeleniumBase;
 import com.totalamber.qa.automation.TestBase;
 import com.totalamber.qa.data.UI.elements.webQuarters.wqBackOfficeLoginPage;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,20 +32,37 @@ public class WQBackOfficeLoginPage extends TestBase implements wqBackOfficeLogin
         return seleniumBase.getText(BO_SIGNIN_PAGECONTENT_CSS, BO_SIGNIN_PAGECONTENT_XPATH);
     }
 
-    public void validate_Dropdown_Availability() {
-        Assert.assertNotNull(BO_SIGNIN_DROPDOWN_XPATH);
+    public boolean validate_Dropdown_Availability() {
+        return seleniumBase.checkIsElementEnabled(BO_SIGNIN_DROPDOWN_XPATH);
     }
 
-    public void validate_selectingDropdown() {
+    public WQBackOfficeLoginPage validate_selectingDropdown() {
         seleniumBase.click(BO_SIGNIN_DROPDOWN_XPATH,BO_SIGNIN_DROPDOWN_CSS);
+        return this;
     }
 
-    public void validate_Options_In_Dropdown() {
+/*    public void validate_Options_In_Dropdown() {
         seleniumBase.checkDropdownCount(BO_SIGNIN_DROPDOWN_XPATH);
         seleniumBase.checkDropdownTextValue(BO_SIGNIN_DROPDOWN_XPATH);
+    }*/
+
+    public String validate_Option_Value_In_Dropdown(String option) {
+        return seleniumBase.checkDropdownTextValue(BO_SIGNIN_DROPDOWN_XPATH, option);
     }
 
-    public void validate_Option_Value_In_Dropdown(String option) {
-        Assert.assertEquals(option, seleniumBase.checkDropdownTextValue(BO_SIGNIN_DROPDOWN_XPATH));
+    public WQBackOfficeLoginPage validate_selecting_WindowsAuth_In_Dropdown(String option) throws InterruptedException {
+        seleniumBase.selectByVisibleText(BO_SIGNIN_DROPDOWN_CSS, BO_SIGNIN_DROPDOWN_XPATH, option);
+        return this;
     }
+
+    public WQBackOfficeLoginPage action_Login_as_BOUser(String userName, String password) {
+        seleniumBase.passValuesThroughUrl(userName,password);
+        return this;
+    }
+
+    public WQBackOfficeLoginPage action_selectAuthentication(String authentication) {
+        seleniumBase.selectByVisibleText(BO_SIGNIN_DROPDOWN_CSS, BO_SIGNIN_DROPDOWN_XPATH, authentication);
+        return this;
+    }
+
 }

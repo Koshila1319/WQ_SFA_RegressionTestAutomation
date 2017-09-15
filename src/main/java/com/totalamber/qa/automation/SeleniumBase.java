@@ -14,9 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
@@ -977,20 +975,22 @@ public class SeleniumBase {
         System.out.print(allOptions.size());
     }
 
-    public String checkDropdownTextValue(String xPath) {
+    public String checkDropdownTextValue(String xPath, String option) {
         String value= null;
         WebElement dropdown = SeleniumBase.driver.findElement(By.xpath(xPath));
         Select select = new Select(dropdown);
         List<WebElement> allOptions = select.getOptions();
         for (int i=0; i<allOptions.size(); i++){
-           value = allOptions.get(i).getText();
-            System.out.println(value);
+            value = allOptions.get(i).getText();
+            //System.out.println(value);
+
         }
         return value;
     }
 
+    public String readValueFromTextBox(String xpath){
 
-
-
+        return driver.findElement(By.xpath(xpath)).getAttribute("value");
+    }
 
 }
