@@ -1001,7 +1001,7 @@ public class SeleniumBase {
     }
 
 
-
-
-
+	public String getTitle() {
+		 return driver.getTitle();
+	}
 }

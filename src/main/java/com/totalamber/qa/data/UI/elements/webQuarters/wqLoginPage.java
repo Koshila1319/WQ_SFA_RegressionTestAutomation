@@ -16,4 +16,6 @@ public interface wqLoginPage {
     public final String LOGIN_ERROR_MSG_XPATH = ".//*[@id='ctl00_PlaceHolderMain_signInControl']/tbody/tr/td/div/div/div[2]";
     public final String LOGIN_ERROR_MSG_CSS = "div.error-msg";
 
+    public final String LOGIN_PAGE_WQ_LOGO_XPATH="//img[contains(@src,'/_catalogs/masterpage/WQ/Images/main-talogo-b.jpg')]";
+    public final String LOGIN_PAGE_ACTIVATE_SCREEN_SHARING_XPATH="//*[@id='engagementTab']";
 }

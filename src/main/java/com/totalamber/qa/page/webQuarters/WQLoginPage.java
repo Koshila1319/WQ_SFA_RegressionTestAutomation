@@ -51,5 +51,20 @@ public class WQLoginPage extends TestBase implements wqLoginPage {
     }
 
 
+    public String check_Login_Page_Browser_Title() {
+        return seleniumBase.getTitle();
+    }
 
+    public void check_WQ_Logo_Is_Available() {
+        seleniumBase.checkIsElementEnabled(LOGIN_PAGE_WQ_LOGO_XPATH);
+    }
+
+    public void check_Login_Page_Live_Assitane_Option_Available() {
+
+        seleniumBase.checkIsElementEnabled(LOGIN_PAGE_ACTIVATE_SCREEN_SHARING_XPATH);
+    }
+
+    public void check_Username_Feild_Is_Available() {
+        seleniumBase.checkIsElementEnabled(LOGIN_USER_NAME_XPATH);
+    }
 }

@@ -93,6 +93,59 @@ public class WQLoginTest extends TestBase {
                 check_And_Validate_Error_Message();
     }
 
+//Login Page General
 
+    @Test
+    public void verify_The_Login_Page_Browser_Title()
+    {
+        String title="Sign In";
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        Assert.assertEquals(title,wqLoginPage.check_Login_Page_Browser_Title());
+
+    }
+
+    @Test
+    public void verify_The_WQ_LogoIs_Available()
+    {
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        wqLoginPage.check_WQ_Logo_Is_Available();
+
+    }
+
+    @Test
+    public void verify_The_Login_Page_Live_Assistance_Option_Is_Available()
+    {
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        wqLoginPage.check_Login_Page_Live_Assitane_Option_Available();
+    }
+
+    //Username
+
+    @Test
+    public void verify_The_Username_Field_Is_Available()
+    {
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        wqLoginPage.check_Username_Feild_Is_Available();
+    }
+
+    @Test
+    public void verify_The_Username_Field_Enter_Text_Types()
+    {
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        String username;
+
+    //public UsernameCheck(String username) {
+       // this.username = username;
+    //}
+
+      //  public Boolean isValid() {
+        //return this.username.matches("[a-zA-Z0-9\\.]+@[a-zA-Z0-9\\-\\_\\.]+\\.[a-zA-Z0-9]{3}");
+    //}
+    }
 
 }

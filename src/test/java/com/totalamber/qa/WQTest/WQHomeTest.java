@@ -104,8 +104,8 @@ public class WQHomeTest extends TestBase{
     @Test
     public void verify_The_Home_Page_Browser_Title()
     {
-        String URL="http://qa.webquarters.com:33366/Pages/home.aspx";
-        Assert.assertEquals(URL,wqHomePage.check_Browser_Title());
+        String title="WebQuarters Home Page";
+        Assert.assertEquals(title,wqHomePage.check_Browser_Title());
         System.out.println("Browser Title Verified");
 
     }

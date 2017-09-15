@@ -80,7 +80,7 @@ public class WQHomePage  implements wqHomePage {
     }
 
     public String check_Browser_Title() {
-        return seleniumBase.getCurrentUrl();
+        return seleniumBase.getTitle();
     }
 
     public boolean verify_Logo_Available() {
