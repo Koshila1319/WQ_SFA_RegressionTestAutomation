@@ -2,9 +2,7 @@ package com.totalamber.qa.WQTest;
 
 import com.totalamber.qa.automation.TestBase;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 
@@ -161,14 +159,53 @@ public class WQLoginTest extends TestBase {
     }
 
     @Test
-    public void verify_The_Active_Screen_Sharing_Link_Leads_To_Activation_Screen_Overlay()
-    {
-      //  String URL="http://qa.webquarters.com:33366/Pages/UserSignUp.aspx";
-       // wqHomePage.
-             //   action_Navigate_To_Active_Screen_Sharing_Page();
-       // Assert.assertEquals(URL,wqHomePage.check_Active_Screen_Sharing_Page_URL());
+    public void verify_The_Active_Screen_Sharing_Link_Leads_To_Activation_Screen_Overlay() throws InterruptedException {
+        wqHomePage.
+                action_Navigate_To_Activation_Screen_Overlay().
+                check_Active_Screen_Sharing_Overlay();
+
 
     }
 
+    // Home Page General Features
+
+    @Test
+    public void verify_The_Home_Page_Browser_Title()
+    {
+        String URL="http://qa.webquarters.com:33366/Pages/home.aspx";
+        Assert.assertEquals(URL,wqHomePage.check_Browser_Title());
+        System.out.println("Browser Title Verified");
+
+    }
+
+    @Test
+    public void verify_The_WQ_Logo_On_Home_Page()
+    {
+        Assert.assertTrue(wqHomePage.verify_Logo_Available(),"WQ Logo is Available");
+    }
+
+    @Test
+    public void verify_Home_Page_The_Live_Assistance_Option_Is_Available() throws InterruptedException {
+        wqHomePage.
+                action_Navigate_To_Live_Assistance_Option().
+                check_Active_Screen_Sharing_Overlay();
+    }
+
+    @Test
+    public void verify_The_Watch_Video_Option_Is_Available() throws InterruptedException {
+        wqHomePage.check_Watch_Video_Options_Available();
+    }
+
+    @Test
+    public void verify_Video_One_Link_Leads_To_Lose_Your_Middleman_Video()
+    {
+        wqHomePage.check_Middleman_Video_Link();
+    }
+
+    @Test
+    public void verify_Video_Two_Link_Leads_To_Support_Your_Superheroes_Video()
+    {
+        wqHomePage.check_Superheroes_Video_Link();
+    }
 
 }
