@@ -101,4 +101,10 @@ public class WQHomePage  implements wqHomePage {
     public void check_Superheroes_Video_Link() {
         seleniumBase.click(HOMEPAGE_WQ_SUPERHEROES1_VIDEO_XPATH,HOMEPAGE_WQ_SUPERHEROES1_VIDEO_CSS);
     }
+
+    public WQHomePage check_Login_Button_Text()  {
+        String text = seleniumBase.getTextByAttribute( HOMEPAGE_LOGIN_BTN_CSS,HOMEPAGE_LOGIN_BTN_XPATH,"value" );
+        System.out.println("Text is:" + text);
+        return this;
+    }
 }
