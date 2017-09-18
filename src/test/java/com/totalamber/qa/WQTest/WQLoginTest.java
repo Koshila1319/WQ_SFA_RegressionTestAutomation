@@ -19,46 +19,12 @@ public class WQLoginTest extends TestBase {
         setSiteURL(siteUrl);
 
     }
-    @AfterMethod
+    /*@AfterMethod
     public void endTestMethod() throws Throwable{
         quitDriver();
     }
+    */
 
-
-    @Test(enabled = false)
-    public void verify_User_Enter_Valid_Login_Credentials() throws Exception {
-        String Uname = data.getValueByName("VALIDUNAME");
-        String Password = data.getValueByName("VALIDPASSWORD");
-        wqHomePage.
-                action_Navigate_To_LoginPage();
-        wqLoginPage.
-                Step_User_Enter_Given_Credentials(Uname,Password).
-                step_User_Click_Login_Button();
-    }
-
-    @Test
-    public void verify_User_Leave_User_Credential_Fields_Blank() throws Exception{
-        String Uname = data.getValueByName("BLANKUNAME");
-        String Password = data.getValueByName("BLANKPASSWORD");
-        wqHomePage.
-                action_Navigate_To_LoginPage();
-        wqLoginPage.
-                Step_User_Enter_Given_Credentials(Uname,Password).
-                step_User_Click_Login_Button().
-                check_And_Validate_Error_Message();
-    }
-
-    @Test
-    public void verify_User_Enter_A_Invalid_UName_And_Valid_Password() throws Exception{
-        String Uname = "INVALIDUNAME";
-        String Password = "VALIDPASSWORD";
-        wqHomePage.
-                action_Navigate_To_LoginPage();
-        wqLoginPage.
-                Step_User_Enter_Given_Credentials(Uname,Password).
-                step_User_Click_Login_Button().
-                check_And_Validate_Error_Message();
-    }
     @Test
     public void verify_User_Enter_A_Valid_UName_And_Blank_Password() throws Exception{
         String Uname = "VALIDUNAME";
@@ -66,21 +32,11 @@ public class WQLoginTest extends TestBase {
         wqHomePage.
                 action_Navigate_To_LoginPage();
         wqLoginPage.
-                Step_User_Enter_Given_Credentials(Uname,Password).
+                step_User_Enter_Given_Credentials(Uname,Password).
                 step_User_Click_Login_Button().
                 check_And_Validate_Error_Message();
     }
-    @Test
-    public void verify_User_Enter_A_Valid_UName_And_Invalid_Password() throws Exception{
-        String Uname = "VALIDUNAME";
-        String Password = "INVALIDPASSWORD";
-        wqHomePage.
-                action_Navigate_To_LoginPage();
-        wqLoginPage.
-                Step_User_Enter_Given_Credentials(Uname,Password).
-                step_User_Click_Login_Button().
-                check_And_Validate_Error_Message();
-    }
+
     @Test
     public void verify_User_Logout() throws Exception{
         String Uname = "VALIDUNAME";
@@ -88,7 +44,7 @@ public class WQLoginTest extends TestBase {
         wqHomePage.
                 action_Navigate_To_LoginPage();
         wqLoginPage.
-                Step_User_Enter_Given_Credentials(Uname,Password).
+                step_User_Enter_Given_Credentials(Uname,Password).
                 step_User_Click_Login_Button().
                 check_And_Validate_Error_Message();
     }
@@ -137,15 +93,146 @@ public class WQLoginTest extends TestBase {
     {
         wqHomePage.
                 action_Navigate_To_LoginPage();
-        String username;
-
-    //public UsernameCheck(String username) {
-       // this.username = username;
-    //}
-
-      //  public Boolean isValid() {
-        //return this.username.matches("[a-zA-Z0-9\\.]+@[a-zA-Z0-9\\-\\_\\.]+\\.[a-zA-Z0-9]{3}");
-    //}
+        wqLoginPage.check_Username_Feild_Text_Types();
     }
 
+    @Test
+    public void verify_The_Username_PlaceHold_Text()
+    {
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        wqLoginPage.check_Username_PlaceHold_Text();
+
+    }
+
+    //Password
+
+    @Test
+    public void verify_The_Password_Field_Is_Available()
+    {
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        wqLoginPage.check_Password_Feild_Is_Available();
+    }
+
+    @Test
+    public void verify_The_Password_Is_Display_Set_Secured()
+    {
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        wqLoginPage.check_Password_Feild_Is_Secured();
+
+    }
+
+    @Test
+    public  void verify_The_Password_Place_Hold_Text() {
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        wqLoginPage.check_Password_PlaceHold_Text();
+    }
+
+    //log me in button
+
+    @Test
+    public void verify_The_Login_Button_Is_Available()
+    {
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        wqLoginPage.check_Login_Button_Available();
+    }
+
+    @Test
+    public void verify_The_Login_Button_Text()
+    {
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        Assert.assertEquals(wqLoginPage.check_Login_Button_Text(),"Log me in!");
+        System.out.println("Login Button Text Verified");
+    }
+
+    //validate password feild with correct username and password
+
+    @Test
+    public void verify_The_Login_Button_With_Cor_UN_PW() throws Exception {
+        String Uname = data.getValueByName("VALIDUNAME");
+        String Password = data.getValueByName("VALIDPASSWORD");
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        wqLoginPage.
+                step_User_Enter_Given_Credentials(Uname,Password).
+                step_User_Click_Login_Button();
+    }
+
+    @Test
+    public void verify_The_Login_Button_With_Incor_UN_Corr_PW() throws Exception{
+        String Uname = data.getValueByName("INVALIDUNAME");
+        String Password = data.getValueByName("VALIDPASSWORD");
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        wqLoginPage.
+                step_User_Enter_Given_Credentials(Uname,Password).
+                step_User_Click_Login_Button().
+                check_And_Validate_Error_Message();
+    }
+
+    @Test
+    public void verify_The_Login_Button_With_Cor_UN_Incor_PW() throws Exception{
+        String Uname = data.getValueByName("VALIDUNAME");
+        String Password = data.getValueByName("INVALIDPASSWORD");
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        wqLoginPage.
+                step_User_Enter_Given_Credentials(Uname,Password).
+                step_User_Click_Login_Button().
+                check_And_Validate_Error_Message();
+    }
+
+    @Test
+    public void verify_The_Login_Button_With_Incor_UN_Incor_PW() throws Exception{
+        String Uname = data.getValueByName("INVALIDUNAME");
+        String Password = data.getValueByName("INVALIDPASSWORD");
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        wqLoginPage.
+                step_User_Enter_Given_Credentials(Uname,Password).
+                step_User_Click_Login_Button().
+                check_And_Validate_Error_Message();
+    }
+
+    @Test
+    public void verify_The_Login_Button_With_Empty_Credentials() throws Exception{
+        String Uname = data.getValueByName("BLANKUNAME");
+        String Password = data.getValueByName("BLANKPASSWORD");
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        wqLoginPage.
+                step_User_Enter_Given_Credentials(Uname,Password).
+                step_User_Click_Login_Button().
+                check_And_Validate_Error_Message();
+    }
+
+    @Test
+    public void verify_The_Login_Button_With_Empty_UN_Corr_PW() throws Exception {
+        String Uname = data.getValueByName("BLANKUNAME");
+        String Password = data.getValueByName("VALIDPASSWORD");
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        wqLoginPage.
+                step_User_Enter_Given_Credentials(Uname,Password).
+                step_User_Click_Login_Button().
+                check_And_Validate_Error_Message();
+    }
+
+
+    @Test
+    public void verify_The_Login_Button_With_Empty_PW_Corr_UN() throws Exception {
+        String Uname = data.getValueByName("VALIDUNAME");
+        String Password = data.getValueByName("BLANKPASSWORD");
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        wqLoginPage.
+                step_User_Enter_Given_Credentials(Uname,Password).
+                step_User_Click_Login_Button().
+                check_And_Validate_Error_Message();
+    }
 }

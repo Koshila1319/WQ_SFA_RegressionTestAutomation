@@ -1,6 +1,9 @@
 package com.totalamber.qa.automation;
 
 
+import jdk.nashorn.internal.runtime.regexp.RegExp;
+import jdk.nashorn.internal.runtime.regexp.RegExpResult;
+import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -12,12 +15,15 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class SeleniumBase {
@@ -29,8 +35,6 @@ public class SeleniumBase {
 
 	private boolean isElementEnabled;
 	String chromeDriverPath = "src\\resource\\chromedriver_win32\\";
-
-
 
 
 	public WebDriver getdriver() {
@@ -365,11 +369,11 @@ public class SeleniumBase {
 
 	}
 
-	public String getTextByAttribute(String css,String xpath,String attribute){
+	public String getTextByAttribute(String css, String xpath, String attribute) {
 
 		String text;
 
-		text = getElement(css,xpath).getAttribute(attribute);
+		text = getElement(css, xpath).getAttribute(attribute);
 
 		return text;
 
@@ -894,7 +898,7 @@ public class SeleniumBase {
 
 		for (WebElement cell : columns) {
 			if (cell.getText().equals(value)) {
-				System.out.println("webQuarters value : "+ cell.getText() + " is Match with SysAid value : "+ value);
+				System.out.println("webQuarters value : " + cell.getText() + " is Match with SysAid value : " + value);
 				str = cell.getText();
 			}
 			break;
@@ -907,25 +911,25 @@ public class SeleniumBase {
 
 		List<String> list = new ArrayList<String>();
 
-			for (int i=1;i<=1;i++){
-				String sValue = null;
-				String sRowValue = null;
+		for (int i = 1; i <= 1; i++) {
+			String sValue = null;
+			String sRowValue = null;
 
-				sValue = driver.findElement(By.xpath(xpathToTable+"/tbody/tr["+i+"]")).getText();
+			sValue = driver.findElement(By.xpath(xpathToTable + "/tbody/tr[" + i + "]")).getText();
 
-				if(sValue.equalsIgnoreCase(value)) {
+			if (sValue.equalsIgnoreCase(value)) {
 
-					for (int j = 1; j <= 6; j++) {
-						list.add(sRowValue = driver.findElement(By.xpath(xpathToTable+"/tbody/tr[" + i + "]/td[" + j + "]")).getText());
+				for (int j = 1; j <= 6; j++) {
+					list.add(sRowValue = driver.findElement(By.xpath(xpathToTable + "/tbody/tr[" + i + "]/td[" + j + "]")).getText());
 
-						System.out.println(sRowValue);
-					}
-					break;
+					System.out.println(sRowValue);
 				}
+				break;
 			}
-					System.out.println(list);
-			return list;
 		}
+		System.out.println(list);
+		return list;
+	}
 
 	//Click view button of a case in Resolve Case Page
 	public void clickResolveCaseViewButton(String value) {
@@ -937,71 +941,95 @@ public class SeleniumBase {
 			for (int j = 2; j <= 3; i++) {
 				String xpathValue = null;
 
-                xpathValue = driver.findElement(By.xpath("//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']/tbody/tr[" + i + "]/td/li/table/tbody/tr/td[" + j + "]")).getText();
+				xpathValue = driver.findElement(By.xpath("//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']/tbody/tr[" + i + "]/td/li/table/tbody/tr/td[" + j + "]")).getText();
 
 				if (xpathValue.equalsIgnoreCase(value)) {
 
-                    text = "//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']/tbody/tr[" + i + "]/td/li/table/tbody/tr[1]/td[4]/a";
+					text = "//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']/tbody/tr[" + i + "]/td/li/table/tbody/tr[1]/td[4]/a";
 					System.out.println(text);
 
-                    break;
+					break;
 				}
 			}
 		}
 
-       click(text,"");
+		click(text, "");
 	}
 
-    //Click accept button of a case in Resolve Case Page
-    public void clickResolveCaseAcceptButton(String caseID) {
+	//Click accept button of a case in Resolve Case Page
+	public void clickResolveCaseAcceptButton(String caseID) {
 
-        String text = null;
+		String text = null;
 
-        for (int i = 2; i <= 2; i++) {
+		for (int i = 2; i <= 2; i++) {
 
-            for (int j = 2; j <= 3; i++) {
-                String xpathValue = null;
+			for (int j = 2; j <= 3; i++) {
+				String xpathValue = null;
 
-                xpathValue = driver.findElement(By.xpath("//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']/tbody/tr[" + i + "]/td/li/table/tbody/tr/td[" + j + "]")).getText();
+				xpathValue = driver.findElement(By.xpath("//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']/tbody/tr[" + i + "]/td/li/table/tbody/tr/td[" + j + "]")).getText();
 
-                if (xpathValue.equalsIgnoreCase(caseID)) {
+				if (xpathValue.equalsIgnoreCase(caseID)) {
 
-                    text = "//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']/tbody/tr[" + i + "]/td/li/table/tbody/tr[2]/td[4]/div/input";
-                    System.out.println(text);
+					text = "//*[@id='ctl00_ctl39_g_E3A572C8_40D0_4EE1_B662_3E7A56472F80_ctl00_SupportCaseDataList']/tbody/tr[" + i + "]/td/li/table/tbody/tr[2]/td[4]/div/input";
+					System.out.println(text);
 
-                    break;
-                }
-            }
-        }
+					break;
+				}
+			}
+		}
 
-        click(text,"");
-
-
-    }
+		click(text, "");
 
 
+	}
 
-    public void checkDropdownCount(String xPath) {
-        WebElement dropdown = SeleniumBase.driver.findElement(By.xpath(xPath));
-        Select select = new Select(dropdown);
-        List<WebElement> allOptions = select.getOptions();
-        System.out.print(allOptions.size());
-    }
 
-    public String checkDropdownTextValue(String xPath) {
-        String value= null;
-        WebElement dropdown = SeleniumBase.driver.findElement(By.xpath(xPath));
-        Select select = new Select(dropdown);
-        List<WebElement> allOptions = select.getOptions();
-        for (int i=0; i<allOptions.size(); i++){
-           value = allOptions.get(i).getText();
-            System.out.println(value);
-        }
-        return value;
-    }
+	public void checkDropdownCount(String xPath) {
+		WebElement dropdown = SeleniumBase.driver.findElement(By.xpath(xPath));
+		Select select = new Select(dropdown);
+		List<WebElement> allOptions = select.getOptions();
+		System.out.print(allOptions.size());
+	}
+
+	public String checkDropdownTextValue(String xPath) {
+		String value = null;
+		WebElement dropdown = SeleniumBase.driver.findElement(By.xpath(xPath));
+		Select select = new Select(dropdown);
+		List<WebElement> allOptions = select.getOptions();
+		for (int i = 0; i < allOptions.size(); i++) {
+			value = allOptions.get(i).getText();
+			System.out.println(value);
+		}
+		return value;
+	}
 
 
 	public String getTitle() {
-		 return driver.getTitle();
+
+		return driver.getTitle();
 	}
+
+
+	public void validate_Email_Address(String name) {
+
+		if (null != name) {
+			String regex = "^([_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{1,6}))?$";
+			Pattern pattern = Pattern.compile(regex);
+			Matcher matcher = pattern.matcher(name);
+			if (!matcher.matches()) {
+
+				System.out.println("Invalid Username Feild. Please re-enter the username");
+			}
+			else
+				System.out.println("Valid Username Feild");
+		}
+	}
+
+
 }
+
+
+
+
+
+
