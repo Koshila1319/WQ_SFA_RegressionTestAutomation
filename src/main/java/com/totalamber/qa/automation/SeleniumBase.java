@@ -993,4 +993,23 @@ public class SeleniumBase {
         return driver.findElement(By.xpath(xpath)).getAttribute("value");
     }
 
+    public String splitTextGetNthWord(String word, String delimeter, Integer nthWord){
+
+        String[] sp = word.split(delimeter);
+        System.out.println("Splited data is "+ sp[nthWord-1]);
+        String nthWordtext = sp[nthWord-1];
+        return nthWordtext;
+    }
+
+    //To Clear a Textbox
+    public void clearTextBox(String xPath){
+        driver.findElement(By.xpath(xPath)).clear();
+    }
+
+    public String getPlaceHolderValueFromTextBox(String xPath){
+        return driver.findElement(By.xpath(xPath)).getAttribute("placeholder");
+    }
+
+
+
 }
