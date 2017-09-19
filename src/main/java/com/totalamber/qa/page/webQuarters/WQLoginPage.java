@@ -2,7 +2,6 @@ package com.totalamber.qa.page.webQuarters;
 
 
 import com.totalamber.qa.automation.SeleniumBase;
-import com.totalamber.qa.automation.TestBase;
 import com.totalamber.qa.data.UI.elements.webQuarters.wqLoginPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -11,7 +10,7 @@ import org.testng.Assert;
 /**
  * Created by s.rodrigo on 9/1/2017.
  */
-public class WQLoginPage extends TestBase implements wqLoginPage {
+public class WQLoginPage implements wqLoginPage {
 
     SeleniumBase seleniumBase;
 
@@ -19,6 +18,7 @@ public class WQLoginPage extends TestBase implements wqLoginPage {
         seleniumBase = new SeleniumBase(driver);
     }
 
+    //suranjith
     public WQLoginPage step_User_Enter_Given_Credentials (String Uname, String Password) throws Exception{
         action_Set_User_Credentials(Uname,Password);
         return this;
@@ -50,6 +50,7 @@ public class WQLoginPage extends TestBase implements wqLoginPage {
         return this;
     }
 
+    //shammi
 
     public String check_Login_Page_Browser_Title() {
 
@@ -71,8 +72,8 @@ public class WQLoginPage extends TestBase implements wqLoginPage {
     }
 
 
-    public void check_Username_Feild_Text_Types() {
-        String name= data.getValueByName("username");
+    public void check_Username_Feild_Text_Types(String name) {
+
         seleniumBase.type(LOGIN_USER_NAME_CSS,LOGIN_USER_NAME_XPATH,name);
         seleniumBase.validate_Email_Address(name);
 
@@ -99,7 +100,6 @@ public class WQLoginPage extends TestBase implements wqLoginPage {
 
     public void check_Login_Button_Available() {
         seleniumBase.checkIsElementEnabled(LOGIN_BTN_XPATH);
-
 
     }
 

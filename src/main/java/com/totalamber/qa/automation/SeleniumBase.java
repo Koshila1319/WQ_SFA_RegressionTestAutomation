@@ -709,12 +709,13 @@ public class SeleniumBase {
 	}
 
 	// Select Radio Button
-	public String selectRadioButton() {
+	/*public String selectRadioButton() {
 		WebElement k = driver.findElement(
 				By.xpath("//*[@id='ctl00_ctl39_g_20FD40B8_A9C7_4F4A_BE0C_9888B6CC76E5_ctl00_RadioButtonClient']"));
 		k.click();
 		return null;
-	}
+
+	}*/
 
 	// Email confirmation
 	public String confirmationEmail(String email) {
@@ -785,7 +786,7 @@ public class SeleniumBase {
 
 		System.out.println("Clickable? " + isElementEnabled);
 
-		if (isElementEnabled = true) {
+		if (isElementEnabled == true) {
 			System.out.println("Element Enabled");
 		} else {
 			System.out.println("Element not Enabled");

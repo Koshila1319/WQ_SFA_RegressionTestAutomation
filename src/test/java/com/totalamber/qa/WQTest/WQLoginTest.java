@@ -19,11 +19,14 @@ public class WQLoginTest extends TestBase {
         setSiteURL(siteUrl);
 
     }
-    /*@AfterMethod
+
+    @AfterMethod
     public void endTestMethod() throws Throwable{
         quitDriver();
     }
-    */
+
+
+    //suranjith
 
     @Test
     public void verify_User_Enter_A_Valid_UName_And_Blank_Password() throws Exception{
@@ -48,7 +51,7 @@ public class WQLoginTest extends TestBase {
                 step_User_Click_Login_Button().
                 check_And_Validate_Error_Message();
     }
-
+//shammi
 //Login Page General
 
     @Test
@@ -91,9 +94,10 @@ public class WQLoginTest extends TestBase {
     @Test
     public void verify_The_Username_Field_Enter_Text_Types()
     {
+        String name= data.getValueByName("username");
         wqHomePage.
                 action_Navigate_To_LoginPage();
-        wqLoginPage.check_Username_Feild_Text_Types();
+        wqLoginPage.check_Username_Feild_Text_Types(name);
     }
 
     @Test
@@ -150,7 +154,7 @@ public class WQLoginTest extends TestBase {
         System.out.println("Login Button Text Verified");
     }
 
-    //validate password feild with correct username and password
+
 
     @Test
     public void verify_The_Login_Button_With_Cor_UN_PW() throws Exception {
