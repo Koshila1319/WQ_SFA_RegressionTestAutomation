@@ -58,6 +58,9 @@ public interface wqAMVerifyClientPage {
     public final String AM_VERIFYCLIENTS_VERIFY_BUTTON_XPATH = "//*[contains(@name,'ButtonVerify')]";
     public final String AM_VERIFYCLIENTS_VERIFY_BUTTON_CSS  = "";
 
+    public final String AM_VERIFYPAGE_VERIFY_BUTTON_XPATH = "//*[contains(@name,'ButtonVerify')]";
+    public final String AM_VERIFYPAGE_VERIFY_BUTTON_CSS  = "";
+
     public final String AM_VERIFYCLIENTS_REJECT_BUTTON_XPATH = "//*[contains(@name,'ButtonReject')]";
     public final String AM_VERIFYCLIENTS_REJECT_BUTTON_CSS  = "";
 
@@ -76,7 +79,7 @@ public interface wqAMVerifyClientPage {
     public final String AM_VERIFYCLIENTS_REJECT_POPUP_CANCEL_BUTTON_XPATH = "//*[contains(@class,'btn-main-ful')][contains(@name,'ButtonCancel')]";
     public final String AM_VERIFYCLIENTS_REJECT_POPUP_CANCEL_BUTTON_CSS = "";
 
-    public final String AM_VERIFYCLIENTS_REJECT_POPUP_CLOSE_CROSS_XPATH = "//*[@id='DlgClose2a88872d-381e-4082-a418-5bbade9d0dc8']/span/span/img";
+    public final String AM_VERIFYCLIENTS_REJECT_POPUP_CLOSE_CROSS_XPATH = "//*[@id='dlgTitleBtns']";
     public final String AM_VERIFYCLIENTS_REJECT_POPUP_CLOSE_CROSS_CSS = "";
 
     public final String AM_VERIFYCLIENTS_REJECT_POPUP_ERRORMESSAGE_XPATH = "//*[contains(@id,'_LabelErrorReject')]";

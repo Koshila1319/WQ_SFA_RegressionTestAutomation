@@ -18,8 +18,8 @@ public class WQAMDashboardPage extends TestBase implements wqAMDashboardPage {
         return seleniumBase.verifyAvailableObject(AM_PENDINGCLIENTS_TABLE_XPATH);
     }
 
-    public String check_Client_In_Table_Available(String clientName) {
-        return seleniumBase.checkIsValueExist(AM_PENDINGCLIENTS_TABLE_XPATH, clientName);
+    public String check_Client_In_Table_Available(String clientName) throws InterruptedException {
+        return seleniumBase.clickIsValueExistInArea(AM_PENDINGCLIENTS_TABLE_XPATH, clientName);
     }
 
     public WQAMDashboardPage step_user_clicks_Client(String clientName) {
@@ -169,5 +169,40 @@ public class WQAMDashboardPage extends TestBase implements wqAMDashboardPage {
 
     public boolean validate_Client_List_IsAvailable() {
         return seleniumBase.checkIsElementEnabled(AM_GO_BUTTON_COMPANY_LIST_XPATH);
+    }
+
+    public WQAMDashboardPage step_user_clicks_aClient_from_SearchClient_Area(String clientName){
+        seleniumBase.click(AM_GO_BUTTON_COMPANY_LIST_CLIENTNAME_XPATH,AM_GO_BUTTON_COMPANY_LIST_CLIENTNAME_CSS);
+        return this;
+    }
+
+    public String check_Populated_ClientName_EqualsTo_entered_ClientName() {
+        String LabelText = seleniumBase.getText(AM_GO_BUTTON_COMPANY_LIST_CLIENTNAME_CSS,AM_GO_BUTTON_COMPANY_LIST_CLIENTNAME_XPATH);
+        System.out.println(LabelText);
+        return seleniumBase.splitTextGetNthWord(LabelText," - ",1);
+
+    }
+
+    public WQAMDashboardPage check_TANDCRejectedClients_Table_Available() {
+        seleniumBase.verifyAvailableObject(AM_TANDC_REJECTED_CLIENTS_TABLE_XPATH);
+        return this;
+    }
+
+    public String check_TANDCRejectedClients_Table_HeaderText() {
+        return seleniumBase.verifyDataEquals(AM_TANDC_REJECTED_CLIENTS_TABLE_HEADER_XPATH);
+    }
+
+    public String check_PendingClientsTable_Table_HeaderText() {
+        return seleniumBase.verifyDataEquals(AM_PENDING_CLIENTS_TABLE_HEADER_XPATH);
+    }
+
+    public String check__ClientName_available_In_TANDCRejected_List(String clientName) throws InterruptedException {
+        return seleniumBase.clickIsValueExistInArea(AM_TANDC_REJECTED_CLIENTS_TABLE_XPATH, clientName);
+    }
+
+    public String check_ClientName_EqualsTo_TANDCRejected_Table_ClientName() {
+        String LabelText = seleniumBase.getText(AM_GO_BUTTON_COMPANY_LIST_CLIENTNAME_CSS,AM_GO_BUTTON_COMPANY_LIST_CLIENTNAME_XPATH);
+        System.out.println(LabelText);
+        return seleniumBase.splitTextGetNthWord(LabelText," - ",1);
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Regression">
 <!--
-	<test name="Account Manager Test">
+	<test name="Account Manager Login Test">
 		<classes>
 			<class name="com.totalamber.qa.WQTest.WQBackOfficeLoginTest">
 				<methods>
@@ -23,7 +23,33 @@
 			<class name="com.totalamber.qa.WQTest.WQAMDashboardTest">
 				<methods>
 					<include name = "verify_PendingClientsTable_Available" />
-					<include name = "verify_The_Page_Browser_Title" />
+					<include name = "verify_TableHeaderText_PendingClientsTable_Table_Available" />
+					<!--<include name = "verify_Client_In_PendingClients_List_IsAvailable" />
+					<include name = "verify_Client_Available_to_Click_and_Navigate" />
+					<include name = "verify_CompanyDetails_In_VerifyPage" />
+					<include name = "verify_ClientDetails_In_VerifyPage" />
+					<include name = "verify_SoftwareExperience_In_VerifyPage" />
+					<include name = "verify_VerifyButton_Available_In_VerifyPage" />
+					<include name = "verify_VerifyButton_Text_Available_In_VerifyButton_In_VerifyPage" />
+					<include name = "verify_Click_VerifyButton_InVerifyPage_goesTo_AMDashboard" />
+					<include name = "verify_RejectButton_Available_InVerifyPage" />
+					<include name = "verify_RejectButton_Text_Available_In_RejectButton_In_VerifyPage" />
+					<include name = "verify_Click_RejectButton_InVerifyPage_gives_Popup" />
+					<include name = "verify_Title_Available_In_RejectPopUp" />
+					<include name = "verify_CommentBox_Available_InRejectPopUp" />
+					<include name = "verify_CommentBox_PlaceHolder_Available_InRejectPopUp" />
+					<include name = "verify_Entering_Text_To_CommentBox_InRejectPopUp" />
+					<include name = "verify_RejectButton_Available_InRejectPopUp" />
+					<include name = "verify_Textof_RejectButton_InRejectPopUp" />
+					<include name = "verify_Textof_CancelButton_InRejectPopUp" />
+					<include name = "verify_CancelButton_Available_InRejectPopUp" />
+					<include name = "verify_Close_Cross_Available_InRejectPopUp" />
+					<include name = "verify_Click_Close_Button_InRejectPopup_Goes_To_VerifyPage" />
+					<include name = "verify_ClickReject_Button_Without_Reason_InRejectPopup_Gives_Error_Message" />
+					<include name = "verify_ClickCancel_Button_InRejectPopup_withText_Goes_To_VerifyPage" />
+					<include name = "verify_ClickCancel_Button_InRejectPopup_withoutText_Goes_To_VerifyPage" />
+					<include name = "verify_ClickReject_Button_With_Reason_InRejectPopup_GoesTo_AMDashboard" />
+					<include name = "verify_The_Home_Page_Browser_Title" />
 					<include name = "verify_HomeLink_IsHighlighted" />
 					<include name = "verify_SignedInAs_Name_Available" />
 					<include name = "verify_SignOut_Link_Available" />
@@ -58,28 +84,12 @@
 					<include name = "verify_Go_ButtonClick_WithoutAny_CompanyName_gives_ErrorMessage" />
 					<include name = "verify_Go_ButtonClick_With_Invalid_CompanyName_gives_ErrorMessage" />
 					<include name = "verify_Go_ButtonClick_With_Valid_CompanyName_gives_ListOf_Companies" />
-					<include name = "verify_Client_In_PendingClients_List_IsAvailable" />
-					<include name = "verify_Client_In_PendingClients_List_IsAvailable" />
-					<include name = "verify_Client_Available_to_Click_and_Navigate" />
-					<include name = "verify_CompanyDetails_In_VerifyPage" />
-					<include name = "verify_ClientDetails_In_VerifyPage" />
-					<include name = "verify_SoftwareExperience_In_VerifyPage" />
-					<include name = "verify_VerifyButton_Available_In_VerifyPage" />
-					<include name = "verify_VerifyButton_Text_Available_In_VerifyButton_In_VerifyPage" />
-					<include name = "verify_RejectButton_Available_InVerifyPage" />
-					<include name = "verify_RejectButton_Text_Available_In_RejectButton_In_VerifyPage" />
-					<include name = "verify_Click_VerifyButton_InVerifyPage_goesTo_AMDashboard" />
-					<include name = "verify_Click_RejectButton_InVerifyPage_gives_Popup" />
-					<include name = "verify_Title_Available_In_RejectPopUp" />
-					<include name = "verify_CommentBox_Available_InRejectPopUp" />
-					<include name = "verify_CommentBox_PlaceHolder_Available_InRejectPopUp" />
-					<include name = "verify_Entering_Text_To_CommentBox_InRejectPopUp" />
-					<include name = "verify_RejectButton_Available_InRejectPopUp" />
-					<include name = "verify_CancelButton_Available_InRejectPopUp" />
-					<include name = "verify_CloseCross_Available_InRejectPopUp" />
-					<include name = "verify_ClickReject_Button_Without_Reason_InRejectPopup_Gives_Error_Message" />
-					<include name = "verify_ClickCancel_Button_InRejectPopup_withText_Goes_To_VerifyPage" />
-					<include name = "verify_ClickCancel_Button_InRejectPopup_withoutText_Goes_To_VerifyPage" />
+					<include name = "verify_Searching_aValidCompany_and_ClickaCompany_FromList_goesTo_ClientProfilePage" />-->
+
+					<include name = "verify_TANDCRejectedClients_Table_Available" />
+					<include name = "verify_TableHeaderText_TANDCRejectedClients_Table_Available" />
+
+
 				</methods>
 			</class>
 		</classes>

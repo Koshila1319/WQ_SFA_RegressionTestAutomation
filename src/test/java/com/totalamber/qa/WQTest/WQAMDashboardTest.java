@@ -38,240 +38,23 @@ public class WQAMDashboardTest extends TestBase {
         wqBackOfficeLoginPage.action_selectAuthentication(WindowsAuthOption);
         Thread.sleep(10000);
         Assert.assertNotNull(wqamDashboardPage.check_Pending_Client_Table_Available());
+
     }
 
     @Test
-    public void verify_The_Home_Page_Browser_Title(){
-        String aMDashboardBrowserTitle = data.getValueByName("AM_HomePage");
-        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),aMDashboardBrowserTitle);
+    public void verify_TableHeaderText_PendingClientsTable_Table_Available() throws InterruptedException {
+        String pendingClients_TableHeader = data.getValueByName("pendingClients_TableHeader");
+        Assert.assertEquals(wqamDashboardPage.check_PendingClientsTable_Table_HeaderText(),pendingClients_TableHeader);
+
     }
 
     @Test
-    public void verify_HomeLink_IsHighlighted(){
-        Assert.assertNotNull(wqPanel.validate_Homelink_is_highlighted());
+    public void verify_Client_In_PendingClients_List_IsAvailable() throws InterruptedException {
+        /*wqPanel.check_User_goes_To_HomePage();
+        verify_The_Home_Page_Browser_Title();*/
+        String clientName = data.getValueByName("ClientName");
+        Assert.assertNotNull(wqamDashboardPage.check_Client_In_Table_Available(clientName));
     }
-
-    @Test
-    public void verify_SignedInAs_Name_Available(){
-        String signedInAs = data.getValueByName("AM_signedInAs");
-        Assert.assertEquals(wqPanel.validate_signIn_As(),signedInAs);
-    }
-
-    @Test
-    public void verify_SignOut_Link_Available(){
-        Assert.assertNotNull(wqPanel.check_Signout_link_Is_Available());
-    }
-
-    @Test
-    public void verify_FooterArea_Text_Available(){
-        String footerText = data.getValueByName("FooterAreaText");
-        Assert.assertEquals(wqPanel.check_FooterArea_Text_Avaialble(),footerText);
-    }
-
-    //Tile Area --Start--//
-
-    @Test
-    public void verify_ClientsTile_Available(){
-        Assert.assertNotNull(wqamDashboardPage.check_ClientsTile_Is_Available());
-    }
-
-    @Test
-    public void verify_ClientsTile_TileText_Available(){
-        String clientTile = data.getValueByName("clientsTileText");
-        Assert.assertEquals(wqamDashboardPage.validate_Clients_Tile_Text(),clientTile);
-    }
-
-    @Test
-    public void verify_ClientsTile_Click_GoesTo_AssignedClientsPage(){
-        wqamDashboardPage.step_Click_Client_Tile();
-        String clientTilePage = data.getValueByName("clientTilePage");
-        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),clientTilePage);
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
-    }
-
-    @Test
-    public void verify_SuspiciousConnections_Tile_Available(){
-        Assert.assertNotNull(wqamDashboardPage.check_SuspiciousConnections_Tile_Is_Available());
-    }
-
-    @Test
-    public void verify_SuspiciousConnections_Tile_TileText_Available(){
-        String SuspiciousConnectionsTile = data.getValueByName("suspiciousTileText");
-        Assert.assertEquals(wqamDashboardPage.validate_SuspiciousConnections_Tile_Text(),SuspiciousConnectionsTile);
-    }
-
-    @Test
-    public void verify_SuspiciousConnections_Tile_Click_GoesTo_ConnectionSuspicious_Page(){
-        wqamDashboardPage.step_Click_SuspiciousConnections_Tile();
-        String suspiciousTilePage = data.getValueByName("suspiciousTilePage");
-        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),suspiciousTilePage);
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
-    }
-
-    @Test
-    public void verify_Contractor_Matching_Tile_Available(){
-        Assert.assertNotNull(wqamDashboardPage.check_Contractor_Matching_Tile_Is_Available());
-    }
-
-    @Test
-    public void verify_Contractor_Matching_Tile_TileText_Available(){
-        String contractor_MatchingTile = data.getValueByName("contractorMatchTileText");
-        Assert.assertEquals(wqamDashboardPage.validate_Contractor_Matching_Tile_Text(),contractor_MatchingTile);
-    }
-
-    @Test
-    public void verify_Contractor_Matching_Tile_Click_GoesTo_ConsultantSearch_Page(){
-        wqamDashboardPage.step_Click_Contractor_Matching_Tile();
-        String contractorMatchTilePage = data.getValueByName("contractorMatchTilePage");
-        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),contractorMatchTilePage);
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
-    }
-
-    @Test
-    public void verify_Reports_Tile_Available(){
-        Assert.assertNotNull(wqamDashboardPage.check_Reports_Tile_Is_Available());
-    }
-
-    @Test
-    public void verify_Reports_Tile_TileText_Available(){
-        String reportsTileText = data.getValueByName("reportsTileText");
-        Assert.assertEquals(wqamDashboardPage.validate_Reports_Tile_Text(),reportsTileText);
-    }
-
-    @Test
-    public void verify_Reports_Tile_Click_GoesTo_ViewReports_Page(){
-        wqamDashboardPage.step_Click_Reports_Tile();
-        String reportsTilePage = data.getValueByName("reportsTilePage");
-        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),reportsTilePage);
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
-    }
-
-    @Test
-    public void verify_Assign_Users_Tile_Available(){
-        Assert.assertNotNull(wqamDashboardPage.check_Assign_Users_Tile_Is_Available());
-    }
-
-    @Test
-    public void verify_Assign_Users_Tile_TileText_Available(){
-        String assignUsersTileText = data.getValueByName("assignUsersTileText");
-        Assert.assertEquals(wqamDashboardPage.validate_Assign_Users_Tile_Text(),assignUsersTileText);
-    }
-
-    @Test
-    public void verify_Assign_Users_Tile_Click_GoesTo_Assign_Users_Page(){
-        wqamDashboardPage.step_Click_Assign_Users_Tile();
-        String assignUsersTilePage = data.getValueByName("assignUsersTilePage");
-        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),assignUsersTilePage);
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
-    }
-
-    @Test
-    public void verify_Partners_Tile_Available(){
-        Assert.assertNotNull(wqamDashboardPage.check_Partners_Tile_Is_Available());
-    }
-
-    @Test
-    public void verify_Partners_Tile_TileText_Available(){
-        String partnersTileText = data.getValueByName("partnersTileText");
-        Assert.assertEquals(wqamDashboardPage.validate_Partners_Tile_Text(),partnersTileText);
-    }
-
-    @Test
-    public void verify_Partners_Tile_Click_GoesTo_Partners_Page(){
-        wqamDashboardPage.step_Click_Partners_Tile();
-        String partnersTilePage = data.getValueByName("partnersTilePage");
-        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),partnersTilePage);
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
-    }
-
-    @Test
-    public void verify_Contact_Client_Tile_Available(){
-        Assert.assertNotNull(wqamDashboardPage.check_Contact_Client_Tile_Is_Available());
-    }
-
-    @Test
-    public void verify_Contact_Client_Tile_TileText_Available(){
-        String contactClientTileText = data.getValueByName("contactClientTileText");
-        Assert.assertEquals(wqamDashboardPage.validate_Contact_Client_Tile_Text(),contactClientTileText);
-    }
-
-    @Test
-    public void verify_Contact_Client_Tile_Click_GoesTo_Contact_Client_Page(){
-        wqamDashboardPage.step_Click_Contact_Client_Tile();
-        String contactClientTilePage = data.getValueByName("contactClientTilePage");
-        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),contactClientTilePage);
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
-    }
-    //Tile Area finished
-
-    @Test
-    public void verify_EnterCompanyName_Label_Available(){
-        Assert.assertNotNull(wqamDashboardPage.check_EnterCompanyName_Label_Is_Available());
-    }
-
-    @Test
-    public void verify_EnterCompanyName_Label_Text_Available(){
-        String enterCompanyName = data.getValueByName("EnterCompanyNameLabel");
-        Assert.assertEquals(wqamDashboardPage.check_EnterCompanyName_Label_Text(),enterCompanyName);
-    }
-
-    @Test
-    public void verify_EnterCompanyName_TextBox_Available(){
-        Assert.assertNotNull(wqamDashboardPage.check_EnterCompanyName_TextBox_Available());
-    }
-
-    @Test
-    public void verify_EnteringCharacters_To_EnterCompanyName_TextBox(){
-        String textToEnter = data.getValueByName("textToEnter");
-        wqamDashboardPage.validate_Characters_Can_Enter(textToEnter);
-    }
-
-    @Test
-    public void verify_Go_Button_Available(){
-        Assert.assertNotNull(wqamDashboardPage.check_Go_Button_Is_Available());
-    }
-
-    @Test
-    public void verify_Go_Button_Text_Available(){
-        String goButtonText = data.getValueByName("goButton");
-        Assert.assertEquals(wqamDashboardPage.check_GoButton_Text(), goButtonText);
-    }
-
-    @Test
-    public void verify_Go_ButtonClick_WithoutAny_CompanyName_gives_ErrorMessage(){
-        wqamDashboardPage.check_EnterCompanyName_TextBox_isEmpty();
-        String errorMessage_WO_AnyValue = data.getValueByName("errorMessage_WO_AnyValue");
-        wqamDashboardPage.step_click_Go_Button();
-        Assert.assertEquals(wqamDashboardPage.check_Error_Message(), errorMessage_WO_AnyValue);
-    }
-
-    @Test
-    public void verify_Go_ButtonClick_With_Invalid_CompanyName_gives_ErrorMessage(){
-        wqamDashboardPage.check_EnterCompanyName_TextBox_isEmpty();
-        String errorMessage_InvalidCompanyName = data.getValueByName("errorMessage_InvalidCompanyName");
-        String textToEnter = data.getValueByName("textToEnter");
-        wqamDashboardPage.validate_Characters_Can_Enter(textToEnter);
-        wqamDashboardPage.step_click_Go_Button();
-        Assert.assertEquals(wqamDashboardPage.check_Error_Message(), errorMessage_InvalidCompanyName);
-    }
-
-    @Test
-    public void verify_Go_ButtonClick_With_Valid_CompanyName_gives_ListOf_Companies(){
-        wqamDashboardPage.check_EnterCompanyName_TextBox_isEmpty();
-        String ClientName = data.getValueByName("ClientName");
-        wqamDashboardPage.validate_Characters_Can_Enter(ClientName);
-        wqamDashboardPage.step_click_Go_Button();
-        Assert.assertNotNull(wqamDashboardPage.validate_Client_List_IsAvailable());
-    }
-
-
 
     @Test
     public void verify_Client_Available_to_Click_and_Navigate(){
@@ -345,6 +128,17 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     @Test
+    public void verify_Click_VerifyButton_InVerifyPage_goesTo_AMDashboard() throws InterruptedException {
+
+        /*String clientName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage.step_user_clicks_Client(clientName);*/
+        wqamVerifyClientPage.step_click_VerifyButton();
+        String expectedTitle = data.getValueByName("AM_HomePage");
+        Thread.sleep(20000);
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),expectedTitle);
+    }
+
+    @Test
     public void verify_RejectButton_Available_InVerifyPage(){
         Assert.assertNotNull(wqamVerifyClientPage.check_RejectButton_Available());
 
@@ -357,14 +151,10 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
-
-
     @Test
     public void verify_Click_RejectButton_InVerifyPage_gives_Popup() throws InterruptedException {
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
-        String clientName = data.getValueByName("CompanyDetails_CompanyName");
-        wqamDashboardPage.step_user_clicks_Client(clientName);
+        /*String clientName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage.step_user_clicks_Client(clientName);*/
         wqamVerifyClientPage.step_click_RejectButton();
         Thread.sleep(10000);
         Assert.assertNotNull(wqamVerifyClientPage.validate_user_gets_aPopup());
@@ -399,13 +189,43 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     @Test
-    public void verify_CancelButton_Available_InRejectPopUp(){
-        Assert.assertNotNull(wqamVerifyClientPage.check_Cancelbutton_Available_inRejectPopup());
+    public void verify_Textof_RejectButton_InRejectPopUp(){
+        String rejectPopup_rejectButton_Text = data.getValueByName("rejectPopup_rejectButton_Text");
+        Assert.assertEquals(wqamVerifyClientPage.check_RejectButton_Text_inRejectPopup(), rejectPopup_rejectButton_Text);
     }
 
     @Test
-    public void verify_CloseCross_Available_InRejectPopUp(){
+    public void verify_Textof_CancelButton_InRejectPopUp(){
+        String rejectPopup_cancelButton_Text = data.getValueByName("rejectPopup_cancelButton_Text");
+        Assert.assertEquals(wqamVerifyClientPage.check_cancelButton_Text_inRejectPopup(), rejectPopup_cancelButton_Text);
+
+    }
+
+    @Test
+    public void verify_CancelButton_Available_InRejectPopUp(){
+        Assert.assertNotNull(wqamVerifyClientPage.check_Cancelbutton_Available_inRejectPopup());
+
+    }
+
+    @Test
+    public void verify_Close_Cross_Available_InRejectPopUp() throws InterruptedException {
         Assert.assertNotNull(wqamVerifyClientPage.check_closeCross_Available_inRejectPopup());
+
+    }
+
+    @Test
+    public void verify_Click_Close_Button_InRejectPopup_Goes_To_VerifyPage() throws InterruptedException {
+        /*wqPanel.check_User_goes_To_HomePage();
+        verify_The_Home_Page_Browser_Title();
+        String clientName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage.step_user_clicks_Client(clientName);
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        wqamVerifyClientPage.validate_user_gets_aPopup();*/
+        wqamVerifyClientPage.step_click_Close_Button();
+        String aMVerifyPageBrowserTitle = data.getValueByName("BOVerifyPage");
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),aMVerifyPageBrowserTitle);
+
     }
 
     @Test
@@ -418,15 +238,13 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
-
-
     @Test
     public void verify_ClickCancel_Button_InRejectPopup_withText_Goes_To_VerifyPage() throws InterruptedException {
 
-        wqPanel.check_User_goes_To_HomePage();
+        /*wqPanel.check_User_goes_To_HomePage();
         verify_The_Home_Page_Browser_Title();
         String clientName = data.getValueByName("CompanyDetails_CompanyName");
-        wqamDashboardPage.step_user_clicks_Client(clientName);
+        wqamDashboardPage.step_user_clicks_Client(clientName);*/
         wqamVerifyClientPage.step_click_RejectButton();
         Thread.sleep(10000);
         wqamVerifyClientPage.validate_user_gets_aPopup();
@@ -434,6 +252,7 @@ public class WQAMDashboardTest extends TestBase {
         Thread.sleep(10000);
         wqamVerifyClientPage.validate_Characters_Can_Enter(textToEnter);
         wqamVerifyClientPage.step_click_Cancel_Button();
+        Thread.sleep(10000);
         String aMVerifyPageBrowserTitle = data.getValueByName("BOVerifyPage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),aMVerifyPageBrowserTitle);
 
@@ -441,10 +260,10 @@ public class WQAMDashboardTest extends TestBase {
 
     @Test
     public void verify_ClickCancel_Button_InRejectPopup_withoutText_Goes_To_VerifyPage() throws InterruptedException {
-        wqPanel.check_User_goes_To_HomePage();
+        /*wqPanel.check_User_goes_To_HomePage();
         verify_The_Home_Page_Browser_Title();
         String clientName = data.getValueByName("CompanyDetails_CompanyName");
-        wqamDashboardPage.step_user_clicks_Client(clientName);
+        wqamDashboardPage.step_user_clicks_Client(clientName);*/
         wqamVerifyClientPage.step_click_RejectButton();
         Thread.sleep(10000);
         wqamVerifyClientPage.validate_user_gets_aPopup();
@@ -458,35 +277,329 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     @Test
-    public void verify_SearchValidCompany_ClickCompany_FromList_goesTo_ClientProfilePage(){
-
-    }
-
-    @Test
-    public void verify_Click_Close_Button_InRejectPopup_Goes_To_VerifyPage(){
-
-    }
-
-    @Test
-    public void Verify_ClickReject_Button_With_Reason_InRejectPopup_GoesTo_AMDashboard(){
-
-    }
-
-    @Test
-    public void verify_Click_VerifyButton_InVerifyPage_goesTo_AMDashboard() throws InterruptedException {
+    public void verify_ClickReject_Button_With_Reason_InRejectPopup_GoesTo_AMDashboard() throws InterruptedException {
         /*wqPanel.check_User_goes_To_HomePage();
         verify_The_Home_Page_Browser_Title();
         String clientName = data.getValueByName("CompanyDetails_CompanyName");
-        wqamDashboardPage.step_user_clicks_Client(clientName);
-        wqamVerifyClientPage.step_click_VerifyButton();
+        wqamDashboardPage.step_user_clicks_Client(clientName);*/
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        wqamVerifyClientPage.validate_user_gets_aPopup();
+        String textToEnter = data.getValueByName("textToEnter");
+        wqamVerifyClientPage.validate_Characters_Can_Enter(textToEnter);
+        wqamVerifyClientPage.step_click_RejectButton();
         String expectedTitle = data.getValueByName("AM_HomePage");
-        Thread.sleep(20000);
-        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),expectedTitle);*/
+        Thread.sleep(10000);
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),expectedTitle);
+
+    }
+
+    //------------------------------------------------------------
+
+    @Test
+    public void verify_The_Home_Page_Browser_Title(){
+        /*wqPanel.check_User_goes_To_HomePage();
+        verify_The_Home_Page_Browser_Title();*/
+        String aMDashboardBrowserTitle = data.getValueByName("AM_HomePage");
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),aMDashboardBrowserTitle);
+
     }
 
     @Test
-    public void verify_Client_In_PendingClients_List_IsAvailable(){
-       /* String clientName = data.getValueByName("CompanyDetails_CompanyName");
-        Assert.assertNotNull(wqamDashboardPage.check_Client_In_Table_Available(clientName));*/
+    public void verify_HomeLink_IsHighlighted(){
+        Assert.assertNotNull(wqPanel.validate_Homelink_is_highlighted());
     }
+
+    @Test
+    public void verify_SignedInAs_Name_Available(){
+        String signedInAs = data.getValueByName("AM_signedInAs");
+        Assert.assertEquals(wqPanel.validate_signIn_As(),signedInAs);
+
+    }
+
+    @Test
+    public void verify_SignOut_Link_Available(){
+        Assert.assertNotNull(wqPanel.check_Signout_link_Is_Available());
+    }
+
+    @Test
+    public void verify_FooterArea_Text_Available(){
+        String footerText = data.getValueByName("FooterAreaText");
+        Assert.assertEquals(wqPanel.check_FooterArea_Text_Avaialble(),footerText);
+
+    }
+
+    //Tile Area --Start--//
+
+    @Test
+    public void verify_ClientsTile_Available(){
+        Assert.assertNotNull(wqamDashboardPage.check_ClientsTile_Is_Available());
+
+    }
+
+    @Test
+    public void verify_ClientsTile_TileText_Available(){
+        String clientTile = data.getValueByName("clientsTileText");
+        Assert.assertEquals(wqamDashboardPage.validate_Clients_Tile_Text(),clientTile);
+
+    }
+
+    @Test
+    public void verify_ClientsTile_Click_GoesTo_AssignedClientsPage(){
+        wqamDashboardPage.step_Click_Client_Tile();
+        String clientTilePage = data.getValueByName("clientTilePage");
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),clientTilePage);
+        wqPanel.check_User_goes_To_HomePage();
+        verify_The_Home_Page_Browser_Title();
+
+    }
+
+    @Test
+    public void verify_SuspiciousConnections_Tile_Available(){
+        Assert.assertNotNull(wqamDashboardPage.check_SuspiciousConnections_Tile_Is_Available());
+
+    }
+
+    @Test
+    public void verify_SuspiciousConnections_Tile_TileText_Available(){
+        String SuspiciousConnectionsTile = data.getValueByName("suspiciousTileText");
+        Assert.assertEquals(wqamDashboardPage.validate_SuspiciousConnections_Tile_Text(),SuspiciousConnectionsTile);
+
+    }
+
+    @Test
+    public void verify_SuspiciousConnections_Tile_Click_GoesTo_ConnectionSuspicious_Page(){
+        wqamDashboardPage.step_Click_SuspiciousConnections_Tile();
+        String suspiciousTilePage = data.getValueByName("suspiciousTilePage");
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),suspiciousTilePage);
+        wqPanel.check_User_goes_To_HomePage();
+        verify_The_Home_Page_Browser_Title();
+
+    }
+
+    @Test
+    public void verify_Contractor_Matching_Tile_Available(){
+        Assert.assertNotNull(wqamDashboardPage.check_Contractor_Matching_Tile_Is_Available());
+
+    }
+
+    @Test
+    public void verify_Contractor_Matching_Tile_TileText_Available(){
+        String contractor_MatchingTile = data.getValueByName("contractorMatchTileText");
+        Assert.assertEquals(wqamDashboardPage.validate_Contractor_Matching_Tile_Text(),contractor_MatchingTile);
+
+    }
+
+    @Test
+    public void verify_Contractor_Matching_Tile_Click_GoesTo_ConsultantSearch_Page(){
+        wqamDashboardPage.step_Click_Contractor_Matching_Tile();
+        String contractorMatchTilePage = data.getValueByName("contractorMatchTilePage");
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),contractorMatchTilePage);
+        wqPanel.check_User_goes_To_HomePage();
+        verify_The_Home_Page_Browser_Title();
+
+    }
+
+    @Test
+    public void verify_Reports_Tile_Available(){
+        Assert.assertNotNull(wqamDashboardPage.check_Reports_Tile_Is_Available());
+
+    }
+
+    @Test
+    public void verify_Reports_Tile_TileText_Available(){
+        String reportsTileText = data.getValueByName("reportsTileText");
+        Assert.assertEquals(wqamDashboardPage.validate_Reports_Tile_Text(),reportsTileText);
+
+    }
+
+    @Test
+    public void verify_Reports_Tile_Click_GoesTo_ViewReports_Page(){
+        wqamDashboardPage.step_Click_Reports_Tile();
+        String reportsTilePage = data.getValueByName("reportsTilePage");
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),reportsTilePage);
+        wqPanel.check_User_goes_To_HomePage();
+        verify_The_Home_Page_Browser_Title();
+
+    }
+
+    @Test
+    public void verify_Assign_Users_Tile_Available(){
+        Assert.assertNotNull(wqamDashboardPage.check_Assign_Users_Tile_Is_Available());
+
+    }
+
+    @Test
+    public void verify_Assign_Users_Tile_TileText_Available(){
+        String assignUsersTileText = data.getValueByName("assignUsersTileText");
+        Assert.assertEquals(wqamDashboardPage.validate_Assign_Users_Tile_Text(),assignUsersTileText);
+
+    }
+
+    @Test
+    public void verify_Assign_Users_Tile_Click_GoesTo_Assign_Users_Page(){
+        wqamDashboardPage.step_Click_Assign_Users_Tile();
+        String assignUsersTilePage = data.getValueByName("assignUsersTilePage");
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),assignUsersTilePage);
+        wqPanel.check_User_goes_To_HomePage();
+        verify_The_Home_Page_Browser_Title();
+
+    }
+
+    @Test
+    public void verify_Partners_Tile_Available(){
+        Assert.assertNotNull(wqamDashboardPage.check_Partners_Tile_Is_Available());
+
+    }
+
+    @Test
+    public void verify_Partners_Tile_TileText_Available(){
+        String partnersTileText = data.getValueByName("partnersTileText");
+        Assert.assertEquals(wqamDashboardPage.validate_Partners_Tile_Text(),partnersTileText);
+
+    }
+
+    @Test
+    public void verify_Partners_Tile_Click_GoesTo_Partners_Page(){
+        wqamDashboardPage.step_Click_Partners_Tile();
+        String partnersTilePage = data.getValueByName("partnersTilePage");
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),partnersTilePage);
+        wqPanel.check_User_goes_To_HomePage();
+        verify_The_Home_Page_Browser_Title();
+
+    }
+
+    @Test
+    public void verify_Contact_Client_Tile_Available(){
+        Assert.assertNotNull(wqamDashboardPage.check_Contact_Client_Tile_Is_Available());
+
+    }
+
+    @Test
+    public void verify_Contact_Client_Tile_TileText_Available(){
+        String contactClientTileText = data.getValueByName("contactClientTileText");
+        Assert.assertEquals(wqamDashboardPage.validate_Contact_Client_Tile_Text(),contactClientTileText);
+
+    }
+
+    @Test
+    public void verify_Contact_Client_Tile_Click_GoesTo_Contact_Client_Page(){
+        wqamDashboardPage.step_Click_Contact_Client_Tile();
+        String contactClientTilePage = data.getValueByName("contactClientTilePage");
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),contactClientTilePage);
+        wqPanel.check_User_goes_To_HomePage();
+        verify_The_Home_Page_Browser_Title();
+
+    }
+    //Tile Area finished
+
+    @Test
+    public void verify_EnterCompanyName_Label_Available(){
+        Assert.assertNotNull(wqamDashboardPage.check_EnterCompanyName_Label_Is_Available());
+
+    }
+
+    @Test
+    public void verify_EnterCompanyName_Label_Text_Available(){
+        String enterCompanyName = data.getValueByName("EnterCompanyNameLabel");
+        Assert.assertEquals(wqamDashboardPage.check_EnterCompanyName_Label_Text(),enterCompanyName);
+
+    }
+
+    @Test
+    public void verify_EnterCompanyName_TextBox_Available(){
+        Assert.assertNotNull(wqamDashboardPage.check_EnterCompanyName_TextBox_Available());
+
+    }
+
+    @Test
+    public void verify_EnteringCharacters_To_EnterCompanyName_TextBox(){
+        String textToEnter = data.getValueByName("textToEnter");
+        wqamDashboardPage.validate_Characters_Can_Enter(textToEnter);
+
+    }
+
+    @Test
+    public void verify_Go_Button_Available(){
+        Assert.assertNotNull(wqamDashboardPage.check_Go_Button_Is_Available());
+    }
+
+    @Test
+    public void verify_Go_Button_Text_Available(){
+        String goButtonText = data.getValueByName("goButton");
+        Assert.assertEquals(wqamDashboardPage.check_GoButton_Text(), goButtonText);
+
+    }
+
+    @Test
+    public void verify_Go_ButtonClick_WithoutAny_CompanyName_gives_ErrorMessage(){
+        wqamDashboardPage.check_EnterCompanyName_TextBox_isEmpty();
+        String errorMessage_WO_AnyValue = data.getValueByName("errorMessage_WO_AnyValue");
+        wqamDashboardPage.step_click_Go_Button();
+        Assert.assertEquals(wqamDashboardPage.check_Error_Message(), errorMessage_WO_AnyValue);
+
+    }
+
+    @Test
+    public void verify_Go_ButtonClick_With_Invalid_CompanyName_gives_ErrorMessage(){
+        wqamDashboardPage.check_EnterCompanyName_TextBox_isEmpty();
+        String errorMessage_InvalidCompanyName = data.getValueByName("errorMessage_InvalidCompanyName");
+        String textToEnter = data.getValueByName("textToEnter");
+        wqamDashboardPage.validate_Characters_Can_Enter(textToEnter);
+        wqamDashboardPage.step_click_Go_Button();
+        Assert.assertEquals(wqamDashboardPage.check_Error_Message(), errorMessage_InvalidCompanyName);
+
+    }
+
+    @Test
+    public void verify_Go_ButtonClick_With_Valid_CompanyName_gives_ListOf_Companies(){
+        wqamDashboardPage.check_EnterCompanyName_TextBox_isEmpty();
+        String ClientName = data.getValueByName("ClientName");
+        wqamDashboardPage.validate_Characters_Can_Enter(ClientName);
+        wqamDashboardPage.step_click_Go_Button();
+        Assert.assertNotNull(wqamDashboardPage.validate_Client_List_IsAvailable());
+
+    }
+
+    @Test
+    public void verify_Searching_aValidCompany_and_ClickaCompany_FromList_goesTo_ClientProfilePage() throws InterruptedException {
+        wqPanel.check_User_goes_To_HomePage();
+        verify_The_Home_Page_Browser_Title();
+        wqamDashboardPage.check_EnterCompanyName_TextBox_isEmpty();
+        String ClientName = data.getValueByName("ClientName");
+        wqamDashboardPage.validate_Characters_Can_Enter(ClientName);
+        wqamDashboardPage.step_click_Go_Button();
+        Assert.assertEquals(wqamDashboardPage.check_Populated_ClientName_EqualsTo_entered_ClientName(),ClientName);
+        wqamDashboardPage.step_user_clicks_aClient_from_SearchClient_Area(ClientName);
+        String expectedTitle = data.getValueByName("AM_ClientEngagement_Page");
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),expectedTitle);
+        wqPanel.check_User_goes_To_HomePage();
+        verify_The_Home_Page_Browser_Title();
+
+    }
+
+    //------------------------
+
+    @Test
+    public void verify_TANDCRejectedClients_Table_Available() throws InterruptedException {
+        Assert.assertNotNull(wqamDashboardPage.check_TANDCRejectedClients_Table_Available());
+
+    }
+
+    @Test
+    public void verify_TableHeaderText_TANDCRejectedClients_Table_Available() throws InterruptedException {
+        String TandC_TableHeader = data.getValueByName("TandC_TableHeader");
+        Assert.assertEquals(wqamDashboardPage.check_TANDCRejectedClients_Table_HeaderText(),TandC_TableHeader);
+
+    }
+
+    @Test
+    public void verify_Client_In_TANDCRejectedClients_Table_Available() throws InterruptedException {
+        /*wqPanel.check_User_goes_To_HomePage();
+        verify_The_Home_Page_Browser_Title();*/
+        String clientName = data.getValueByName("ClientName");
+        Assert.assertEquals(wqamDashboardPage.check_ClientName_EqualsTo_TANDCRejected_Table_ClientName(),clientName);
+        Assert.assertNotNull(wqamDashboardPage.check__ClientName_available_In_TANDCRejected_List(clientName));
+    }
+
 }

@@ -988,6 +988,7 @@ public class SeleniumBase {
         return value;
     }
 
+    //read a Value attribute from Textbox
     public String readValueFromTextBox(String xpath){
 
         return driver.findElement(By.xpath(xpath)).getAttribute("value");
@@ -1006,10 +1007,30 @@ public class SeleniumBase {
         driver.findElement(By.xpath(xPath)).clear();
     }
 
+    //Get the placeholder value of an element
     public String getPlaceHolderValueFromTextBox(String xPath){
         return driver.findElement(By.xpath(xPath)).getAttribute("placeholder");
     }
 
+	//Check a specific value exist in the table
+	public String clickIsValueExistInArea(String tablePath, String value) throws InterruptedException{
 
+		WebElement table = driver.findElement(By.xpath(tablePath));
+		List<WebElement>  columns = table.findElements(By.tagName("a"));
+		String str = null;
+		for(WebElement cell : columns){
+			if(cell.getText().equals(value)){
+				System.out.println("Table Value : " +cell.getText()+" is Matching with searching value : "+value);
+				str = cell.getText();
+			}
+		}
+		return str;
+	}
+
+	public String verifyElementExist(String data){
+		List<WebElement> linksearch = driver.findElements(By.xpath(data));
+		String checkLink = linksearch.toString();
+		return checkLink;
+	}
 
 }

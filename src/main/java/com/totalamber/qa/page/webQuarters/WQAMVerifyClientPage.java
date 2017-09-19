@@ -96,7 +96,7 @@ public class WQAMVerifyClientPage extends TestBase implements wqAMVerifyClientPa
     }
 
     public WQAMVerifyClientPage step_click_VerifyButton() {
-        seleniumBase.click(AM_VERIFYCLIENTS_VERIFY_BUTTON_XPATH, AM_VERIFYCLIENTS_VERIFY_BUTTON_CSS);
+        seleniumBase.click(AM_VERIFYPAGE_VERIFY_BUTTON_XPATH, AM_VERIFYPAGE_VERIFY_BUTTON_CSS);
         return this;
     }
 
@@ -137,7 +137,9 @@ public class WQAMVerifyClientPage extends TestBase implements wqAMVerifyClientPa
         return seleniumBase.verifyAvailableObject(AM_VERIFYCLIENTS_REJECT_POPUP_CANCEL_BUTTON_XPATH);
     }
 
-    public boolean check_closeCross_Available_inRejectPopup() {
+    public boolean check_closeCross_Available_inRejectPopup() throws InterruptedException {
+        SeleniumBase.driver.switchTo().defaultContent();
+        //return seleniumBase.verifyAvailableObject(AM_VERIFYCLIENTS_REJECT_POPUP_CLOSE_CROSS_XPATH);
         return seleniumBase.verifyAvailableObject(AM_VERIFYCLIENTS_REJECT_POPUP_CLOSE_CROSS_XPATH);
     }
 
@@ -157,6 +159,20 @@ public class WQAMVerifyClientPage extends TestBase implements wqAMVerifyClientPa
 
     public WQAMVerifyClientPage step_click_Cancel_Button() {
         seleniumBase.click(AM_VERIFYCLIENTS_REJECT_POPUP_CANCEL_BUTTON_XPATH,AM_VERIFYCLIENTS_REJECT_POPUP_CANCEL_BUTTON_CSS);
+        return this;
+    }
+
+    public String check_RejectButton_Text_inRejectPopup() {
+        return seleniumBase.readValueFromTextBox(AM_VERIFYCLIENTS_REJECT_POPUP_REJECT_BUTTON_XPATH);
+    }
+
+    public String check_cancelButton_Text_inRejectPopup() {
+        return seleniumBase.readValueFromTextBox(AM_VERIFYCLIENTS_REJECT_POPUP_CANCEL_BUTTON_XPATH);
+    }
+
+    public WQAMVerifyClientPage step_click_Close_Button() {
+        SeleniumBase.driver.switchTo().defaultContent();
+        seleniumBase.click(AM_VERIFYCLIENTS_REJECT_POPUP_CLOSE_CROSS_XPATH,AM_VERIFYCLIENTS_REJECT_POPUP_CLOSE_CROSS_CSS);
         return this;
     }
 }
