@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Regression">
-<!--
+
 	<test name="Account Manager Login Test">
 		<classes>
 			<class name="com.totalamber.qa.WQTest.WQBackOfficeLoginTest">
@@ -16,12 +16,13 @@
 			</class>
 		</classes>
 	</test>
--->
+
 
 	<test name="Account Manager Dashboard Test">
 		<classes>
 			<class name="com.totalamber.qa.WQTest.WQAMDashboardTest">
 				<methods>
+
 					<include name = "verify_PendingClientsTable_Available" />
 					<include name = "verify_TableHeaderText_PendingClientsTable_Table_Available" />
 					<include name = "verify_Client_In_PendingClients_List_IsAvailable" />

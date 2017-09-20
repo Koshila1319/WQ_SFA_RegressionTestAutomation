@@ -23,7 +23,7 @@ public class WQAMDashboardPage extends TestBase implements wqAMDashboardPage {
     }
 
     public WQAMDashboardPage step_user_clicks_Client(String clientName) {
-        seleniumBase.clickOnLink(clientName);
+        seleniumBase.clickAValueExistsInArea(AM_PENDINGCLIENTS_TABLE_XPATH,clientName);
         return this;
     }
 
