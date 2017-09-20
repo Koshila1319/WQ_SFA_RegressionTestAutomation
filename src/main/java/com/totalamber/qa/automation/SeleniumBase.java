@@ -14,9 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -1016,6 +1014,7 @@ public class SeleniumBase {
 			Matcher matcher = pattern.matcher(name);
 			if (!matcher.matches()) {
 
+
 				System.out.println("Invalid Username Feild. Please re-enter the username");
 			}
 			else
@@ -1052,9 +1051,83 @@ public class SeleniumBase {
 		}
 	}*/
 
+    public String checkDropdownTextValue(String xPath, String option) {
+        String value= null;
+        WebElement dropdown = SeleniumBase.driver.findElement(By.xpath(xPath));
+        Select select = new Select(dropdown);
+        List<WebElement> allOptions = select.getOptions();
+        for (int i=0; i<allOptions.size(); i++){
+            value = allOptions.get(i).getText();
+            //System.out.println(value);
+
+        }
+        return value;
+    }
+
+    //read a Value attribute from Textbox
+    public String readValueFromTextBox(String xpath){
+
+        return driver.findElement(By.xpath(xpath)).getAttribute("value");
+    }
+
+    public String splitTextGetNthWord(String word, String delimeter, Integer nthWord){
 
 
+        String[] sp = word.split(delimeter);
+        System.out.println("Splited data is "+ sp[nthWord-1]);
+        String nthWordtext = sp[nthWord-1];
+        return nthWordtext;
+    }
 
+    //To Clear a Textbox
+    public void clearTextBox(String xPath){
+        driver.findElement(By.xpath(xPath)).clear();
+    }
+
+    //Get the placeholder value of an element
+    public String getPlaceHolderValueFromTextBox(String xPath){
+        return driver.findElement(By.xpath(xPath)).getAttribute("placeholder");
+    }
+
+	public String verifyElementExist(String data){
+		List<WebElement> linksearch = driver.findElements(By.xpath(data));
+		String checkLink = linksearch.toString();
+		return checkLink;
+	}
+
+	//Check a value from a table is existing - WQ
+	public String checkIsValueExistInArea(String tablePath, String value) {
+		WebElement table = driver.findElement(By.xpath(tablePath));
+		List<WebElement>  columns = table.findElements(By.tagName("td"));
+		String str = null;
+		for(WebElement cell : columns){
+			String clientName = splitTextGetNthWord(cell.getText()," - ", 1);
+			System.out.println(clientName);
+			if(clientName.equals(value)){
+				System.out.println("Table Value : " +clientName+" is Matching with searching value : "+value);
+				str = clientName;
+				break;
+			}
+		}
+		return str;
+	}
+
+	//Click a value from a table is existing - WQ
+	public String clickAValueExistsInArea(String tablePath, String value){
+		WebElement table = driver.findElement(By.xpath(tablePath));
+		List<WebElement>  columns = table.findElements(By.tagName("a"));
+		String str = null;
+		for(WebElement cell : columns){
+			String clientName = splitTextGetNthWord(cell.getText()," - ", 1);
+			System.out.println(clientName);
+			if(clientName.equals(value)){
+				System.out.println("Table Value : " +cell.getText()+" is Matching with searching value : "+value);
+				cell.click();
+				break;
+			}
+		}
+		return str;
+	}
 }
 
 

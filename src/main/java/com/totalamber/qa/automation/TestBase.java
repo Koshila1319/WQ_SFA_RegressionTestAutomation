@@ -1,5 +1,6 @@
 package com.totalamber.qa.automation;
 
+import com.totalamber.qa.data.UI.elements.webQuarters.wqAMDashboardPage;
 import com.totalamber.qa.data.property.Dataprovider;
 import com.totalamber.qa.page.webQuarters.*;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +19,11 @@ public class TestBase  {
 	protected WQBackOfficeLoginPage wqBackOfficeLoginPage;
 	protected WQSignUpPage wqSignUpPage;
 	protected WQClientRegPage wqClientRegPage;
+	protected WQAMDashboardPage wqamDashboardPage;
+	protected WQAMVerifyClientPage wqamVerifyClientPage;
+	protected WQPanel wqPanel;
+	protected WQTermsEvaluationPage wqTermsEvaluationPage;
+
 
 	public void initDomainObjects(WebDriver driver) throws IOException {
 		data = new Dataprovider();
@@ -26,7 +32,10 @@ public class TestBase  {
 		wqBackOfficeLoginPage = new WQBackOfficeLoginPage(driver);
 		wqSignUpPage = new WQSignUpPage(driver);
 		wqClientRegPage = new WQClientRegPage(driver);
-
+		wqamDashboardPage = new WQAMDashboardPage(driver);
+		wqamVerifyClientPage = new WQAMVerifyClientPage(driver);
+		wqPanel = new WQPanel(driver);
+		wqTermsEvaluationPage = new WQTermsEvaluationPage(driver);
 	}
 
 	public void setSiteURL(String siteUrl) {

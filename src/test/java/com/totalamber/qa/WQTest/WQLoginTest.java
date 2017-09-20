@@ -11,7 +11,6 @@ import java.io.IOException;
  */
 public class WQLoginTest extends TestBase {
 
-
     @BeforeMethod
     public void NavigateToPage() throws InterruptedException, IOException {
         initDomainObjects(DRIVER);

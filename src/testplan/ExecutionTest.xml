@@ -1,63 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Regression">
-	<test name="Create Client">
+<!--
+	<test name="Account Manager Login Test">
 		<classes>
-			<class name="com.totalamber.qa.SupportLoginTest">
+			<class name="com.totalamber.qa.WQTest.WQBackOfficeLoginTest">
 				<methods>
-					<include name="verifyDeleteSoftwareApplication" />
-					<include name="verifyClientSignup" />
-				</methods>
-			</class>
-
-			<class name="com.totalamber.qa.SalesManagerTest">
-				<methods>
-					<include name="verifyAssignClientToAM" />
-				</methods>
-			</class>
-
-			<class name="com.totalamber.qa.AccountManagerTest">
-				<methods>
-					<include name="accountManagerVerifyUserInfo" />
+					<include name="verify_The_Page_Browser_Title" />
+					<include name="verify_Sign_In_Text" />
+					<include name="verify_The_Page_Content" />
+					<include name="verify_The_Availiability_Of_The_DropDown" />
+					<include name="verify_User_Can_Select_The_Sign_In_Option_From_The_DropDown" />
+					<include name="verify_Login_as_BO_Users" />
+					<include name="verify_Login_Leads_To_Account_Manager_Dashboard_Page" />
 				</methods>
 			</class>
 		</classes>
 	</test>
+-->
 
-	<test name="Support User Activation">
+	<test name="Account Manager Dashboard Test">
 		<classes>
-			<class name="com.totalamber.qa.SupportLoginTest">
+			<class name="com.totalamber.qa.WQTest.WQAMDashboardTest">
 				<methods>
-					<include name="verifyRequestAssignUsers"/>
-				</methods>
-			</class>
-			<class name="com.totalamber.qa.AccountManagerTest">
-				<methods>
-					<include name="assignUsers"/>
-				</methods>
-			</class>
-		</classes>
-	</test>
+					<include name = "verify_PendingClientsTable_Available" />
+					<include name = "verify_TableHeaderText_PendingClientsTable_Table_Available" />
+					<include name = "verify_Client_In_PendingClients_List_IsAvailable" />
+					<include name = "verify_Client_Available_to_Click_and_Navigate" />
+					<include name = "verify_CompanyDetails_In_VerifyPage" />
+					<include name = "verify_ClientDetails_In_VerifyPage" />
+					<include name = "verify_SoftwareExperience_In_VerifyPage" />
+					<include name = "verify_VerifyButton_Available_In_VerifyPage" />
+					<include name = "verify_VerifyButton_Text_Available_In_VerifyButton_In_VerifyPage" />
+					<include name = "verify_Click_VerifyButton_InVerifyPage_goesTo_AMDashboard" />
+					<include name = "verify_RejectButton_Available_InVerifyPage" />
+					<include name = "verify_RejectButton_Text_Available_In_RejectButton_In_VerifyPage" />
+					<include name = "verify_Click_RejectButton_InVerifyPage_gives_Popup" />
+					<include name = "verify_Title_Available_In_RejectPopUp" />
+					<include name = "verify_CommentBox_Available_InRejectPopUp" />
+					<include name = "verify_CommentBox_PlaceHolder_Available_InRejectPopUp" />
+					<include name = "verify_Entering_Text_To_CommentBox_InRejectPopUp" />
+					<include name = "verify_RejectButton_Available_InRejectPopUp" />
+					<include name = "verify_Textof_RejectButton_InRejectPopUp" />
+					<include name = "verify_Textof_CancelButton_InRejectPopUp" />
+					<include name = "verify_CancelButton_Available_InRejectPopUp" />
+					<include name = "verify_Close_Cross_Available_InRejectPopUp" />
+					<include name = "verify_Click_Close_Button_InRejectPopup_Goes_To_VerifyPage" />
+					<include name = "verify_ClickReject_Button_Without_Reason_InRejectPopup_Gives_Error_Message" />
+					<include name = "verify_ClickCancel_Button_InRejectPopup_withText_Goes_To_VerifyPage" />
+					<include name = "verify_ClickCancel_Button_InRejectPopup_withoutText_Goes_To_VerifyPage" />
+					<include name = "verify_ClickReject_Button_With_Reason_InRejectPopup_GoesTo_AMDashboard" />
+					<include name = "verify_The_Home_Page_Browser_Title" />
+					<include name = "verify_HomeLink_IsHighlighted" />
+					<include name = "verify_SignedInAs_Name_Available" />
+					<include name = "verify_SignOut_Link_Available" />
+					<include name = "verify_FooterArea_Text_Available" />
+					<include name = "verify_ClientsTile_Available" />
+					<include name = "verify_ClientsTile_TileText_Available" />
+					<include name = "verify_ClientsTile_Click_GoesTo_AssignedClientsPage" />
+					<include name = "verify_SuspiciousConnections_Tile_Available" />
+					<include name = "verify_SuspiciousConnections_Tile_TileText_Available" />
+					<include name = "verify_SuspiciousConnections_Tile_Click_GoesTo_ConnectionSuspicious_Page" />
+					<include name = "verify_Contractor_Matching_Tile_Available" />
+					<include name = "verify_Contractor_Matching_Tile_TileText_Available" />
+					<include name = "verify_Contractor_Matching_Tile_Click_GoesTo_ConsultantSearch_Page" />
+					<include name = "verify_Reports_Tile_Available" />
+					<include name = "verify_Reports_Tile_TileText_Available" />
+					<include name = "verify_Reports_Tile_Click_GoesTo_ViewReports_Page" />
+					<include name = "verify_Assign_Users_Tile_Available" />
+					<include name = "verify_Assign_Users_Tile_TileText_Available" />
+					<include name = "verify_Assign_Users_Tile_Click_GoesTo_Assign_Users_Page" />
+					<include name = "verify_Partners_Tile_Available" />
+					<include name = "verify_Partners_Tile_TileText_Available" />
+					<include name = "verify_Partners_Tile_Click_GoesTo_Partners_Page" />
+					<include name = "verify_Contact_Client_Tile_Available" />
+					<include name = "verify_Contact_Client_Tile_TileText_Available" />
+					<include name = "verify_Contact_Client_Tile_Click_GoesTo_Contact_Client_Page" />
+					<include name = "verify_EnterCompanyName_Label_Available" />
+					<include name = "verify_EnterCompanyName_Label_Text_Available" />
+					<include name = "verify_EnterCompanyName_TextBox_Available" />
+					<include name = "verify_EnteringCharacters_To_EnterCompanyName_TextBox" />
+					<include name = "verify_Go_Button_Available" />
+					<include name = "verify_Go_Button_Text_Available" />
+					<include name = "verify_Go_ButtonClick_WithoutAny_CompanyName_gives_ErrorMessage" />
+					<include name = "verify_Go_ButtonClick_With_Invalid_CompanyName_gives_ErrorMessage" />
+					<include name = "verify_Go_ButtonClick_With_Valid_CompanyName_gives_ListOf_Companies" />
+					<include name = "verify_Searching_aValidCompany_and_ClickaCompany_FromList_goesTo_ClientProfilePage" />
+					<include name = "verify_TANDCRejectedClients_Table_Available" />
+					<include name = "verify_TableHeaderText_TANDCRejectedClients_Table_Available" />
+					<include name = "verify_Client_In_TANDCRejectedClients_Table_Available" />
+					<include name = "verify_ClickingAClient_GoesTo_ClientEvaluationPage" />
+					<include name = "verify_BrowserTitle_Of_ClientEvaluationPage" />
+					<include name = "verify_CompanyDetails_In_ClientTermsEvaluationPage" />
+					<include name = "verify_ClientDetails_In_ClientTermsEvaluationPage" />
+					<include name = "verify_SoftwareExperience_In_ClientTermsEvaluationPage" />
+					<include name = "verify_RejectedReason_In_ClientTermsEvaluationPage" />
+					<include name = "verify_PromptAgainButton_Available_In_ClientEvaluationPage" />
+					<include name = "verify_PromptAgainButton_Text_Available" />
+					<include name = "verify_Click_PromptAgainButton_InClientEvaluationPage_goesTo_AMDashboardPage" />
 
-	<test name="Activate Support User">
-		<classes>
-			<class name="com.totalamber.qa.SupportLoginTest">
-				<methods>
-					<include name="verifySuccessfullyActivateSupportUser"/>
-				</methods>
-			</class>
-		</classes>
-	</test>
-
-	<test name="Create Cases">
-		<classes>
-			<class name="com.totalamber.qa.SupportLoginTest">
-				<methods>
-					<include name="verifyUserAbleToViewClosedCases"/>
-				</methods>
-			</class>
-			<class name ="com.totalamber.qa.SysAidTest.SysAidLoginTest">
-				<methods>
-					<include name = "AssignCase"/>
 				</methods>
 			</class>
 		</classes>
