@@ -1012,25 +1012,43 @@ public class SeleniumBase {
         return driver.findElement(By.xpath(xPath)).getAttribute("placeholder");
     }
 
-	//Check a specific value exist in the table
-	public String clickIsValueExistInArea(String tablePath, String value) throws InterruptedException{
-
-		WebElement table = driver.findElement(By.xpath(tablePath));
-		List<WebElement>  columns = table.findElements(By.tagName("a"));
-		String str = null;
-		for(WebElement cell : columns){
-			if(cell.getText().equals(value)){
-				System.out.println("Table Value : " +cell.getText()+" is Matching with searching value : "+value);
-				str = cell.getText();
-			}
-		}
-		return str;
-	}
-
 	public String verifyElementExist(String data){
 		List<WebElement> linksearch = driver.findElements(By.xpath(data));
 		String checkLink = linksearch.toString();
 		return checkLink;
 	}
 
+	//Check a value from a table is existing - WQ
+	public String checkIsValueExistInArea(String tablePath, String value) {
+		WebElement table = driver.findElement(By.xpath(tablePath));
+		List<WebElement>  columns = table.findElements(By.tagName("td"));
+		String str = null;
+		for(WebElement cell : columns){
+			String clientName = splitTextGetNthWord(cell.getText()," - ", 1);
+			System.out.println(clientName);
+			if(clientName.equals(value)){
+				System.out.println("Table Value : " +clientName+" is Matching with searching value : "+value);
+				str = clientName;
+				break;
+			}
+		}
+		return str;
+	}
+
+	//Click a value from a table is existing - WQ
+	public String clickAValueExistsInArea(String tablePath, String value){
+		WebElement table = driver.findElement(By.xpath(tablePath));
+		List<WebElement>  columns = table.findElements(By.tagName("a"));
+		String str = null;
+		for(WebElement cell : columns){
+			String clientName = splitTextGetNthWord(cell.getText()," - ", 1);
+			System.out.println(clientName);
+			if(clientName.equals(value)){
+				System.out.println("Table Value : " +cell.getText()+" is Matching with searching value : "+value);
+				cell.click();
+				break;
+			}
+		}
+		return str;
+	}
 }

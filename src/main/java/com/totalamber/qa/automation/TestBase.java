@@ -20,6 +20,7 @@ public class TestBase  {
 	protected WQAMDashboardPage wqamDashboardPage;
 	protected WQAMVerifyClientPage wqamVerifyClientPage;
 	protected WQPanel wqPanel;
+	protected WQTermsEvaluationPage wqTermsEvaluationPage;
 
 	public void initDomainObjects(WebDriver driver) throws IOException {
 		data = new Dataprovider();
@@ -29,6 +30,7 @@ public class TestBase  {
 		wqamDashboardPage = new WQAMDashboardPage(driver);
 		wqamVerifyClientPage = new WQAMVerifyClientPage(driver);
 		wqPanel = new WQPanel(driver);
+		wqTermsEvaluationPage = new WQTermsEvaluationPage(driver);
 
 	}
 

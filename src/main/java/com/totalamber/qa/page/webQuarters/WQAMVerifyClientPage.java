@@ -2,7 +2,6 @@ package com.totalamber.qa.page.webQuarters;
 
 import com.totalamber.qa.automation.SeleniumBase;
 import com.totalamber.qa.automation.TestBase;
-import com.totalamber.qa.data.UI.elements.webQuarters.wqAMDashboardPage;
 import com.totalamber.qa.data.UI.elements.webQuarters.wqAMVerifyClientPage;
 import org.openqa.selenium.WebDriver;
 

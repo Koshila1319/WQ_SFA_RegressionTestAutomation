@@ -49,8 +49,12 @@ public interface wqAMDashboardPage {
     public final String AM_GO_BUTTON_COMPANY_LIST_CLIENTNAME_XPATH = "//*[contains(@id,'_HyperLinkCompanyLink')]";
     public final String AM_GO_BUTTON_COMPANY_LIST_CLIENTNAME_CSS  = "";
 
-    public final String AM_TANDC_REJECTED_CLIENTS_TABLE_XPATH = "//*[@id='ctl00_ctl39_g_E0787C1D_E05E_453D_9D1F_60D4174952B1']/div/table";
+    public final String AM_TANDC_REJECTED_CLIENTS_TABLE_XPATH = "//*[contains(@id,'_60D4174952B1')]/div/table";
     public final String AM_TANDC_REJECTED_CLIENTS_TABLE_CSS  = "";
+
+    public final String AM_TANDC_REJECTED_CLIENTS_LIST_INTABLE_XPATH = "//*[contains(@id,'_companyNameLinkButton')]";
+    public final String AM_TANDC_REJECTED_CLIENTS_LIST_INTABLE_CSS  = "";
+
 
     public final String AM_TANDC_REJECTED_CLIENTS_TABLE_HEADER_XPATH = "//*[@id='ctl00_ctl39_g_E0787C1D_E05E_453D_9D1F_60D4174952B1']/div/table/thead/tr/th";
     public final String AM_TANDC_REJECTED_CLIENTS_TABLE_HEADER_CSS  = "";

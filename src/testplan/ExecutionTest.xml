@@ -24,7 +24,7 @@
 				<methods>
 					<include name = "verify_PendingClientsTable_Available" />
 					<include name = "verify_TableHeaderText_PendingClientsTable_Table_Available" />
-					<!--<include name = "verify_Client_In_PendingClients_List_IsAvailable" />
+					<include name = "verify_Client_In_PendingClients_List_IsAvailable" />
 					<include name = "verify_Client_Available_to_Click_and_Navigate" />
 					<include name = "verify_CompanyDetails_In_VerifyPage" />
 					<include name = "verify_ClientDetails_In_VerifyPage" />
@@ -84,11 +84,19 @@
 					<include name = "verify_Go_ButtonClick_WithoutAny_CompanyName_gives_ErrorMessage" />
 					<include name = "verify_Go_ButtonClick_With_Invalid_CompanyName_gives_ErrorMessage" />
 					<include name = "verify_Go_ButtonClick_With_Valid_CompanyName_gives_ListOf_Companies" />
-					<include name = "verify_Searching_aValidCompany_and_ClickaCompany_FromList_goesTo_ClientProfilePage" />-->
-
+					<include name = "verify_Searching_aValidCompany_and_ClickaCompany_FromList_goesTo_ClientProfilePage" />
 					<include name = "verify_TANDCRejectedClients_Table_Available" />
 					<include name = "verify_TableHeaderText_TANDCRejectedClients_Table_Available" />
-
+					<include name = "verify_Client_In_TANDCRejectedClients_Table_Available" />
+					<include name = "verify_ClickingAClient_GoesTo_ClientEvaluationPage" />
+					<include name = "verify_BrowserTitle_Of_ClientEvaluationPage" />
+					<include name = "verify_CompanyDetails_In_ClientTermsEvaluationPage" />
+					<include name = "verify_ClientDetails_In_ClientTermsEvaluationPage" />
+					<include name = "verify_SoftwareExperience_In_ClientTermsEvaluationPage" />
+					<include name = "verify_RejectedReason_In_ClientTermsEvaluationPage" />
+					<include name = "verify_PromptAgainButton_Available_In_ClientEvaluationPage" />
+					<include name = "verify_PromptAgainButton_Text_Available" />
+					<include name = "verify_Click_PromptAgainButton_InClientEvaluationPage_goesTo_AMDashboardPage" />
 
 				</methods>
 			</class>

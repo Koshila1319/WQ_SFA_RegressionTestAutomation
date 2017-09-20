@@ -52,7 +52,7 @@ public class WQAMDashboardTest extends TestBase {
     public void verify_Client_In_PendingClients_List_IsAvailable() throws InterruptedException {
         /*wqPanel.check_User_goes_To_HomePage();
         verify_The_Home_Page_Browser_Title();*/
-        String clientName = data.getValueByName("ClientName");
+        String clientName = data.getValueByName("pendingClient");
         Assert.assertNotNull(wqamDashboardPage.check_Client_In_Table_Available(clientName));
     }
 
@@ -595,11 +595,99 @@ public class WQAMDashboardTest extends TestBase {
 
     @Test
     public void verify_Client_In_TANDCRejectedClients_Table_Available() throws InterruptedException {
-        /*wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();*/
-        String clientName = data.getValueByName("ClientName");
-        Assert.assertEquals(wqamDashboardPage.check_ClientName_EqualsTo_TANDCRejected_Table_ClientName(),clientName);
-        Assert.assertNotNull(wqamDashboardPage.check__ClientName_available_In_TANDCRejected_List(clientName));
+        String clientName = data.getValueByName("rejectedTANDCClientName");
+        Assert.assertEquals(wqamDashboardPage.split_TANDCRejectedClients_check_ClientAvailable_In_List(clientName),clientName);
     }
+
+    @Test
+    public void verify_ClickingAClient_GoesTo_ClientEvaluationPage(){
+        String clientName = data.getValueByName("rejectedTANDCClientName");
+        wqamDashboardPage.step_user_clicks_TANDC_Rejected_Client(clientName);
+        /*String expectedTitle = data.getValueByName("ClientTermsEvaluationPage");
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(), expectedTitle);*/
+    }
+
+    @Test
+    public void verify_BrowserTitle_Of_ClientEvaluationPage(){
+        String expectedTitle = data.getValueByName("ClientTermsEvaluationPage");
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(), expectedTitle);
+    }
+
+    @Test
+    public void verify_CompanyDetails_In_ClientTermsEvaluationPage(){
+        String companyName = data.getValueByName("ClientTermsEvaluationPage_CompanyName");
+        String busRegNumber = data.getValueByName("ClientTermsEvaluationPage_BusRegNumber");
+        String address = data.getValueByName("ClientTermsEvaluationPage_Address");
+        String city = data.getValueByName("ClientTermsEvaluationPage_City");
+        String state = data.getValueByName("ClientTermsEvaluationPage_State");
+        String postalCode = data.getValueByName("ClientTermsEvaluationPage_PostalCode");
+        String country = data.getValueByName("ClientTermsEvaluationPage_Country");
+        String phone = data.getValueByName("ClientTermsEvaluationPage_Phone");
+        String fax = data.getValueByName("ClientTermsEvaluationPage_Fax");
+
+        Assert.assertEquals(wqTermsEvaluationPage.check_CompanyDetails_CompanyName_Data_In_ClientTermsEvaluationPage(),companyName);
+        Assert.assertEquals(wqTermsEvaluationPage.check_BusRegNo_Company_Data_In_ClientTermsEvaluationPage(),busRegNumber);
+        Assert.assertEquals(wqTermsEvaluationPage.check_Address_Company_Data_In_ClientTermsEvaluationPage(),address);
+        Assert.assertEquals(wqTermsEvaluationPage.check_City_Company_Data_In_ClientTermsEvaluationPage(),city);
+        Assert.assertEquals(wqTermsEvaluationPage.check_State_Company_Data_In_ClientTermsEvaluationPage(),state);
+        Assert.assertEquals(wqTermsEvaluationPage.check_PostalCode_Company_Data_In_ClientTermsEvaluationPage(),postalCode);
+        Assert.assertEquals(wqTermsEvaluationPage.check_Country_Company_Data_In_ClientTermsEvaluationPage(),country);
+        Assert.assertEquals(wqTermsEvaluationPage.check_Phone_Company_Data_In_ClientTermsEvaluationPage(),phone);
+        Assert.assertEquals(wqTermsEvaluationPage.check_Fax_Company_Data_In_ClientTermsEvaluationPage(),fax);
+
+    }
+
+    @Test
+    public void verify_ClientDetails_In_ClientTermsEvaluationPage(){
+        String clientName = data.getValueByName("ClientTermsEvaluationPage_ClientName");
+        String dirDial = data.getValueByName("ClientTermsEvaluationPage_Dial");
+        String eMail = data.getValueByName("ClientTermsEvaluationPage_Email");
+        String designation = data.getValueByName("ClientTermsEvaluationPage_Designation");
+
+        Assert.assertEquals(wqTermsEvaluationPage.check_ClientName_Client_Data_In_ClientTermsEvaluationPage(),clientName);
+        Assert.assertEquals(wqTermsEvaluationPage.check_DirectDial_Client_Data_In_ClientTermsEvaluationPage(),dirDial);
+        Assert.assertEquals(wqTermsEvaluationPage.check_Email_Client_Data_In_ClientTermsEvaluationPage(),eMail);
+        Assert.assertEquals(wqTermsEvaluationPage.check_Designation_Client_Data_In_ClientTermsEvaluationPage(),designation);
+
+    }
+
+    @Test
+    public void verify_SoftwareExperience_In_ClientTermsEvaluationPage(){
+        String applicationName = data.getValueByName("ClientTermsEvaluationPage_Software_Application");
+        String versionName = data.getValueByName("ClientTermsEvaluationPage_Software_Version");
+        String moduleName = data.getValueByName("ClientTermsEvaluationPage_Software_Module");
+
+        Assert.assertEquals(wqTermsEvaluationPage.check_ApplicationName_Client_Data_In_ClientTermsEvaluationPage(),applicationName);
+        Assert.assertEquals(wqTermsEvaluationPage.check_VersionName_Client_Data_In_ClientTermsEvaluationPage(),versionName);
+        Assert.assertEquals(wqTermsEvaluationPage.check_ModuleName_Client_Data_In_ClientTermsEvaluationPage(),moduleName);
+
+    }
+
+    @Test
+    public void verify_RejectedReason_In_ClientTermsEvaluationPage(){
+        String rejectedReason = data.getValueByName("ClientTermsEvaluationPage_RejectedReason");
+
+        Assert.assertEquals(wqTermsEvaluationPage.check_Rejected_Reason_In_ClientTermsEvaluationPage(),rejectedReason);
+
+    }
+
+    @Test
+    public void verify_PromptAgainButton_Available_In_ClientEvaluationPage(){
+        Assert.assertNotNull(wqTermsEvaluationPage.check_PromptAgain_Button_Available());
+    }
+
+    @Test
+    public void verify_PromptAgainButton_Text_Available(){
+        String expectedButtonText = data.getValueByName("ClientTermsEvaluationPage_PromptAgain");
+        Assert.assertEquals(wqTermsEvaluationPage.check_PromptAgain_Button_Text(),expectedButtonText);
+    }
+
+    @Test
+    public void verify_Click_PromptAgainButton_InClientEvaluationPage_goesTo_AMDashboardPage(){
+        wqTermsEvaluationPage.click_PromptAgain_Button();
+        String expectedTitle = data.getValueByName("AM_HomePage");
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),expectedTitle);
+    }
+
 
 }
