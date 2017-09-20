@@ -98,7 +98,20 @@
 
 									<class name ="com.totalamber.qa.WQTest.WQClientRegTest">
 											<methods>
-												<include name ="verify_Company_Name_Text_Feild_Is_Single_Line_Of_Text"/>
+												<!--<include name ="verify_Company_Name_Text_Feild_Is_Single_Line_Of_Text"/>
+												<include name="verify_Company_Name_Feild_Text"/>
+												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Company_Name_Text_Feild"/>
+												<include name="verify_Business_Reg_No_Text_Feild_Is_Single_Line_Of_Text"/>
+												<include name="verify_Business_Reg_No_Feild_Text"/>
+												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Business_Reg_No_Text_Feild"/>
+												<include name="verify_Your_First_Name_Text_Feild_Is_Single_Line_Of_Text"/>
+												<include name="verify_Your_First_Name_Feild_Text"/>
+												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_First_Name_Text_Feild"/>
+												<include name="verify_Your_Last_Name_Text_Feild_Is_Single_Line_Of_Text"/>
+												<include name="verify_Your_Last_Name_Feild_Text"/>
+												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_Last_Name_Text_Feild"/>-->
+
+
 											</methods>
 									</class>
 

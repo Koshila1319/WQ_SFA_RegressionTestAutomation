@@ -105,8 +105,7 @@ public class WQLoginTest extends TestBase {
     {
         wqHomePage.
                 action_Navigate_To_LoginPage();
-        wqLoginPage.check_Username_PlaceHold_Text();
-
+        Assert.assertEquals(wqLoginPage.check_Username_PlaceHold_Text(),"Username");
     }
 
     //Password
@@ -125,6 +124,7 @@ public class WQLoginTest extends TestBase {
         wqHomePage.
                 action_Navigate_To_LoginPage();
         wqLoginPage.check_Password_Feild_Is_Secured();
+        Assert.assertEquals(wqLoginPage.check_Password_Feild_Is_Secured(),"password");
 
     }
 
@@ -132,7 +132,7 @@ public class WQLoginTest extends TestBase {
     public  void verify_The_Password_Place_Hold_Text() {
         wqHomePage.
                 action_Navigate_To_LoginPage();
-        wqLoginPage.check_Password_PlaceHold_Text();
+        Assert.assertEquals(wqLoginPage.check_Password_PlaceHold_Text(),"Password");
     }
 
     //log me in button

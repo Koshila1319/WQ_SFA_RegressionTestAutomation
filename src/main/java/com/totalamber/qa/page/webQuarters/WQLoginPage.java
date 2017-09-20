@@ -79,10 +79,9 @@ public class WQLoginPage implements wqLoginPage {
 
     }
 
-    public void check_Username_PlaceHold_Text() {
+    public String check_Username_PlaceHold_Text() {
 
-        Assert.assertEquals(seleniumBase.getTextByAttribute(LOGIN_USER_NAME_CSS,LOGIN_USER_NAME_XPATH,"placeholder"),"Username");
-
+        return seleniumBase.getTextByAttribute(LOGIN_USER_NAME_CSS,LOGIN_USER_NAME_XPATH,"placeholder");
     }
 
     public void check_Password_Feild_Is_Available() {
@@ -90,12 +89,14 @@ public class WQLoginPage implements wqLoginPage {
         seleniumBase.checkIsElementEnabled(LOGIN_PASSWORD_XPATH);
     }
 
-    public void check_Password_Feild_Is_Secured() {
-        Assert.assertEquals(seleniumBase.getTextByAttribute(LOGIN_PASSWORD_CSS,LOGIN_PASSWORD_XPATH,"type"),"password");
+    public String check_Password_Feild_Is_Secured() {
+
+        return seleniumBase.getTextByAttribute(LOGIN_PASSWORD_CSS,LOGIN_PASSWORD_XPATH,"type");
     }
 
-    public void check_Password_PlaceHold_Text() {
-        Assert.assertEquals(seleniumBase.getTextByAttribute(LOGIN_PASSWORD_CSS,LOGIN_PASSWORD_XPATH,"placeholder"),"Password");
+    public String check_Password_PlaceHold_Text() {
+        return (seleniumBase.getTextByAttribute(LOGIN_PASSWORD_CSS,LOGIN_PASSWORD_XPATH,"placeholder"));
+
     }
 
     public void check_Login_Button_Available() {

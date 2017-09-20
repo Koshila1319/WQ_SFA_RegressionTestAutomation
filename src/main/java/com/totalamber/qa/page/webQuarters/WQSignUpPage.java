@@ -109,4 +109,6 @@ public class WQSignUpPage implements wqSignUpPage
         seleniumBase.selectRadioButton(SIGN_UP_PAGE_PARTNER_OPTION_XPATH);
         seleniumBase.click(SIGN_UP_PAGE_LETS_GO_BUTTON_XPATH,SIGN_UP_PAGE_LETS_GO_BUTTON_CSS);
     }
-    }
+
+
+}

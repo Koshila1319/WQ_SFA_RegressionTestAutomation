@@ -1,9 +1,6 @@
 package com.totalamber.qa.automation;
 
 
-import jdk.nashorn.internal.runtime.regexp.RegExp;
-import jdk.nashorn.internal.runtime.regexp.RegExpResult;
-import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +12,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -268,13 +264,14 @@ public class SeleniumBase {
 	}
 
 	/**
-	 * @param cSS
-	 * @param xPath
-	 * @param textToEnter
-	 */
-	public void type(String cSS, String xPath, String textToEnter) {
+     * @param cSS
+     * @param xPath
+     * @param textToEnter
+     */
+	public boolean type(String cSS, String xPath, String textToEnter) {
 		getElement(cSS, xPath).sendKeys(textToEnter);
-	}
+        return false;
+    }
 
 	// ******************************* function for click
 	// *********************************
@@ -1025,6 +1022,37 @@ public class SeleniumBase {
 				System.out.println("Valid Username Feild");
 		}
 	}
+
+	//Match only letters, numbers and spaces (Removes special characters)
+	public void alphanumeric(String inputtxt) {
+		if (null != inputtxt) {
+			String letterNumber = "^[0-9a-zA-Z]+$";
+			Pattern pattern = Pattern.compile(letterNumber);
+			Matcher matcher = pattern.matcher(inputtxt);
+			if (matcher.matches()) {
+				System.out.println("User can enter any number or character to this text feild");
+			} else {
+				System.out.println("Please enter a valid text. Special Characters are not allowed");
+			}
+		}
+	}
+
+	/*public void alphanumeric(String inputtxt)
+	{
+		String letters = "/^[0-9a-zA-Z]+$/";
+		if(inputtxt.matches(letters))
+		{
+			System.out.println("User can enter any character to this text feild");
+
+		}
+		else
+		{
+			System.out.println("Please enter a valid text");
+
+		}
+	}*/
+
+
 
 
 }
