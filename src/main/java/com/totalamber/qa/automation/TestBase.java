@@ -23,6 +23,7 @@ public class TestBase  {
 	protected WQAMVerifyClientPage wqamVerifyClientPage;
 	protected WQPanel wqPanel;
 	protected WQTermsEvaluationPage wqTermsEvaluationPage;
+	protected WQChangePWPage wqChangePWPage;
 
 
 	public void initDomainObjects(WebDriver driver) throws IOException {
@@ -36,6 +37,8 @@ public class TestBase  {
 		wqamVerifyClientPage = new WQAMVerifyClientPage(driver);
 		wqPanel = new WQPanel(driver);
 		wqTermsEvaluationPage = new WQTermsEvaluationPage(driver);
+		wqChangePWPage = new WQChangePWPage(driver);
+
 	}
 
 	public void setSiteURL(String siteUrl) {

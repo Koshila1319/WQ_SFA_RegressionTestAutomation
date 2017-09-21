@@ -107,6 +107,11 @@ public class WQLoginPage implements wqLoginPage {
     public String check_Login_Button_Text() {
         return  seleniumBase.getTextByAttribute(LOGIN_BTN_CSS,LOGIN_BTN_XPATH,"value");
     }
+
+    public WQLoginPage step_Clear_Username_Field() {
+        seleniumBase.clearTextBox(LOGIN_USER_NAME_XPATH);
+        return this;
+    }
 }
 
 

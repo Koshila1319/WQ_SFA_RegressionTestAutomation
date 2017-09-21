@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Regression">
 
-	<test name="Account Manager Login Test">
+	<!--<test name="Account Manager Login Test">
 		<classes>
 			<class name="com.totalamber.qa.WQTest.WQBackOfficeLoginTest">
 				<methods>
@@ -25,7 +25,7 @@
 
 					<include name = "verify_PendingClientsTable_Available" />
 					<include name = "verify_TableHeaderText_PendingClientsTable_Table_Available" />
-					<!--<include name = "verify_Client_In_PendingClients_List_IsAvailable" />
+					&lt;!&ndash;<include name = "verify_Client_In_PendingClients_List_IsAvailable" />
 					<include name = "verify_Client_Available_to_Click_and_Navigate" />
 					<include name = "verify_CompanyDetails_In_VerifyPage" />
 					<include name = "verify_ClientDetails_In_VerifyPage" />
@@ -49,7 +49,7 @@
 					<include name = "verify_ClickReject_Button_Without_Reason_InRejectPopup_Gives_Error_Message" />
 					<include name = "verify_ClickCancel_Button_InRejectPopup_withText_Goes_To_VerifyPage" />
 					<include name = "verify_ClickCancel_Button_InRejectPopup_withoutText_Goes_To_VerifyPage" />
-					<include name = "verify_ClickReject_Button_With_Reason_InRejectPopup_GoesTo_AMDashboard" />-->
+					<include name = "verify_ClickReject_Button_With_Reason_InRejectPopup_GoesTo_AMDashboard" />&ndash;&gt;
 					<include name = "verify_The_Home_Page_Browser_Title" />
 					<include name = "verify_HomeLink_IsHighlighted" />
 					<include name = "verify_SignedInAs_Name_Available" />
@@ -85,7 +85,7 @@
 					<include name = "verify_Go_ButtonClick_WithoutAny_CompanyName_gives_ErrorMessage" />
 					<include name = "verify_Go_ButtonClick_With_Invalid_CompanyName_gives_ErrorMessage" />
 					<include name = "verify_Go_ButtonClick_With_Valid_CompanyName_gives_ListOf_Companies" />
-					<!--<include name = "verify_Searching_aValidCompany_and_ClickaCompany_FromList_goesTo_ClientProfilePage" />
+					&lt;!&ndash;<include name = "verify_Searching_aValidCompany_and_ClickaCompany_FromList_goesTo_ClientProfilePage" />
 					<include name = "verify_TANDCRejectedClients_Table_Available" />
 					<include name = "verify_TableHeaderText_TANDCRejectedClients_Table_Available" />
 					<include name = "verify_Client_In_TANDCRejectedClients_Table_Available" />
@@ -97,7 +97,38 @@
 					<include name = "verify_RejectedReason_In_ClientTermsEvaluationPage" />
 					<include name = "verify_PromptAgainButton_Available_In_ClientEvaluationPage" />
 					<include name = "verify_PromptAgainButton_Text_Available" />
-					<include name = "verify_Click_PromptAgainButton_InClientEvaluationPage_goesTo_AMDashboardPage" />-->
+					<include name = "verify_Click_PromptAgainButton_InClientEvaluationPage_goesTo_AMDashboardPage" />&ndash;&gt;
+
+				</methods>
+			</class>
+		</classes>
+	</test>-->
+
+	<test name="Client First Login Test">
+		<classes>
+			<class name="com.totalamber.qa.WQTest.WQClientFirstLoginTest">
+				<methods>
+					<include name = "verify_The_Login_Page_Browser_Title" />
+					<include name = "verify_The_WQ_LogoIs_Available" />
+					<include name = "verify_The_Login_Page_Live_Assistance_Option_Is_Available" />
+					<include name = "verify_The_Username_Field_Is_Available" />
+					<include name = "verify_The_Username_Field_Enter_Text_Types" />
+					<include name = "verify_The_Username_PlaceHold_Text" />
+					<include name = "verify_The_Password_Field_Is_Available" />
+					<include name = "verify_The_Password_Is_Display_Set_Secured" />
+					<include name = "verify_The_Password_Place_Hold_Text" />
+					<include name = "verify_The_Login_Button_Is_Available" />
+					<include name = "verify_The_Login_Button_Text" />
+					<include name = "verify_The_Login_Button_With_Given_UN_PW" />
+					<include name = "verify_ChangePassword_Page_views_after_successful_Login" />
+
+					<include name = "verify_Browser_Title" />
+					<include name = "verify_Page_Title" />
+					<include name = "verify_PageContent_Text" />
+					<include name = "verify_FieldWrapper_Near_Password_TextBox_IsAvailable" />
+
+					<include name = "verify_MouseHover_The_FieldWrapper" />
+					<include name = "verify_The_Lable_Content_Of_FieldWrapper" />
 
 				</methods>
 			</class>
