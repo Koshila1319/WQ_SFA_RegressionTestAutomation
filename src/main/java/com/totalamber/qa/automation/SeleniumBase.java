@@ -1018,7 +1018,7 @@ public class SeleniumBase {
 				System.out.println("Invalid Username Feild. Please re-enter the username");
 			}
 			else
-				System.out.println("Valid Username Feild");
+				System.out.println("Valid Email(Username) Feild");
 		}
 	}
 

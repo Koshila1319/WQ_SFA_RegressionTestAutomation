@@ -109,7 +109,26 @@
 												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_First_Name_Text_Feild"/>
 												<include name="verify_Your_Last_Name_Text_Feild_Is_Single_Line_Of_Text"/>
 												<include name="verify_Your_Last_Name_Feild_Text"/>
-												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_Last_Name_Text_Feild"/>-->
+												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_Last_Name_Text_Feild"/>
+												<include name="verify_Your_Email_Text_Feild_Is_Single_Line_Of_Text"/>
+												<include name="verify_Your_Email_Feild_Text"/>
+												<include name="verify_Email_Address_Is_Validated"/>
+												<include name="verify_Your_Title_Designation_Text_Feild_Is_Single_Line_Of_Text"/>
+												<include name="verify_Your_Title_Designation_Feild_Text"/>
+												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_Title_Designation_Text_Feild"/>
+												<include name="verify_Company_Address_Text_Feild_Is_Single_Line_Of_Text"/>
+												<include name="verify_Company_Address_Feild_Text"/>
+												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Company_Address_Text_Feild"/>
+												<include name="verify_Town_City_Text_Feild_Is_Single_Line_Of_Text"/>
+												<include name="verify_Town_City_Feild_Text"/>
+												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Town_City_Text_Feild"/>
+												<include name="verify_Country_State_Text_Feild_Is_Single_Line_Of_Text"/>
+												<include name="verify_Country_State_Feild_Text"/>
+												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Country_State_Text_Feild"/>
+												<include name="verify_Postal_Zip_Code_Text_Feild_Is_Single_Line_Of_Text"/>
+												<include name="verify_Postal_Zip_Code_Feild_Text"/>
+												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Postal_Zip_Code_Text_Feild"/>-->
+												<include name="verify_Country_Feild_Text"/>
 
 
 											</methods>

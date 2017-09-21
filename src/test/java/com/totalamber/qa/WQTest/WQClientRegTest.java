@@ -162,4 +162,224 @@ public class WQClientRegTest extends TestBase {
                 check_text_feild_data_type(last_name);
     }
 
+    //Email Address Feature Validations
+
+    @Test
+    public void verify_Your_Email_Text_Feild_Is_Single_Line_Of_Text()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                verify_Your_Email_Text_Feild_Single_Line_Of_Text_Feild();
+    }
+
+    @Test
+    public void verify_Your_Email_Feild_Text() {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.check_Your_Email_Text_Feild(),"Your Email");
+        System.out.println("Email Text Verified");
+    }
+
+    @Test
+    public void verify_Email_Address_Is_Validated()
+    {
+        String email=data.getValueByName("Email_Address");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.check_Email_Feild_Text_Types(email);
+    }
+
+    //Title Feild Features
+
+    @Test
+    public void verify_Your_Title_Designation_Text_Feild_Is_Single_Line_Of_Text()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                verify_Your_Title_Designation_Feild_Single_Line_Of_Text_Feild();
+    }
+
+    @Test
+    public void verify_Your_Title_Designation_Feild_Text() {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.check_Your_Title_Designation_Text_Feild(),"Your Title / Designation");
+        System.out.println("Title / Designation Text Verified");
+    }
+
+    @Test
+    public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_Title_Designation_Text_Feild()
+    {
+        String title=data.getValueByName("Title_Designation");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                check_text_feild_data_type(title);
+    }
+
+    //company address features
+
+    @Test
+    public void verify_Company_Address_Text_Feild_Is_Single_Line_Of_Text()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                verify_Company_Address_Feild_Single_Line_Of_Text_Feild();
+    }
+
+    @Test
+    public void verify_Company_Address_Feild_Text() {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.check_Company_Address_Text_Feild(),"Company Address");
+        System.out.println("Company Address Text Verified");
+    }
+
+    @Test
+    public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Company_Address_Text_Feild()
+    {
+        String company_address=data.getValueByName("Company_Address");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                check_text_feild_data_type(company_address);
+    }
+
+    //Town City Features
+
+    @Test
+    public void verify_Town_City_Text_Feild_Is_Single_Line_Of_Text()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                verify_Town_City_Feild_Single_Line_Of_Text_Feild();
+    }
+
+    @Test
+    public void verify_Town_City_Feild_Text() {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.check_Town_City_Text_Feild(),"Town / City");
+        System.out.println("Town / City Text Verified");
+    }
+
+    @Test
+    public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Town_City_Text_Feild()
+    {
+        String town_city=data.getValueByName("Town_City");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                check_text_feild_data_type(town_city);
+    }
+
+    //Country State Features
+
+    @Test
+    public void verify_Country_State_Text_Feild_Is_Single_Line_Of_Text()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                verify_Country_State_Feild_Single_Line_Of_Text_Feild();
+    }
+
+    @Test
+    public void verify_Country_State_Feild_Text() {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.check_Country_State_Text_Feild(),"County / State");
+        System.out.println("County / State Text Verified");
+    }
+
+    @Test
+    public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Country_State_Text_Feild()
+    {
+        String country_state=data.getValueByName("Country_State");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                check_text_feild_data_type(country_state);
+    }
+
+    //postal zip code features
+
+    @Test
+    public void verify_Postal_Zip_Code_Text_Feild_Is_Single_Line_Of_Text()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                verify_Postal_Zip_Code_Feild_Single_Line_Of_Text_Feild();
+    }
+
+    @Test
+    public void verify_Postal_Zip_Code_Feild_Text() {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.check_Postal_Zip_Code_Text_Feild(),"Postal / Zip code");
+        System.out.println("Postal / Zip code Text Verified");
+    }
+
+    @Test
+    public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Postal_Zip_Code_Text_Feild()
+    {
+        String postal_zip_code=data.getValueByName("Postal_Code");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                check_text_feild_data_type(postal_zip_code);
+    }
+
+    //country features
+    @Test
+    public void verify_Country_Feild_Text()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.check_Country_Text_Feild(),"Country (please select)");
+        System.out.println("Country Text Verified");
+    }
 }

@@ -80,4 +80,103 @@ public class WQClientRegPage implements wqClientRegPage {
     public String check_Last_Name_Feild_Text() {
         return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_LAST_NAME_CSS,WQCLIENT_REG_PAGE_LAST_NAME_XPATH,"placeholder");
     }
+
+    public void verify_Your_Email_Text_Feild_Single_Line_Of_Text_Feild() {
+        if(seleniumBase.type(WQCLIENT_REG_PAGE_EMAIL_ADDRESS_CSS,WQCLIENT_REG_PAGE_EMAIL_ADDRESS_XPATH,"This is a line text one.\n This is a line text two.\n This i s a line text three"))
+        {
+            System.out.print("Multiple Line of text");
+        }
+
+        else{
+            System.out.print("Single Line of text");
+        }
+    }
+
+    public String check_Your_Email_Text_Feild() {
+        return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_EMAIL_ADDRESS_CSS,WQCLIENT_REG_PAGE_EMAIL_ADDRESS_XPATH,"placeholder");
+    }
+
+    public void check_Email_Feild_Text_Types(String email) {
+        seleniumBase.type(WQCLIENT_REG_PAGE_EMAIL_ADDRESS_CSS,WQCLIENT_REG_PAGE_EMAIL_ADDRESS_XPATH,email);
+        seleniumBase.validate_Email_Address(email);
+    }
+
+    public void verify_Your_Title_Designation_Feild_Single_Line_Of_Text_Feild() {
+        if(seleniumBase.type(WQCLIENT_REG_PAGE_TITLE_DESIGNATION_CSS,WQCLIENT_REG_PAGE_TITLE_DESIGNATION_XPATH,"This is a line text one.\n This is a line text two.\n This i s a line text three"))
+        {
+            System.out.print("Multiple Line of text");
+        }
+
+        else{
+            System.out.print("Single Line of text");
+        }
+    }
+
+    public String check_Your_Title_Designation_Text_Feild() {
+        return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_TITLE_DESIGNATION_CSS,WQCLIENT_REG_PAGE_TITLE_DESIGNATION_XPATH,"placeholder");
+    }
+
+    public void verify_Company_Address_Feild_Single_Line_Of_Text_Feild() {
+        if(seleniumBase.type(WQCLIENT_REG_PAGE_COMPANY_ADDRESS_CSS,WQCLIENT_REG_PAGE_COMPANY_ADDRESS_XPATH,"This is a line text one.\n This is a line text two.\n This i s a line text three"))
+        {
+            System.out.print("Multiple Line of text");
+        }
+
+        else{
+            System.out.print("Single Line of text");
+        }
+    }
+
+    public String check_Company_Address_Text_Feild() {
+        return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_COMPANY_ADDRESS_CSS,WQCLIENT_REG_PAGE_COMPANY_ADDRESS_XPATH,"placeholder");
+    }
+
+    public void verify_Town_City_Feild_Single_Line_Of_Text_Feild() {
+        if(seleniumBase.type(WQCLIENT_REG_PAGE_TOWN_CITY_CSS,WQCLIENT_REG_PAGE_TOWN_CITY_XPATH,"This is a line text one.\n This is a line text two.\n This i s a line text three"))
+        {
+            System.out.print("Multiple Line of text");
+        }
+
+        else{
+            System.out.print("Single Line of text");
+        }
+    }
+
+    public String check_Town_City_Text_Feild() {
+        return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_TOWN_CITY_CSS,WQCLIENT_REG_PAGE_TOWN_CITY_XPATH,"placeholder");
+    }
+
+    public void verify_Country_State_Feild_Single_Line_Of_Text_Feild() {
+        if(seleniumBase.type(WQCLIENT_REG_PAGE_COUNTRY_CSS,WQCLIENT_REG_PAGE_COUNTRY_XPATH,"This is a line text one.\n This is a line text two.\n This i s a line text three"))
+        {
+            System.out.print("Multiple Line of text");
+        }
+
+        else{
+            System.out.print("Single Line of text");
+        }
+    }
+
+    public String check_Country_State_Text_Feild() {
+        return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_COUNTRY_CSS,WQCLIENT_REG_PAGE_COUNTRY_XPATH,"placeholder");
+    }
+
+    public void verify_Postal_Zip_Code_Feild_Single_Line_Of_Text_Feild() {
+        if(seleniumBase.type(WQCLIENT_REG_PAGE_POSTAL_ZIP_CODE_CSS,WQCLIENT_REG_PAGE_POSTAL_ZIP_CODE_XPATH,"This is a line text one.\n This is a line text two.\n This i s a line text three"))
+        {
+            System.out.print("Multiple Line of text");
+        }
+
+        else{
+            System.out.print("Single Line of text");
+        }
+    }
+
+    public String check_Postal_Zip_Code_Text_Feild() {
+        return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_POSTAL_ZIP_CODE_CSS,WQCLIENT_REG_PAGE_POSTAL_ZIP_CODE_XPATH,"placeholder");
+    }
+
+    public String check_Country_Text_Feild() {
+        return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_COUNTRY_DROPDOWN_CSS,WQCLIENT_REG_PAGE_COUNTRY_DROPDOWN_XPATH,"span");
+    }
 }
