@@ -28,9 +28,6 @@ public class WQBackOfficeLoginPage extends TestBase implements wqBackOfficeLogin
 
     }
 
-    public String validate_pageContent() {
-        return seleniumBase.getText(BO_SIGNIN_PAGECONTENT_CSS, BO_SIGNIN_PAGECONTENT_XPATH);
-    }
 
     public boolean validate_Dropdown_Availability() {
         return seleniumBase.checkIsElementEnabled(BO_SIGNIN_DROPDOWN_XPATH);

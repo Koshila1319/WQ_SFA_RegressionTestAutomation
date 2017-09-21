@@ -15,7 +15,7 @@ public class WQBackOfficeLoginTest extends TestBase{
     @BeforeClass
     public void NavigateToPage() throws InterruptedException, IOException {
         initDomainObjects(DRIVER);
-        String siteUrl = data.getValueByName("backOfficeUrl");
+        String siteUrl = data.getValueByName("BackOfficeUrl");
         setSiteURL(siteUrl);
 
     }
@@ -30,30 +30,23 @@ public class WQBackOfficeLoginTest extends TestBase{
         Assert.assertEquals(wqBackOfficeLoginPage.validate_BrowserTitle(), expectedTitle);
     }
 
-    @Test (enabled = false)
+    @Test
     public void verify_Sign_In_Text(){
         String expectedText = data.getValueByName("BOSignInText");
         Assert.assertEquals(wqBackOfficeLoginPage.validate_SignInText(), expectedText);
     }
 
-    //Need To WRite again
-    @Test (enabled = false)
-    public void verify_The_Page_Content(){
-        String expectedPageContent = data.getValueByName("SignInPageContent");
-        Assert.assertEquals(wqBackOfficeLoginPage.validate_pageContent(),expectedPageContent);
-    }
-
-    @Test (enabled = false)
+    @Test
     public void verify_The_Availiability_Of_The_DropDown(){
         Assert.assertNotNull(wqBackOfficeLoginPage.validate_Dropdown_Availability());
     }
 
-    @Test (enabled = false)
+    @Test
     public void verify_User_Can_Select_The_Sign_In_Option_From_The_DropDown(){
         wqBackOfficeLoginPage.validate_selectingDropdown();
     }
 
-    @Test (priority = 1,enabled = false)
+    @Test
     public void verify_Login_as_BO_Users() throws InterruptedException {
         String AMUsername = data.getValueByName("AM_Username");
         String AMPassword = data.getValueByName("AM_Password");
@@ -64,7 +57,7 @@ public class WQBackOfficeLoginTest extends TestBase{
         Thread.sleep(10000);
     }
 
-    @Test (priority = 2 , enabled = false)
+    @Test
     public void verify_Login_Leads_To_Account_Manager_Dashboard_Page(){
         String expectedTitle = data.getValueByName("AM_HomePage");
         Assert.assertEquals(wqBackOfficeLoginPage.validate_BrowserTitle(), expectedTitle);

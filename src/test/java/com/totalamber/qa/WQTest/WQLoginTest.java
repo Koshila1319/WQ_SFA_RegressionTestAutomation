@@ -93,7 +93,7 @@ public class WQLoginTest extends TestBase {
     @Test
     public void verify_The_Username_Field_Enter_Text_Types()
     {
-        String name= data.getValueByName("username");
+        String name= data.getValueByName("UserName");
         wqHomePage.
                 action_Navigate_To_LoginPage();
         wqLoginPage.check_Username_Feild_Text_Types(name);
