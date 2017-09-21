@@ -48,6 +48,7 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_Client_In_PendingClients_List_IsAvailable() throws InterruptedException {
         /*wqPanel.check_User_goes_To_HomePage();
@@ -56,6 +57,7 @@ public class WQAMDashboardTest extends TestBase {
         Assert.assertNotNull(wqamDashboardPage.check_Client_In_Table_Available(clientName));
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_Client_Available_to_Click_and_Navigate(){
         String clientName = data.getValueByName("CompanyDetails_CompanyName");
@@ -64,6 +66,7 @@ public class WQAMDashboardTest extends TestBase {
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(), expectedTitle);
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_CompanyDetails_In_VerifyPage(){
         String companyName = data.getValueByName("CompanyDetails_CompanyName");
@@ -88,6 +91,7 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_ClientDetails_In_VerifyPage(){
         String clientName = data.getValueByName("ClientDetails_ClientName");
@@ -102,6 +106,7 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_SoftwareExperience_In_VerifyPage(){
         String applicationName = data.getValueByName("Software_Application");
@@ -114,12 +119,14 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_VerifyButton_Available_In_VerifyPage(){
         Assert.assertNotNull(wqamVerifyClientPage.check_VerifyButton_Available());
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_VerifyButton_Text_Available_In_VerifyButton_In_VerifyPage(){
         String verifyButtonText = data.getValueByName("verifyPage_verifyButton");
@@ -127,6 +134,7 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_Click_VerifyButton_InVerifyPage_goesTo_AMDashboard() throws InterruptedException {
 
@@ -138,12 +146,14 @@ public class WQAMDashboardTest extends TestBase {
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),expectedTitle);
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_RejectButton_Available_InVerifyPage(){
         Assert.assertNotNull(wqamVerifyClientPage.check_RejectButton_Available());
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_RejectButton_Text_Available_In_RejectButton_In_VerifyPage(){
         String rejectButtonText = data.getValueByName("verifyPage_rejectButton");
@@ -151,6 +161,7 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_Click_RejectButton_InVerifyPage_gives_Popup() throws InterruptedException {
         /*String clientName = data.getValueByName("CompanyDetails_CompanyName");
@@ -160,40 +171,47 @@ public class WQAMDashboardTest extends TestBase {
         Assert.assertNotNull(wqamVerifyClientPage.validate_user_gets_aPopup());
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_Title_Available_In_RejectPopUp() throws InterruptedException {
         String rejectPopupTitle = data.getValueByName("RejectPopup_Title");
         Assert.assertEquals(wqamVerifyClientPage.validate_RejectPopup_Title(),rejectPopupTitle);
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_CommentBox_Available_InRejectPopUp() throws InterruptedException {
         Assert.assertNotNull(wqamVerifyClientPage.check_RejectPopup_CommentBox());
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_CommentBox_PlaceHolder_Available_InRejectPopUp() throws InterruptedException {
         String rejectPlaceHolderTextArea = data.getValueByName("RejectPopup_rejectTextArea_Placeholder");
         Assert.assertEquals(wqamVerifyClientPage.check_RejectPopup_CommentBox_Placeholder(),rejectPlaceHolderTextArea);
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_Entering_Text_To_CommentBox_InRejectPopUp(){
         String textToEnter = data.getValueByName("AM_textToEnter");
         wqamVerifyClientPage.validate_Characters_Can_Enter(textToEnter);
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_RejectButton_Available_InRejectPopUp(){
         Assert.assertNotNull(wqamVerifyClientPage.check_Rejectbutton_Available_inRejectPopup());
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_Textof_RejectButton_InRejectPopUp(){
         String rejectPopup_rejectButton_Text = data.getValueByName("RejectPopup_rejectButton_Text");
         Assert.assertEquals(wqamVerifyClientPage.check_RejectButton_Text_inRejectPopup(), rejectPopup_rejectButton_Text);
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_Textof_CancelButton_InRejectPopUp(){
         String rejectPopup_cancelButton_Text = data.getValueByName("RejectPopup_cancelButton_Text");
@@ -201,33 +219,30 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_CancelButton_Available_InRejectPopUp(){
         Assert.assertNotNull(wqamVerifyClientPage.check_Cancelbutton_Available_inRejectPopup());
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_Close_Cross_Available_InRejectPopUp() throws InterruptedException {
         Assert.assertNotNull(wqamVerifyClientPage.check_closeCross_Available_inRejectPopup());
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_Click_Close_Button_InRejectPopup_Goes_To_VerifyPage() throws InterruptedException {
-        /*wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
-        String clientName = data.getValueByName("CompanyDetails_CompanyName");
-        wqamDashboardPage.step_user_clicks_Client(clientName);
-        wqamVerifyClientPage.step_click_RejectButton();
-        Thread.sleep(10000);
-        wqamVerifyClientPage.validate_user_gets_aPopup();*/
         wqamVerifyClientPage.step_click_Close_Button();
         String aMVerifyPageBrowserTitle = data.getValueByName("BOVerifyPage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),aMVerifyPageBrowserTitle);
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_ClickReject_Button_Without_Reason_InRejectPopup_Gives_Error_Message(){
         wqamVerifyClientPage.clear_Rejectreason_TextArea();
@@ -238,6 +253,7 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_ClickCancel_Button_InRejectPopup_withText_Goes_To_VerifyPage() throws InterruptedException {
 
@@ -258,6 +274,7 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_ClickCancel_Button_InRejectPopup_withoutText_Goes_To_VerifyPage() throws InterruptedException {
         /*wqPanel.check_User_goes_To_HomePage();
@@ -276,6 +293,7 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_ClickReject_Button_With_Reason_InRejectPopup_GoesTo_AMDashboard() throws InterruptedException {
         /*wqPanel.check_User_goes_To_HomePage();
@@ -554,19 +572,20 @@ public class WQAMDashboardTest extends TestBase {
     @Test
     public void verify_Go_ButtonClick_With_Valid_CompanyName_gives_ListOf_Companies(){
         wqamDashboardPage.check_EnterCompanyName_TextBox_isEmpty();
-        String ClientName = data.getValueByName("ClientName");
+        String ClientName = data.getValueByName("AM_pendingClient");
         wqamDashboardPage.validate_Characters_Can_Enter(ClientName);
         wqamDashboardPage.step_click_Go_Button();
         Assert.assertNotNull(wqamDashboardPage.validate_Client_List_IsAvailable());
 
     }
 
+    // Depends with the signedup Client
     @Test
     public void verify_Searching_aValidCompany_and_ClickaCompany_FromList_goesTo_ClientProfilePage() throws InterruptedException {
         wqPanel.check_User_goes_To_HomePage();
         verify_The_Home_Page_Browser_Title();
         wqamDashboardPage.check_EnterCompanyName_TextBox_isEmpty();
-        String ClientName = data.getValueByName("ClientName");
+        String ClientName = data.getValueByName("AM_pendingClient");
         wqamDashboardPage.validate_Characters_Can_Enter(ClientName);
         wqamDashboardPage.step_click_Go_Button();
         Assert.assertEquals(wqamDashboardPage.check_Populated_ClientName_EqualsTo_entered_ClientName(),ClientName);
@@ -580,12 +599,14 @@ public class WQAMDashboardTest extends TestBase {
 
     //------------------------
 
+    // Depends with the signedup Client who has rejected T&C
     @Test
     public void verify_TANDCRejectedClients_Table_Available() throws InterruptedException {
         Assert.assertNotNull(wqamDashboardPage.check_TANDCRejectedClients_Table_Available());
 
     }
 
+    // Depends with the signedup Client who has rejected T&C
     @Test
     public void verify_TableHeaderText_TANDCRejectedClients_Table_Available() throws InterruptedException {
         String TandC_TableHeader = data.getValueByName("AM_TandC_TableHeader");
@@ -593,12 +614,14 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
+    // Depends with the signedup Client who has rejected T&C
     @Test
     public void verify_Client_In_TANDCRejectedClients_Table_Available() throws InterruptedException {
         String clientName = data.getValueByName("AM_rejectedTANDCClientName");
         Assert.assertEquals(wqamDashboardPage.split_TANDCRejectedClients_check_ClientAvailable_In_List(clientName),clientName);
     }
 
+    // Depends with the signedup Client who has rejected T&C
     @Test
     public void verify_ClickingAClient_GoesTo_ClientEvaluationPage(){
         String clientName = data.getValueByName("AM_rejectedTANDCClientName");
@@ -607,12 +630,14 @@ public class WQAMDashboardTest extends TestBase {
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(), expectedTitle);*/
     }
 
+    // Depends with the signedup Client who has rejected T&C
     @Test
     public void verify_BrowserTitle_Of_ClientEvaluationPage(){
         String expectedTitle = data.getValueByName("AM_ClientTermsEvaluationPage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(), expectedTitle);
     }
 
+    // Depends with the signedup Client who has rejected T&C
     @Test
     public void verify_CompanyDetails_In_ClientTermsEvaluationPage(){
         String companyName = data.getValueByName("ClientTermsEvaluationPage_CompanyName");
@@ -637,6 +662,7 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
+    // Depends with the signedup Client who has rejected T&C
     @Test
     public void verify_ClientDetails_In_ClientTermsEvaluationPage(){
         String clientName = data.getValueByName("ClientTermsEvaluationPage_ClientName");
@@ -651,6 +677,7 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
+    // Depends with the signedup Client who has rejected T&C
     @Test
     public void verify_SoftwareExperience_In_ClientTermsEvaluationPage(){
         String applicationName = data.getValueByName("ClientTermsEvaluationPage_Software_Application");
@@ -663,6 +690,7 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
+    // Depends with the signedup Client who has rejected T&C
     @Test
     public void verify_RejectedReason_In_ClientTermsEvaluationPage(){
         String rejectedReason = data.getValueByName("ClientTermsEvaluationPage_RejectedReason");
@@ -671,17 +699,20 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
+    // Depends with the signedup Client who has rejected T&C
     @Test
     public void verify_PromptAgainButton_Available_In_ClientEvaluationPage(){
         Assert.assertNotNull(wqTermsEvaluationPage.check_PromptAgain_Button_Available());
     }
 
+    // Depends with the signedup Client who has rejected T&C
     @Test
     public void verify_PromptAgainButton_Text_Available(){
         String expectedButtonText = data.getValueByName("ClientTermsEvaluationPage_PromptAgain");
         Assert.assertEquals(wqTermsEvaluationPage.check_PromptAgain_Button_Text(),expectedButtonText);
     }
 
+    // Depends with the signedup Client who has rejected T&C
     @Test
     public void verify_Click_PromptAgainButton_InClientEvaluationPage_goesTo_AMDashboardPage(){
         wqTermsEvaluationPage.click_PromptAgain_Button();
