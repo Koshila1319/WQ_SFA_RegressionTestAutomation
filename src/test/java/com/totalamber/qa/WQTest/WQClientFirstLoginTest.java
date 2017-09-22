@@ -119,7 +119,7 @@ public class WQClientFirstLoginTest extends TestBase{
     @Test
     public void verify_Page_Title(){
         String expetedTitle1 = data.getValueByName("ChangePW_Title1");
-        String expetedTitle2 = data.getValueByName("ClientDetails_Email");
+        String expetedTitle2 = data.getValueByName("ClientFirstLogin_UName");
         String expetedTitle3 = data.getValueByName("ChangePW_Title3");
         Assert.assertEquals(wqChangePWPage.validate_the_PageTitle(),expetedTitle1+expetedTitle2+expetedTitle3);
     }
@@ -146,6 +146,113 @@ public class WQClientFirstLoginTest extends TestBase{
     public void verify_The_Lable_Content_Of_FieldWrapper(){
         String fieldwrapperContent = data.getValueByName("ChangePW_FieldWrapper");
         Assert.assertEquals(wqChangePWPage.validate_FieldWrapper_LabelContent(),fieldwrapperContent);
+    }
+
+    @Test
+    public void verify_EnterPassword_PlaceHolder_IsAvailable(){
+        String expectedPlaceHolderText = data.getValueByName("ChangePW_PasswordPlaceholder");
+        Assert.assertEquals(wqChangePWPage.validate_PlaceholderText_Of_Password(),expectedPlaceHolderText);
+    }
+
+    @Test
+    public void verify_EnterPassword_TextBox_IsAvailable(){
+        wqChangePWPage.validate_EnterPassword_Textbox_Available();
+    }
+
+    @Test
+    public void verify_EnterPassword_Textbox_Is_Editable(){
+        String textToEnter = data.getValueByName("AM_textToEnter");
+        wqChangePWPage.validate_Characters_Can_Enter_in_Password(textToEnter);
+    }
+
+    @Test
+    public void verify_EnterPassword_Is_Display_Set_Secured(){
+        Assert.assertEquals(wqChangePWPage.check_Password_Feild_Is_Secured(),"password");
+    }
+
+    @Test
+    public void verify_ConfirmPassword_PlaceHolder_IsAvailable(){
+        String expectedPlaceHolderText = data.getValueByName("ChangePW_ConfirmPasswordPlaceholder");
+        Assert.assertEquals(wqChangePWPage.validate_PlaceholderText_Of_ChangePassword(),expectedPlaceHolderText);
+    }
+
+    @Test
+    public void verify_ConfirmPassword_TextBox_IsAvailable(){
+        wqChangePWPage.validate_ChangePassword_Textbox_Available();
+    }
+
+    @Test
+    public void verify_ConfirmPassword_Textbox_Is_Editable(){
+        String textToEnter = data.getValueByName("AM_textToEnter");
+        wqChangePWPage.validate_Characters_Can_Enter_in_ChangePassword(textToEnter);
+    }
+
+    @Test
+    public void verify_ConfirmPassword_Is_Display_Set_Secured(){
+        Assert.assertEquals(wqChangePWPage.check_ChangePassword_Feild_Is_Secured(),"password");
+    }
+
+    @Test
+    public void verify_ChangePassword_Button_Available(){
+        wqChangePWPage.check_ChangePassword_Button_Available();
+    }
+
+    @Test
+    public void verify_ChangePassword_Button_Text(){
+        String expectedButtonText = data.getValueByName("ChangePW_ButtonText");
+        Assert.assertEquals(wqChangePWPage.check_ChangePassword_Button_Text(),expectedButtonText);
+    }
+
+    @Test
+    public void verify_Clicking_ChangePassword_Button_Without_AnyValues_InTextboxes(){
+        wqChangePWPage.step_clear_Password_TextBoxes();
+        wqChangePWPage.step_Click_ChangePassword_Button();
+        String expectedError = data.getValueByName("ChangePW_Error");
+        //Validate the error message when there are null values in text boxes.
+        Assert.assertEquals(wqChangePWPage.validate_Click_ChangePassword_Button_With_Incorrect_Value_Gives_AnErrorMessage(),expectedError);
+
+    }
+
+    @Test
+    public void verify_Clicking_ChangePassword_Button_With_Less_Than_SixValues_InBothTextBoxes(){
+        String textLessSix = data.getValueByName("ChangePW_TextLessSix");
+        wqChangePWPage.Step_Enter_Values_Less_Than_Six(textLessSix);
+        wqChangePWPage.step_Click_ChangePassword_Button();
+        String expectedError = data.getValueByName("ChangePW_Error");
+        //Validate the error message when there are less than six characters in text boxes.
+        Assert.assertEquals(wqChangePWPage.validate_Click_ChangePassword_Button_With_Incorrect_Value_Gives_AnErrorMessage(),expectedError);
+
+    }
+
+    //This depends with the client who is registering and needs to run at the end
+    @Test
+    public void verify_Clicking_ChangePassword_Button_With_more_Than_SixValues_InBothTextBoxes(){
+        /*wqChangePWPage.step_clear_Password_TextBoxes();
+        String textMoreSix = data.getValueByName("ChangePW_TextMoreSix");
+        wqChangePWPage.Step_Enter_Values_More_Than_Six(textMoreSix);
+        wqChangePWPage.step_Click_ChangePassword_Button();
+        String expectedPage = data.getValueByName("TandC_Page_Title");
+        //Validate the error message when there are six characters in text boxes.
+        Assert.assertEquals(wqChangePWPage.check_TandC_Page_Browser_Title(),expectedPage);*/
+
+    }
+
+    //This depends with the client who is registering and needs to run at the end
+    @Test
+    public void verify_Clicking_ChangePassword_Button_With_SixValues_InBothTextBoxes(){
+        /*wqChangePWPage.step_clear_Password_TextBoxes();
+        String textEqualSix = data.getValueByName("ChangePW_TextEqualSix");
+        wqChangePWPage.Step_Enter_Values_Equal_Than_Six(textEqualSix);
+        wqChangePWPage.step_Click_ChangePassword_Button();
+        String expectedPage = data.getValueByName("TandC_Page_Title");
+        //Validate the error message when there are six characters in text boxes.
+        Assert.assertEquals(wqChangePWPage.check_TandC_Page_Browser_Title(),expectedPage);*/
+
+    }
+
+    @Test
+    public void verify_Clicking_ChangePassword_Button_With_SpecialCahracter_Without_NumericCharacter_InBothTextBoxes(){
+
     }
 
 }

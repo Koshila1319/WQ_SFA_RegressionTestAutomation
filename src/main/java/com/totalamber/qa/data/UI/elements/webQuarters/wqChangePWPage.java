@@ -16,4 +16,16 @@ public interface wqChangePWPage {
 
     public final String CHANGEPWPAGE_FIELDWRAPPER_XPATH = "//*[contains(@title,'Password')]";
     public final String CHANGEPWPAGE_FIELDWRAPPER_CSS = "";
+
+    public final String CHANGEPWPAGE_PASSWORD_XPATH = "//*[contains(@name,'TextBoxPassword')]";
+    public final String CHANGEPWPAGE_PASSWORD_CSS = "";
+
+    public final String CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH = "//*[contains(@name,'TextBoxConfirmPassword')]";
+    public final String CHANGEPWPAGE_CONFIRM_PASSWORD_CSS = "";
+
+    public final String CHANGEPWPAGE_CHANGEPASSWORD_BUTTON_XPATH = "//*[contains(@name,'ButtonChangePassword')]";
+    public final String CHANGEPWPAGE_CHANGEPASSWORD_BUTTON_CSS = "";
+
+    public final String CHANGEPWPAGE_NULL_ERROR_MSG_XPATH = "//*[contains(@id,'B9F414106C84_Msg')]";
+    public final String CHANGEPWPAGE_NULL_ERROR_MSG_CSS = "";
 }

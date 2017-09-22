@@ -112,6 +112,8 @@ public class WQLoginPage implements wqLoginPage {
         seleniumBase.clearTextBox(LOGIN_USER_NAME_XPATH);
         return this;
     }
+
+
 }
 
 

@@ -39,4 +39,87 @@ public class WQChangePWPage implements wqChangePWPage {
     public String validate_FieldWrapper_LabelContent() {
         return seleniumBase.getTextByAttribute(CHANGEPWPAGE_FIELDWRAPPER_CSS,CHANGEPWPAGE_FIELDWRAPPER_XPATH,"title");
     }
+
+    public String validate_PlaceholderText_Of_Password() {
+        return seleniumBase.getTextByAttribute(CHANGEPWPAGE_PASSWORD_CSS,CHANGEPWPAGE_PASSWORD_XPATH,"placeholder");
+    }
+
+    public WQChangePWPage validate_EnterPassword_Textbox_Available() {
+        seleniumBase.verifyAvailableObject(CHANGEPWPAGE_PASSWORD_XPATH);
+        return this;
+    }
+
+    public WQChangePWPage validate_Characters_Can_Enter_in_Password(String textToEnter) {
+        seleniumBase.type(CHANGEPWPAGE_PASSWORD_CSS,CHANGEPWPAGE_PASSWORD_XPATH, textToEnter);
+        return this;
+    }
+
+    public String check_Password_Feild_Is_Secured() {
+        return seleniumBase.getTextByAttribute(CHANGEPWPAGE_PASSWORD_CSS,CHANGEPWPAGE_PASSWORD_XPATH,"type");
+    }
+
+    public String validate_PlaceholderText_Of_ChangePassword() {
+        return seleniumBase.getTextByAttribute(CHANGEPWPAGE_CONFIRM_PASSWORD_CSS,CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH,"placeholder");
+    }
+
+    public WQChangePWPage validate_ChangePassword_Textbox_Available() {
+        seleniumBase.verifyAvailableObject(CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH);
+        return this;
+    }
+
+    public WQChangePWPage validate_Characters_Can_Enter_in_ChangePassword(String textToEnter) {
+        seleniumBase.type(CHANGEPWPAGE_CONFIRM_PASSWORD_CSS,CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH, textToEnter);
+        return this;
+    }
+
+    public String check_ChangePassword_Feild_Is_Secured() {
+        return seleniumBase.getTextByAttribute(CHANGEPWPAGE_CONFIRM_PASSWORD_CSS,CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH,"type");
+    }
+
+
+    public WQChangePWPage check_ChangePassword_Button_Available() {
+        seleniumBase.checkIsElementEnabled(CHANGEPWPAGE_CHANGEPASSWORD_BUTTON_XPATH);
+        return this;
+    }
+
+    public String check_ChangePassword_Button_Text() {
+        return seleniumBase.getTextByAttribute(CHANGEPWPAGE_CHANGEPASSWORD_BUTTON_CSS, CHANGEPWPAGE_CHANGEPASSWORD_BUTTON_XPATH, "value");
+    }
+
+    public WQChangePWPage step_clear_Password_TextBoxes() {
+        seleniumBase.clearTextBox(CHANGEPWPAGE_PASSWORD_XPATH);
+        seleniumBase.clearTextBox(CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH);
+        return this;
+    }
+
+    public WQChangePWPage step_Click_ChangePassword_Button() {
+        seleniumBase.click(CHANGEPWPAGE_CHANGEPASSWORD_BUTTON_XPATH, CHANGEPWPAGE_CHANGEPASSWORD_BUTTON_CSS);
+        return this;
+    }
+
+    public String validate_Click_ChangePassword_Button_With_Incorrect_Value_Gives_AnErrorMessage() {
+        return seleniumBase.getText(CHANGEPWPAGE_NULL_ERROR_MSG_CSS,CHANGEPWPAGE_NULL_ERROR_MSG_XPATH);
+    }
+
+    public WQChangePWPage Step_Enter_Values_Less_Than_Six(String textLessSix) {
+        seleniumBase.type(CHANGEPWPAGE_PASSWORD_CSS, CHANGEPWPAGE_PASSWORD_XPATH,textLessSix);
+        seleniumBase.type(CHANGEPWPAGE_CONFIRM_PASSWORD_CSS, CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH, textLessSix);
+        return this;
+    }
+
+    public WQChangePWPage Step_Enter_Values_More_Than_Six(String textMoreSix) {
+        seleniumBase.type(CHANGEPWPAGE_PASSWORD_CSS, CHANGEPWPAGE_PASSWORD_XPATH,textMoreSix);
+        seleniumBase.type(CHANGEPWPAGE_CONFIRM_PASSWORD_CSS, CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH, textMoreSix);
+        return this;
+    }
+
+    public WQChangePWPage Step_Enter_Values_Equal_Than_Six(String textEqualSix) {
+        seleniumBase.type(CHANGEPWPAGE_PASSWORD_CSS, CHANGEPWPAGE_PASSWORD_XPATH,textEqualSix);
+        seleniumBase.type(CHANGEPWPAGE_CONFIRM_PASSWORD_CSS, CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH, textEqualSix);
+        return this;
+    }
+
+    public String check_TandC_Page_Browser_Title() {
+        return seleniumBase.getTitle();
+    }
 }
