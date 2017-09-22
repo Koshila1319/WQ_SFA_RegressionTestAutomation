@@ -1025,13 +1025,13 @@ public class SeleniumBase {
 	//Match only letters, numbers and spaces (Removes special characters)
 	public void alphanumeric(String inputtxt) {
 		if (null != inputtxt) {
-			String letterNumber = "^[0-9a-zA-Z]+$";
+			String letterNumber = "(?i)^([[a-z][^a-z0-9\\\\s\\\\(\\\\)\\\\[\\\\]\\\\{\\\\}\\\\\\\\^\\\\$\\\\|\\\\?\\\\*\\\\\u200C\u200B+\\\\.\\\\<\\\\>\\\\-\\\\=\\\\!\\\u200C\u200B\\_]]*)$";
 			Pattern pattern = Pattern.compile(letterNumber);
 			Matcher matcher = pattern.matcher(inputtxt);
 			if (matcher.matches()) {
-				System.out.println("User can enter any number or character to this text feild");
+				System.out.println("Valid Text");
 			} else {
-				System.out.println("Please enter a valid text. Special Characters are not allowed");
+				System.out.println("Please enter a valid text.");
 			}
 		}
 	}

@@ -2,6 +2,7 @@ package com.totalamber.qa.page.webQuarters;
 
 import com.totalamber.qa.automation.SeleniumBase;
 import com.totalamber.qa.data.UI.elements.webQuarters.wqClientRegPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -176,7 +177,44 @@ public class WQClientRegPage implements wqClientRegPage {
         return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_POSTAL_ZIP_CODE_CSS,WQCLIENT_REG_PAGE_POSTAL_ZIP_CODE_XPATH,"placeholder");
     }
 
+   /* public void check_Country_Text_Feild() {
+        seleniumBase.selectByVisibleText(WQCLIENT_REG_PAGE_POSTAL_ZIP_CODE_CSS,WQCLIENT_REG_PAGE_POSTAL_ZIP_CODE_XPATH,"Country (please select)");
+
+    }*/
+
     public String check_Country_Text_Feild() {
-        return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_COUNTRY_DROPDOWN_CSS,WQCLIENT_REG_PAGE_COUNTRY_DROPDOWN_XPATH,"span");
+       return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_COUNTRY_DROPDOWN_CSS,WQCLIENT_REG_PAGE_COUNTRY_DROPDOWN_XPATH,"value");
+
+    }
+
+    public void verify_Contact_Number_Feild_Single_Line_Of_Text_Feild() {
+        if(seleniumBase.type(WQCLIENT_REG_PAGE_CONTACT_NO_CSS,WQCLIENT_REG_PAGE_CONTACT_NO_XPATH,"This is a line text one.\n This is a line text two.\n This i s a line text three"))
+        {
+            System.out.print("Multiple Line of text");
+        }
+
+        else{
+            System.out.print("Single Line of text");
+        }
+    }
+
+    public String check_Contact_Number_Text_Feild() {
+        return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_CONTACT_NO_CSS,WQCLIENT_REG_PAGE_CONTACT_NO_XPATH,"placeholder");
+    }
+
+    public void verify_Dialing_Code_Feild_Single_Line_Of_Text_Feild() {
+
+        if(seleniumBase.type(WQCLIENT_REG_PAGE_DIALING_CODE_CSS,WQCLIENT_REG_PAGE_DIALING_CODE_XPATH,"This is a line text one.\n This is a line text two.\n This i s a line text three"))
+        {
+            System.out.print("Multiple Line of text");
+        }
+
+        else{
+            System.out.print("Single Line of text");
+        }
+    }
+
+    public String check_Dialing_Code_Text_Feild() {
+        return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_DIALING_CODE_CSS,WQCLIENT_REG_PAGE_DIALING_CODE_XPATH,"placeholder");
     }
 }

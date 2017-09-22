@@ -375,6 +375,7 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_Country_Feild_Text()
     {
+
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -382,4 +383,75 @@ public class WQClientRegTest extends TestBase {
         Assert.assertEquals(wqClientRegPage.check_Country_Text_Feild(),"Country (please select)");
         System.out.println("Country Text Verified");
     }
+
+    //contact number features
+
+    @Test
+    public void verify_Contact_Number_Text_Feild_Is_Single_Line_Of_Text()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                verify_Contact_Number_Feild_Single_Line_Of_Text_Feild();
+    }
+
+    @Test
+    public void verify_Contact_Number_Feild_Text() {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.check_Contact_Number_Text_Feild(),"Contact Number +001...");
+        System.out.println("Contact Number Text Verified");
+    }
+
+    @Test
+    public void verify_User_Can_Enter_Numbers_To_Contact_Number_Feild(){
+        String contact_no=data.getValueByName("Contact_No");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                check_text_feild_data_type(contact_no);
+    }
+
+    //Dialing Code Features
+
+    @Test
+    public void verify_Dialing_Code_Text_Feild_Is_Single_Line_Of_Text()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                verify_Dialing_Code_Feild_Single_Line_Of_Text_Feild();
+    }
+
+    @Test
+    public void verify_Dialing_Code_Feild_Text() {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.check_Dialing_Code_Text_Feild(),"Dialing code");
+        System.out.println("Dialing Text Verified");
+    }
+
+    @Test
+    public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Dialing_Code_Text_Feild()
+    {
+        String dialling_code=data.getValueByName("Dialing_Code");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                check_text_feild_data_type(dialling_code);
+    }
+
+
 }

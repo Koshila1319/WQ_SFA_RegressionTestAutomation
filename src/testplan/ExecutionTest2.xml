@@ -127,14 +127,21 @@
 												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Country_State_Text_Feild"/>
 												<include name="verify_Postal_Zip_Code_Text_Feild_Is_Single_Line_Of_Text"/>
 												<include name="verify_Postal_Zip_Code_Feild_Text"/>
-												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Postal_Zip_Code_Text_Feild"/>-->
+												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Postal_Zip_Code_Text_Feild"/>
 												<include name="verify_Country_Feild_Text"/>
 
+												<include name="verify_Contact_Number_Text_Feild_Is_Single_Line_Of_Text"/>
+												<include name="verify_Contact_Number_Feild_Text"/>
+												<include name="verify_User_Can_Enter_Numbers_To_Contact_Number_Feild"/>-->
+
+												<include name="verify_Dialing_Code_Text_Feild_Is_Single_Line_Of_Text"/>
+												<include name="verify_Dialing_Code_Feild_Text"/>
+												<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Dialing_Code_Text_Feild"/>
 
 											</methods>
 									</class>
 
-			</classes>
+		</classes>
         </test>
     </suite>
 

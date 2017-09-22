@@ -38,4 +38,13 @@ public interface wqClientRegPage {
     public final String WQCLIENT_REG_PAGE_COUNTRY_DROPDOWN_XPATH="//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_countryDropDownList']";
     public final String WQCLIENT_REG_PAGE_COUNTRY_DROPDOWN_CSS="";
 
+    public final String WQCLIENT_REG_PAGE_CONTACT_NO_XPATH="//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_phoneTextBox']";
+    public final String WQCLIENT_REG_PAGE_CONTACT_NO_CSS="";
+
+    public final String WQCLIENT_REG_PAGE_DIALING_CODE_XPATH="//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_TextBoxDialCode']";
+    public final String WQCLIENT_REG_PAGE_DIALING_CODE_CSS="";
+
+    public final String WQCLIENT_REG_PAGE_FAX_XPATH="//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_faxTextBox']";
+    public final String WQCLIENT_REG_PAGE_FAX_CSS="";
+
 }
