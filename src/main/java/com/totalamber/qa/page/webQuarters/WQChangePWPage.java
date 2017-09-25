@@ -119,7 +119,25 @@ public class WQChangePWPage implements wqChangePWPage {
         return this;
     }
 
-    public String check_TandC_Page_Browser_Title() {
+    public String check_Page_Browser_Title() {
         return seleniumBase.getTitle();
+    }
+
+    public WQChangePWPage Step_Enter_Password_With_SpecialCahracter_Without_NumericCharacter_InBothTextBoxes(String text_with_specialChar) {
+        seleniumBase.type(CHANGEPWPAGE_PASSWORD_CSS, CHANGEPWPAGE_PASSWORD_XPATH,text_with_specialChar);
+        seleniumBase.type(CHANGEPWPAGE_CONFIRM_PASSWORD_CSS, CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH, text_with_specialChar);
+        return this;
+    }
+
+    public WQChangePWPage Step_Enter_Password_ChangePW_WithNumeric_WithoutSpecialChar_InBothTextBoxes(String text_with_numericChar) {
+        seleniumBase.type(CHANGEPWPAGE_PASSWORD_CSS, CHANGEPWPAGE_PASSWORD_XPATH,text_with_numericChar);
+        seleniumBase.type(CHANGEPWPAGE_CONFIRM_PASSWORD_CSS, CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH, text_with_numericChar);
+        return this;
+    }
+
+    public WQChangePWPage Step_Enter_Password_ChangePW_with_Mismatch(String password1, String changepassword1) {
+        seleniumBase.type(CHANGEPWPAGE_PASSWORD_CSS, CHANGEPWPAGE_PASSWORD_XPATH,password1);
+        seleniumBase.type(CHANGEPWPAGE_CONFIRM_PASSWORD_CSS, CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH, changepassword1);
+        return this;
     }
 }

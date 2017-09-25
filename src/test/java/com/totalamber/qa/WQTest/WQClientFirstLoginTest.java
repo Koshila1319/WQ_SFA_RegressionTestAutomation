@@ -227,32 +227,177 @@ public class WQClientFirstLoginTest extends TestBase{
     //This depends with the client who is registering and needs to run at the end
     @Test
     public void verify_Clicking_ChangePassword_Button_With_more_Than_SixValues_InBothTextBoxes(){
-        /*wqChangePWPage.step_clear_Password_TextBoxes();
+        wqChangePWPage.step_clear_Password_TextBoxes();
         String textMoreSix = data.getValueByName("ChangePW_TextMoreSix");
         wqChangePWPage.Step_Enter_Values_More_Than_Six(textMoreSix);
         wqChangePWPage.step_Click_ChangePassword_Button();
         String expectedPage = data.getValueByName("TandC_Page_Title");
-        //Validate the error message when there are six characters in text boxes.
-        Assert.assertEquals(wqChangePWPage.check_TandC_Page_Browser_Title(),expectedPage);*/
+        //Validate the T&C Page navigation
+        Assert.assertEquals(wqChangePWPage.check_Page_Browser_Title(),expectedPage);
 
     }
 
     //This depends with the client who is registering and needs to run at the end
     @Test
     public void verify_Clicking_ChangePassword_Button_With_SixValues_InBothTextBoxes(){
-        /*wqChangePWPage.step_clear_Password_TextBoxes();
+        wqChangePWPage.step_clear_Password_TextBoxes();
         String textEqualSix = data.getValueByName("ChangePW_TextEqualSix");
         wqChangePWPage.Step_Enter_Values_Equal_Than_Six(textEqualSix);
         wqChangePWPage.step_Click_ChangePassword_Button();
         String expectedPage = data.getValueByName("TandC_Page_Title");
-        //Validate the error message when there are six characters in text boxes.
-        Assert.assertEquals(wqChangePWPage.check_TandC_Page_Browser_Title(),expectedPage);*/
+        //Validate the T&C Page navigation
+        Assert.assertEquals(wqChangePWPage.check_Page_Browser_Title(),expectedPage);
 
     }
 
     @Test
     public void verify_Clicking_ChangePassword_Button_With_SpecialCahracter_Without_NumericCharacter_InBothTextBoxes(){
+        wqChangePWPage.step_clear_Password_TextBoxes();
+        String text_with_SpecialChar = data.getValueByName("ChangePW_WithSpecialChar_WithoutNumeric");
+        wqChangePWPage.Step_Enter_Password_With_SpecialCahracter_Without_NumericCharacter_InBothTextBoxes(text_with_SpecialChar);
+        wqChangePWPage.step_Click_ChangePassword_Button();
+        String expectedError = data.getValueByName("ChangePW_Error");
+        //Validate the error message when there are No Numeric characters in text boxes.
+        Assert.assertEquals(wqChangePWPage.validate_Click_ChangePassword_Button_With_Incorrect_Value_Gives_AnErrorMessage(),expectedError);
 
     }
+
+    @Test
+    public void verify_Clicking_ChangePassword_Button_With_NumericCharacter_Without_SpecialCahracter_InBothTextBoxes(){
+        wqChangePWPage.step_clear_Password_TextBoxes();
+        String text_with_NumericChar = data.getValueByName("ChangePW_WithNumeric_WithoutSpecialChar");
+        wqChangePWPage.Step_Enter_Password_ChangePW_WithNumeric_WithoutSpecialChar_InBothTextBoxes(text_with_NumericChar);
+        wqChangePWPage.step_Click_ChangePassword_Button();
+        String expectedError = data.getValueByName("ChangePW_Error");
+        //Validate the error message when there are No Special characters in text boxes.
+        Assert.assertEquals(wqChangePWPage.validate_Click_ChangePassword_Button_With_Incorrect_Value_Gives_AnErrorMessage(),expectedError);
+
+    }
+
+    //This depends with the client who is registering and needs to run at the end
+    @Test
+    public void verify_Clicking_ChangePassword_Button_With_NumericCharacter__And_With_SpecialCahracter_InBothTextBoxes(){
+        wqChangePWPage.step_clear_Password_TextBoxes();
+        String text_with_Numeric_And_SpecialChar = data.getValueByName("ChangePW_WithSpecialChar_WithNumeric");
+        wqChangePWPage.Step_Enter_Password_ChangePW_WithNumeric_WithoutSpecialChar_InBothTextBoxes(text_with_Numeric_And_SpecialChar);
+        wqChangePWPage.step_Click_ChangePassword_Button();
+        String expectedPage = data.getValueByName("TandC_Page_Title");
+        //Validate the T&C Page navigation
+        Assert.assertEquals(wqChangePWPage.check_Page_Browser_Title(),expectedPage);
+
+    }
+
+    @Test
+    public void verify_clicking_ChangePassword_Button_With_A_PasswordMismatch(){
+        wqChangePWPage.step_clear_Password_TextBoxes();
+        String password1 = data.getValueByName("ChangePW_TextMoreSix");
+        String changepassword1 = data.getValueByName("ChangePW_TextEqualSix");
+        wqChangePWPage.Step_Enter_Password_ChangePW_with_Mismatch(password1, changepassword1);
+        wqChangePWPage.step_Click_ChangePassword_Button();
+        String expectedError = data.getValueByName("ChangePW_PasswordMismatch_Error");
+        //Validate the error message when passwords do not match in the both text boxes
+        Assert.assertEquals(wqChangePWPage.validate_Click_ChangePassword_Button_With_Incorrect_Value_Gives_AnErrorMessage(),expectedError);
+
+    }
+
+    @Test
+    public void verify_Client_Logins_WithOldPassword_Gives_An_Error_Message() throws Exception {
+        initDomainObjects(DRIVER);
+        String siteUrl = data.getValueByName("url");
+        setSiteURL(siteUrl);
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        String Uname = data.getValueByName("ClientFirstLogin_UName");
+        String Password = data.getValueByName("ClientFirstLogin_PW");
+        wqLoginPage.
+                step_User_Enter_Given_Credentials(Uname,Password).
+                step_User_Click_Login_Button();
+        String expectedPage = data.getValueByName("LoginPage_SignInPage");
+        //Validate the WQ Login is not Successful
+        Assert.assertEquals(wqChangePWPage.check_Page_Browser_Title(),expectedPage);
+
+    }
+
+    @Test
+    public void verify_Client_Logins_WithChangedPassword_goes_to_TAndCPage() throws Exception {
+        wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientFirstLogin_UName");
+        String Password = data.getValueByName("ChangePW_WithSpecialChar_WithNumeric");
+        wqLoginPage.
+                step_User_Enter_Given_Credentials(Uname,Password).
+                step_User_Click_Login_Button();
+        String expectedPage = data.getValueByName("TandC_Page_Title");
+        //Validate the WQ Login is not Successful
+        Assert.assertEquals(wqChangePWPage.check_Page_Browser_Title(),expectedPage);
+
+    }
+
+    @Test
+    public void verify_The_Browser_Title(){
+        String expectedTitle = data.getValueByName("TandC_Page_Title");
+        Assert.assertEquals(wqTAndCPage.validate_BrowserTitle(), expectedTitle);
+
+    }
+
+    @Test
+    public void verify_The_PageTitle(){
+        String expectedPageTitle = data.getValueByName("TAndCPage_PageTitle");
+        Assert.assertEquals(wqTAndCPage.check_PageTitle_Of_TAndCPage(),expectedPageTitle);
+
+    }
+
+    @Test
+    public void verify_IAgree_RadioButton_IsAvailable(){
+        Assert.assertNotNull(wqTAndCPage.validate_IAgree_RadioButton_Availability());
+    }
+
+    @Test
+    public void verify_IDisagree_RadioButton_IsAvailable(){
+        Assert.assertNotNull(wqTAndCPage.validate_IDisagree_RadioButton_Availability());
+    }
+
+    @Test
+    public void verify_IAgree_ContentLabel_IsAvailable(){
+        String expectedLabel = data.getValueByName("TAndCPage_IAgreeContent");
+        Assert.assertEquals(wqTAndCPage.check_IAgree_Button_Text(),expectedLabel);
+    }
+
+    @Test
+    public void verify_IDisagree_ContentLabel_IsAvailable(){
+        String expectedLabel = data.getValueByName("TAndCPage_IDisagreeContent");
+        Assert.assertEquals(wqTAndCPage.check_IDisagree_Button_Text(),expectedLabel);
+    }
+
+    @Test
+    public void verify_IAgree_RadioButton_IsDefaultSelected(){
+        Assert.assertNotNull(wqTAndCPage.validate_IAgree_Button_Default_Selected());
+        //remove after testing
+        Assert.assertEquals(wqTAndCPage.validate_RejectReason_TextArea_IsDisplaying(),"display: none;");
+
+    }
+
+    @Test
+    public void verify_IDisagree_RadioButton_IsDefault_DeSelected(){
+        Assert.assertNotNull(wqTAndCPage.validate_IDisgree_Button_Default_deSelected());
+
+    }
+
+    @Test
+    public void verify_Selecting_IDoNotAgree_RadioButton_makes_IAgree_RadioButton_Deselected(){
+        wqTAndCPage.step_selectDisagreeButton();
+        wqTAndCPage.step_refresh_ThePage();
+        Assert.assertEquals(wqTAndCPage.validate_IAgree_Button_DeSelected(),"display: none;");
+    }
+
+    /*@Test
+    public void verify_Selecting_IDoNotAgree_Button_Displays_A_TextArea(){
+        Assert.assertEquals(wqTAndCPage.validate_RejectReason_TextArea_IsDisplaying(),"display: none;");
+    }
+
+
+    @Test
+    public void verify_TextArea_PlaceHolderText(){
+
+    }*/
 
 }

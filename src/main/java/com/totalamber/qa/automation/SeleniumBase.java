@@ -1137,6 +1137,19 @@ public class SeleniumBase {
 
 	}
 
+	// Radio Button is deselected
+	public boolean deselectedRadioButton(String xPath) {
+		List<WebElement> radioButton = driver.findElements(By.xpath(xPath));
+		boolean bool = false;
+		for (WebElement element : radioButton) {
+			if (element.isSelected()) {
+				bool = true;
+			}
+			bool = false;
+		}
+		return bool;
+	}
+
 
 }
 
