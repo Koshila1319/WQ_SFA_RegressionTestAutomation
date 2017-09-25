@@ -47,4 +47,21 @@ public interface wqClientRegPage {
     public final String WQCLIENT_REG_PAGE_FAX_XPATH="//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_faxTextBox']";
     public final String WQCLIENT_REG_PAGE_FAX_CSS="";
 
+    public final String WQCLIENT_REG_PAGE_ORG_SIZE_XPATH="//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_organizationSizeDropDownList']";
+    public final String WQCLIENT_REG_PAGE_ORG_SIZE_CSS="";
+
+    public final String WQCLIENT_REG_PAGE_WEB_ADDRESS_XPATH="//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_companyWebsiteTextBox']";
+    public final String WQCLIENT_REG_PAGE_WEB_ADDRESS_CSS="";
+
+    public final String WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH="//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_ApplicationDetaisDataList_ctl01_ApplicationNameDropDownList']";
+    public final String WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_CSS="";
+
+    public final String WQCLIENT_REG_PAGE_MODULES_XPATH=".//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_ApplicationDetaisDataList_ctl01_moduleNameDDCheckBox_1']";
+          //  "//*[@id='caption'][contains(text(),'Modules')]";
+    public final String WQCLIENT_REG_PAGE_MODULES_CSS="";
+    public final String WQCLIENT_REG_PAGE_MODULE_DIV=".//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_ApplicationDetaisDataList']/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/div/div";
+
+    public final String WQCLIENT_REG_PAGE_VERSIONS_XPATH="//*[@id='caption'][contains(text(),'Versions')]";
+    public final String WQCLIENT_REG_PAGE_VERSIONS_CSS="";
+
 }

@@ -23,7 +23,7 @@ public class WQClientRegTest extends TestBase {
 
     @AfterMethod
     public void endTestMethod() throws Throwable{
-        quitDriver();
+        //quitDriver();
     }
 
     //company name field validations
@@ -453,5 +453,151 @@ public class WQClientRegTest extends TestBase {
                 check_text_feild_data_type(dialling_code);
     }
 
+    //Fax Features
+
+    @Test
+    public void verify_Fax_Text_Feild_Is_Single_Line_Of_Text()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                verify_Fax_Feild_Single_Line_Of_Text_Feild();
+    }
+
+    @Test
+    public void verify_Fax_Feild_Text() {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.check_Fax_Text_Feild(),"Fax");
+        System.out.println("Fax Text Verified");
+    }
+
+    @Test
+    public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Fax_Text_Feild()
+    {
+        String fax=data.getValueByName("Fax");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                check_text_feild_data_type(fax);
+    }
+
+    //Organization Size Features
+
+    @Test
+    public void verify_Organization_Size_Text()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.Organization_Size_Text_Feild(),"Organisation size");
+        System.out.println("Organisation size Text Verified");
+    }
+
+
+    @Test
+    public void verify_User_Can_Select_Organization_Size_From_Organization_Size_Feild()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                select_Organization_Size();
+    }
+
+    //Web Address Features
+
+    @Test
+    public void verify_Company_Web_Address_Feild_Is_Single_Line_Of_Text()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                verify_Company_Web_Address_Feild_Single_Line_Of_Text_Feild();
+    }
+
+    @Test
+    public void verify_Company_Web_Address_Feild_Text() {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.check_Company_Web_Address_Text_Feild(),"Company web address");
+        System.out.println("Company web address Text Verified");
+    }
+
+    @Test
+    public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Company_Web_Address_Text_Feild()
+    {
+        String company_web_address=data.getValueByName("Company_web_address");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                check_text_feild_data_type(company_web_address);
+    }
+
+    //Software Application Features
+    @Test
+    public void verify_Software_Application_Text(){
+        wqHomePage.
+            action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.software_Application_Text_Feild(),"Software application");
+        System.out.println("Software application Text Verified");
+
+    }
+
+    @Test
+    public void verify_User_Can_Select_A_Software_From_Software_Application_Feild() throws InterruptedException {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_SW_Application();
+
+    }
+
+    //Module Features
+    @Test
+    public void verify_Modules_Text() {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.check_Modules_Text_Feild(),"Modules");
+        System.out.println("Modules Text Verified");
+    }
+
+    @Test
+    public void verify_Data_Availability_In_Modules_When_User_Selecting_A_SW_Application() throws InterruptedException {
+        verify_User_Can_Select_A_Software_From_Software_Application_Feild();
+        Thread.sleep(5000);
+        wqClientRegPage.select_Modules();
+    }
+
+    @Test
+    public void verify_Data_Availiability_In_Modules_Without_User_Selecting_A_SW_Application() throws InterruptedException {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Thread.sleep(5000);
+        wqClientRegPage.select_Modules();
+    }
 
 }

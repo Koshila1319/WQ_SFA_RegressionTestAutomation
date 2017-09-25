@@ -217,4 +217,61 @@ public class WQClientRegPage implements wqClientRegPage {
     public String check_Dialing_Code_Text_Feild() {
         return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_DIALING_CODE_CSS,WQCLIENT_REG_PAGE_DIALING_CODE_XPATH,"placeholder");
     }
+
+    public void verify_Fax_Feild_Single_Line_Of_Text_Feild() {
+        if(seleniumBase.type(WQCLIENT_REG_PAGE_FAX_CSS,WQCLIENT_REG_PAGE_FAX_XPATH,"This is a line text one.\n This is a line text two.\n This i s a line text three"))
+        {
+            System.out.print("Multiple Line of text");
+        }
+
+        else{
+            System.out.print("Single Line of text");
+        }
+    }
+
+    public String check_Fax_Text_Feild() {
+        return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_FAX_CSS,WQCLIENT_REG_PAGE_FAX_XPATH,"placeholder");
+    }
+
+    public void select_Organization_Size() {
+        seleniumBase.selectByVisibleText(WQCLIENT_REG_PAGE_ORG_SIZE_CSS,WQCLIENT_REG_PAGE_ORG_SIZE_XPATH,"Between 50 to 150");
+    }
+
+    public String Organization_Size_Text_Feild() {
+        return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_ORG_SIZE_CSS,WQCLIENT_REG_PAGE_ORG_SIZE_XPATH,"value");
+    }
+
+    public void verify_Company_Web_Address_Feild_Single_Line_Of_Text_Feild() {
+        if(seleniumBase.type(WQCLIENT_REG_PAGE_WEB_ADDRESS_CSS,WQCLIENT_REG_PAGE_WEB_ADDRESS_XPATH,"This is a line text one.\n This is a line text two.\n This i s a line text three"))
+        {
+            System.out.print("Multiple Line of text");
+        }
+
+        else{
+            System.out.print("Single Line of text");
+        }
+    }
+
+    public String check_Company_Web_Address_Text_Feild() {
+        return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_WEB_ADDRESS_CSS,WQCLIENT_REG_PAGE_WEB_ADDRESS_XPATH,"placeholder");
+    }
+
+    public String software_Application_Text_Feild() {
+        return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_CSS,WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH,"value");
+    }
+
+    public void select_SW_Application() {
+       seleniumBase.selectByVisibleText(WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_CSS,WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH,"IFS");
+       //seleniumBase.selectSoftware();
+       // seleniumBase.checkDropdownTextValue(WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH,"M3");
+    }
+
+    public String check_Modules_Text_Feild() {
+        return seleniumBase.getText(WQCLIENT_REG_PAGE_MODULES_CSS,WQCLIENT_REG_PAGE_MODULES_XPATH);
+    }
+
+    public void select_Modules() {
+        //seleniumBase.setdropdownElements(WQCLIENT_REG_PAGE_MODULE_DIV,WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH);
+        seleniumBase.checkDropdownTextValue(WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH,"IFS Financials");
+    }
 }
