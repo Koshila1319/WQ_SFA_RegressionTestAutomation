@@ -588,6 +588,14 @@ public class WQClientRegTest extends TestBase {
         verify_User_Can_Select_A_Software_From_Software_Application_Feild();
         Thread.sleep(5000);
         wqClientRegPage.select_Modules();
+
+    }
+
+    @Test
+    public void verify_User_Can_Tick_The_Module_Checkboxes_According_To_SW_Application() throws InterruptedException {
+        verify_User_Can_Select_A_Software_From_Software_Application_Feild();
+        Thread.sleep(5000);
+        wqClientRegPage.select_CheckBox_In_Modules();
     }
 
     @Test
@@ -597,7 +605,58 @@ public class WQClientRegTest extends TestBase {
         wqSignUpPage.
                 check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
         Thread.sleep(5000);
-        wqClientRegPage.select_Modules();
+        wqClientRegPage.select_Modules_Without_The_SW();
     }
 
+
+
+    //Version Features
+    @Test
+    public void verify_Versions_Text() {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.check_Versions_Text_Feild(),"Versions");
+        System.out.println("Versions Text Verified");
+    }
+
+    @Test
+    public void verify_Data_Availability_In_Version_When_User_Selecting_A_SW_Application() throws InterruptedException {
+        verify_User_Can_Tick_The_Module_Checkboxes_According_To_SW_Application();
+        Thread.sleep(5000);
+        wqClientRegPage.select_Versions();
+    }
+
+    @Test
+    public void verify_User_Can_Tick_The_Version_Checkboxes_According_To_SW_Application() throws InterruptedException {
+        verify_User_Can_Tick_The_Module_Checkboxes_According_To_SW_Application();
+        Thread.sleep(5000);
+        wqClientRegPage.select_CheckBox_In_Versions();
+    }
+
+
+    @Test
+    public void verify_Data_Availiability_In_Versions_Without_User_Selecting_A_SW_Application() throws InterruptedException {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Thread.sleep(5000);
+        wqClientRegPage.select_Versions_Without_The_SW();
+
+    }
+
+    //Add Button Features
+
+    @Test
+    public void verify_Add_Button_Text_Feild()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        Assert.assertEquals(wqClientRegPage.check_Add_Button_Text_Feild(),"Add");
+        System.out.println("Add Button Text Verified");
+    }
 }

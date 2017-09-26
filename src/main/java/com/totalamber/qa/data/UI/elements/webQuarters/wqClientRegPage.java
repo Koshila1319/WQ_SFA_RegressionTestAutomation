@@ -56,12 +56,18 @@ public interface wqClientRegPage {
     public final String WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH="//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_ApplicationDetaisDataList_ctl01_ApplicationNameDropDownList']";
     public final String WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_CSS="";
 
-    public final String WQCLIENT_REG_PAGE_MODULES_XPATH=".//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_ApplicationDetaisDataList_ctl01_moduleNameDDCheckBox_1']";
-          //  "//*[@id='caption'][contains(text(),'Modules')]";
+    public final String WQCLIENT_REG_PAGE_MODULES_XPATH="//*[@id='caption'][contains(text(),'Modules')]";
+    public final String WQCLIENT_REG_PAGE_MODULES_CHECKBOX_XPATH=".//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_ApplicationDetaisDataList_ctl01_moduleNameDDCheckBox_1']";
     public final String WQCLIENT_REG_PAGE_MODULES_CSS="";
     public final String WQCLIENT_REG_PAGE_MODULE_DIV=".//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_ApplicationDetaisDataList']/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/div/div";
+    public final String WQCLIENT_REG_PAGE_MODULES_DROPDOWN_ELEMENT_XPATH="//*[@id='checks']/span";
 
     public final String WQCLIENT_REG_PAGE_VERSIONS_XPATH="//*[@id='caption'][contains(text(),'Versions')]";
+    public final String WQCLIENT_REG_PAGE_VERSIONS_CHECKBOX_XPATH=".//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_ApplicationDetaisDataList_ctl01_versionNameDDCheckBox_1']";
     public final String WQCLIENT_REG_PAGE_VERSIONS_CSS="";
+    public final String WQCLIENT_REG_PAGE_VERSIONS_DIV="//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_ApplicationDetaisDataList']/tbody/tr[4]/td/table/tbody/tr[2]/td[1]/div/div";
+    public final String WQCLIENT_REG_PAGE_VERSIONS_DROPDOWN_ELEMENT_XPATH="//*[@id='checks']/span";
 
+    public final String WQCLIENT_REG_PAGE_ADD_BUTTON_XPATH="//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_ApplicationDetaisDataList_ctl01_AddButton']";
+    public final String WQCLIENT_REG_PAGE_ADD_BUTTON_CSS="";
 }

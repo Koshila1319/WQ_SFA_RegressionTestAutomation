@@ -151,10 +151,21 @@
 												<include name="verify_User_Can_Select_A_Software_From_Software_Application_Feild"/>
 
 												<include name="verify_Software_Application_Text"/>
+
 												<include name="verify_Modules_Text"/>
-												-->
+												<include name="verify_User_Can_Tick_The_Module_Checkboxes_According_To_SW_Application"/>
 												<include name="verify_Data_Availability_In_Modules_When_User_Selecting_A_SW_Application"/>
+
 												<include name="verify_Data_Availiability_In_Modules_Without_User_Selecting_A_SW_Application"/>
+
+												<include name="verify_Versions_Text"/>
+												<include name="verify_Data_Availiability_In_Modules_Without_User_Selecting_A_SW_Application"/>
+												<include name="verify_User_Can_Tick_The_Version_Checkboxes_According_To_SW_Application"/>
+
+												<include name="verify_Data_Availiability_In_Version_Without_User_Selecting_A_SW_Application"/>
+
+												-->
+												<include name="verify_Add_Button_Text_Feild"/>
 
 
 
@@ -164,10 +175,9 @@
 
 											</methods>
 									</class>
-
-		</classes>
-        </test>
-    </suite>
+								</classes>
+        					</test>
+   					 </suite>
 
 
 

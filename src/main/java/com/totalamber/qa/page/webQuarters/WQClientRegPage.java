@@ -262,8 +262,7 @@ public class WQClientRegPage implements wqClientRegPage {
 
     public void select_SW_Application() {
        seleniumBase.selectByVisibleText(WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_CSS,WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH,"IFS");
-       //seleniumBase.selectSoftware();
-       // seleniumBase.checkDropdownTextValue(WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH,"M3");
+
     }
 
     public String check_Modules_Text_Feild() {
@@ -271,7 +270,51 @@ public class WQClientRegPage implements wqClientRegPage {
     }
 
     public void select_Modules() {
-        //seleniumBase.setdropdownElements(WQCLIENT_REG_PAGE_MODULE_DIV,WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH);
-        seleniumBase.checkDropdownTextValue(WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH,"IFS Financials");
+        seleniumBase.setdropdownElements(WQCLIENT_REG_PAGE_MODULE_DIV,WQCLIENT_REG_PAGE_MODULES_XPATH);
+
+    }
+
+    public void select_Modules_Without_The_SW() throws InterruptedException {
+        seleniumBase.click(WQCLIENT_REG_PAGE_MODULE_DIV,WQCLIENT_REG_PAGE_MODULES_CSS);
+        Thread.sleep(5000);
+
+        if(seleniumBase.isElementPresent(WQCLIENT_REG_PAGE_MODULES_DROPDOWN_ELEMENT_XPATH)==true){
+            System.out.println("Items available in the dropdown");
+        }
+        else {
+            System.out.println("Please select the Software application");
+        }
+    }
+
+    public String check_Versions_Text_Feild() {
+        return seleniumBase.getText(WQCLIENT_REG_PAGE_VERSIONS_CSS,WQCLIENT_REG_PAGE_VERSIONS_XPATH);
+    }
+
+    public void select_Versions() {
+        seleniumBase.setdropdownElements(WQCLIENT_REG_PAGE_VERSIONS_DIV,WQCLIENT_REG_PAGE_VERSIONS_XPATH);
+    }
+
+    public void select_CheckBox_In_Modules() {
+        seleniumBase.setdropdownElements(WQCLIENT_REG_PAGE_MODULE_DIV,WQCLIENT_REG_PAGE_MODULES_CHECKBOX_XPATH);
+    }
+
+    public void select_CheckBox_In_Versions() {
+        seleniumBase.setdropdownElements(WQCLIENT_REG_PAGE_VERSIONS_DIV,WQCLIENT_REG_PAGE_VERSIONS_CHECKBOX_XPATH);
+    }
+
+    public void select_Versions_Without_The_SW() throws InterruptedException {
+        seleniumBase.click(WQCLIENT_REG_PAGE_VERSIONS_DIV,WQCLIENT_REG_PAGE_VERSIONS_CSS);
+        Thread.sleep(5000);
+
+        if(seleniumBase.isElementPresent(WQCLIENT_REG_PAGE_VERSIONS_DROPDOWN_ELEMENT_XPATH)==true){
+            System.out.println("Items available in the dropdown");
+        }
+        else {
+            System.out.println("Please select the Software application");
+        }
+    }
+
+    public String check_Add_Button_Text_Feild() {
+        return  seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_ADD_BUTTON_CSS,WQCLIENT_REG_PAGE_ADD_BUTTON_XPATH,"value");
     }
 }

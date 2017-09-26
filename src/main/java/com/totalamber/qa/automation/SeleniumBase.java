@@ -795,6 +795,7 @@ public class SeleniumBase {
 	public String verifyDataEquals(String data) {
 		// TODO Auto-generated method stub
 		return getText("", data);
+
 	}
 
 
@@ -803,7 +804,9 @@ public class SeleniumBase {
 		// TODO Auto-generated method stub
 		WebElement element = driver.findElement(By.name(elementName));
 		element.sendKeys(filePath);
+
 	}
+
 
 	// Replace Texts
 	public void replaceText(String cSS, String xPath, String textToReplace) {
@@ -996,7 +999,7 @@ public class SeleniumBase {
 			value = allOptions.get(i).getText();
 			System.out.println(value);
 		}
-		return value;
+		return null;
 	}
 
 
@@ -1128,6 +1131,11 @@ public class SeleniumBase {
 		}
 		return str;
 	}
+
+    public boolean isElementPresent(String elementName){
+        WebElement element = driver.findElement(By.xpath(elementName));
+        return element.isDisplayed();
+    }
 
 
 }
