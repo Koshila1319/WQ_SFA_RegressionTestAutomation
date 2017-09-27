@@ -1,6 +1,5 @@
 package com.totalamber.qa.automation;
 
-import com.totalamber.qa.data.UI.elements.webQuarters.wqAMDashboardPage;
 import com.totalamber.qa.data.property.Dataprovider;
 import com.totalamber.qa.page.webQuarters.*;
 import org.openqa.selenium.WebDriver;
@@ -23,6 +22,13 @@ public class TestBase  {
 	protected WQAMVerifyClientPage wqamVerifyClientPage;
 	protected WQPanel wqPanel;
 	protected WQTermsEvaluationPage wqTermsEvaluationPage;
+	protected WQCheckMailcatchEmailPage wqCheckMailcatchEmailPage;
+	protected WQCheckOutlookEmailPage wqCheckOutLookEmailPage;
+	protected WQClientRegCompletePage wqClientRegCompletePage;
+	protected WQSMDashboardPage wqSMDashboardPage;
+
+
+	public static final String clientEmail = "c5f59604-fd99-4973-87ac-018351a06051@mailcatch.com";
 
 
 	public void initDomainObjects(WebDriver driver) throws IOException {
@@ -36,6 +42,10 @@ public class TestBase  {
 		wqamVerifyClientPage = new WQAMVerifyClientPage(driver);
 		wqPanel = new WQPanel(driver);
 		wqTermsEvaluationPage = new WQTermsEvaluationPage(driver);
+		wqCheckMailcatchEmailPage = new WQCheckMailcatchEmailPage(driver);
+		wqCheckOutLookEmailPage = new WQCheckOutlookEmailPage(driver);
+		wqClientRegCompletePage = new WQClientRegCompletePage(driver);
+		wqSMDashboardPage = new WQSMDashboardPage(driver);
 	}
 
 	public void setSiteURL(String siteUrl) {

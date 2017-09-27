@@ -75,6 +75,7 @@ public interface ElementHolder {
 	public final String CLIENT_REGISTRATION_PAGE_TITLE_XPATH = "//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3']/div/h1";
 	public final String SIGN_UP_MESSAGE_XPATH = "//*[@id='ctl00_ctl39_g_59093D00_64D8_43D8_8267_1B80078EC44A_ctl00_Label1']";
 	public final String	VERIFICATION_EMAIL_XPATH = "//*[@id='mailsList']/table/tbody/tr[2]";
+	public final String	VERIFICATION_EMAIL_CSS = "";
 	public final String	ERROR_MESSAGE_XPATH = ".//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_ErrorPanel']/div";
 	public final String ACTIVATE_EMAIL_XPATH = "//*[@id='mailsList']/table/tbody/tr[2]/td[2]";
 
@@ -384,32 +385,6 @@ public interface ElementHolder {
 	public final String CONTACT_NUMBER_XPATH = "//*[@id='ctl00_ctl39_g_7B6AE4AA_1CED_4039_AB72_0DE8298BCFF3_ctl00_phoneTextBox']";
 
 
-	//----------------------------Mailcatch---------------------------------------
-
-	public final String CLICK_ON_EMAIL_XPATH = ".//*[@id='mailboxform']/input[1]";
-	public final String CLICK_ON_EMAIL_CSS = "";
-
-	public final String EMAIL_GO_XPATH = ".//*[@id='mailboxform']/input[2]";
-	public final String EMAIL_GO_CSS = "";
-
-	//----------------------------Outlook-----------------------------------------
-	public final String OUTLOOK_SIGN_IN_BUTTON_XPATH = "/html/body/section/div/div[2]/div[2]/div/div";
-	public final String OUTLOOK_SIGN_IN_BUTTON_CSS = "";
-
-	public final String OUTLOOK_EMAIL_FIELD_XPATH = "//*[@id='i0116']";
-	public final String OUTLOOK_EMAIL_FIELD_CSS = "";
-
-	public final String OUTLOOK_NEXT_BUTTON_XPATH = "//*[@id='idSIButton9']";
-	public final String OUTLOOK_NEXT_BUTTON_CSS = "";
-
-	public final String OUTLOOK_PASSWORD_FIELD_XPATH = "//*[@id='i0118']";
-	public final String OUTLOOK_PASSWORD_FIELD_CSS = "";
-
-	public final String OUTLOOK_SIGN_IN_CONFIRM_XPATH = "//*[@id='idSIButton9']";
-	public final String OUTLOOK_SIGN_IN_CONFIRM_CSS = "";
-
-
-
 
 	//----------------------------Account Manager---------------------------------
 
@@ -674,6 +649,41 @@ public interface ElementHolder {
 
 
 
+	//----------------------------Mailcatch---------------------------------------
+
+	public final String CLICK_ON_EMAIL_XPATH = ".//*[@id='mailboxform']/input[1]";
+	public final String CLICK_ON_EMAIL_CSS = "";
+
+	public final String EMAIL_GO_XPATH = ".//*[@id='mailboxform']/input[2]";
+	public final String EMAIL_GO_CSS = "";
+
+	//Read mails
+
+	public final String	LATEST_RECEIVED_MAILCATCH_EMAIL_XPATH = "//*[@id='mailsList']/table/tbody/tr[2]";
+	public final String	LATEST_RECEIVED_MAILCATCH_EMAIL_CSS = "";
+
+
+	//----------------------------Outlook-----------------------------------------
+
+	public final String OUTLOOK_SIGN_IN_BUTTON_XPATH = "/html/body/section/div/div[2]/div[2]/div/div";
+	public final String OUTLOOK_SIGN_IN_BUTTON_CSS = "";
+
+	public final String OUTLOOK_EMAIL_FIELD_XPATH = "//*[@id='i0116']";
+	public final String OUTLOOK_EMAIL_FIELD_CSS = "";
+
+	public final String OUTLOOK_NEXT_BUTTON_XPATH = "//*[@id='idSIButton9']";
+	public final String OUTLOOK_NEXT_BUTTON_CSS = "";
+
+	public final String OUTLOOK_PASSWORD_FIELD_XPATH = "//*[@id='i0118']";
+	public final String OUTLOOK_PASSWORD_FIELD_CSS = "";
+
+	public final String OUTLOOK_SIGN_IN_CONFIRM_XPATH = "//*[@id='idSIButton9']";
+	public final String OUTLOOK_SIGN_IN_CONFIRM_CSS = "";
+
+	//Read mails
+
+	public final String LATEST_RECEIVED_OUTLOOK_EMAIL_XPATH = "//*[@id='_ariaId_25']/div[2]/div[6]/div/span[1]";
+	public final String LATEST_RECEIVED_OUTLOOK_EMAIL_CSS = "";
 
 
 

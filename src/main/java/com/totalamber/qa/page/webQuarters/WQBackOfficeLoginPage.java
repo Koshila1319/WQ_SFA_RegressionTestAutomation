@@ -3,10 +3,7 @@ package com.totalamber.qa.page.webQuarters;
 import com.totalamber.qa.automation.SeleniumBase;
 import com.totalamber.qa.automation.TestBase;
 import com.totalamber.qa.data.UI.elements.webQuarters.wqBackOfficeLoginPage;
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
@@ -62,4 +59,12 @@ public class WQBackOfficeLoginPage extends TestBase implements wqBackOfficeLogin
         return this;
     }
 
+    public String validate_Sign_In_Page_Content() {
+        return seleniumBase.splitTextGetNthWord(seleniumBase.getText(BO_SIGNIN_PAGE_CONTENT_CSS, BO_SIGNIN_PAGE_CONTENT_XPATH),":",1);
+    }
+
+    public List<String> verify_Dropdown_Options() {
+       // seleniumBase.click(BO_SIGNIN_DROPDOWN_XPATH,BO_SIGNIN_DROPDOWN_CSS);
+        return seleniumBase.listDropdownOptions(BO_SIGNIN_DROPDOWN_XPATH);
+    }
 }
