@@ -322,6 +322,7 @@ public class SeleniumBase {
 
 		return driver.findElement(by).getText();
 
+
 	}
 
 	public String getText(String css, String id, String name, String xpath) {
@@ -341,6 +342,7 @@ public class SeleniumBase {
 		text = getElement(css, xpath).getText();
 
 		return text;
+
 
 	}
 
@@ -427,6 +429,7 @@ public class SeleniumBase {
 		WebElement identifier = driver.findElement(By.id(objectName));
 		Select select = new Select(identifier);
 		select.selectByVisibleText(textToSelect);
+
 	}
 
 	public List<String> getSelectList(String css, String id, String name, String xpath) {
@@ -1138,6 +1141,29 @@ public class SeleniumBase {
     }
 
 
+    public boolean check_Text_Feild_Data_Equal(String a,String b,String name) {
+
+        String x=getText(a,b);
+
+        if(x.equals(name)){
+            System.out.println("Please select the Software application");
+            return true;
+        }
+        else
+
+            System.out.println("Items available in the dropdown");
+            return false;
+
+
+
+    }
+
+    public String check_CSS_Value(String xpath){
+		WebElement element = driver.findElement(By.xpath(xpath));
+		return element.getCssValue("border-bottom-color");
+
+
+	}
 }
 
 

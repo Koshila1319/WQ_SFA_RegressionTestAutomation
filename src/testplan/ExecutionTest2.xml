@@ -155,20 +155,30 @@
 												<include name="verify_Modules_Text"/>
 												<include name="verify_User_Can_Tick_The_Module_Checkboxes_According_To_SW_Application"/>
 												<include name="verify_Data_Availability_In_Modules_When_User_Selecting_A_SW_Application"/>
-
 												<include name="verify_Data_Availiability_In_Modules_Without_User_Selecting_A_SW_Application"/>
 
 												<include name="verify_Versions_Text"/>
 												<include name="verify_Data_Availiability_In_Modules_Without_User_Selecting_A_SW_Application"/>
 												<include name="verify_User_Can_Tick_The_Version_Checkboxes_According_To_SW_Application"/>
-
 												<include name="verify_Data_Availiability_In_Version_Without_User_Selecting_A_SW_Application"/>
 
-												-->
 												<include name="verify_Add_Button_Text_Feild"/>
-
-
-
+												<include name="verify_The_Mandatory_feilds"/>
+												<include name="verify_User_Can_Successfully_Add_SW_App_Info"/>-
+												<include name="verify_Delete_Button_Text_Feild"/>
+												<include name="verify_User_Can_Successfully_Delete_SW_App_Info"/>
+												<include name="verify_How_Did_You_Hear_About_Us_Title"/>
+												<include name="verify_The_Selection_Dropdown_Text"/>
+												<include name="verify_User_Can_Select_An_Email_Marketing_Using_The_DropDown"/>
+												<include name="verify_Sign_Me_Up_Button_Text_Feild"/>
+												<include name="verify_The_Client_Reg_Form_Mandatory_feilds"/>
+												<include name="verify_Adding_Organization_Size_Is_Mandatory"/>
+												<include name="verify_How_Did_You_Hear_About_Us_Feild_Is_Mandatory"/>
+												<include name="verify_Adding_Country_Is_Mandatory"/>
+												<include name="verify_Adding_A_SW_App_Info_Is_Mandatory"/>
+												<include name="verify_User_Can_Register_The_Client_Info_Successfully"/>-->
+												<include name="verify_Sign_Me_Up_Button_Leads_To_Thank_You_For_SignUp_Page"/>
+												<include name="verify_Exsiting_Emails"/>
 
 
 
