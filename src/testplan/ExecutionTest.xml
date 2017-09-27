@@ -15,94 +15,95 @@
 				</methods>
 			</class>
 		</classes>
-	</test>
-
-
-	<test name="Account Manager Dashboard Test">
-		<classes>
-			<class name="com.totalamber.qa.WQTest.WQAMDashboardTest">
-				<methods>
-
-					<include name = "verify_PendingClientsTable_Available" />
-					<include name = "verify_TableHeaderText_PendingClientsTable_Table_Available" />
-					&lt;!&ndash;<include name = "verify_Client_In_PendingClients_List_IsAvailable" />
-					<include name = "verify_Client_Available_to_Click_and_Navigate" />
-					<include name = "verify_CompanyDetails_In_VerifyPage" />
-					<include name = "verify_ClientDetails_In_VerifyPage" />
-					<include name = "verify_SoftwareExperience_In_VerifyPage" />
-					<include name = "verify_VerifyButton_Available_In_VerifyPage" />
-					<include name = "verify_VerifyButton_Text_Available_In_VerifyButton_In_VerifyPage" />
-					<include name = "verify_Click_VerifyButton_InVerifyPage_goesTo_AMDashboard" />
-					<include name = "verify_RejectButton_Available_InVerifyPage" />
-					<include name = "verify_RejectButton_Text_Available_In_RejectButton_In_VerifyPage" />
-					<include name = "verify_Click_RejectButton_InVerifyPage_gives_Popup" />
-					<include name = "verify_Title_Available_In_RejectPopUp" />
-					<include name = "verify_CommentBox_Available_InRejectPopUp" />
-					<include name = "verify_CommentBox_PlaceHolder_Available_InRejectPopUp" />
-					<include name = "verify_Entering_Text_To_CommentBox_InRejectPopUp" />
-					<include name = "verify_RejectButton_Available_InRejectPopUp" />
-					<include name = "verify_Textof_RejectButton_InRejectPopUp" />
-					<include name = "verify_Textof_CancelButton_InRejectPopUp" />
-					<include name = "verify_CancelButton_Available_InRejectPopUp" />
-					<include name = "verify_Close_Cross_Available_InRejectPopUp" />
-					<include name = "verify_Click_Close_Button_InRejectPopup_Goes_To_VerifyPage" />
-					<include name = "verify_ClickReject_Button_Without_Reason_InRejectPopup_Gives_Error_Message" />
-					<include name = "verify_ClickCancel_Button_InRejectPopup_withText_Goes_To_VerifyPage" />
-					<include name = "verify_ClickCancel_Button_InRejectPopup_withoutText_Goes_To_VerifyPage" />
-					<include name = "verify_ClickReject_Button_With_Reason_InRejectPopup_GoesTo_AMDashboard" />&ndash;&gt;
-					<include name = "verify_The_Home_Page_Browser_Title" />
-					<include name = "verify_HomeLink_IsHighlighted" />
-					<include name = "verify_SignedInAs_Name_Available" />
-					<include name = "verify_SignOut_Link_Available" />
-					<include name = "verify_FooterArea_Text_Available" />
-					<include name = "verify_ClientsTile_Available" />
-					<include name = "verify_ClientsTile_TileText_Available" />
-					<include name = "verify_ClientsTile_Click_GoesTo_AssignedClientsPage" />
-					<include name = "verify_SuspiciousConnections_Tile_Available" />
-					<include name = "verify_SuspiciousConnections_Tile_TileText_Available" />
-					<include name = "verify_SuspiciousConnections_Tile_Click_GoesTo_ConnectionSuspicious_Page" />
-					<include name = "verify_Contractor_Matching_Tile_Available" />
-					<include name = "verify_Contractor_Matching_Tile_TileText_Available" />
-					<include name = "verify_Contractor_Matching_Tile_Click_GoesTo_ConsultantSearch_Page" />
-					<include name = "verify_Reports_Tile_Available" />
-					<include name = "verify_Reports_Tile_TileText_Available" />
-					<include name = "verify_Reports_Tile_Click_GoesTo_ViewReports_Page" />
-					<include name = "verify_Assign_Users_Tile_Available" />
-					<include name = "verify_Assign_Users_Tile_TileText_Available" />
-					<include name = "verify_Assign_Users_Tile_Click_GoesTo_Assign_Users_Page" />
-					<include name = "verify_Partners_Tile_Available" />
-					<include name = "verify_Partners_Tile_TileText_Available" />
-					<include name = "verify_Partners_Tile_Click_GoesTo_Partners_Page" />
-					<include name = "verify_Contact_Client_Tile_Available" />
-					<include name = "verify_Contact_Client_Tile_TileText_Available" />
-					<include name = "verify_Contact_Client_Tile_Click_GoesTo_Contact_Client_Page" />
-					<include name = "verify_EnterCompanyName_Label_Available" />
-					<include name = "verify_EnterCompanyName_Label_Text_Available" />
-					<include name = "verify_EnterCompanyName_TextBox_Available" />
-					<include name = "verify_EnteringCharacters_To_EnterCompanyName_TextBox" />
-					<include name = "verify_Go_Button_Available" />
-					<include name = "verify_Go_Button_Text_Available" />
-					<include name = "verify_Go_ButtonClick_WithoutAny_CompanyName_gives_ErrorMessage" />
-					<include name = "verify_Go_ButtonClick_With_Invalid_CompanyName_gives_ErrorMessage" />
-					<include name = "verify_Go_ButtonClick_With_Valid_CompanyName_gives_ListOf_Companies" />
-					&lt;!&ndash;<include name = "verify_Searching_aValidCompany_and_ClickaCompany_FromList_goesTo_ClientProfilePage" />
-					<include name = "verify_TANDCRejectedClients_Table_Available" />
-					<include name = "verify_TableHeaderText_TANDCRejectedClients_Table_Available" />
-					<include name = "verify_Client_In_TANDCRejectedClients_Table_Available" />
-					<include name = "verify_ClickingAClient_GoesTo_ClientEvaluationPage" />
-					<include name = "verify_BrowserTitle_Of_ClientEvaluationPage" />
-					<include name = "verify_CompanyDetails_In_ClientTermsEvaluationPage" />
-					<include name = "verify_ClientDetails_In_ClientTermsEvaluationPage" />
-					<include name = "verify_SoftwareExperience_In_ClientTermsEvaluationPage" />
-					<include name = "verify_RejectedReason_In_ClientTermsEvaluationPage" />
-					<include name = "verify_PromptAgainButton_Available_In_ClientEvaluationPage" />
-					<include name = "verify_PromptAgainButton_Text_Available" />
-					<include name = "verify_Click_PromptAgainButton_InClientEvaluationPage_goesTo_AMDashboardPage" />&ndash;&gt;
-
-				</methods>
-			</class>
-		</classes>
 	</test>-->
+
+	<!--
+        <test name="Account Manager Dashboard Test">
+            <classes>
+                <class name="com.totalamber.qa.WQTest.WQAMDashboardTest">
+                    <methods>
+
+                        <include name = "verify_PendingClientsTable_Available" />
+                        <include name = "verify_TableHeaderText_PendingClientsTable_Table_Available" />
+                        &lt;!&ndash;<include name = "verify_Client_In_PendingClients_List_IsAvailable" />
+                        <include name = "verify_Client_Available_to_Click_and_Navigate" />
+                        <include name = "verify_CompanyDetails_In_VerifyPage" />
+                        <include name = "verify_ClientDetails_In_VerifyPage" />
+                        <include name = "verify_SoftwareExperience_In_VerifyPage" />
+                        <include name = "verify_VerifyButton_Available_In_VerifyPage" />
+                        <include name = "verify_VerifyButton_Text_Available_In_VerifyButton_In_VerifyPage" />
+                        <include name = "verify_Click_VerifyButton_InVerifyPage_goesTo_AMDashboard" />
+                        <include name = "verify_RejectButton_Available_InVerifyPage" />
+                        <include name = "verify_RejectButton_Text_Available_In_RejectButton_In_VerifyPage" />
+                        <include name = "verify_Click_RejectButton_InVerifyPage_gives_Popup" />
+                        <include name = "verify_Title_Available_In_RejectPopUp" />
+                        <include name = "verify_CommentBox_Available_InRejectPopUp" />
+                        <include name = "verify_CommentBox_PlaceHolder_Available_InRejectPopUp" />
+                        <include name = "verify_Entering_Text_To_CommentBox_InRejectPopUp" />
+                        <include name = "verify_RejectButton_Available_InRejectPopUp" />
+                        <include name = "verify_Textof_RejectButton_InRejectPopUp" />
+                        <include name = "verify_Textof_CancelButton_InRejectPopUp" />
+                        <include name = "verify_CancelButton_Available_InRejectPopUp" />
+                        <include name = "verify_Close_Cross_Available_InRejectPopUp" />
+                        <include name = "verify_Click_Close_Button_InRejectPopup_Goes_To_VerifyPage" />
+                        <include name = "verify_ClickReject_Button_Without_Reason_InRejectPopup_Gives_Error_Message" />
+                        <include name = "verify_ClickCancel_Button_InRejectPopup_withText_Goes_To_VerifyPage" />
+                        <include name = "verify_ClickCancel_Button_InRejectPopup_withoutText_Goes_To_VerifyPage" />
+                        <include name = "verify_ClickReject_Button_With_Reason_InRejectPopup_GoesTo_AMDashboard" />&ndash;&gt;
+                        <include name = "verify_The_Home_Page_Browser_Title" />
+                        <include name = "verify_HomeLink_IsHighlighted" />
+                        <include name = "verify_SignedInAs_Name_Available" />
+                        <include name = "verify_SignOut_Link_Available" />
+                        <include name = "verify_FooterArea_Text_Available" />
+                        <include name = "verify_ClientsTile_Available" />
+                        <include name = "verify_ClientsTile_TileText_Available" />
+                        <include name = "verify_ClientsTile_Click_GoesTo_AssignedClientsPage" />
+                        <include name = "verify_SuspiciousConnections_Tile_Available" />
+                        <include name = "verify_SuspiciousConnections_Tile_TileText_Available" />
+                        <include name = "verify_SuspiciousConnections_Tile_Click_GoesTo_ConnectionSuspicious_Page" />
+                        <include name = "verify_Contractor_Matching_Tile_Available" />
+                        <include name = "verify_Contractor_Matching_Tile_TileText_Available" />
+                        <include name = "verify_Contractor_Matching_Tile_Click_GoesTo_ConsultantSearch_Page" />
+                        <include name = "verify_Reports_Tile_Available" />
+                        <include name = "verify_Reports_Tile_TileText_Available" />
+                        <include name = "verify_Reports_Tile_Click_GoesTo_ViewReports_Page" />
+                        <include name = "verify_Assign_Users_Tile_Available" />
+                        <include name = "verify_Assign_Users_Tile_TileText_Available" />
+                        <include name = "verify_Assign_Users_Tile_Click_GoesTo_Assign_Users_Page" />
+                        <include name = "verify_Partners_Tile_Available" />
+                        <include name = "verify_Partners_Tile_TileText_Available" />
+                        <include name = "verify_Partners_Tile_Click_GoesTo_Partners_Page" />
+                        <include name = "verify_Contact_Client_Tile_Available" />
+                        <include name = "verify_Contact_Client_Tile_TileText_Available" />
+                        <include name = "verify_Contact_Client_Tile_Click_GoesTo_Contact_Client_Page" />
+                        <include name = "verify_EnterCompanyName_Label_Available" />
+                        <include name = "verify_EnterCompanyName_Label_Text_Available" />
+                        <include name = "verify_EnterCompanyName_TextBox_Available" />
+                        <include name = "verify_EnteringCharacters_To_EnterCompanyName_TextBox" />
+                        <include name = "verify_Go_Button_Available" />
+                        <include name = "verify_Go_Button_Text_Available" />
+                        <include name = "verify_Go_ButtonClick_WithoutAny_CompanyName_gives_ErrorMessage" />
+                        <include name = "verify_Go_ButtonClick_With_Invalid_CompanyName_gives_ErrorMessage" />
+                        <include name = "verify_Go_ButtonClick_With_Valid_CompanyName_gives_ListOf_Companies" />
+                        &lt;!&ndash;<include name = "verify_Searching_aValidCompany_and_ClickaCompany_FromList_goesTo_ClientProfilePage" />
+                        <include name = "verify_TANDCRejectedClients_Table_Available" />
+                        <include name = "verify_TableHeaderText_TANDCRejectedClients_Table_Available" />
+                        <include name = "verify_Client_In_TANDCRejectedClients_Table_Available" />
+                        <include name = "verify_ClickingAClient_GoesTo_ClientEvaluationPage" />
+                        <include name = "verify_BrowserTitle_Of_ClientEvaluationPage" />
+                        <include name = "verify_CompanyDetails_In_ClientTermsEvaluationPage" />
+                        <include name = "verify_ClientDetails_In_ClientTermsEvaluationPage" />
+                        <include name = "verify_SoftwareExperience_In_ClientTermsEvaluationPage" />
+                        <include name = "verify_RejectedReason_In_ClientTermsEvaluationPage" />
+                        <include name = "verify_PromptAgainButton_Available_In_ClientEvaluationPage" />
+                        <include name = "verify_PromptAgainButton_Text_Available" />
+                        <include name = "verify_Click_PromptAgainButton_InClientEvaluationPage_goesTo_AMDashboardPage" />&ndash;&gt;
+
+                    </methods>
+                </class>
+            </classes>
+        </test>-->
+
 
 	<test name="Client First Login Test">
 		<classes>
@@ -140,12 +141,13 @@
 					<include name = "verify_ChangePassword_Button_Text" />
 					<include name = "verify_Clicking_ChangePassword_Button_Without_AnyValues_InTextboxes" />
 					<include name = "verify_Clicking_ChangePassword_Button_With_Less_Than_SixValues_InBothTextBoxes" />
-					&lt;!&ndash;<include name = "verify_Clicking_ChangePassword_Button_With_more_Than_SixValues_InBothTextBoxes" />
-					<include name = "verify_Clicking_ChangePassword_Button_With_SixValues_InBothTextBoxes" />&ndash;&gt;
+					<include name = "verify_clicking_ChangePassword_Button_With_A_PasswordMismatch" />
 					<include name = "verify_Clicking_ChangePassword_Button_With_SpecialCahracter_Without_NumericCharacter_InBothTextBoxes" />
 					<include name = "verify_Clicking_ChangePassword_Button_With_NumericCharacter_Without_SpecialCahracter_InBothTextBoxes" />
+					<include name = "verify_Clicking_ChangePassword_Button_With_more_Than_SixValues_InBothTextBoxes" />
+					<include name = "verify_Clicking_ChangePassword_Button_With_SixValues_InBothTextBoxes" />
 					<include name = "verify_Clicking_ChangePassword_Button_With_NumericCharacter__And_With_SpecialCahracter_InBothTextBoxes" />
-					<include name = "verify_clicking_ChangePassword_Button_With_A_PasswordMismatch" />-->
+
 					<include name = "verify_Client_Logins_WithOldPassword_Gives_An_Error_Message" />
 					<include name = "verify_Client_Logins_WithChangedPassword_goes_to_TAndCPage" />
 					<include name = "verify_The_Browser_Title" />
@@ -157,8 +159,27 @@
 					<include name = "verify_IAgree_RadioButton_IsDefaultSelected" />
 					<include name = "verify_IDisagree_RadioButton_IsDefault_DeSelected" />
 					<include name = "verify_Selecting_IDoNotAgree_RadioButton_makes_IAgree_RadioButton_Deselected" />
-					<include name = "" />
-					<include name = "" />
+					<include name = "verify_selecting_IDoNotAgree_Button_Displays_A_TextArea" />
+
+					<include name = "verify_TextArea_PlaceHolderText" />
+					<include name = "verify_TextArea_IsEditable" />
+					<include name = "verify_Confirm_Button_Available" />
+					<include name = "verify_ConfirmButton_Text_IsAvailable" />-->
+					<!--This point onwards-->
+							<!--<include name = "verify_Client_selects_IAgree_RadioButton__andClicks_Confirm_GoesTo_TCAcceptedPage" />
+							<include name = "verify_Client_selects_Idisagree_RadioButton__andClicks_Confirm_Without_Reason_Gives_An_Error" />
+							<include name = "verify_Client_selects_Idisagree_RadioButton__andClicks_Confirm_With_Reason_GoesTo_TAndCInprogressPage" />
+							<include name = "verify_Client_Logins_And_goesto_TAndC_InProgressPage" />
+							<include name = "verify_TAndC_InprogressPage_PageTitle" />-->
+
+					<!--TAndC AcceptedPage -->
+					<!--<include name = "verify_BrowserTitle_Of_TCAcceptedPage" />
+					<include name = "verify_PageTitle_Of_TCAcceptedPage" />
+					<include name = "verify_ProceedButton_Available" />
+					<include name = "verify_ProceedButton_Text" />
+					<include name = "verify_Clciking_ProceedButton_GoesTo_ClientProfileUpdatePage" />-->
+
+
 					<include name = "" />
 					<include name = "" />
 					<include name = "" />

@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by t.piyananda on 15/09/2017.
  */
-public class WQAMDashboardPage extends TestBase implements wqAMDashboardPage {
+public class WQAMDashboardPage implements wqAMDashboardPage {
 
     SeleniumBase seleniumBase;
     public WQAMDashboardPage(WebDriver driver) {seleniumBase = new SeleniumBase(driver);}

@@ -42,8 +42,8 @@ public class WQTAndCPage implements wqTAndCPage {
         return seleniumBase.verifyAvailableObject(TANDCPAGE_IAGREE_RADIO_XPATH);
     }
 
-    public boolean validate_IDisgree_Button_Default_deSelected() {
-        return seleniumBase.deselectedRadioButton(TANDCPAGE_IDISAGREE_RADIO_XPATH);
+    public String validate_IDisgree_Button_Default_deSelected() {
+        return seleniumBase.verifyDesableObject(TANDCPAGE_IDISAGREE_RADIO_XPATH);
     }
 
     public WQTAndCPage step_selectDisagreeButton() {
@@ -52,8 +52,8 @@ public class WQTAndCPage implements wqTAndCPage {
     }
 
 
-    public String validate_RejectReason_TextArea_IsDisplaying() {
-        return seleniumBase.getTextByAttribute(TANDCPAGE_IDISAGREE_REASON_CSS,TANDCPAGE_IDISAGREE_REASON_XPATH,"style");
+    public boolean validate_RejectReason_TextArea_IsDisplaying() {
+        return seleniumBase.verifyAvailableObject(TANDCPAGE_IDISAGREE_REASON_XPATH);
     }
 
     public String validate_IAgree_Button_Default_DeSelected() {
@@ -67,6 +67,42 @@ public class WQTAndCPage implements wqTAndCPage {
 
 
     public String validate_IAgree_Button_DeSelected() {
-        return seleniumBase.getTextByAttribute(TANDCPAGE_IAGREE_RADIO_CSS,TANDCPAGE_IAGREE_RADIO_XPATH, "value");
+        return seleniumBase.verifyDesableObject(TANDCPAGE_IAGREE_RADIO_XPATH);
+    }
+
+    public String validate_PlaceholderText_of_DoNotAgree_TextArea() {
+        return seleniumBase.getTextByAttribute(TANDCPAGE_IDISAGREE_REASON_CSS, TANDCPAGE_IDISAGREE_REASON_XPATH,"placeholder");
+    }
+
+    public WQTAndCPage validate_TextArea_IsEditable(String textToEnter) {
+        seleniumBase.type(TANDCPAGE_IDISAGREE_REASON_CSS, TANDCPAGE_IDISAGREE_REASON_XPATH, textToEnter);
+        return this;
+    }
+
+    public boolean validate_ConfirmButton_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(TANDCPAGE_CONFIRM_BUTTON_XPATH);
+    }
+
+    public String validate_ConfirmButton_Text() {
+        return seleniumBase.getTextByAttribute(TANDCPAGE_CONFIRM_BUTTON_CSS, TANDCPAGE_CONFIRM_BUTTON_XPATH, "value");
+    }
+
+    public WQTAndCPage step_selectAgreeButton() {
+        seleniumBase.selectRadioButton(TANDCPAGE_IAGREE_RADIO_XPATH);
+        return this;
+    }
+
+    public WQTAndCPage step_click_ConfirmButton() {
+        seleniumBase.click(TANDCPAGE_CONFIRM_BUTTON_XPATH,TANDCPAGE_CONFIRM_BUTTON_CSS);
+        return this;
+    }
+
+    public String validate_ErrorMessage() {
+        return seleniumBase.getTextByAttribute(TANDCPAGE_IDISAGREE_REASON_CSS,TANDCPAGE_IDISAGREE_REASON_XPATH,"style");
+    }
+
+    public WQTAndCPage validate_RejectReason_TextArea_Is_NotDisplaying() {
+        seleniumBase.verifyDesableObject(TANDCPAGE_IDISAGREE_REASON_XPATH);
+        return this;
     }
 }

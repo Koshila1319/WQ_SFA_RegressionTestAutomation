@@ -52,9 +52,7 @@ public class WQBackOfficeLoginTest extends TestBase{
         String AMPassword = data.getValueByName("AM_Password");
         String WindowsAuthOption = data.getValueByName("SignInOption1");
         wqBackOfficeLoginPage.action_Login_as_BOUser(AMUsername,AMPassword);
-        Thread.sleep(10000);
         wqBackOfficeLoginPage.action_selectAuthentication(WindowsAuthOption);
-        Thread.sleep(10000);
     }
 
     @Test

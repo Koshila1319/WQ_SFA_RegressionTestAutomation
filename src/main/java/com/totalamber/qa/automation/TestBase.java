@@ -25,6 +25,9 @@ public class TestBase  {
 	protected WQTermsEvaluationPage wqTermsEvaluationPage;
 	protected WQChangePWPage wqChangePWPage;
 	protected WQTAndCPage wqTAndCPage;
+	protected WQTAndCInProgressPage wqTAndCInProgressPage;
+	protected WQTAndCAccepted wqTAndCAccepted;
+	protected WQClientProfileUpdatePage wqClientProfileUpdatePage;
 
 
 	public void initDomainObjects(WebDriver driver) throws IOException {
@@ -40,6 +43,9 @@ public class TestBase  {
 		wqTermsEvaluationPage = new WQTermsEvaluationPage(driver);
 		wqChangePWPage = new WQChangePWPage(driver);
 		wqTAndCPage = new WQTAndCPage(driver);
+		wqTAndCInProgressPage = new WQTAndCInProgressPage(driver);
+		wqTAndCAccepted = new WQTAndCAccepted(driver);
+		wqClientProfileUpdatePage = new WQClientProfileUpdatePage(driver);
 
 	}
 

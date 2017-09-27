@@ -23,7 +23,7 @@ public interface wqTAndCPage {
     public final String TANDCPAGE_IDISAGREE_REASON_XPATH = "//textarea[contains(@id,'_textBoxRejectionReason')]";
     public final String TANDCPAGE_IDISAGREE_REASON_CSS = "";
 
-    public final String TANDCPAGE_CONFIRM_BUTTON_XPATH = "//input[contains(@name,'buttonConfirm')]";
+    public final String TANDCPAGE_CONFIRM_BUTTON_XPATH = "//input[contains(@id,'buttonConfirm')]";
     public final String TANDCPAGE_CONFIRM_BUTTON_CSS = "";
 
 }

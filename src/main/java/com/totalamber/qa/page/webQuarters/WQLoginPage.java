@@ -114,6 +114,9 @@ public class WQLoginPage implements wqLoginPage {
     }
 
 
+    public String validate_ErrorMessage_For_Invalid_UNAndPW() {
+        return seleniumBase.getText(LOGIN_ERROR_MSG_T_CSS, LOGIN_ERROR_MSG_T_XPATH);
+    }
 }
 
 
