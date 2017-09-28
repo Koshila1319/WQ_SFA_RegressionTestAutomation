@@ -1005,13 +1005,14 @@ public class SeleniumBase {
 		return null;
 	}
 
-
+	//Coded by: Shammi
+	//Used to track the page title
 	public String getTitle() {
-
 		return driver.getTitle();
 	}
 
-
+	//Coded by: Shammi
+	//Used to validate the email address
 	public void validate_Email_Address(String name) {
 
 		if (null != name) {
@@ -1028,6 +1029,7 @@ public class SeleniumBase {
 		}
 	}
 
+	//Coded By : Shammi
 	//Match only letters, numbers and spaces (Removes special characters)
 	public void alphanumeric(String inputtxt) {
 		if (null != inputtxt) {
@@ -1042,20 +1044,6 @@ public class SeleniumBase {
 		}
 	}
 
-	/*public void alphanumeric(String inputtxt)
-	{
-		String letters = "/^[0-9a-zA-Z]+$/";
-		if(inputtxt.matches(letters))
-		{
-			System.out.println("User can enter any character to this text feild");
-
-		}
-		else
-		{
-			System.out.println("Please enter a valid text");
-
-		}
-	}*/
 
     public String checkDropdownTextValue(String xPath, String option) {
         String value= null;
@@ -1135,11 +1123,15 @@ public class SeleniumBase {
 		return str;
 	}
 
+	//Coded by : Shammi
+	//Used to track whether element is avaialable
     public boolean isElementPresent(String elementName){
         WebElement element = driver.findElement(By.xpath(elementName));
         return element.isDisplayed();
     }
 
+    //Coded by :Shammi
+	//Used to track modules and versions dropdowns are empty without selecting the SW App
 
     public boolean check_Text_Feild_Data_Equal(String a,String b,String name) {
 
@@ -1158,6 +1150,8 @@ public class SeleniumBase {
 
     }
 
+    //Coded by :Shammi
+	//Used to track the mandatory fields higlighted with red border only
     public String check_CSS_Value(String xpath){
 		WebElement element = driver.findElement(By.xpath(xpath));
 		return element.getCssValue("border-bottom-color");
