@@ -723,25 +723,13 @@ public class SeleniumBase {
 
 	}
 
-	// Click on verification link
-	public void clickOnTheVerificationLink(String linkXpath) throws InterruptedException {
+	// Open link in a new tab
+	public void linkOpenInANewTab(String linkXpath) throws InterruptedException {
 
-		//driver.switchTo().frame("emailframe");
 		String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL, Keys.RETURN);
 		driver.findElement(By.xpath(linkXpath)).sendKeys(selectLinkOpeninNewTab);
 		Thread.sleep(5000);
 
-	}
-
-	// Click on verification link
-	public String clickOnLogInLink() throws InterruptedException {
-
-		driver.switchTo().frame("emailframe");
-		Thread.sleep(3000);
-		String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL, Keys.RETURN);
-		driver.findElement(By.xpath("/html/body/table/tbody/tr[3]/td/div")).click();
-		driver.findElement(By.xpath("html/body/table/tbody/tr[3]/td/div/p[3]/a")).sendKeys(selectLinkOpeninNewTab);
-		return null;
 	}
 
 	// Spit words
@@ -1166,7 +1154,7 @@ public class SeleniumBase {
 		return optionCount;
 	}
 
-	//Get otions in a drop down
+	//Get options in a drop down
 	public List<String> listDropdownOptions(String xpath) {
 
 		int noOfOptions = getNoOfOptionsInADropdown(xpath);

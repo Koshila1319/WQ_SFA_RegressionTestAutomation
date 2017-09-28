@@ -92,11 +92,6 @@ public class WQCheckMailsTest extends TestBase{
     }
 
     @Test
-    public void verify_Email_Is_To_Client() throws InterruptedException {
-        // need to implement using another email client
-    }
-
-    @Test
     public void verify_Email_Subject_Feild() throws InterruptedException {
         String FromWQEmail = data.getValueByName("SignupEmailConfirmationPage_EmailSubject");
         Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_SUBJECT_XPATH),FromWQEmail, "Email subject verified !");
@@ -127,7 +122,7 @@ public class WQCheckMailsTest extends TestBase{
     @Test
     public void verify_Verification_Link_Leads_To_Thank_You_Page()throws InterruptedException {
         wqCheckMailcatchEmailPage.
-                action_click_Verification_Link();
+                action_Click_On_Link();
         Assert.assertEquals(wqCheckMailcatchEmailPage.check_Browser_Title(),"WebQuarters Registration Complete","Verification Link verified !");
     }*/
 
@@ -140,6 +135,12 @@ public class WQCheckMailsTest extends TestBase{
         wqCheckMailcatchEmailPage.
                 check_Mailcatch_Email(mailcatchURL, clientEmail);
     }
+
+    @Test
+    public void  verify_Mail_Is_Available_In_Inbox() throws InterruptedException {
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Available(WQ_CLIENT_INBOX_MAIL_SUBJECT_XPATH),true, "Email is available !");
+    }
+
 
     @Test
     public void verify_Mail_From_Content_Is_FromWebQuarters() throws InterruptedException {
@@ -159,37 +160,41 @@ public class WQCheckMailsTest extends TestBase{
     }
 
     @Test
-    public void Verify_SubjectText_In_Account_Activated_Email() throws InterruptedException {
+    public void verify_SubjectText_In_Account_Activated_Email() throws InterruptedException {
         String emailSubject = data.getValueByName("ClientActivateEmailPage_EmailSubject");
         Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_SUBJECT_XPATH),emailSubject, "Email subject verified !");
     }
 
     @Test
-    public void Verify_FromText_In_Account_Activated_Email()throws InterruptedException {
+    public void verify_FromText_In_Account_Activated_Email()throws InterruptedException {
         String FromWQEmail = data.getValueByName("WQEmail");
         Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_FROM_XPATH),FromWQEmail, "Email from text verified !");
     }
 
     @Test
-    public void Verify_Greet_With_FirstName_In_Email() throws InterruptedException {
+    public void verify_Greet_With_FirstName_In_Email() throws InterruptedException {
         String clientFirstName= data.getValueByName("First_Name");
         Assert.assertEquals(wqCheckMailcatchEmailPage.step_get_First_Name_Of_The_Client(),clientFirstName, "Client first name verified !");
     }
 
     @Test
+    public void verify_Content_Of_The_Email() throws InterruptedException {
+        String clientFirstName= data.getValueByName("First_Name");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_FNAME_XPATH),"Hi "+clientFirstName+",", "Greet text verified !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_ACTIVATE_EMAIL_USER_NAME_XPATH),"Username: "+clientEmail, "User name available !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.step_get_Temp_Pw_Text(),"Temporary Password", "Password available !");
+    }
+
+    @Test
     public void verify_The_Email_Header_Image_Is_Available() throws InterruptedException {
         //Verify WQ logo and TA logo
+        Thread.sleep(10000);
         Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Available(WQ_CLIENT_EMAIL_HEADER_IMAGE_XPATH),true, "Email header image is available !");
     }
 
     @Test
     public void verify_The_Heading_Title_Text() throws InterruptedException {
         Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_HEADER_TITLE_XPATH),"Your Account is Activated", "Header title available !");
-    }
-
-    @Test
-    public void verify_Activation_Link_Is_Enabled_In_The_Email_Content() throws InterruptedException {
-        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Enabled(WQ_CLIENT_EMAIL_CONTENT_LINK_XPATH),true, "Verification link available !");
     }
 
     @Test
@@ -208,7 +213,7 @@ public class WQCheckMailsTest extends TestBase{
         Assert.assertNotNull(wqCheckMailcatchEmailPage.step_Get_Activated_User_Details(WQ_CLIENT_ACTIVATE_EMAIL_TEMP_PASSWORD_XPATH), "Password verified !");
     }
 
-        @Test
+    @Test
     public void verify_Extracting_UserName_From_Email_Content()throws InterruptedException {
        String userName = wqCheckMailcatchEmailPage.step_Get_Activated_User_Details(WQ_CLIENT_ACTIVATE_EMAIL_USER_NAME_XPATH);
        System.out.println("User name = "+userName);
@@ -222,5 +227,15 @@ public class WQCheckMailsTest extends TestBase{
         Assert.assertNotNull(tempPw, "Temp password extracted !");
     }
 
+    @Test
+    public void verify_the_Link_in_Email_Content()throws InterruptedException {
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Enabled(WQ_CLIENT_EMAIL_CONTENT_LINK_XPATH),true, "Verification link available !");
+    }
+
+    @Test
+    public void verify_Click_Login_Link_Goes_To_LoginPage()throws InterruptedException {
+        wqCheckMailcatchEmailPage.action_Click_On_Link();
+        Assert.assertEquals(wqCheckMailcatchEmailPage.check_Browser_Title(),"Sign In","Activation Link verified !");
+    }
 
 }

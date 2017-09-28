@@ -77,7 +77,7 @@ public class WQSignupEmailConfirmationTest extends TestBase {
     @Test
     public void verify_Verification_Link_Leads_To_Thank_You_Page()throws InterruptedException {
         wqCheckMailcatchEmailPage.
-                action_click_Verification_Link();
+                action_Click_On_Link();
         Assert.assertEquals(wqCheckMailcatchEmailPage.check_Browser_Title(),"WebQuarters Registration Complete","Verification Link verified !");
     }
 

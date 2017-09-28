@@ -28,7 +28,7 @@ public class TestBase  {
 	protected WQSMDashboardPage wqSMDashboardPage;
 
 
-	public static final String clientEmail = "a277dc85-33c1-4309-b9c5-2e8d6781663f@mailcatch.com";
+	public static final String clientEmail = "4f13c64d-e10f-4ca2-8c70-c16aa4cb8592@mailcatch.com";
 
 
 	public void initDomainObjects(WebDriver driver) throws IOException {

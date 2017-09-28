@@ -51,8 +51,8 @@ public class WQCheckMailcatchEmailPage extends TestBase implements wqCheckMailCa
 
     //----------Client Signup Confirmation------------
 
-    public void action_click_Verification_Link() throws InterruptedException {
-        seleniumBase.clickOnTheVerificationLink(WQ_CLIENT_EMAIL_CONTENT_LINK_XPATH);
+    public void action_Click_On_Link() throws InterruptedException {
+        seleniumBase.linkOpenInANewTab(WQ_CLIENT_EMAIL_CONTENT_LINK_XPATH);
     }
 
     public String check_Browser_Title() {
@@ -67,4 +67,8 @@ public class WQCheckMailcatchEmailPage extends TestBase implements wqCheckMailCa
         return seleniumBase.splitTextGetNthWord(seleniumBase.getText("",xpath),": ",2);
     }
 
+    public String step_get_Temp_Pw_Text() {
+       // seleniumBase.switchedToiFrame("emailframe");
+        return seleniumBase.splitTextGetNthWord(seleniumBase.getText(WQ_CLIENT_ACTIVATE_EMAIL_TEMP_PASSWORD_CSS, WQ_CLIENT_ACTIVATE_EMAIL_TEMP_PASSWORD_XPATH), ": ",1);
+    }
 }

@@ -38,20 +38,23 @@
 			<class name ="com.totalamber.qa.WQTest.WQCheckMailsTest">
 				<methods>
 					<include name = "verify_Check_Mailcatch_Email"/>
+					<include name = "verify_Mail_Is_Available_In_Inbox"/>
 					<include name = "verify_Mail_From_Content_Is_FromWebQuarters"/>
 					<include name = "verify_Mail_Subject_Is_FromWebquarters"/>
 					<include name = "verify_Clicking_the_Mail_In_Inbox"/>
-					<include name = "Verify_SubjectText_In_Account_Activated_Email"/>
-					<include name = "Verify_FromText_In_Account_Activated_Email"/>
-					<include name = "Verify_Greet_With_FirstName_In_Email"/>
+					<include name = "verify_SubjectText_In_Account_Activated_Email"/>
+					<include name = "verify_FromText_In_Account_Activated_Email"/>
+					<include name = "verify_Greet_With_FirstName_In_Email"/>
+					<include name = "verify_Content_Of_The_Email"/>
 					<include name = "verify_The_Email_Header_Image_Is_Available"/>
 					<include name = "verify_The_Heading_Title_Text"/>
-					<include name = "verify_Activation_Link_Is_Enabled_In_The_Email_Content"/>
 					<include name = "verify_LinkText_In_Email_Content"/>
 					<include name = "verify_UserName_Alongwith_UserName_Label_In_Email_Content"/>
 					<include name = "verify_Temporary_Password_Alongwith_Temporary_Password_Label_In_Email_Content"/>
 					<include name = "verify_Extracting_UserName_From_Email_Content"/>
 					<include name = "verify_Extracting_Password_From_Email_Content"/>
+					<include name = "verify_the_Link_in_Email_Content"/>
+					<include name = "verify_Click_Login_Link_Goes_To_LoginPage"/>
 				</methods>
 			</class>
 			</classes>
