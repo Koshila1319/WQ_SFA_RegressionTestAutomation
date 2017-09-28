@@ -6,7 +6,7 @@ import com.totalamber.qa.data.UI.elements.webQuarters.wqCheckMailCatchEmailPage;
 import com.totalamber.qa.data.UI.elements.webQuarters.wqClientRegCompletePage;
 import org.openqa.selenium.WebDriver;
 
-import static com.totalamber.qa.data.UI.elements.webQuarters.wqCheckMailCatchEmailPage.WQ_CLIENT_SIGNUP_CONFIRMATION_EMAIL_VERIFICATION_LINK_XPATH;
+
 
 
 /**

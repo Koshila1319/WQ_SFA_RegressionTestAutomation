@@ -210,10 +210,11 @@
 										<methods>
 											<!--<include name="verify_The_Page_Browser_Title"/>
 											<include name="verify_The_Copyright_Info_Available_At_The_Bottom_Of_The_Page"/>
-											<include name="verify_Click_Hear_Link_Resend_The_Email"/>
+
 											<include name="verify_First_Name_Of_The_User_Available_In_The_Content"/>
-											<include name="verify_Thank_You_For_Sign_Up_Confirmation_Msg_Text"/>-->
-											<include name="verify_Thank_You_For_Sign_Up_Confirmation_Msg_Content"/>
+											<include name="verify_Thank_You_For_Sign_Up_Confirmation_Msg_Text"/>
+											<include name="verify_Thank_You_For_Sign_Up_Confirmation_Msg_Content"/>-->
+											<include name="verify_Click_Hear_Link_Resend_The_Email"/>
 
 
 										</methods>
