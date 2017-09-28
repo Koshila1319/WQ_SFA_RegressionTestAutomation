@@ -153,8 +153,6 @@ public class WQLoginTest extends TestBase {
         System.out.println("Login Button Text Verified");
     }
 
-
-
     @Test
     public void verify_The_Login_Button_With_Cor_UN_PW() throws Exception {
         String Uname = data.getValueByName("VALIDUNAME");

@@ -2,6 +2,7 @@
 <suite name="Test form">
 	<test name="SysAid Testing">
 		<classes>
+			<!--Signup email confirmation-->
 			<!--<class name ="com.totalamber.qa.WQTest.WQSignupEmailConfirmationTest">
 				<methods>
 					<include name = "verify_Check_Mailcatch_Email"/>
@@ -14,6 +15,8 @@
 					<include name = "verify_Verification_Link_Leads_To_Thank_You_Page"/>&ndash;&gt;
 				</methods>
 			</class>-->
+
+			<!--Client registration complete -->
 			<!--<class name ="com.totalamber.qa.WQTest.WQClientRegCompleteTest">
 				<methods>
 					<include name = "verify_The_Page_Browser_Title"/>
@@ -24,6 +27,7 @@
 				</methods>
 			</class>
 -->
+			<!--Back office login SM -->
 			<!--<class name ="com.totalamber.qa.WQTest.WQBackOfficeLoginTest">
 				<methods>
 					<include name = "verify_The_Page_Browser_Title"/>
@@ -35,7 +39,9 @@
 					<include name = "verify_Login_as_BO_Users_SM"/>
 				</methods>
 			</class>-->
-			<class name ="com.totalamber.qa.WQTest.WQCheckMailsTest">
+
+			<!--Extract Temp password  -->
+			<!--<class name ="com.totalamber.qa.WQTest.WQCheckMailsTest">
 				<methods>
 					<include name = "verify_Check_Mailcatch_Email"/>
 					<include name = "verify_Mail_Is_Available_In_Inbox"/>
@@ -56,8 +62,14 @@
 					<include name = "verify_the_Link_in_Email_Content"/>
 					<include name = "verify_Click_Login_Link_Goes_To_LoginPage"/>
 				</methods>
+			</class>-->
+
+			<class name ="com.totalamber.qa.WQTest.WQSignupEmailConfirmationTest">
+				<methods>
+					<include name = "verify_Check_Mailcatch_Email"/>
+				</methods>
 			</class>
-			</classes>
+		</classes>
         </test>
     </suite>
 
