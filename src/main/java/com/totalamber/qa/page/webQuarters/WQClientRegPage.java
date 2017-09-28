@@ -368,11 +368,51 @@ public class WQClientRegPage implements wqClientRegPage {
         return this;
     }
 
+    public String check_Email_Error_Msg() {
+        return seleniumBase.getText(WQCLIENT_REG_PAGE_EMAIL_ERROR_MSG_CSS,WQCLIENT_REG_PAGE_EMAIL_ERROR_MSG_XPATH);
+    }
+
+    public String check_Thank_You_Page() {
+        return seleniumBase.getText(WQCLIENT_THANK_YOU_PAGE_CSS,WQCLIENT_THANK_YOU_PAGE_XPATH);
+    }
+
     public String check_Thank_You_Page_Title() {
         return seleniumBase.getTitle();
     }
 
-    public String check_Email_Error_Msg() {
-        return seleniumBase.getText(WQCLIENT_REG_PAGE_EMAIL_ERROR_MSG_CSS,WQCLIENT_REG_PAGE_EMAIL_ERROR_MSG_XPATH);
+    public String check_First_Name_Available() {
+        return seleniumBase.getText(WQCLIENT_THANK_YOU_PAGE_FIRST_NAME_CSS,WQCLIENT_THANK_YOU_PAGE_FIRST_NAME_XPATH);
     }
+
+    public String check_Copyright_Info() {
+        return seleniumBase.getText(WQCLIENT_THANK_YOU_PAGE_COPYRIGHT_INFO_CSS,WQCLIENT_THANK_YOU_PAGE_COPYRIGHT_INFO_XPATH);
+
+    }
+
+    public String check_Thank_You_Page_Msg_Content1() {
+        return seleniumBase.getText(WQCLIENT_THANK_YOU_PAGE_MSG_CONTENT_1_CSS,WQCLIENT_THANK_YOU_PAGE_MSG_CONTENT_1_XPATH);
+    }
+
+    public String check_Thank_You_Page_Msg_Content2() {
+        return seleniumBase.getText(WQCLIENT_THANK_YOU_PAGE_MSG_CONTENT_2_CSS,WQCLIENT_THANK_YOU_PAGE_MSG_CONTENT_2_XPATH);
+    }
+
+    public String check_Thank_You_Page_Msg_Content3() {
+        return seleniumBase.getText(WQCLIENT_THANK_YOU_PAGE_MSG_CONTENT_3_CSS,WQCLIENT_THANK_YOU_PAGE_MSG_CONTENT_3_XPATH);
+    }
+
+    public WQClientRegPage click_Resend_Email() {
+        seleniumBase.click(WQCLIENT_THANK_YOU_PAGE_EMAIL_SEND_XPATH,WQCLIENT_THANK_YOU_PAGE_EMAIL_SEND_CSS);
+        return this;
+    }
+
+    public void user_Login_To_Account(String email) {
+        seleniumBase.openTab("mailcatchURL");
+        seleniumBase.type(MAILCATCH_EMAIL_XPATH,MAILICATCH_EMAIL_CSS,email);
+        seleniumBase.click(MAILCATCH_GO_BUTTON_XPATH,MAILCATCH_GO_BUTTON_CSS);
+        seleniumBase.click(MAILCATCH_REFRESH_BUTTON_XPATH,MAILCATCH_REFRESH_BUTTON_CSS);
+
+    }
+
+
 }

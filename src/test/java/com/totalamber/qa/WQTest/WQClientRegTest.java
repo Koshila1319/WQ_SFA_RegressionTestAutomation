@@ -27,7 +27,7 @@ public class WQClientRegTest extends TestBase {
 
     @AfterMethod
     public void endTestMethod() throws Throwable{
-        quitDriver();
+        //quitDriver();
     }
 
     //company name field validations
@@ -236,7 +236,6 @@ public class WQClientRegTest extends TestBase {
     }
 
     //company address features
-
     @Test
     public void verify_Company_Address_Text_Feild_Is_Single_Line_Of_Text()
     {
@@ -271,7 +270,6 @@ public class WQClientRegTest extends TestBase {
     }
 
     //Town City Features
-
     @Test
     public void verify_Town_City_Text_Feild_Is_Single_Line_Of_Text()
     {
@@ -388,8 +386,17 @@ public class WQClientRegTest extends TestBase {
         System.out.println("Country Text Verified");
     }
 
-    //contact number features
+    @Test
+    public void  verify_User_Can_Select_A_Country_From_The_Country_Feild()
+    {
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.select_Country();
+    }
 
+    //contact number features
     @Test
     public void verify_Contact_Number_Text_Feild_Is_Single_Line_Of_Text()
     {
@@ -423,7 +430,6 @@ public class WQClientRegTest extends TestBase {
     }
 
     //Dialing Code Features
-
     @Test
     public void verify_Dialing_Code_Text_Feild_Is_Single_Line_Of_Text()
     {
@@ -458,7 +464,6 @@ public class WQClientRegTest extends TestBase {
     }
 
     //Fax Features
-
     @Test
     public void verify_Fax_Text_Feild_Is_Single_Line_Of_Text()
     {
@@ -493,7 +498,6 @@ public class WQClientRegTest extends TestBase {
     }
 
     //Organization Size Features
-
     @Test
     public void verify_Organization_Size_Text()
     {
@@ -518,7 +522,6 @@ public class WQClientRegTest extends TestBase {
     }
 
     //Web Address Features
-
     @Test
     public void verify_Company_Web_Address_Feild_Is_Single_Line_Of_Text()
     {
@@ -655,7 +658,6 @@ public class WQClientRegTest extends TestBase {
     }
 
     //Add Button Features
-
     @Test
     public void verify_Add_Button_Text_Feild()
     {
@@ -844,7 +846,22 @@ public class WQClientRegTest extends TestBase {
 
     @Test
     public void verify_User_Can_Register_The_Client_Info_Successfully() throws InterruptedException {
-        verify_Adding_A_SW_App_Info_Is_Mandatory();
+        String fName = data.getValueByName("First_Name");
+        String lName = data.getValueByName("Last_Name");
+        String email = Clientemail;
+        String jobTitle = data.getValueByName("Title_Designation");
+        String address = data.getValueByName("Company_Address");
+        String town = data.getValueByName("Town_City");
+        String contactNo = data.getValueByName("Contact_No");
+        String companyName = data.getValueByName("Company_Name");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                fill_Client_Registration_Info(companyName,fName,lName,email,jobTitle,address,town,contactNo);
+        wqClientRegPage.select_Organization_Size();
+        wqClientRegPage.select_Country();
 
         Thread.sleep(5000);
         wqClientRegPage.
@@ -859,14 +876,20 @@ public class WQClientRegTest extends TestBase {
         wqClientRegPage.
                 click_Add_Button();
         Thread.sleep(5000);
-        wqClientRegPage.click_Sign_Me_Up_Button();
+        wqClientRegPage.
+                select_An_Email_Marketing();
+        wqClientRegPage.
+                click_Sign_Me_Up_Button();
+
+
 
     }
 
     @Test
     public void verify_Sign_Me_Up_Button_Leads_To_Thank_You_For_SignUp_Page() throws InterruptedException {
+        String Page_Name="Thank you for signing up.";
         verify_User_Can_Register_The_Client_Info_Successfully();
-        Assert.assertEquals(wqClientRegPage.check_Thank_You_Page_Title(),"WebQuarters Registration Complete - Status");
+        Assert.assertEquals(wqClientRegPage.check_Thank_You_Page(),Page_Name);
     }
 
     @Test
@@ -908,6 +931,219 @@ public class WQClientRegTest extends TestBase {
         Assert.assertEquals(wqClientRegPage.check_Email_Error_Msg(),"Email address already exist");
 
     }
+
+    @Test
+    public void verify_The_Page_Browser_Title() throws InterruptedException {
+        String fName = data.getValueByName("First_Name");
+        String lName = data.getValueByName("Last_Name");
+        String email = Clientemail;
+        String jobTitle = data.getValueByName("Title_Designation");
+        String address = data.getValueByName("Company_Address");
+        String town = data.getValueByName("Town_City");
+        String contactNo = data.getValueByName("Contact_No");
+        String companyName = data.getValueByName("Company_Name");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                fill_Client_Registration_Info(companyName,fName,lName,email,jobTitle,address,town,contactNo);
+        wqClientRegPage.select_Organization_Size();
+        wqClientRegPage.select_Country();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_SW_Application();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_CheckBox_In_Modules();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_CheckBox_In_Versions();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                click_Add_Button();
+        Thread.sleep(5000);
+
+        wqClientRegPage.
+                select_An_Email_Marketing().
+                click_Sign_Me_Up_Button();
+        Assert.assertEquals(wqClientRegPage.check_Thank_You_Page_Title(),"WebQuarters Registration Complete - Status");
+
+
+    }
+
+
+
+    @Test
+    public void verify_First_Name_Of_The_User_Available_In_The_Content() throws InterruptedException {
+        String fName = data.getValueByName("First_Name");
+        String lName = data.getValueByName("Last_Name");
+        String email = Clientemail;
+        String jobTitle = data.getValueByName("Title_Designation");
+        String address = data.getValueByName("Company_Address");
+        String town = data.getValueByName("Town_City");
+        String contactNo = data.getValueByName("Contact_No");
+        String companyName = data.getValueByName("Company_Name");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                fill_Client_Registration_Info(companyName,fName,lName,email,jobTitle,address,town,contactNo);
+        wqClientRegPage.select_Organization_Size();
+        wqClientRegPage.select_Country();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_SW_Application();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_CheckBox_In_Modules();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_CheckBox_In_Versions();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                click_Add_Button();
+        Thread.sleep(5000);
+
+        wqClientRegPage.
+                select_An_Email_Marketing().
+                click_Sign_Me_Up_Button();
+        Assert.assertEquals(wqClientRegPage.check_First_Name_Available(),"Hello "+fName);
+    }
+
+    @Test
+    public void verify_The_Copyright_Info_Available_At_The_Bottom_Of_The_Page() throws InterruptedException {
+        String fName = data.getValueByName("First_Name");
+        String lName = data.getValueByName("Last_Name");
+        String email = Clientemail;
+        String jobTitle = data.getValueByName("Title_Designation");
+        String address = data.getValueByName("Company_Address");
+        String town = data.getValueByName("Town_City");
+        String contactNo = data.getValueByName("Contact_No");
+        String companyName = data.getValueByName("Company_Name");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                fill_Client_Registration_Info(companyName,fName,lName,email,jobTitle,address,town,contactNo);
+        wqClientRegPage.select_Organization_Size();
+        wqClientRegPage.select_Country();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_SW_Application();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_CheckBox_In_Modules();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_CheckBox_In_Versions();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                click_Add_Button();
+        Thread.sleep(5000);
+
+        wqClientRegPage.
+                select_An_Email_Marketing().
+                click_Sign_Me_Up_Button();
+        Thread.sleep(5000);
+        Assert.assertEquals(wqClientRegPage.check_Copyright_Info(),"Copyright WebQuarters 2015");
+    }
+
+    @Test
+    public void verify_Thank_You_For_Sign_Up_Confirmation_Msg_Text() throws InterruptedException {
+        verify_Sign_Me_Up_Button_Leads_To_Thank_You_For_SignUp_Page();
+    }
+
+    @Test
+    public void verify_Thank_You_For_Sign_Up_Confirmation_Msg_Content() throws InterruptedException {
+        String page_Content_1="We have sent you an email to the email address you provided. Please check your emails and click the link provided to verify your email address.";
+        String page_Content_2="If you do not received the verification email within 30 seconds, please";
+        String page_Content_3="to resend the email.";
+
+        String fName = data.getValueByName("First_Name");
+        String lName = data.getValueByName("Last_Name");
+        String email = Clientemail;
+        String jobTitle = data.getValueByName("Title_Designation");
+        String address = data.getValueByName("Company_Address");
+        String town = data.getValueByName("Town_City");
+        String contactNo = data.getValueByName("Contact_No");
+        String companyName = data.getValueByName("Company_Name");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                fill_Client_Registration_Info(companyName,fName,lName,email,jobTitle,address,town,contactNo);
+        wqClientRegPage.select_Organization_Size();
+        wqClientRegPage.select_Country();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_SW_Application();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_CheckBox_In_Modules();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_CheckBox_In_Versions();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                click_Add_Button();
+        Thread.sleep(5000);
+
+        wqClientRegPage.
+                select_An_Email_Marketing().
+                click_Sign_Me_Up_Button();
+        Thread.sleep(5000);
+        Assert.assertEquals(wqClientRegPage.check_Thank_You_Page_Msg_Content1(),page_Content_1);
+        Assert.assertEquals(wqClientRegPage.check_Thank_You_Page_Msg_Content2(),page_Content_2);
+        Assert.assertEquals(wqClientRegPage.check_Thank_You_Page_Msg_Content3(),page_Content_3);
+    }
+
+   /* @Test
+    public void verify_Click_Hear_Link_Resend_The_Email() throws InterruptedException {
+
+
+        String fName = data.getValueByName("First_Name");
+        String lName = data.getValueByName("Last_Name");
+        String email = Clientemail;
+        String jobTitle = data.getValueByName("Title_Designation");
+        String address = data.getValueByName("Company_Address");
+        String town = data.getValueByName("Town_City");
+        String contactNo = data.getValueByName("Contact_No");
+        String companyName = data.getValueByName("Company_Name");
+        wqHomePage.
+                action_Navigate_To_SignUp_Page();
+        wqSignUpPage.
+                check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
+        wqClientRegPage.
+                fill_Client_Registration_Info(companyName,fName,lName,email,jobTitle,address,town,contactNo);
+        wqClientRegPage.select_Organization_Size();
+        wqClientRegPage.select_Country();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_SW_Application();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_CheckBox_In_Modules();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                select_CheckBox_In_Versions();
+        Thread.sleep(5000);
+        wqClientRegPage.
+                click_Add_Button();
+        Thread.sleep(5000);
+
+        wqClientRegPage.
+                select_An_Email_Marketing().
+                click_Sign_Me_Up_Button().
+                click_Resend_Email().
+                user_Login_To_Account(Clientemail);
+
+
+
+    }*/
 
 
 }
