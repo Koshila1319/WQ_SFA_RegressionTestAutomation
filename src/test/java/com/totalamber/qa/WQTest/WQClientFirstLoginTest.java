@@ -594,20 +594,20 @@ public class WQClientFirstLoginTest extends TestBase{
 
     @Test
     public void verify_Entered_CompanyDetails_areSameAs_Registration_Data(){
-        String regNumber = data.getValueByName("CompanyDetails_BusRegNumber");
-        String companyName = data.getValueByName("CompanyDetails_CompanyName");
-        String lastname = data.getValueByName("");
-        String firstname = data.getValueByName("");
-        String email = data.getValueByName("");
-        String phone = data.getValueByName("");
-        String dialcode = data.getValueByName("");
-        String address = data.getValueByName("");
-        String city = data.getValueByName("");
-        String county = data.getValueByName("");
-        String fax = data.getValueByName("");
-        String postcode = data.getValueByName("");
-        String designation = data.getValueByName("");
-        String website = data.getValueByName("");
+        String regNumber = data.getValueByName("Business_Reg_No");
+        String companyName = data.getValueByName("Company_Name");
+        String lastname = data.getValueByName("Last_Name");
+        String firstname = data.getValueByName("First_Name");
+        String email = data.getValueByName("Email_Address");
+        String phone = data.getValueByName("Contact_No");
+        String dialcode = data.getValueByName("Dialing_Code");
+        String address = data.getValueByName("Company_Address");
+        String city = data.getValueByName("Town_City");
+        String county = data.getValueByName("Country_State");
+        String fax = data.getValueByName("Fax");
+        String postcode = data.getValueByName("Postal_Code");
+        String designation = data.getValueByName("Title_Designation");
+        String website = data.getValueByName("Company_web_address");
 
         Assert.assertEquals(wqClientProfileUpdatePage.check_regNumber_field_In_ClientProfilePage(),regNumber);
         Assert.assertEquals(wqClientProfileUpdatePage.check_companyName_field_In_ClientProfilePage(),companyName);

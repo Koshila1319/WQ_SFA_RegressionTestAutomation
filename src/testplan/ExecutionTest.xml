@@ -188,6 +188,7 @@
 					<!--Client ProfileUpdatePage-->
 					<include name = "verify_ApplicationInformation_Accordian_IsAvailable" />
 					<include name = "verify_Clicking_ApplicationInformation_Accordian_Displays_Information" />
+					<include name = "verify_Entered_CompanyDetails_areSameAs_Registration_Data" />
 					<include name = "verify_OtherCompanyDetails_Accordian_IsAvailable" />
 					<include name = "verify_Clicking_OtherCompanyDetails_Accordian_displays_Information" />
 					<include name = "verify_BillingDetails_Accordian_IsAvailable" />
