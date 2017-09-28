@@ -322,6 +322,7 @@ public class SeleniumBase {
 
 		return driver.findElement(by).getText();
 
+
 	}
 
 	public String getText(String css, String id, String name, String xpath) {
@@ -341,6 +342,7 @@ public class SeleniumBase {
 		text = getElement(css, xpath).getText();
 
 		return text;
+
 
 	}
 
@@ -427,6 +429,7 @@ public class SeleniumBase {
 		WebElement identifier = driver.findElement(By.id(objectName));
 		Select select = new Select(identifier);
 		select.selectByVisibleText(textToSelect);
+
 	}
 
 	public List<String> getSelectList(String css, String id, String name, String xpath) {
@@ -795,6 +798,7 @@ public class SeleniumBase {
 	public String verifyDataEquals(String data) {
 		// TODO Auto-generated method stub
 		return getText("", data);
+
 	}
 
 
@@ -803,7 +807,9 @@ public class SeleniumBase {
 		// TODO Auto-generated method stub
 		WebElement element = driver.findElement(By.name(elementName));
 		element.sendKeys(filePath);
+
 	}
+
 
 	// Replace Texts
 	public void replaceText(String cSS, String xPath, String textToReplace) {
@@ -996,16 +1002,17 @@ public class SeleniumBase {
 			value = allOptions.get(i).getText();
 			System.out.println(value);
 		}
-		return value;
+		return null;
 	}
 
-
+	//Coded by: Shammi
+	//Used to track the page title
 	public String getTitle() {
-
 		return driver.getTitle();
 	}
 
-
+	//Coded by: Shammi
+	//Used to validate the email address
 	public void validate_Email_Address(String name) {
 
 		if (null != name) {
@@ -1018,38 +1025,25 @@ public class SeleniumBase {
 				System.out.println("Invalid Username Feild. Please re-enter the username");
 			}
 			else
-				System.out.println("Valid Username Feild");
+				System.out.println("Valid Email(Username) Feild");
 		}
 	}
 
+	//Coded By : Shammi
 	//Match only letters, numbers and spaces (Removes special characters)
 	public void alphanumeric(String inputtxt) {
 		if (null != inputtxt) {
-			String letterNumber = "^[0-9a-zA-Z]+$";
+			String letterNumber = "(?i)^([[a-z][^a-z0-9\\\\s\\\\(\\\\)\\\\[\\\\]\\\\{\\\\}\\\\\\\\^\\\\$\\\\|\\\\?\\\\*\\\\\u200C\u200B+\\\\.\\\\<\\\\>\\\\-\\\\=\\\\!\\\u200C\u200B\\_]]*)$";
 			Pattern pattern = Pattern.compile(letterNumber);
 			Matcher matcher = pattern.matcher(inputtxt);
 			if (matcher.matches()) {
-				System.out.println("User can enter any number or character to this text feild");
+				System.out.println("Valid Text");
 			} else {
-				System.out.println("Please enter a valid text. Special Characters are not allowed");
+				System.out.println("Please enter a valid text.");
 			}
 		}
 	}
 
-	/*public void alphanumeric(String inputtxt)
-	{
-		String letters = "/^[0-9a-zA-Z]+$/";
-		if(inputtxt.matches(letters))
-		{
-			System.out.println("User can enter any character to this text feild");
-
-		}
-		else
-		{
-			System.out.println("Please enter a valid text");
-
-		}
-	}*/
 
     public String checkDropdownTextValue(String xPath, String option) {
         String value= null;
@@ -1127,6 +1121,42 @@ public class SeleniumBase {
 			}
 		}
 		return str;
+	}
+
+	//Coded by : Shammi
+	//Used to track whether element is avaialable
+    public boolean isElementPresent(String elementName){
+        WebElement element = driver.findElement(By.xpath(elementName));
+        return element.isDisplayed();
+    }
+
+    //Coded by :Shammi
+	//Used to track modules and versions dropdowns are empty without selecting the SW App
+
+    public boolean check_Text_Feild_Data_Equal(String a,String b,String name) {
+
+        String x=getText(a,b);
+
+        if(x.equals(name)){
+            System.out.println("Please select the Software application");
+            return true;
+        }
+        else
+
+            System.out.println("Items available in the dropdown");
+            return false;
+
+
+
+    }
+
+    //Coded by :Shammi
+	//Used to track the mandatory fields higlighted with red border only
+    public String check_CSS_Value(String xpath){
+		WebElement element = driver.findElement(By.xpath(xpath));
+		return element.getCssValue("border-bottom-color");
+
+
 	}
 }
 
