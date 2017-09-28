@@ -105,4 +105,9 @@ public class WQTAndCPage implements wqTAndCPage {
         seleniumBase.verifyDesableObject(TANDCPAGE_IDISAGREE_REASON_XPATH);
         return this;
     }
+
+    public WQTAndCPage step_clearTextArea() {
+        seleniumBase.clearTextBox(TANDCPAGE_IDISAGREE_REASON_XPATH);
+        return this;
+    }
 }

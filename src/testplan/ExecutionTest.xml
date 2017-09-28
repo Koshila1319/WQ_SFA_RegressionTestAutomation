@@ -136,17 +136,17 @@
 					<include name = "verify_ConfirmPassword_TextBox_IsAvailable" />
 					<include name = "verify_ConfirmPassword_Textbox_Is_Editable" />
 					<include name = "verify_ConfirmPassword_Is_Display_Set_Secured" />
-
 					<include name = "verify_ChangePassword_Button_Available" />
 					<include name = "verify_ChangePassword_Button_Text" />
 					<include name = "verify_Clicking_ChangePassword_Button_Without_AnyValues_InTextboxes" />
-					<include name = "verify_Clicking_ChangePassword_Button_With_Less_Than_SixValues_InBothTextBoxes" />
-					<include name = "verify_clicking_ChangePassword_Button_With_A_PasswordMismatch" />
-					<include name = "verify_Clicking_ChangePassword_Button_With_SpecialCahracter_Without_NumericCharacter_InBothTextBoxes" />
-					<include name = "verify_Clicking_ChangePassword_Button_With_NumericCharacter_Without_SpecialCahracter_InBothTextBoxes" />
-					<include name = "verify_Clicking_ChangePassword_Button_With_more_Than_SixValues_InBothTextBoxes" />
-					<include name = "verify_Clicking_ChangePassword_Button_With_SixValues_InBothTextBoxes" />
-					<include name = "verify_Clicking_ChangePassword_Button_With_NumericCharacter__And_With_SpecialCahracter_InBothTextBoxes" />
+					<include name = "verify_Clicking_ChangePassword_Button_With_Less_Than_SixValues_1Special_1Num_1Char" />
+					<include name = "verify_Clicking_ChangePassword_Button_With_Less_Than_SixValues_1Special_4Char" />
+					<include name = "verify_Clicking_ChangePassword_Button_With_Less_Than_SixValues_1Special_3Num" />
+					<include name = "verify_Clicking_ChangePassword_Button_With_Less_Than_SixValues_4Char_1Num" />
+					<include name = "verify_Clicking_ChangePassword_Button_With_More_Than_SixValues_1Special_5Char" />
+					<include name = "verify_Clicking_ChangePassword_Button_With_More_Than_SixValues_5Char_1Num" />
+					<include name = "verify_Clicking_ChangePassword_Button_With_PasswordMismatch" />
+					<include name = "verify_Clicking_ChangePassword_Button_with_PasswordMatch" />
 
 					<include name = "verify_Client_Logins_WithOldPassword_Gives_An_Error_Message" />
 					<include name = "verify_Client_Logins_WithChangedPassword_goes_to_TAndCPage" />
@@ -156,30 +156,66 @@
 					<include name = "verify_IDisagree_RadioButton_IsAvailable" />
 					<include name = "verify_IAgree_ContentLabel_IsAvailable" />
 					<include name = "verify_IDisagree_ContentLabel_IsAvailable" />
+
+					&lt;!&ndash;
 					<include name = "verify_IAgree_RadioButton_IsDefaultSelected" />
 					<include name = "verify_IDisagree_RadioButton_IsDefault_DeSelected" />
-					<include name = "verify_Selecting_IDoNotAgree_RadioButton_makes_IAgree_RadioButton_Deselected" />
+					<include name = "verify_Selecting_IDoNotAgree_RadioButton_makes_IAgree_RadioButton_Deselected" />&ndash;&gt;
+
 					<include name = "verify_selecting_IDoNotAgree_Button_Displays_A_TextArea" />
 
 					<include name = "verify_TextArea_PlaceHolderText" />
 					<include name = "verify_TextArea_IsEditable" />
 					<include name = "verify_Confirm_Button_Available" />
-					<include name = "verify_ConfirmButton_Text_IsAvailable" />-->
-					<!--This point onwards-->
-							<!--<include name = "verify_Client_selects_IAgree_RadioButton__andClicks_Confirm_GoesTo_TCAcceptedPage" />
-							<include name = "verify_Client_selects_Idisagree_RadioButton__andClicks_Confirm_Without_Reason_Gives_An_Error" />
-							<include name = "verify_Client_selects_Idisagree_RadioButton__andClicks_Confirm_With_Reason_GoesTo_TAndCInprogressPage" />
-							<include name = "verify_Client_Logins_And_goesto_TAndC_InProgressPage" />
-							<include name = "verify_TAndC_InprogressPage_PageTitle" />-->
+					<include name = "verify_ConfirmButton_Text_IsAvailable" />
+					<include name = "verify_Client_selects_Idisagree_RadioButton__andClicks_Confirm_Without_Reason_Gives_An_Error" />
+					<include name = "verify_Client_selects_IAgree_RadioButton__andClicks_Confirm_GoesTo_TCAcceptedPage" />
+					<include name = "verify_Client_selects_Idisagree_RadioButton__andClicks_Confirm_With_Reason_GoesTo_TAndCInprogressPage" />
+					<include name = "verify_Client_Logins_And_goesto_TAndC_InProgressPage" />
+					<include name = "verify_TAndC_InprogressPage_PageTitle" />-->
+
+					<!--AccountManagerPromptsAgain-->
+					<!--<include name = "verify_PromptAgain_Client" />-->
 
 					<!--TAndC AcceptedPage -->
-					<!--<include name = "verify_BrowserTitle_Of_TCAcceptedPage" />
+					<!--<include name = "verify_Client_selects_IAgree_RadioButton__andClicks_Confirm_GoesTo_TCAcceptedPage" />
+					<include name = "verify_BrowserTitle_Of_TCAcceptedPage" />
 					<include name = "verify_PageTitle_Of_TCAcceptedPage" />
 					<include name = "verify_ProceedButton_Available" />
 					<include name = "verify_ProceedButton_Text" />
 					<include name = "verify_Clciking_ProceedButton_GoesTo_ClientProfileUpdatePage" />-->
 
-
+					<!--Client ProfileUpdatePage-->
+					<include name = "verify_ApplicationInformation_Accordian_IsAvailable" />
+					<include name = "verify_Clicking_ApplicationInformation_Accordian_Displays_Information" />
+					<include name = "verify_OtherCompanyDetails_Accordian_IsAvailable" />
+					<include name = "verify_Clicking_OtherCompanyDetails_Accordian_displays_Information" />
+					<include name = "verify_BillingDetails_Accordian_IsAvailable" />
+					<include name = "verify_Clicking_BillingDetails_Accordian_displays_Information" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
 					<include name = "" />
 					<include name = "" />
 					<include name = "" />

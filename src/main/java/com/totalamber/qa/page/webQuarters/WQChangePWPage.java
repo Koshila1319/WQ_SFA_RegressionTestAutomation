@@ -101,9 +101,15 @@ public class WQChangePWPage implements wqChangePWPage {
         return seleniumBase.getText(CHANGEPWPAGE_NULL_ERROR_MSG_CSS,CHANGEPWPAGE_NULL_ERROR_MSG_XPATH);
     }
 
-    public WQChangePWPage Step_Enter_Values_Less_Than_Six(String textLessSix) {
-        seleniumBase.type(CHANGEPWPAGE_PASSWORD_CSS, CHANGEPWPAGE_PASSWORD_XPATH,textLessSix);
-        seleniumBase.type(CHANGEPWPAGE_CONFIRM_PASSWORD_CSS, CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH, textLessSix);
+    public WQChangePWPage Step_Enter_Password_ChangePW(String testText) {
+        seleniumBase.type(CHANGEPWPAGE_PASSWORD_CSS, CHANGEPWPAGE_PASSWORD_XPATH,testText);
+        seleniumBase.type(CHANGEPWPAGE_CONFIRM_PASSWORD_CSS, CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH, testText);
+        return this;
+    }
+
+    public WQChangePWPage Step_Enter_Password_ChangePW_with_Mismatch(String password, String changepassword) {
+        seleniumBase.type(CHANGEPWPAGE_PASSWORD_CSS, CHANGEPWPAGE_PASSWORD_XPATH,password);
+        seleniumBase.type(CHANGEPWPAGE_CONFIRM_PASSWORD_CSS, CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH, changepassword);
         return this;
     }
 
@@ -135,9 +141,5 @@ public class WQChangePWPage implements wqChangePWPage {
         return this;
     }
 
-    public WQChangePWPage Step_Enter_Password_ChangePW_with_Mismatch(String password1, String changepassword1) {
-        seleniumBase.type(CHANGEPWPAGE_PASSWORD_CSS, CHANGEPWPAGE_PASSWORD_XPATH,password1);
-        seleniumBase.type(CHANGEPWPAGE_CONFIRM_PASSWORD_CSS, CHANGEPWPAGE_CONFIRM_PASSWORD_XPATH, changepassword1);
-        return this;
-    }
+
 }

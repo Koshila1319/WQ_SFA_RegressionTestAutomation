@@ -1119,7 +1119,7 @@ public class SeleniumBase {
 		List<WebElement>  columns = table.findElements(By.tagName("a"));
 		String str = null;
 		for(WebElement cell : columns){
-			String clientName = splitTextGetNthWord(cell.getText()," - ", 1);
+			String clientName = splitTextGetNthWord(cell.getText()," -", 1);
 			System.out.println(clientName);
 			if(clientName.equals(value)){
 				System.out.println("Table Value : " +cell.getText()+" is Matching with searching value : "+value);
@@ -1137,7 +1137,7 @@ public class SeleniumBase {
 
 	}
 
-	// Radio Button is deselected
+	// Tiresha - Radio Button is deselected - Suranjith to change
 	public boolean deselectedRadioButton(String xPath) {
 		List<WebElement> radioButton = driver.findElements(By.xpath(xPath));
 		boolean bool = false;
@@ -1148,6 +1148,10 @@ public class SeleniumBase {
 			bool = false;
 		}
 		return bool;
+	}
+
+	public void loadURLInCurrentBrowser(String url){
+		driver.navigate().to(url);
 	}
 
 
