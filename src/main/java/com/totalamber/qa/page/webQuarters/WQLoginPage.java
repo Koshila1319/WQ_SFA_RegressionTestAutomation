@@ -107,6 +107,8 @@ public class WQLoginPage implements wqLoginPage {
     public String check_Login_Button_Text() {
         return  seleniumBase.getTextByAttribute(LOGIN_BTN_CSS,LOGIN_BTN_XPATH,"value");
     }
+
+
 }
 
 

@@ -2,10 +2,13 @@ package com.totalamber.qa.page.webQuarters;
 
 import com.totalamber.qa.automation.SeleniumBase;
 import com.totalamber.qa.automation.TestBase;
-import com.totalamber.qa.data.UI.elements.webQuarters.wqCheckMailCatchEmailPage;
 import com.totalamber.qa.data.UI.elements.webQuarters.wqClientRegCompletePage;
 import org.openqa.selenium.WebDriver;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fd35e216b3b9954c6e2ed8fdcbe7989d149ddf70
 
 
 /**
