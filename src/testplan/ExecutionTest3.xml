@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test form">
+	<test name="SysAid Testing">
+		<classes>
+			<!--<class name ="com.totalamber.qa.WQTest.WQSignupEmailConfirmationTest">
+				<methods>
+					<include name = "verify_Check_Mailcatch_Email"/>
+					<include name = "verify_Email_Is_From_WebQuarters"/>
+					<include name = "verify_Email_Subject_Feild"/>
+					<include name = "verify_Email_Contain_User_First_Name"/>
+					<include name = "verify_The_Email_Header_Image_Is_Available"/>
+					<include name = "verify_The_Heading_Title_Text"/>
+					<include name = "verify_Verification_Link_Available_In_The_Email_Content"/>
+					<include name = "verify_Verification_Link_Leads_To_Thank_You_Page"/>&ndash;&gt;
+				</methods>
+			</class>-->
+			<!--<class name ="com.totalamber.qa.WQTest.WQClientRegCompleteTest">
+				<methods>
+					<include name = "verify_The_Page_Browser_Title"/>
+					<include name = "Verify_Thank_You_Text"/>
+					<include name = "verify_The_Page_Content"/>
+					<include name = "verify_User_Tutorial_Link_Leads_To_Tutorial_Page"/>
+					<include name = "verify_The_Copyright_Info_Available_At_The_Bottom_Of_The_Page"/>
+				</methods>
+			</class>
+-->
+			<!--<class name ="com.totalamber.qa.WQTest.WQBackOfficeLoginTest">
+				<methods>
+					<include name = "verify_The_Page_Browser_Title"/>
+					<include name = "verify_Sign_In_Text"/>
+					<include name = "verify_The_Page_Content"/>
+					<include name = "verify_The_Availiability_Of_The_DropDown"/>
+					<include name = "verify_User_Can_Select_The_Sign_In_Option_From_The_DropDown"/>
+					<include name = "verify_Two_Options_Available_In_The_DropDown"/>
+					<include name = "verify_Login_as_BO_Users_SM"/>
+				</methods>
+			</class>-->
+			<class name ="com.totalamber.qa.WQTest.WQCheckMailsTest">
+				<methods>
+					<include name = "verify_Check_Mailcatch_Email"/>
+					<include name = "verify_Mail_Is_Available_In_Inbox"/>
+					<include name = "verify_Mail_From_Content_Is_FromWebQuarters"/>
+					<include name = "verify_Mail_Subject_Is_FromWebquarters"/>
+					<include name = "verify_Clicking_the_Mail_In_Inbox"/>
+					<include name = "verify_SubjectText_In_Account_Activated_Email"/>
+					<include name = "verify_FromText_In_Account_Activated_Email"/>
+					<include name = "verify_Greet_With_FirstName_In_Email"/>
+					<include name = "verify_Content_Of_The_Email"/>
+					<include name = "verify_The_Email_Header_Image_Is_Available"/>
+					<include name = "verify_The_Heading_Title_Text"/>
+					<include name = "verify_LinkText_In_Email_Content"/>
+					<include name = "verify_UserName_Alongwith_UserName_Label_In_Email_Content"/>
+					<include name = "verify_Temporary_Password_Alongwith_Temporary_Password_Label_In_Email_Content"/>
+					<include name = "verify_Extracting_UserName_From_Email_Content"/>
+					<include name = "verify_Extracting_Password_From_Email_Content"/>
+					<include name = "verify_the_Link_in_Email_Content"/>
+					<include name = "verify_Click_Login_Link_Goes_To_LoginPage"/>
+				</methods>
+			</class>
+			</classes>
+        </test>
+    </suite>
+
+
+
+
+
+
+
+
+
+
+
+    <!--
+    <?xml version="1.0" encoding="UTF-8"?>
+    <suite name="Test form">
+        <test name="Cases">
+            <classes>
+                <class name="com.totalamber.qa.SysAidTestTest.SysAidLoginTest">
+                    <methods>
+                        <include name="AssignCase"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
+    </suite>
+    -->
+
+
+
+
+
+

@@ -19,15 +19,17 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.totalamber.qa.data.UI.elements.webQuarters.ElementHolder.*;
+
 
 public class SeleniumBase {
 
 	// public static WebDriver DRIVER;
 	public static WebDriver driver;
-
 	String browserName;
-
 	private boolean isElementEnabled;
+	private boolean isElementDisplayed;
+	private boolean isElementDisplayedByText;
 	String chromeDriverPath = "src\\resource\\chromedriver_win32\\";
 
 
@@ -577,7 +579,6 @@ public class SeleniumBase {
 
 	public boolean verifyAvailableObject(String xPath) {
 		WebElement available = driver.findElement(By.xpath(xPath));
-		// WebElement available = driver.findElement(By.name(xPath));
 		boolean disableAttribute = available.isDisplayed();
 		return disableAttribute;
 	}
@@ -725,24 +726,13 @@ public class SeleniumBase {
 
 	}
 
-	// Click on verification link
-	public String clickOnTheVerificationLink(String linkXpath) {
+	// Open link in a new tab
+	public void linkOpenInANewTab(String linkXpath) throws InterruptedException {
 
-		driver.switchTo().frame("emailframe");
 		String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL, Keys.RETURN);
 		driver.findElement(By.xpath(linkXpath)).sendKeys(selectLinkOpeninNewTab);
-		return null;
-	}
+		Thread.sleep(5000);
 
-	// Click on verification link
-	public String clickOnLogInLink() throws InterruptedException {
-
-		driver.switchTo().frame("emailframe");
-		Thread.sleep(3000);
-		String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL, Keys.RETURN);
-		driver.findElement(By.xpath("/html/body/table/tbody/tr[3]/td/div")).click();
-		driver.findElement(By.xpath("html/body/table/tbody/tr[3]/td/div/p[3]/a")).sendKeys(selectLinkOpeninNewTab);
-		return null;
 	}
 
 	// Spit words
@@ -791,6 +781,22 @@ public class SeleniumBase {
 		}
 
 		return isElementEnabled;
+
+	}
+
+	//Check whether the element is available
+	public boolean checkElementIsDisplayed(String elementPath) {
+
+		WebElement element = driver.findElement(By.xpath(elementPath));
+		isElementDisplayed = element.isDisplayed();
+
+		if (isElementDisplayed == true) {
+			System.out.println("Element available !");
+		} else {
+			System.out.println("Element not Available !");
+		}
+
+		return isElementDisplayed;
 
 	}
 
@@ -1123,6 +1129,7 @@ public class SeleniumBase {
 		return str;
 	}
 
+
 	//Coded by : Shammi
 	//Used to track whether element is avaialable
     public boolean isElementPresent(String elementName){
@@ -1152,13 +1159,61 @@ public class SeleniumBase {
 
     //Coded by :Shammi
 	//Used to track the mandatory fields higlighted with red border only
-    public String check_CSS_Value(String xpath){
+    public String check_CSS_Value(String xpath) {
 		WebElement element = driver.findElement(By.xpath(xpath));
 		return element.getCssValue("border-bottom-color");
+	}
 
+
+
+	public String getNewlyOpenedTabTitle() {
+
+		List<String> browserTabs = new ArrayList<String> (driver.getWindowHandles()); //get window handlers as list
+		driver.switchTo().window(browserTabs.get(1)); //switch to new tab
+		return getTitle();
+	}
+
+	// Get no of options in a dropdown
+
+	public Integer getNoOfOptionsInADropdown(String xpath) {
+
+		List<WebElement> ElementCollectionHead = driver.findElements(By.xpath(xpath+"/option"));
+		int optionCount = ElementCollectionHead.size();
+
+		System.out.println("options = " + optionCount);
+
+		return optionCount;
+	}
+
+	//Get options in a drop down
+	public List<String> listDropdownOptions(String xpath) {
+
+		int noOfOptions = getNoOfOptionsInADropdown(xpath);
+		List<String> list = new ArrayList<String>();
+
+		for (int j = 1; j <= noOfOptions; j++) {
+			list.add(driver.findElement(By.xpath(xpath+"/option[" + j + "]")).getText());
+		}
+
+		System.out.println(list);
+		return list;
+	}
+
+
+	public boolean checkIsElementDisplayedByText(String text) {
+		WebElement element = driver.findElement(By.linkText(text));
+		isElementDisplayedByText = element.isDisplayed();
+
+		if (isElementDisplayedByText == true) {
+			System.out.println("Element available !");
+		} else {
+			System.out.println("Element not Available !");
+		}
+		return isElementDisplayedByText;
 
 	}
 }
+
 
 
 
