@@ -6,7 +6,7 @@ import com.totalamber.qa.data.UI.elements.webQuarters.wqDMDashboardPage;
 import org.openqa.selenium.WebDriver;
 
 /**
- * Created by t.piyananda on 15/09/2017.
+ * Created by e.koshila on 9/18/2017.
  */
 public class WQDMDashboardPage extends TestBase implements wqDMDashboardPage {
 
@@ -18,7 +18,16 @@ public class WQDMDashboardPage extends TestBase implements wqDMDashboardPage {
         seleniumBase.click(HOME_TILE_XPATH,HOME_TILE_CSS);
     }
 
-    //Move to WQDMDashboardPage
+    //Check element is available
+    public boolean verify_Element_Is_Available(String elementXpath) {
+        return seleniumBase.checkElementIsDisplayed(elementXpath);
+    }
+
+    //Get browser title
+    public String check_Browser_Title() {
+        return seleniumBase.getTitle();
+    }
+
     public WQDMDashboardPage step_Click_Assign_Users_Tile() {
         seleniumBase.click(DM_DASHBOARD_ASSIGN_USERS_TILE_XPATH,DM_DASHBOARD_ASSIGN_USERS_TILE_CSS);
         return this;

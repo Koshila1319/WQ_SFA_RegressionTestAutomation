@@ -64,9 +64,10 @@
 				</methods>
 			</class>-->
 
-			<class name ="com.totalamber.qa.WQTest.WQSignupEmailConfirmationTest">
+			<class name ="com.totalamber.qa.WQTest.WQDMManageUserRequestTest">
 				<methods>
-					<include name = "verify_Check_Mailcatch_Email"/>
+					<include name = "verify_Assign_Users_Tile_Is_Available"/>
+					<include name = "verify_Clicking_Assign_Users_Tile_Leads_To_Manage_User_Requests_Page"/>
 				</methods>
 			</class>
 		</classes>

@@ -908,7 +908,7 @@ public class SeleniumBase {
 		return str;
 	}
 
-	//Retrieve row values match with a given value
+	//Retrieve row values match with a given value - koshi
 	public List<String> matchWithRowValue(String xpathToTable, String value) {
 
 		List<String> list = new ArrayList<String>();
@@ -933,7 +933,7 @@ public class SeleniumBase {
 		return list;
 	}
 
-	//Click view button of a case in Resolve Case Page
+	//Click view button of a case in Resolve Case Page - koshi
 	public void clickResolveCaseViewButton(String value) {
 
 		String text = null;
@@ -958,7 +958,7 @@ public class SeleniumBase {
 		click(text, "");
 	}
 
-	//Click accept button of a case in Resolve Case Page
+	//Click accept button of a case in Resolve Case Page - koshi
 	public void clickResolveCaseAcceptButton(String caseID) {
 
 		String text = null;
@@ -1101,7 +1101,7 @@ public class SeleniumBase {
 		return checkLink;
 	}
 
-	//Check a value from a table is existing - WQ
+	//Check a value from a table is existing - WQ - koshi
 	public String checkIsValueExistInArea(String tablePath, String value) {
 		WebElement table = driver.findElement(By.xpath(tablePath));
 		List<WebElement>  columns = table.findElements(By.tagName("td"));
@@ -1118,7 +1118,7 @@ public class SeleniumBase {
 		return str;
 	}
 
-	//Click a value from a table is existing - WQ
+	//Click a value from a table is existing - WQ - koshi
 	public String clickAValueExistsInArea(String tablePath, String value){
 		WebElement table = driver.findElement(By.xpath(tablePath));
 		List<WebElement>  columns = table.findElements(By.tagName("a"));
@@ -1135,6 +1135,7 @@ public class SeleniumBase {
 		return str;
 	}
 
+	//get newly opened tab title - koshi
 	public String getNewlyOpenedTabTitle() {
 
 		List<String> browserTabs = new ArrayList<String> (driver.getWindowHandles()); //get window handlers as list
@@ -1142,8 +1143,7 @@ public class SeleniumBase {
 		return getTitle();
 	}
 
-	// Get no of options in a dropdown
-
+	// Get no of options in a dropdown - koshi
 	public Integer getNoOfOptionsInADropdown(String xpath) {
 
 		List<WebElement> ElementCollectionHead = driver.findElements(By.xpath(xpath+"/option"));
@@ -1154,7 +1154,7 @@ public class SeleniumBase {
 		return optionCount;
 	}
 
-	//Get options in a drop down
+	//Get options in a drop down - koshi
 	public List<String> listDropdownOptions(String xpath) {
 
 		int noOfOptions = getNoOfOptionsInADropdown(xpath);
@@ -1168,7 +1168,7 @@ public class SeleniumBase {
 		return list;
 	}
 
-
+	//Check element is displayed by Text - koshi
 	public boolean checkIsElementDisplayedByText(String text) {
 		WebElement element = driver.findElement(By.linkText(text));
 		isElementDisplayedByText = element.isDisplayed();

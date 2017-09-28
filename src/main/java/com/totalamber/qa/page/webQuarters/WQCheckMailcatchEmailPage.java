@@ -36,7 +36,6 @@ public class WQCheckMailcatchEmailPage extends TestBase implements wqCheckMailCa
         seleniumBase.type(CLICK_ON_EMAIL_CSS, CLICK_ON_EMAIL_XPATH, clientEmail); //Enter email
         seleniumBase.click(EMAIL_GO_XPATH, EMAIL_GO_CSS); //Click go button to login
         return this;
-
     }
 
     public WQCheckMailcatchEmailPage action_read_Latest_Received_Email_In_Mailcatch() {
