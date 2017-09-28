@@ -44,19 +44,27 @@ public class WQCheckMailcatchEmailPage extends TestBase implements wqCheckMailCa
         return this;
     }
 
-    //----------Client Signup Confirmation------------
-
     public String step_get_First_Name_Of_The_Client() {
         seleniumBase.switchedToiFrame("emailframe");
-        return seleniumBase.splitTextGetNthWord(seleniumBase.splitTextGetNthWord(seleniumBase.getText(WQ_CLIENT_SIGNUP_CONFIRMATION_EMAIL_FNAME_CSS, WQ_CLIENT_SIGNUP_CONFIRMATION_EMAIL_FNAME_XPATH), " ",2),",",1);
+        return seleniumBase.splitTextGetNthWord(seleniumBase.splitTextGetNthWord(seleniumBase.getText(WQ_CLIENT_EMAIL_FNAME_CSS, WQ_CLIENT_EMAIL_FNAME_XPATH), " ",2),",",1);
     }
 
+    //----------Client Signup Confirmation------------
+
     public void action_click_Verification_Link() throws InterruptedException {
-        seleniumBase.clickOnTheVerificationLink(WQ_CLIENT_SIGNUP_CONFIRMATION_EMAIL_VERIFICATION_LINK_XPATH);
+        seleniumBase.clickOnTheVerificationLink(WQ_CLIENT_EMAIL_CONTENT_LINK_XPATH);
     }
 
     public String check_Browser_Title() {
        return seleniumBase.getNewlyOpenedTabTitle();
+    }
+
+    public boolean verify_Element_Is_Enabled(String elementXpath) {
+        return seleniumBase.checkIsElementEnabled(elementXpath);
+    }
+
+    public String step_Get_Activated_User_Details(String xpath) {
+        return seleniumBase.splitTextGetNthWord(seleniumBase.getText("",xpath),": ",2);
     }
 
 }

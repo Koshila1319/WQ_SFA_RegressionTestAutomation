@@ -38,7 +38,7 @@ public class WQSignupEmailConfirmationTest extends TestBase {
     @Test
     public void verify_Email_Is_From_WebQuarters() throws InterruptedException {
         String FromWQEmail = data.getValueByName("WQEmail");
-        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_SIGNUP_CONFIRMATION_EMAIL_FROM_XPATH),FromWQEmail);
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_FROM_XPATH),FromWQEmail);
     }
 
     @Test
@@ -49,7 +49,7 @@ public class WQSignupEmailConfirmationTest extends TestBase {
     @Test
     public void verify_Email_Subject_Feild() throws InterruptedException {
         String FromWQEmail = data.getValueByName("SignupEmailConfirmationPage_EmailSubject");
-        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_SIGNUP_CONFIRMATION_EMAIL_SUBJECT_XPATH),FromWQEmail, "Email subject verified !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_SUBJECT_XPATH),FromWQEmail, "Email subject verified !");
     }
 
     @Test
@@ -61,17 +61,17 @@ public class WQSignupEmailConfirmationTest extends TestBase {
     @Test
     public void verify_The_Email_Header_Image_Is_Available() throws InterruptedException {
         //Verify WQ logo and TA logo
-       Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Available(WQ_CLIENT_SIGNUP_CONFIRMATION_EMAIL_HEADER_IMAGE_XPATH),true, "Email header image is available !");
+       Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Available(WQ_CLIENT_EMAIL_HEADER_IMAGE_XPATH),true, "Email header image is available !");
     }
 
     @Test
     public void verify_The_Heading_Title_Text() throws InterruptedException {
-        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_SIGNUP_CONFIRMATION_EMAIL_HEADER_TITLE_XPATH),"Verify your email address…", "Header title available !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_HEADER_TITLE_XPATH),"Verify your email address…", "Header title available !");
     }
 
     @Test
     public void verify_Verification_Link_Available_In_The_Email_Content() throws InterruptedException {
-        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Available(WQ_CLIENT_SIGNUP_CONFIRMATION_EMAIL_VERIFICATION_LINK_XPATH),true, "Verification link available !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Available(WQ_CLIENT_EMAIL_CONTENT_LINK_XPATH),true, "Verification link available !");
     }
 
     @Test
