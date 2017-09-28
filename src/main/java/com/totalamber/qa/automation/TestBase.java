@@ -26,9 +26,13 @@ public class TestBase  {
 	protected WQCheckOutlookEmailPage wqCheckOutLookEmailPage;
 	protected WQClientRegCompletePage wqClientRegCompletePage;
 	protected WQSMDashboardPage wqSMDashboardPage;
-
-
 	public static final String clientEmail = "4f13c64d-e10f-4ca2-8c70-c16aa4cb8592@mailcatch.com";
+	protected WQChangePWPage wqChangePWPage;
+	protected WQTAndCPage wqTAndCPage;
+	protected WQTAndCInProgressPage wqTAndCInProgressPage;
+	protected WQTAndCAccepted wqTAndCAccepted;
+	protected WQClientProfileUpdatePage wqClientProfileUpdatePage;
+
 
 
 	public void initDomainObjects(WebDriver driver) throws IOException {
@@ -46,6 +50,13 @@ public class TestBase  {
 		wqCheckOutLookEmailPage = new WQCheckOutlookEmailPage(driver);
 		wqClientRegCompletePage = new WQClientRegCompletePage(driver);
 		wqSMDashboardPage = new WQSMDashboardPage(driver);
+		wqChangePWPage = new WQChangePWPage(driver);
+		wqTAndCPage = new WQTAndCPage(driver);
+		wqTAndCInProgressPage = new WQTAndCInProgressPage(driver);
+		wqTAndCAccepted = new WQTAndCAccepted(driver);
+		wqClientProfileUpdatePage = new WQClientProfileUpdatePage(driver);
+
+
 	}
 
 	public void setSiteURL(String siteUrl) {

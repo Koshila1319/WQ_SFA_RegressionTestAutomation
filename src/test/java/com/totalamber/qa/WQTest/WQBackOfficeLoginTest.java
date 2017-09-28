@@ -72,6 +72,9 @@ public class WQBackOfficeLoginTest extends TestBase{
         wqBackOfficeLoginPage.
                 action_selectAuthentication(WindowsAuthOption);
         Thread.sleep(10000);
+        wqBackOfficeLoginPage.action_Login_as_BOUser(AMUsername,AMPassword);
+        wqBackOfficeLoginPage.action_selectAuthentication(WindowsAuthOption);
+
     }
 
     @Test

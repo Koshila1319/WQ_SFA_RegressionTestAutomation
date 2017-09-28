@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by t.piyananda on 18/09/2017.
  */
-public class WQPanel extends TestBase implements wqPanel{
+public class WQPanel implements wqPanel{
     SeleniumBase seleniumBase;
     public WQPanel(WebDriver driver) {seleniumBase = new SeleniumBase(driver);}
 
