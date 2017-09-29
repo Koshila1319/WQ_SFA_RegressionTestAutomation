@@ -27,8 +27,6 @@ public class WQVerifyClientTest extends TestBase{
     }
 
 
-
-
     //Login Page-BackOffice (SM Login)
     @Test
     public void verify_Login_Button_Leads_To_Sales_Manager_Dashboard_Page() throws InterruptedException {
@@ -232,8 +230,6 @@ public class WQVerifyClientTest extends TestBase{
         verify_Login_Button_Leads_To_Sales_Manager_Dashboard_Page();
         wqVerifyClientPage.
                 check_Company_Name_Text_Box_Available();
-
-
     }
 
     @Test
@@ -242,11 +238,6 @@ public class WQVerifyClientTest extends TestBase{
         verify_Login_Button_Leads_To_Sales_Manager_Dashboard_Page();
         Assert.assertEquals(wqVerifyClientPage.check_CopyRight_Info_Available(),copyRightInfo);
     }
-
-
-
-
-
 
 
 
