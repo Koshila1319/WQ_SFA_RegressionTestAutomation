@@ -406,13 +406,7 @@ public class WQClientRegPage implements wqClientRegPage {
         return this;
     }
 
-    public void user_Login_To_Account(String email) {
-        seleniumBase.openTab("mailcatchURL");
-        seleniumBase.type(MAILCATCH_EMAIL_XPATH,MAILICATCH_EMAIL_CSS,email);
-        seleniumBase.click(MAILCATCH_GO_BUTTON_XPATH,MAILCATCH_GO_BUTTON_CSS);
-        seleniumBase.click(MAILCATCH_REFRESH_BUTTON_XPATH,MAILCATCH_REFRESH_BUTTON_CSS);
 
-    }
 
 
 }

@@ -26,6 +26,7 @@ public class TestBase  {
 	protected WQCheckOutlookEmailPage wqCheckOutLookEmailPage;
 	protected WQClientRegCompletePage wqClientRegCompletePage;
 	protected WQSMDashboardPage wqSMDashboardPage;
+	protected WQVerifyClientPage wqVerifyClientPage;
 	public static final String clientEmail = "4f13c64d-e10f-4ca2-8c70-c16aa4cb8592@mailcatch.com";
 	protected WQChangePWPage wqChangePWPage;
 	protected WQTAndCPage wqTAndCPage;
@@ -55,7 +56,7 @@ public class TestBase  {
 		wqTAndCInProgressPage = new WQTAndCInProgressPage(driver);
 		wqTAndCAccepted = new WQTAndCAccepted(driver);
 		wqClientProfileUpdatePage = new WQClientProfileUpdatePage(driver);
-
+		wqVerifyClientPage = new WQVerifyClientPage(driver);
 
 	}
 
