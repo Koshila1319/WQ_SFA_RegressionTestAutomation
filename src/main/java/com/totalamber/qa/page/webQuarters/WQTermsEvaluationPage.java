@@ -90,7 +90,7 @@ public class WQTermsEvaluationPage implements wqTermsEvaluationPage{
         return seleniumBase.readValueFromTextBox(AM_CLIENTEVALUATION_PROMPTAGAIN_BUTTON_XPATH);
     }
 
-    public WQTermsEvaluationPage click_PromptAgain_Button() {
+    public WQTermsEvaluationPage step_click_PromptAgain_Button() {
         seleniumBase.click(AM_CLIENTEVALUATION_PROMPTAGAIN_BUTTON_XPATH,AM_CLIENTEVALUATION_PROMPTAGAIN_BUTTON_CSS);
         return this;
     }

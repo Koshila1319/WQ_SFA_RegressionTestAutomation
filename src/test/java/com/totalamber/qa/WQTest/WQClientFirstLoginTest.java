@@ -493,11 +493,14 @@ public class WQClientFirstLoginTest extends TestBase{
         String AMUsername = data.getValueByName("AM_Username");
         String AMPassword = data.getValueByName("AM_Password");
         String WindowsAuthOption = data.getValueByName("SignInOption1");
-        wqBackOfficeLoginPage.action_Login_as_BOUser(AMUsername,AMPassword);
-        wqBackOfficeLoginPage.action_selectAuthentication(WindowsAuthOption);
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername,AMPassword);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
 
         String clientName = data.getValueByName("ClientFirstLogin_ClientName");
-        wqamDashboardPage.step_user_clicks_TANDC_Rejected_Client(clientName);
+        wqamDashboardPage
+                .step_user_clicks_TANDC_Rejected_Client(clientName);
 
         String eMail = data.getValueByName("ClientFirstLogin_UName");
         Assert.assertEquals(wqTermsEvaluationPage.check_Email_Client_Data_In_ClientTermsEvaluationPage(),eMail);
@@ -505,7 +508,8 @@ public class WQClientFirstLoginTest extends TestBase{
         String rejectedReason = data.getValueByName("AM_textToEnter");
         Assert.assertEquals(wqTermsEvaluationPage.check_Rejected_Reason_In_ClientTermsEvaluationPage(),rejectedReason);
 
-        wqTermsEvaluationPage.click_PromptAgain_Button();
+        wqTermsEvaluationPage
+                .step_click_PromptAgain_Button();
         String expectedTitle = data.getValueByName("AM_HomePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),expectedTitle);
 
@@ -558,16 +562,15 @@ public class WQClientFirstLoginTest extends TestBase{
 
     @Test
     public void verify_Clciking_ProceedButton_GoesTo_ClientProfileUpdatePage(){
-        wqTAndCAccepted.step_Clcking_ProceedButton();
+        wqTAndCAccepted
+                .step_Clcking_ProceedButton();
         String expectedPageTitle = data.getValueByName("ClientProfileUpdate_PageTitle");
         Assert.assertEquals(wqClientProfileUpdatePage.validate_PageTitle(),expectedPageTitle);
     }
 
-    //Company Details Textboxes from Shammi
-
-    //Application Information
     @Test
-    public void verify_ApplicationInformation_Accordian_IsAvailable() throws Exception {
+    public void verify_Entered_CompanyDetails_areSameAs_Registration_Data() throws Exception {
+
         //Below line added as the above test cases executed Successfully
         //-------------------
         String siteUrl = data.getValueByName("url");
@@ -583,17 +586,7 @@ public class WQClientFirstLoginTest extends TestBase{
         String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
         wqHomePage.action_Navigate_To_ClientProfilePage(profileUpdateURL);
         //--------------------------
-        wqClientProfileUpdatePage.validate_ApplicationInformation_Accordian();
-    }
 
-    @Test
-    public void verify_Clicking_ApplicationInformation_Accordian_Displays_Information(){
-        wqClientProfileUpdatePage.click_AppInfo_Accordian();
-        Assert.assertNotNull(wqClientProfileUpdatePage.validate_AppInfo_Data_Displays());
-    }
-
-    @Test
-    public void verify_Entered_CompanyDetails_areSameAs_Registration_Data(){
         String regNumber = data.getValueByName("Business_Reg_No");
         String companyName = data.getValueByName("Company_Name");
         String lastname = data.getValueByName("Last_Name");
@@ -606,7 +599,9 @@ public class WQClientFirstLoginTest extends TestBase{
         String county = data.getValueByName("Country_State");
         String fax = data.getValueByName("Fax");
         String postcode = data.getValueByName("Postal_Code");
+        String country = data.getValueByName("Country");
         String designation = data.getValueByName("Title_Designation");
+        String orgsize = data.getValueByName("orgsize");
         String website = data.getValueByName("Company_web_address");
 
         Assert.assertEquals(wqClientProfileUpdatePage.check_regNumber_field_In_ClientProfilePage(),regNumber);
@@ -621,23 +616,224 @@ public class WQClientFirstLoginTest extends TestBase{
         Assert.assertEquals(wqClientProfileUpdatePage.check_county_field_In_ClientProfilePage(),county);
         Assert.assertEquals(wqClientProfileUpdatePage.check_fax_field_In_ClientProfilePage(),fax);
         Assert.assertEquals(wqClientProfileUpdatePage.check_postcode_field_In_ClientProfilePage(),postcode);
+        Assert.assertEquals(wqClientProfileUpdatePage.check_Country_Text_Feild(),country);
         Assert.assertEquals(wqClientProfileUpdatePage.check_designation_field_In_ClientProfilePage(),designation);
+        Assert.assertEquals(wqClientProfileUpdatePage.check_OrgSize_Text_Feild(),orgsize);
         Assert.assertEquals(wqClientProfileUpdatePage.check_website_field_In_ClientProfilePage(),website);
 
+    }
+
+    @Test
+    public void verify_nonEditableFields_in_CompanyDetails_Section(){
+        wqClientProfileUpdatePage.validate_fields_are_Disabled();
+    }
+
+    @Test
+    public void verify_Updating_CompanyDetails(){
+        String regNumber = data.getValueByName("CompanyDetails_BusRegNumber");
+        String phone = data.getValueByName("CompanyDetails_Phone");
+        String dialcode = data.getValueByName("ClientDetails_Dial");
+        String address = data.getValueByName("CompanyDetails_Address");
+        String city = data.getValueByName("CompanyDetails_City");
+        String county = data.getValueByName("CompanyDetails_State");
+        String fax = data.getValueByName("CompanyDetails_Fax");
+        String postcode = data.getValueByName("CompanyDetails_PostalCode");
+        String country = data.getValueByName("CompanyDetails_Country");
+        String designation = data.getValueByName("ClientDetails_Designation");
+        String orgSize = data.getValueByName("CompanyDetails_OrgSize");
+        String website = data.getValueByName("ClientDetails_Website");
+
+        wqClientProfileUpdatePage
+                .step_update_regNumber_field_In_ClientProfilePage(regNumber);
+        wqClientProfileUpdatePage
+                .step_update_phone_field_In_ClientProfilePage(phone);
+        wqClientProfileUpdatePage
+                .step_update_dialcode_field_In_ClientProfilePage(dialcode);
+        wqClientProfileUpdatePage
+                .step_update_address_field_In_ClientProfilePage(address);
+        wqClientProfileUpdatePage
+                .step_update_city_field_In_ClientProfilePage(city);
+        wqClientProfileUpdatePage
+                .step_update_county_field_In_ClientProfilePage(county);
+        wqClientProfileUpdatePage
+                .step_update_fax_field_In_ClientProfilePage(fax);
+        wqClientProfileUpdatePage
+                .step_update_postcode_field_In_ClientProfilePage(postcode);
+        wqClientProfileUpdatePage
+                .step_update_country_field_In_ClientProfilePage(country);
+        wqClientProfileUpdatePage
+                .step_update_designation_field_In_ClientProfilePage(designation);
+        wqClientProfileUpdatePage
+                .step_update_OrgSize_field_In_ClientProfilePage(orgSize);
+        wqClientProfileUpdatePage
+                .step_update_website_field_In_ClientProfilePage(website);
+
+    }
+
+    //Application Information
+    @Test
+    public void verify_ApplicationInformation_Accordian_IsAvailable() throws Exception {
+        wqClientProfileUpdatePage
+                .validate_ApplicationInformation_Accordian();
+
+    }
+
+    @Test
+    public void verify_Clicking_ApplicationInformation_Accordian_Displays_Information() throws InterruptedException {
+        wqClientProfileUpdatePage
+                .step_click_AppInfo_Accordian();
+        Assert.assertNotNull(wqClientProfileUpdatePage.validate_AppInfo_Data_Displays());
+        Thread.sleep(5000);
+    }
+
+    @Test
+    public void verify_Entered_ApplicationInformation_areSameAs_Registration_Data(){
+        String software = data.getValueByName("Software_Application");
+        String module = data.getValueByName("Software_Module");
+        String version = data.getValueByName("Software_Version");
+        Assert.assertEquals(wqClientProfileUpdatePage.validate_entered_Software_Isavailable(software),software);
+        Assert.assertEquals(wqClientProfileUpdatePage.validate_entered_Module_Isavailable(module),module);
+        Assert.assertEquals(wqClientProfileUpdatePage.validate_entered_Version_Isavailable(version),version);
+
+    }
+
+    @Test
+    public void verify_DeleteButton_Isavailble_In_AppInfo_Page(){
+        Assert.assertNotNull(wqClientProfileUpdatePage.validate_Delete_Button_IsAvailable());
+    }
+
+    @Test
+    public void verify_delete_Button_Text(){
+        String expectedText = "Delete";
+        Assert.assertEquals(wqClientProfileUpdatePage.validate_DeleteButton_Text(),expectedText);
+    }
+
+    @Test
+    public void verify_Clicking_Delete_Button_Removes_SWInfo() throws InterruptedException {
+        wqClientProfileUpdatePage
+                .step_click_DeleteBUtton_Of_ARecord();
+        Thread.sleep(10000);
+        String software = data.getValueByName("Software_Application");
+        String module = data.getValueByName("Software_Module");
+        String version = data.getValueByName("Software_Version");
+        Assert.assertNull(wqClientProfileUpdatePage.validate_entered_Software_Isavailable(software),software);
+        Assert.assertNull(wqClientProfileUpdatePage.validate_entered_Module_Isavailable(module),module);
+        Assert.assertNull(wqClientProfileUpdatePage.validate_entered_Version_Isavailable(version),version);
+    }
+
+    @Test
+    public void verify_SW_Dropdown_IsAvailable(){
+        Assert.assertNotNull(wqClientProfileUpdatePage.validate_SoftwareDropdown_Isavailable());
+
+    }
+
+    @Test
+    public void verify_SW_Dropdown_defaultValue(){
+        Assert.assertEquals(wqClientProfileUpdatePage.software_Application_Text_Feild(),"Software");
+    }
+
+    @Test
+    public void verify_AddButton_Isavailble_In_AppInfo_Page(){
+        Assert.assertNotNull(wqClientProfileUpdatePage.validate_Add_Button_IsAvailable());
+    }
+
+    @Test
+    public void verify_add_Button_Text(){
+        String expectedText = "Add";
+        Assert.assertEquals(wqClientProfileUpdatePage.validate_AddButton_Text(),expectedText);
+    }
+
+    @Test
+    public void verify_clicking_AddButton_Without_Any_selected_SW() throws InterruptedException {
+        wqClientProfileUpdatePage.step_click_Add_button();
+        Thread.sleep(5000);
+        Assert.assertEquals(wqClientProfileUpdatePage.validate_errorMessage_For_Null_Software(), "Please select a application name");
+
+    }
+
+    @Test
+    public void verify_Selected_SW_Displays_ModuleList_And_Version_List() throws InterruptedException {
+        wqClientProfileUpdatePage
+                .step_select_a_Software("IFS");
+        Thread.sleep(10000);
+        Assert.assertNotNull(wqClientProfileUpdatePage.check_Module_List_IsAvailable());
+        Assert.assertNotNull(wqClientProfileUpdatePage.check_Version_List_IsAvailable());
+
+    }
+
+    @Test
+    public void verify_Clicking_AddButton_Selecting_Version_AccordingTo_SW() throws InterruptedException {
+        wqClientProfileUpdatePage
+                .step_click_A_Module("IFS Report Designer")
+                .step_click_A_Module("IFS Developer Studio")
+                .step_click_A_Module("IFS Connected (Extended Server)")
+                .step_click_Add_button();
+        Thread.sleep(5000);
+
+    }
+
+    @Test
+    public void verify_Clicking_AddButton_Selecting_Module_AccordingTo_SW() throws InterruptedException {
+        wqClientProfileUpdatePage
+                .step_select_a_Software("IFS");
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .step_click_A_Version("IFS App 7.5")
+                .step_click_A_Version("IFS 2001-3")
+                .step_click_A_Version("IFS App 9")
+                .step_click_Add_button();
+        Thread.sleep(5000);
+
+    }
+
+    @Test
+    public void verify_Clicking_AddButton_Selecting_Module_And_Version_AccordingTo_SW() throws InterruptedException {
+        wqClientProfileUpdatePage
+                .step_select_a_Software("IFS");
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .step_click_A_Module("IFS Report Designer")
+                .step_click_A_Module("IFS Developer Studio")
+                .step_click_A_Module("IFS Connected (Extended Server)");
+        wqClientProfileUpdatePage
+                .step_click_A_Version("IFS App 7.5")
+                .step_click_A_Version("IFS 2001-3")
+                .step_click_A_Version("IFS App 9")
+                .step_click_Add_button();
+        Thread.sleep(5000);
+
+    }
+
+    @Test
+    public void verify_Clicking_AddButton_WithSW() throws InterruptedException {
+        wqClientProfileUpdatePage
+                .step_select_a_Software("IFS");
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .step_click_Add_button();
     }
 
     //Other Company Details
     @Test
     public void verify_OtherCompanyDetails_Accordian_IsAvailable(){
         wqClientProfileUpdatePage.validate_OtherCompanyDetails_Accordian();
+
     }
 
     @Test
     public void verify_Clicking_OtherCompanyDetails_Accordian_displays_Information(){
-        wqClientProfileUpdatePage.click_OtherCompanyDetails_Accordian();
+        wqClientProfileUpdatePage
+                .step_click_OtherCompanyDetails_Accordian();
         Assert.assertNotNull(wqClientProfileUpdatePage.validate_OtherCompanyDetails_Data_Displays());
+
     }
 
+    @Test
+    public void verify_UploadCompanyLogo_Label_IsAvailable(){
+
+    }
+
+    /*
     //Billing Details
     @Test
     public void verify_BillingDetails_Accordian_IsAvailable(){
@@ -649,7 +845,7 @@ public class WQClientFirstLoginTest extends TestBase{
         Thread.sleep(5000);
         wqClientProfileUpdatePage.click_BillingDetails_Accordian();
         Assert.assertNotNull(wqClientProfileUpdatePage.validate_BillingDetails_Data_Displays());
-    }
+    }*/
 
 
 }

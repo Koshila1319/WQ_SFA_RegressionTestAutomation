@@ -715,7 +715,7 @@ public class WQAMDashboardTest extends TestBase {
     // Depends with the signedup Client who has rejected T&C
     @Test
     public void verify_Click_PromptAgainButton_InClientEvaluationPage_goesTo_AMDashboardPage(){
-        wqTermsEvaluationPage.click_PromptAgain_Button();
+        wqTermsEvaluationPage.step_click_PromptAgain_Button();
         String expectedTitle = data.getValueByName("AM_HomePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),expectedTitle);
     }

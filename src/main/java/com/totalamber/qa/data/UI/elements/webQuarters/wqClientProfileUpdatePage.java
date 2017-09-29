@@ -28,6 +28,9 @@ public interface wqClientProfileUpdatePage {
 
     //Application Information
 
+    public final String PROFILEUPDATE_PAGE_APPINFO_TABLE_XPATH = "//table[contains(@id,'_ApplicationDetaisDataList')]";
+    public final String PROFILEUPDATE_PAGE_APPINFO_TABLE_CSS  = "";
+
     public final String PROFILEUPDATE_PAGE_APPINFO_DELETE_BUTTON_XPATH = "//*[contains(@name,'deleteButton')]";
     public final String PROFILEUPDATE_PAGE_APPINFO_DELETE_BUTTON_CSS  = "";
 
@@ -36,6 +39,24 @@ public interface wqClientProfileUpdatePage {
 
     public final String PROFILEUPDATE_PAGE_APPINFO_SW_DROPDOWN_XPATH = "//*[contains(@name,'ApplicationNameDropDownList')]";
     public final String PROFILEUPDATE_PAGE_APPINFO_SW_DROPDOWN_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_DROPDOWN_SELECTED_XPATH = "//select[contains(@name,'ApplicationNameDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_DROPDOWN_SELECTED_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_ERRORPANEL_XPATH = "//*[contains(@id,'ApplicationDetaisDataList')][contains(@id,'ErrorPanel')]";
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_ERRORPANEL_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_MODULE_LIST_XPATH = "//table[contains(@id,'moduleNameCheckBoxList')]";
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_MODULE_LIST_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_MODULE_CHECKBOX_XPATH = "//label[contains(@for,'moduleNameCheckBoxList')]";
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_MODULE_CHECKBOX_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_VERSION_LIST_XPATH = "//label[contains(@for,'versionNameCheckBoxList')]";
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_VERSION_LIST_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_ERRORPANEL_XPATH = "//div[contains(@id,'_ctl00_ErrorPanel')]";
+    public final String PROFILEUPDATE_PAGE_ERRORPANEL_CSS  = "";
 
 
     //Other Company Details
@@ -120,6 +141,12 @@ public interface wqClientProfileUpdatePage {
 
     public final String PROFILEUPDATE_PAGE_ORGSIZE_XPATH = "//*[contains(@name,'organizationSizeDropDownList')]";
     public final String PROFILEUPDATE_PAGE_ORGSIZE_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_COUNTRY_SELECTED_XPATH = "//select[contains(@name,'countryDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_COUNTRY_SELECTED_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_ORGSIZE_SELECTED_XPATH = "//select[contains(@name,'organizationSizeDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_ORGSIZE_SELECTED_CSS  = "";
 
     public final String PROFILEUPDATE_PAGE_DESIGNATION_XPATH = "//*[contains(@name,'designationTextBox')]";
     public final String PROFILEUPDATE_PAGE_DESIGNATION_CSS  = "";

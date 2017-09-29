@@ -1096,13 +1096,14 @@ public class SeleniumBase {
 		return checkLink;
 	}
 
+	//Tiresha
 	//Check a value from a table is existing - WQ
 	public String checkIsValueExistInArea(String tablePath, String value) {
 		WebElement table = driver.findElement(By.xpath(tablePath));
 		List<WebElement>  columns = table.findElements(By.tagName("td"));
 		String str = null;
 		for(WebElement cell : columns){
-			String clientName = splitTextGetNthWord(cell.getText()," - ", 1);
+			String clientName = splitTextGetNthWord(cell.getText()," -", 1);
 			System.out.println(clientName);
 			if(clientName.equals(value)){
 				System.out.println("Table Value : " +clientName+" is Matching with searching value : "+value);
@@ -1113,7 +1114,8 @@ public class SeleniumBase {
 		return str;
 	}
 
-	//Click a value from a table is existing - WQ
+	//Tiresha
+	//Click an existing value from a table - WQ
 	public String clickAValueExistsInArea(String tablePath, String value){
 		WebElement table = driver.findElement(By.xpath(tablePath));
 		List<WebElement>  columns = table.findElements(By.tagName("a"));
@@ -1215,6 +1217,8 @@ public class SeleniumBase {
 
 	}
 
+	//Tiresha
+	//MouseHovering an Element
 	public void mouseHoverAnElement(String xPath) {
 		WebElement element = driver.findElement(By.xpath(xPath));
 		Actions action = new Actions(driver);
@@ -1235,10 +1239,41 @@ public class SeleniumBase {
 		return bool;
 	}
 
+	//Tiresha
+	//Loadthe URL in current Browser
 	public void loadURLInCurrentBrowser(String url){
 		driver.navigate().to(url);
 	}
 
+	//Tiresha
+	//Check a value from a table is existing - WQ
+	public String checkIsValueExistInTable(String tablePath, String value) {
+		WebElement table = driver.findElement(By.xpath(tablePath));
+		List<WebElement>  columns = table.findElements(By.tagName("td"));
+		String str = null;
+		for(WebElement cell : columns){
+			if(cell.getText().equals(value)){
+				System.out.println("Table Value : " +cell.getText()+" is Matching with searching value : "+value);
+				str = cell.getText();
+				break;
+			}
+		}
+		return str;
+	}
+
+	//Tiresha
+	// Select a Check Box from a Value List
+	public void selectCheckBoxFromAList(String tableXPath,String value) {
+
+		List<WebElement> checkBox = driver.findElements(By.xpath(tableXPath));
+
+		for (WebElement element : checkBox) {
+			if (element.getText().equals(value)) {
+				element.click();
+				break;
+			}
+		}
+	}
 
 
 }
