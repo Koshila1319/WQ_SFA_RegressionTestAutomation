@@ -206,18 +206,64 @@
 									</class>-->
 
 									<!--Check the features in Client Registration Page -->
-									<class name ="com.totalamber.qa.WQTest.WQClientRegTest">
+									<!--<class name ="com.totalamber.qa.WQTest.WQClientRegTest">
 										<methods>
-											<!--<include name="verify_The_Page_Browser_Title"/>
+											<include name="verify_The_Page_Browser_Title"/>
 											<include name="verify_The_Copyright_Info_Available_At_The_Bottom_Of_The_Page"/>
 
 											<include name="verify_First_Name_Of_The_User_Available_In_The_Content"/>
 											<include name="verify_Thank_You_For_Sign_Up_Confirmation_Msg_Text"/>
-											<include name="verify_Thank_You_For_Sign_Up_Confirmation_Msg_Content"/>-->
+											<include name="verify_Thank_You_For_Sign_Up_Confirmation_Msg_Content"/>
 											<include name="verify_Click_Hear_Link_Resend_The_Email"/>
 
 
 										</methods>
+									</class>-->
+
+									<!--Check the featires in BackOffice Login Page-->
+									<class name ="com.totalamber.qa.WQTest.WQVerifyClientTest">
+											<methods>
+
+												<include name="verify_Login_Button_Leads_To_Sales_Manager_Dashboard_Page"/>
+												<include name="verify_The_Page_Browser_Title"/>
+												<include name="verify_Created_Company_Name_Available_In_The_Pending_Clients_Section"/>
+
+												<include name="verify_Clients_Title_Text"/>
+												<include name="verify_Clients_Title_Leads_To_WebQuarters_Clients_List_Page"/>
+
+												<include name="verify_To_Be_Assigned_Clients_Tile_Text"/>
+												<include name="verify_To_Be_Assigned_Clients_Tile_Leads_To_Pending_Clients_Page"/>
+
+												<include name="verify_Contractor_Matching_Tile_Text"/>
+												<include name="verify_Contractor_Matching_Tile_Leads_To_Contractor_Match_Builder_Page"/>
+
+												<include name="verify_Connections_To_Be_Verified_Tile_Text"/>
+												<include name="verify_Connections_To_Be_Verified_Tile_Leads_To_Connection_Verification_Page"/>
+
+												<include name="verify_Engagements_To_Be_Verified_Tile_Text"/>
+												<include name="verify_Engagements_To_Be_Verified_Tile_Leads_To_Engagement_Survey_Approval_Page"/>
+
+												<include name="verify_Reports_Tile_Text"/>
+												<include name="verify_Reports_Tile_Leads_To_Back_Office_Reports_Page"/>
+
+												<include name="verify_Case_ID_Prefix_Tile_Text"/>
+												<include name="verify_Case_ID_Prefix_Tile_Leads_To_Set_Case_ID_Prefix_Page"/>
+
+												<include name="verify_Assign_Users_Tile_Text"/>
+												<include name="verify_Assign_Users_Tile_Leads_To_Assign_Users_Page"/>
+
+												<include name="verify_To_Be_Assigned_Partners_Tile"/>
+
+												<include name="verify_Configuration_Button_Text"/>
+												<include name="verify_Click_On_Configuration_Button_Leads_To_Sales_Manager_Configuration_Page"/>
+
+												<include name="verify_The_Copyright_Info_Available_At_The_Bottom_Of_The_Page"/>
+
+												<include name="verify_Enter_Company_Name_Text_Feild_Available"/>
+
+
+
+											</methods>
 									</class>
 
         </classes>

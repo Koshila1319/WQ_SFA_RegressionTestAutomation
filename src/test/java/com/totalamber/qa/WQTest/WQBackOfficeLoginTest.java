@@ -80,25 +80,7 @@ public class WQBackOfficeLoginTest extends TestBase{
         Assert.assertEquals(wqBackOfficeLoginPage.validate_BrowserTitle(), expectedTitle);
     }
 
-   //Login Page-BackOffice (SM Login)
-   @Test
-   public void verify_Login_as_BO_Users_SM() throws InterruptedException {
-       String AMUsername = data.getValueByName("SM_Username");
-       String AMPassword = data.getValueByName("SM_Password");
-       String WindowsAuthOption = data.getValueByName("SignInOption1");
-       wqBackOfficeLoginPage.
-               action_Login_as_BOUser(AMUsername,AMPassword);
-       Thread.sleep(10000);
-       wqBackOfficeLoginPage.
-               action_selectAuthentication(WindowsAuthOption);
-       Thread.sleep(10000);
-   }
 
-    @Test
-    public void verify_Login_Button_Leads_To_Sales_Manager_Dashboard_Page(){
-        String homePageBrowserTitle = data.getValueByName("SM_HomePage");
-        Assert.assertEquals(wqBackOfficeLoginPage.validate_BrowserTitle(), homePageBrowserTitle);
-    }
 
 
 

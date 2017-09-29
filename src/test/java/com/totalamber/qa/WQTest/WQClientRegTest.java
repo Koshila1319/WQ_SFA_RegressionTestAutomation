@@ -27,7 +27,7 @@ public class WQClientRegTest extends TestBase {
 
     @AfterMethod
     public void endTestMethod() throws Throwable{
-        //quitDriver();
+        quitDriver();
     }
 
     //company name field validations
@@ -1139,7 +1139,7 @@ public class WQClientRegTest extends TestBase {
                 select_An_Email_Marketing().
                 click_Sign_Me_Up_Button().
                 click_Resend_Email();
-        
+
         wqCheckMailcatchEmailPage.
                 check_Mailcatch_Email(mailcatch_URL,Clientemail);
                 Thread.sleep(5000);

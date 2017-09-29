@@ -67,4 +67,6 @@ public class WQBackOfficeLoginPage extends TestBase implements wqBackOfficeLogin
        // seleniumBase.click(BO_SIGNIN_DROPDOWN_XPATH,BO_SIGNIN_DROPDOWN_CSS);
         return seleniumBase.listDropdownOptions(BO_SIGNIN_DROPDOWN_XPATH);
     }
+
+
 }
