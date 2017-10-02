@@ -220,7 +220,7 @@
 										</methods>
 									</class>-->
 
-									<!--Check the featires in BackOffice Login Page-->
+									<!--Check the features in BackOffice Login Page
 									<class name ="com.totalamber.qa.WQTest.WQVerifyClientTest">
 											<methods>
 
@@ -264,7 +264,33 @@
 
 
 											</methods>
+									</class>-->
+									<!--Check the features in BackOffice Login Page-->
+
+									<class name ="com.totalamber.qa.WQTest.WQClientAssignTest">
+											<methods>
+												<!--<include name="verify_Company_Name_Link_Leads_To_Assign_Page"/>
+												<include name="verify_User_Can_Search_Company_In_The_Enter_Company_Name_Text_Feild"/>
+												<include name="verify_New_Company_Data_Display_As_Not_Verified_By_Click_On_Go_Button"/>
+												<include name="verify_Verified_Company_Names_Can_Be_Searched_By_Click_On_Go_Button"/>
+												<include name="verify_The_Page_Browser_Title"/>
+												<include name="verify_The_Assign_Page_Title"/>
+												<include name="verify_Company_Details_Info_Are_Correct"/>
+												<include name="verify_Client_Details_Info_Are_Correct"/>-
+												<include name="verify_Software_Experience_Info_Are_Correct"/>
+												<include name="verify_The_Assign_To_Drop_Down_Is_Available"/>
+												<include name="verify_Assign_Button_Available"/>
+												<include name="verify_The_Copy_Right_Info"/>-
+
+												<include name="verify_Assign_Button_Text"/>-->
+
+												<include name="verify_User_Can_Select_AM_From_The_DropDown"/>
+												<include name="verify_User_Can_Assign_A_AM_Successfully"/>
+												<include name="verify_User_Redirects_SM_Dashboard_After_Assigning_AM"/>
+
+											</methods>
 									</class>
+
 
         </classes>
     </test>

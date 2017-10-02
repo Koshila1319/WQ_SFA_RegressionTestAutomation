@@ -55,7 +55,7 @@ public class WQVerifyClientTest extends TestBase{
         // Please run the below method after you registered the client details successfully
 
         verify_Login_Button_Leads_To_Sales_Manager_Dashboard_Page();
-        String companyName = data.getValueByName("Company_Name");
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
         Assert.assertEquals(wqVerifyClientPage.check_Company_Is_Available(companyName), true);
 
     }

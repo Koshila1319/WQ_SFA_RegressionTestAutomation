@@ -55,7 +55,7 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Company_Name_Text_Feild()
     {
-        String company_name=data.getValueByName("Company_Name");
+        String company_name=data.getValueByName("CompanyDetails_CompanyName");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -89,7 +89,7 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Business_Reg_No_Text_Feild()
     {
-        String business_reg_no=data.getValueByName("Business_Reg_No");
+        String business_reg_no=data.getValueByName("CompanyDetails_BusRegNumber");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -123,7 +123,7 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_First_Name_Text_Feild()
     {
-        String first_name=data.getValueByName("First_Name");
+        String first_name=data.getValueByName("CompanyDetails_FirstName");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -157,7 +157,7 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_Last_Name_Text_Feild()
     {
-        String last_name=data.getValueByName("Last_Name");
+        String last_name=data.getValueByName("CompanyDetails_LastName");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -192,7 +192,7 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_Email_Address_Is_Validated()
     {
-        String email=data.getValueByName("Email_Address");
+        String email=data.getValueByName("ClientDetails_Email");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -226,7 +226,7 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_Title_Designation_Text_Feild()
     {
-        String title=data.getValueByName("Title_Designation");
+        String title=data.getValueByName("ClientDetails_Designation");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -260,7 +260,7 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Company_Address_Text_Feild()
     {
-        String company_address=data.getValueByName("Company_Address");
+        String company_address=data.getValueByName("CompanyDetails_Address");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -294,7 +294,7 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Town_City_Text_Feild()
     {
-        String town_city=data.getValueByName("Town_City");
+        String town_city=data.getValueByName("CompanyDetails_City");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -329,7 +329,7 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Country_State_Text_Feild()
     {
-        String country_state=data.getValueByName("Country_State");
+        String country_state=data.getValueByName("CompanyDetails_State");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -364,7 +364,7 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Postal_Zip_Code_Text_Feild()
     {
-        String postal_zip_code=data.getValueByName("Postal_Code");
+        String postal_zip_code=data.getValueByName("CompanyDetails_PostalCode");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -420,7 +420,7 @@ public class WQClientRegTest extends TestBase {
 
     @Test
     public void verify_User_Can_Enter_Numbers_To_Contact_Number_Feild(){
-        String contact_no=data.getValueByName("Contact_No");
+        String contact_no=data.getValueByName("CompanyDetails_Phone");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -454,7 +454,7 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Dialing_Code_Text_Feild()
     {
-        String dialling_code=data.getValueByName("Dialing_Code");
+        String dialling_code=data.getValueByName("CompanyDetails_Dial_Code");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -488,7 +488,7 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Fax_Text_Feild()
     {
-        String fax=data.getValueByName("Fax");
+        String fax=data.getValueByName("CompanyDetails_Fax");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -546,7 +546,7 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Company_Web_Address_Text_Feild()
     {
-        String company_web_address=data.getValueByName("Company_web_address");
+        String company_web_address=data.getValueByName("CompanyDetails_Web_Address");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -794,14 +794,14 @@ public class WQClientRegTest extends TestBase {
     public void verify_Adding_Organization_Size_Is_Mandatory()
     {
         String organization_Size_Error_Msg="Please select organisation size";
-        String fName = data.getValueByName("First_Name");
-        String lName = data.getValueByName("Last_Name");
+        String fName = data.getValueByName("CompanyDetails_FirstName");
+        String lName = data.getValueByName("CompanyDetails_LastName");
         String email = Clientemail;
-        String jobTitle = data.getValueByName("Title_Designation");
-        String address = data.getValueByName("Company_Address");
-        String town = data.getValueByName("Town_City");
-        String contactNo = data.getValueByName("Contact_No");
-        String companyName = data.getValueByName("Company_Name");
+        String jobTitle = data.getValueByName("ClientDetails_Designation");
+        String address = data.getValueByName("CompanyDetails_Address");
+        String town = data.getValueByName("CompanyDetails_City");
+        String contactNo = data.getValueByName("CompanyDetails_Phone");
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -846,14 +846,14 @@ public class WQClientRegTest extends TestBase {
 
     @Test
     public void verify_User_Can_Register_The_Client_Info_Successfully() throws InterruptedException {
-        String fName = data.getValueByName("First_Name");
-        String lName = data.getValueByName("Last_Name");
+        String fName = data.getValueByName("CompanyDetails_FirstName");
+        String lName = data.getValueByName("CompanyDetails_LastName");
         String email = Clientemail;
-        String jobTitle = data.getValueByName("Title_Designation");
-        String address = data.getValueByName("Company_Address");
-        String town = data.getValueByName("Town_City");
-        String contactNo = data.getValueByName("Contact_No");
-        String companyName = data.getValueByName("Company_Name");
+        String jobTitle = data.getValueByName("ClientDetails_Designation");
+        String address = data.getValueByName("CompanyDetails_Address");
+        String town = data.getValueByName("CompanyDetails_City");
+        String contactNo = data.getValueByName("CompanyDetails_Phone");
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -894,14 +894,14 @@ public class WQClientRegTest extends TestBase {
 
     @Test
     public void verify_Exsiting_Emails() throws InterruptedException {
-        String fName = data.getValueByName("First_Name");
-        String lName = data.getValueByName("Last_Name");
-        String email = data.getValueByName("Email_Address");
-        String jobTitle = data.getValueByName("Title_Designation");
-        String address = data.getValueByName("Company_Address");
-        String town = data.getValueByName("Town_City");
-        String contactNo = data.getValueByName("Contact_No");
-        String companyName = data.getValueByName("Company_Name");
+        String fName = data.getValueByName("CompanyDetails_FirstName");
+        String lName = data.getValueByName("CompanyDetails_LastName");
+        String email = data.getValueByName("ClientDetails_Email");
+        String jobTitle = data.getValueByName("ClientDetails_Designation");
+        String address = data.getValueByName("CompanyDetails_Address");
+        String town = data.getValueByName("CompanyDetails_City");
+        String contactNo = data.getValueByName("CompanyDetails_Phone");
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -934,14 +934,14 @@ public class WQClientRegTest extends TestBase {
 
     @Test
     public void verify_The_Page_Browser_Title() throws InterruptedException {
-        String fName = data.getValueByName("First_Name");
-        String lName = data.getValueByName("Last_Name");
+        String fName = data.getValueByName("CompanyDetails_FirstName");
+        String lName = data.getValueByName("CompanyDetails_LastName");
         String email = Clientemail;
-        String jobTitle = data.getValueByName("Title_Designation");
-        String address = data.getValueByName("Company_Address");
-        String town = data.getValueByName("Town_City");
-        String contactNo = data.getValueByName("Contact_No");
-        String companyName = data.getValueByName("Company_Name");
+        String jobTitle = data.getValueByName("ClientDetails_Designation");
+        String address = data.getValueByName("CompanyDetails_Address");
+        String town = data.getValueByName("CompanyDetails_City");
+        String contactNo = data.getValueByName("CompanyDetails_Phone");
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -976,14 +976,14 @@ public class WQClientRegTest extends TestBase {
 
     @Test
     public void verify_First_Name_Of_The_User_Available_In_The_Content() throws InterruptedException {
-        String fName = data.getValueByName("First_Name");
-        String lName = data.getValueByName("Last_Name");
+        String fName = data.getValueByName("CompanyDetails_FirstName");
+        String lName = data.getValueByName("CompanyDetails_LastName");
         String email = Clientemail;
-        String jobTitle = data.getValueByName("Title_Designation");
-        String address = data.getValueByName("Company_Address");
-        String town = data.getValueByName("Town_City");
-        String contactNo = data.getValueByName("Contact_No");
-        String companyName = data.getValueByName("Company_Name");
+        String jobTitle = data.getValueByName("ClientDetails_Designation");
+        String address = data.getValueByName("CompanyDetails_Address");
+        String town = data.getValueByName("CompanyDetails_City");
+        String contactNo = data.getValueByName("CompanyDetails_Phone");
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -1014,14 +1014,14 @@ public class WQClientRegTest extends TestBase {
 
     @Test
     public void verify_The_Copyright_Info_Available_At_The_Bottom_Of_The_Page() throws InterruptedException {
-        String fName = data.getValueByName("First_Name");
-        String lName = data.getValueByName("Last_Name");
+        String fName = data.getValueByName("CompanyDetails_FirstName");
+        String lName = data.getValueByName("CompanyDetails_LastName");
         String email = Clientemail;
-        String jobTitle = data.getValueByName("Title_Designation");
-        String address = data.getValueByName("Company_Address");
-        String town = data.getValueByName("Town_City");
-        String contactNo = data.getValueByName("Contact_No");
-        String companyName = data.getValueByName("Company_Name");
+        String jobTitle = data.getValueByName("ClientDetails_Designation");
+        String address = data.getValueByName("CompanyDetails_Address");
+        String town = data.getValueByName("CompanyDetails_City");
+        String contactNo = data.getValueByName("CompanyDetails_Phone");
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -1062,14 +1062,14 @@ public class WQClientRegTest extends TestBase {
         String page_Content_2="If you do not received the verification email within 30 seconds, please";
         String page_Content_3="to resend the email.";
 
-        String fName = data.getValueByName("First_Name");
-        String lName = data.getValueByName("Last_Name");
+        String fName = data.getValueByName("CompanyDetails_FirstName");
+        String lName = data.getValueByName("CompanyDetails_LastName");
         String email = Clientemail;
-        String jobTitle = data.getValueByName("Title_Designation");
-        String address = data.getValueByName("Company_Address");
-        String town = data.getValueByName("Town_City");
-        String contactNo = data.getValueByName("Contact_No");
-        String companyName = data.getValueByName("Company_Name");
+        String jobTitle = data.getValueByName("ClientDetails_Designation");
+        String address = data.getValueByName("CompanyDetails_Address");
+        String town = data.getValueByName("CompanyDetails_City");
+        String contactNo = data.getValueByName("CompanyDetails_Phone");
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -1105,14 +1105,14 @@ public class WQClientRegTest extends TestBase {
     public void verify_Click_Hear_Link_Resend_The_Email() throws InterruptedException {
         String subject="Email Verification of Registering with WebQuarters";
         String mailcatch_URL=data.getValueByName("mailcatchURL");
-        String fName = data.getValueByName("First_Name");
-        String lName = data.getValueByName("Last_Name");
+        String fName = data.getValueByName("CompanyDetails_FirstName");
+        String lName = data.getValueByName("CompanyDetails_LastName");
         String email = Clientemail;
-        String jobTitle = data.getValueByName("Title_Designation");
-        String address = data.getValueByName("Company_Address");
-        String town = data.getValueByName("Town_City");
-        String contactNo = data.getValueByName("Contact_No");
-        String companyName = data.getValueByName("Company_Name");
+        String jobTitle = data.getValueByName("ClientDetails_Designation");
+        String address = data.getValueByName("CompanyDetails_Address");
+        String town = data.getValueByName("CompanyDetails_City");
+        String contactNo = data.getValueByName("CompanyDetails_Phone");
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.

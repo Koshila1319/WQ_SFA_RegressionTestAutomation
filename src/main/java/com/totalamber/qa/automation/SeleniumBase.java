@@ -10,7 +10,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.Keyboard;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -1239,8 +1241,12 @@ public class SeleniumBase {
 		driver.navigate().to(url);
 	}
 
-
-
+	//Coded By:Shammi
+	//Click on enter button
+	public void pressEnter() {
+		Keyboard kb = ((RemoteWebDriver) driver).getKeyboard();
+		kb.pressKey(Keys.RETURN);
+	}
 }
 
 
