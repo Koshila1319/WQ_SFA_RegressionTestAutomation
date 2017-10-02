@@ -29,7 +29,7 @@ public class WQPanel implements wqPanel{
         return seleniumBase.getText(AM_DASHBOARD_FOOTER_AREA_CSS,AM_DASHBOARD_FOOTER_AREA_XPATH);
     }
 
-    public WQPanel check_User_goes_To_HomePage() {
+    public WQPanel step_User_clicks_HomePage() {
         seleniumBase.click(AM_DASHBOARD_HOMELINK_XPATH,AM_DASHBOARD_HOMELINK_CSS);
         return this;
     }

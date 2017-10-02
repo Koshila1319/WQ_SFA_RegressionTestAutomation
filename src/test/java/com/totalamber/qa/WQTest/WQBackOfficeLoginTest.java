@@ -50,7 +50,8 @@ public class WQBackOfficeLoginTest extends TestBase{
 
     @Test
     public void verify_User_Can_Select_The_Sign_In_Option_From_The_DropDown(){
-        wqBackOfficeLoginPage.validate_selectingDropdown();
+        wqBackOfficeLoginPage
+                .validate_selectingDropdown();
     }
 
     @Test
@@ -72,8 +73,10 @@ public class WQBackOfficeLoginTest extends TestBase{
         wqBackOfficeLoginPage.
                 action_selectAuthentication(WindowsAuthOption);
         Thread.sleep(10000);
-        wqBackOfficeLoginPage.action_Login_as_BOUser(AMUsername,AMPassword);
-        wqBackOfficeLoginPage.action_selectAuthentication(WindowsAuthOption);
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername,AMPassword);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
 
     }
 

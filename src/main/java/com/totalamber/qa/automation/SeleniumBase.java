@@ -14,13 +14,14 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static com.totalamber.qa.data.UI.elements.webQuarters.ElementHolder.*;
 
 
 public class SeleniumBase {
@@ -810,12 +811,13 @@ public class SeleniumBase {
 
 
 	//Upload files
-	public void uploadFiles(String filePath, String elementName) {
-		// TODO Auto-generated method stub
-		WebElement element = driver.findElement(By.name(elementName));
-		element.sendKeys(filePath);
+	public void uploadFiles(String filePath, String xPath) {
+		WebElement upload = driver.findElement(By.xpath(xPath));
+		upload.sendKeys(filePath);
 
 	}
+
+
 
 
 	// Replace Texts

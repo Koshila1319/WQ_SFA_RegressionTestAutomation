@@ -64,29 +64,62 @@ public interface wqClientProfileUpdatePage {
     public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_XPATH = "//*[contains(@name,'companyLogoUpload')]";
     public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_CSS  = "";
 
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_LABEL_XPATH = "(//td[@class='w232'])[1]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_LABEL_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_ERROR_XPATH = "//span[contains(@id,'RegularExpressionValidator1')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_ERROR_CSS  = "";
+
     public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFILEPIC_XPATH = "//*[contains(@name,'profilePictureUpload')]";
     public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFILEPIC_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFPIC_LABEL_XPATH = "(//td[@class='w232'])[2]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFPIC_LABEL_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFPIC_ERROR_XPATH = "//span[contains(@id,'RegularExpressionValidator2')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFPIC_ERROR_CSS  = "";
 
     public final String PROFILEUPDATE_PAGE_OCOMPANY_COMPANYTYPE_XPATH = "//*[contains(@name,'typeDropDownList')]";
     public final String PROFILEUPDATE_PAGE_OCOMPANY_COMPANYTYPE_CSS  = "";
 
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COMPANYTYPE_SELECTED_XPATH = "//select[contains(@name,'typeDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COMPANYTYPE_SELECTED_CSS  = "";
+
     public final String PROFILEUPDATE_PAGE_OCOMPANY_COMP_FORMAT_XPATH = "//*[contains(@name,'formatDropDownList')]";
     public final String PROFILEUPDATE_PAGE_OCOMPANY_COMP_FORMAT_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COMP_FORMAT_SELECTED_XPATH = "//select[contains(@name,'formatDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COMP_FORMAT_SELECTED_CSS  = "";
 
     public final String PROFILEUPDATE_PAGE_OCOMPANY_INDUSTRY_XPATH = "//*[contains(@name,'industryDropDownList')]";
     public final String PROFILEUPDATE_PAGE_OCOMPANY_INDUSTRY_CSS  = "";
 
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_INDUSTRY_SELECTED_XPATH = "//select[contains(@name,'industryDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_INDUSTRY_SELECTED_CSS  = "";
+
     public final String PROFILEUPDATE_PAGE_OCOMPANY_SUBMARKET_XPATH = "//*[contains(@name,'subMarketDropDownList')]";
     public final String PROFILEUPDATE_PAGE_OCOMPANY_SUBMARKET_CSS  = "";
 
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_SUBMARKET_SELECTED_XPATH = "//select[contains(@name,'subMarketDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_SUBMARKET_SELECTED_CSS  = "";
+
     public final String PROFILEUPDATE_PAGE_OCOMPANY_VERTICALMARKET_XPATH = "//*[contains(@name,'verticalMarketDropDownList')]";
     public final String PROFILEUPDATE_PAGE_OCOMPANY_VERTICALMARKET_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_VERTICALMARKET_SELECTED_XPATH = "//select[contains(@name,'verticalMarketDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_VERTICALMARKET_SELECTED_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_STOCKPRICE_LABEL_XPATH = "//*[@class='other-Com-Det'][1]/following::tr[3]/td[1]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_STOCKPRICE_LABEL_CSS  = "";
 
     public final String PROFILEUPDATE_PAGE_OCOMPANY_STOCKPRICE_XPATH = "//*[contains(@name,'stockPriceTextBox')]";
     public final String PROFILEUPDATE_PAGE_OCOMPANY_STOCKPRICE_CSS  = "";
 
     public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_XPATH = "//*[contains(@name,'countryServedDropDownList')]";
     public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_SELECTED_XPATH = "//select[contains(@name,'countryServedDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_SELECTED_CSS  = "";
 
     public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_ADD_BUTTON_XPATH = "//*[contains(@name,'addCountryButton')]";
     public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_ADD_BUTTON_CSS  = "";

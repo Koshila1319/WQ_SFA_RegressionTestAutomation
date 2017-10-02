@@ -4,6 +4,11 @@ import com.totalamber.qa.automation.SeleniumBase;
 import com.totalamber.qa.data.UI.elements.webQuarters.wqClientProfileUpdatePage;
 import org.openqa.selenium.WebDriver;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 /**
  * Created by t.piyananda on 27/09/2017.
  */
@@ -271,5 +276,139 @@ public class WQClientProfileUpdatePage implements wqClientProfileUpdatePage{
     public WQClientProfileUpdatePage step_click_A_Version(String s) {
         seleniumBase.selectCheckBoxFromAList(PROFILEUPDATE_PAGE_APPINFO_SW_VERSION_LIST_XPATH, s);
         return this;
+    }
+
+    public String check_Upload_Company_Logo_Label_IsAvailable() {
+        return seleniumBase.getText(PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_LABEL_CSS,PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_LABEL_XPATH);
+    }
+
+    public String check_Upload_Profile_Pic_Label_IsAvailable() {
+        return seleniumBase.getText(PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFPIC_LABEL_CSS,PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFPIC_LABEL_XPATH);
+    }
+
+    public boolean check_chooseFile_Button_InCompanyLogo_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_XPATH);
+    }
+
+    public WQClientProfileUpdatePage step_click_Company_Logo_Upload_button_for_InvalidFile(String filepath) {
+        seleniumBase.uploadFiles(filepath,PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_XPATH);
+        return this;
+    }
+
+    public WQClientProfileUpdatePage step_click_Company_Logo_Upload_button(String filepath) {
+        seleniumBase.uploadFiles(filepath,PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_XPATH);
+        return this;
+    }
+
+    public String validate_ErrorMessage_For_wrong_file_Type_in_CompLogo() {
+        return seleniumBase.getText(PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_ERROR_CSS,PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_ERROR_XPATH);
+    }
+
+    public boolean check_chooseFile_Button_InProfilePic_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFILEPIC_XPATH);
+    }
+
+    public WQClientProfileUpdatePage step_click_Profile_Pic_Upload_button_for_InvalidFile(String filepath) {
+        seleniumBase.uploadFiles(filepath,PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFILEPIC_XPATH);
+        return this;
+    }
+
+    public String validate_ErrorMessage_For_wrong_file_Type_in_ProfPic() {
+        return seleniumBase.getText(PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFPIC_ERROR_CSS,PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFPIC_ERROR_XPATH);
+    }
+
+    public WQClientProfileUpdatePage step_click_Profile_Pic_Upload_button(String filepath) {
+        seleniumBase.uploadFiles(filepath,PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFILEPIC_XPATH);
+        return this;
+    }
+
+    public boolean validate_CompanyType_DropdownAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_OCOMPANY_COMPANYTYPE_XPATH);
+    }
+
+    public String check_Default_Dropdown_Value_of_CompanyType() {
+        return seleniumBase.getText(PROFILEUPDATE_PAGE_OCOMPANY_COMPANYTYPE_SELECTED_CSS,PROFILEUPDATE_PAGE_OCOMPANY_COMPANYTYPE_SELECTED_XPATH);
+    }
+
+    public WQClientProfileUpdatePage step_select_a_CompanyType(String s) {
+        seleniumBase.selectByVisibleText(PROFILEUPDATE_PAGE_OCOMPANY_COMPANYTYPE_CSS,PROFILEUPDATE_PAGE_OCOMPANY_COMPANYTYPE_XPATH,s);
+        return this;
+    }
+
+    public boolean validate_CompanyFormat_DropdownAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_OCOMPANY_COMP_FORMAT_XPATH);
+    }
+
+    public String check_Default_Dropdown_Value_of_CompanyFormat() {
+        return seleniumBase.getText(PROFILEUPDATE_PAGE_OCOMPANY_COMP_FORMAT_SELECTED_CSS,PROFILEUPDATE_PAGE_OCOMPANY_COMP_FORMAT_SELECTED_XPATH);
+    }
+
+    public WQClientProfileUpdatePage step_select_a_CompanyFormat(String s) {
+        seleniumBase.selectByVisibleText(PROFILEUPDATE_PAGE_OCOMPANY_COMP_FORMAT_CSS,PROFILEUPDATE_PAGE_OCOMPANY_COMP_FORMAT_XPATH,s);
+        return this;
+    }
+
+    public boolean validate_Industry_DropdownAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_OCOMPANY_INDUSTRY_XPATH);
+    }
+
+    public String check_Default_Dropdown_Value_of_Industry() {
+        return seleniumBase.getText(PROFILEUPDATE_PAGE_OCOMPANY_INDUSTRY_SELECTED_CSS,PROFILEUPDATE_PAGE_OCOMPANY_INDUSTRY_SELECTED_XPATH);
+    }
+
+    public WQClientProfileUpdatePage step_select_a_Industry(String s) {
+        seleniumBase.selectByVisibleText(PROFILEUPDATE_PAGE_OCOMPANY_INDUSTRY_CSS,PROFILEUPDATE_PAGE_OCOMPANY_INDUSTRY_XPATH,s);
+        return this;
+    }
+
+    public boolean validate_SubMarket_DropdownAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_OCOMPANY_SUBMARKET_XPATH);
+    }
+
+    public String check_Default_Dropdown_Value_of_SubMarket() {
+        return seleniumBase.getText(PROFILEUPDATE_PAGE_OCOMPANY_SUBMARKET_SELECTED_CSS,PROFILEUPDATE_PAGE_OCOMPANY_SUBMARKET_SELECTED_XPATH);
+    }
+
+    public WQClientProfileUpdatePage step_select_a_SubMarket(String s) {
+        seleniumBase.selectByVisibleText(PROFILEUPDATE_PAGE_OCOMPANY_SUBMARKET_CSS,PROFILEUPDATE_PAGE_OCOMPANY_SUBMARKET_XPATH,s);
+        return this;
+    }
+
+    public boolean validate_VerticalMarket_DropdownAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_OCOMPANY_VERTICALMARKET_XPATH);
+    }
+
+    public String check_Default_Dropdown_Value_of_VerticalMarket() {
+        return seleniumBase.getText(PROFILEUPDATE_PAGE_OCOMPANY_VERTICALMARKET_SELECTED_CSS,PROFILEUPDATE_PAGE_OCOMPANY_VERTICALMARKET_SELECTED_XPATH);
+    }
+
+    public WQClientProfileUpdatePage step_select_a_VerticalMarket(String s) {
+        seleniumBase.selectByVisibleText(PROFILEUPDATE_PAGE_OCOMPANY_VERTICALMARKET_CSS, PROFILEUPDATE_PAGE_OCOMPANY_VERTICALMARKET_XPATH,s);
+        return this;
+    }
+
+    public String check_StockPrice_Label_IsAvailable() {
+        return seleniumBase.getText(PROFILEUPDATE_PAGE_OCOMPANY_STOCKPRICE_LABEL_CSS,PROFILEUPDATE_PAGE_OCOMPANY_STOCKPRICE_LABEL_XPATH);
+    }
+
+    public boolean check_StockPrice_TextBox_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_OCOMPANY_STOCKPRICE_XPATH);
+    }
+
+    public String check_PlaceHolderText_of_StockProce_Textbox() {
+        return seleniumBase.getTextByAttribute(PROFILEUPDATE_PAGE_OCOMPANY_STOCKPRICE_CSS,PROFILEUPDATE_PAGE_OCOMPANY_STOCKPRICE_XPATH,"placeholder");
+    }
+
+    public WQClientProfileUpdatePage step_enter_Characters_In_StockPrice_Textbox(String s) {
+        seleniumBase.type(PROFILEUPDATE_PAGE_OCOMPANY_STOCKPRICE_CSS, PROFILEUPDATE_PAGE_OCOMPANY_STOCKPRICE_XPATH,s);
+        return this;
+    }
+
+    public boolean check_addingCountry_Dropdown_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_XPATH);
+    }
+
+    public String check_Default_Dropdown_Value_of_SelectCountry() {
+        return seleniumBase.getText(PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_SELECTED_CSS,PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_SELECTED_XPATH);
     }
 }
