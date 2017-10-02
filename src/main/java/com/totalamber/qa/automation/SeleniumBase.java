@@ -1215,6 +1215,15 @@ public class SeleniumBase {
 		return isElementDisplayedByText;
 
 	}
+
+	public boolean isElementNotAvailable(String xpath) {
+		try {
+			driver.findElement(By.xpath(xpath));
+			return false;
+		} catch (NoSuchElementException e) {
+			return true;
+		}
+	}
 }
 
 

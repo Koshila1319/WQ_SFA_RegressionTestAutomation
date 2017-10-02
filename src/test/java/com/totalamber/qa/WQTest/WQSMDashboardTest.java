@@ -40,14 +40,11 @@ public class WQSMDashboardTest extends TestBase {
 
     @Test
     public void verify_Clients_Tile_Text(){
-        String companyName = data.getValueByName("Company_Name");
-        Assert.assertEquals(wqSMDashboardPage.verify_Data_Equals(companyName), true);
     }
 
     @Test
     public void verify_Clients_Title_Leads_To_WebQuarters_Clients_List_Page(){
-        String companyName = data.getValueByName("Company_Name");
-        Assert.assertEquals(wqSMDashboardPage.verify_Data_Equals(companyName), true);
+
     }
 
 }

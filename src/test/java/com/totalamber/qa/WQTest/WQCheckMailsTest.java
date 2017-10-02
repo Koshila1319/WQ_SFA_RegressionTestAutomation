@@ -58,8 +58,8 @@ public class WQCheckMailsTest extends TestBase{
     public void verify_Check_Outlook_Email() throws InterruptedException {
 
         String outlookURL = data.getValueByName("outlookURL");
-        String BOUserEmail = data.getValueByName("emailAM");
-        String BOUserPassword = data.getValueByName("emailPasswordAM");
+        String BOUserEmail = data.getValueByName("AM_Email");
+        String BOUserPassword = data.getValueByName("AM_Email_Password");
 
         wqCheckOutLookEmailPage.checkOutlookEmail(outlookURL, BOUserEmail, BOUserPassword);
     }

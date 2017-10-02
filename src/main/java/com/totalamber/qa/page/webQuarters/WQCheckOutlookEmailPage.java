@@ -18,18 +18,29 @@ public class WQCheckOutlookEmailPage extends TestBase implements wqCheckOutLookE
 
         seleniumBase = new SeleniumBase(driver);}
 
-    public void checkOutlookEmail(String outlookURL, String BOUserEmail, String BOUserPassword) throws InterruptedException {
+    public void check_Outlook_Email(String outlookURL, String BOUserEmail, String BOUserPassword) throws InterruptedException {
         setSiteURL(outlookURL);
         seleniumBase.click(OUTLOOK_SIGN_IN_BUTTON_XPATH, OUTLOOK_SIGN_IN_BUTTON_CSS); //Click sign in button
         seleniumBase.type(OUTLOOK_EMAIL_FIELD_CSS, OUTLOOK_EMAIL_FIELD_XPATH, BOUserEmail); //Enter email
         seleniumBase.click(OUTLOOK_NEXT_BUTTON_XPATH, OUTLOOK_NEXT_BUTTON_CSS); //Click next button
+        Thread.sleep(3000);
         seleniumBase.type(OUTLOOK_PASSWORD_FIELD_CSS, OUTLOOK_PASSWORD_FIELD_XPATH, BOUserPassword); //Enter password
         Thread.sleep(3000);
         seleniumBase.click(OUTLOOK_SIGN_IN_CONFIRM_XPATH, OUTLOOK_SIGN_IN_CONFIRM_CSS); //Click sign in button to login
 
     }
 
-    public void readLatestReceivedEmailInOutLook() {
+    public void action_read_Latest_Received_Email_In_OutLook() {
         seleniumBase.getElement(LATEST_RECEIVED_OUTLOOK_EMAIL_CSS,LATEST_RECEIVED_OUTLOOK_EMAIL_XPATH).click();
+    }
+
+    public String verify_Data_Equals(String data) {
+        return seleniumBase.getText("",data);
+    }
+
+    //Manage User Request - User re assign email
+
+    public String step_Extract_User_Details(String xpath) {
+        return seleniumBase.splitTextGetNthWord(seleniumBase.getText("",xpath),": ",2);
     }
 }

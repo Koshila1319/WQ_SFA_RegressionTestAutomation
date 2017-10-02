@@ -64,10 +64,27 @@
 				</methods>
 			</class>-->
 
-			<class name ="com.totalamber.qa.WQTest.WQDMManageUserRequestTest">
+			<class name ="com.totalamber.qa.WQTest.WQReassignDMUserRequestTest">
 				<methods>
+					<!--Request To Change DM-->
 					<include name = "verify_Assign_Users_Tile_Is_Available"/>
 					<include name = "verify_Clicking_Assign_Users_Tile_Leads_To_Manage_User_Requests_Page"/>
+					<include name = "verify_DM_Details_In_User_Request_Table"/>
+					<include name = "verify_Clicking_Request_Change_Button_In_DM_Leads_To_User_Information_Popup"/>-->
+					<include name = "verify_User_Information_Popup_Element_Texts"/>
+					<include name = "verify_User_Information_Popup_Buttons_Enabled"/>
+					<include name = "verify_Unable_To_Submit_Request_Without_Adding_Required_DM_Details"/>
+					<include name = "verify_Able_To_Submit_Request_Successfully_By_Adding_DM_Details"/>
+					<include name = "verify_Close_The_User_Information_Popup_By_Clicking_Cancel_Button"/>
+
+					<!--Check Email AM-->
+					<include name = "verify_AM_Loging_To_Email"/>
+					<include name = "verify_User_Reassign_Request_Email_IsAvailable"/>
+					<include name = "verify_User_Assign_Request_Email_Title"/>
+					<include name = "verify_User_Assign_Request_Email_Current_User_Details"/>
+					<include name = "verify_User_Assign_Request_Email_New_User_Details"/>
+					<include name = "verify_User_Assign_Request_Email_Requested_Company"/>
+					<include name = "verify_User_Assign_Request_Email_Requested_User_Role"/>
 				</methods>
 			</class>
 		</classes>
