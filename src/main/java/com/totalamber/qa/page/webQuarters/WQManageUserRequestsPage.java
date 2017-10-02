@@ -30,7 +30,7 @@ public class WQManageUserRequestsPage extends TestBase implements wqManageUserRe
 
 
     public WQManageUserRequestsPage action_Click_Request_Button(String xpath) {
-        seleniumBase.click(WQ_DM_REQUEST_CHANGE_BUTTON_XPATH,WQ_DM_REQUEST_CHANGE_BUTTON_CSS);
+        seleniumBase.click(xpath,"");
         return this;
     }
 

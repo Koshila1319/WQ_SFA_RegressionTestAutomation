@@ -38,9 +38,12 @@ public class WQCheckOutlookEmailPage extends TestBase implements wqCheckOutLookE
         return seleniumBase.getText("",data);
     }
 
-    //Manage User Request - User re assign email
 
     public String step_Extract_User_Details(String xpath) {
         return seleniumBase.splitTextGetNthWord(seleniumBase.getText("",xpath),": ",2);
+    }
+
+    public String step_Extract_Company_Details(String xpath) {
+        return seleniumBase.splitTextGetNthWord(seleniumBase.getText("",xpath)," ",3);
     }
 }

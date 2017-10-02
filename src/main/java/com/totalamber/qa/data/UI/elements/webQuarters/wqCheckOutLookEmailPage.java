@@ -25,7 +25,7 @@ public interface wqCheckOutLookEmailPage {
     public final String LATEST_RECEIVED_OUTLOOK_EMAIL_XPATH = "//*[@id='_ariaId_25']/div[2]/div[6]/div/span[1]";
     public final String LATEST_RECEIVED_OUTLOOK_EMAIL_CSS = "";
 
-    //ManageUserRequest - Change DM
+    //ManageUserRequest - User Re assign request (Change DM)
 
     public final String WQ_AM_REASSIGN_USER_REQUEST_EMAIL_TITLE_XPATH = "//*[@id='primaryContainer']//div[3]/div[2]/div[2]/div[1]/div[1]/span";
     public final String WQ_AM_REASSIGN_USER_REQUEST_EMAIL_TITLE_CSS = "";
@@ -56,6 +56,23 @@ public interface wqCheckOutLookEmailPage {
 
     public final String WQ_AM_REASSIGN_USER_REQUEST_EMAIL_REQUESTED_USER_ROLE_XPATH = "//*[@id='Item.MessageUniqueBody']//tr[2]/td/p[3]";
     public final String WQ_AM_REASSIGN_USER_REQUEST_EMAIL_REQUESTED_USER_ROLE_CSS = "";
+
+
+    //
+    public final String WQ_AM_ASSIGN_USER_REQUEST_EMAIL_NEW_USER_EMAIL_XPATH = "//*[@id='Item.MessageUniqueBody']//tr[3]/td/p[1]";
+    public final String WQ_AM_ASSIGN_USER_REQUEST_EMAIL_NEW_USER_EMAIL_CSS = "";
+
+    public final String WQ_AM_ASSIGN_USER_REQUEST_EMAIL_NEW_USER_FNAME_XPATH = "//*[@id='Item.MessageUniqueBody']//tr[3]/td/p[2]";
+    public final String WQ_AM_ASSIGN_USER_REQUEST_EMAIL_NEW_USER_FNAME_CSS = "";
+
+    public final String WQ_AM_ASSIGN_USER_REQUEST_EMAIL_NEW_USER_LNAME_XPATH = "//*[@id='Item.MessageUniqueBody']//tr[3]/td/p[3]";
+    public final String WQ_AM_ASSIGN_USER_REQUEST_EMAIL_NEW_USER_LNAME_CSS = "";
+
+    public final String WQ_AM_ASSIGN_USER_REQUEST_EMAIL_NEW_USER_ROLE_XPATH = "//*[@id='Item.MessageUniqueBody']//tr[3]/td/p[4]";
+    public final String WQ_AM_ASSIGN_USER_REQUEST_EMAIL_NEW_USER_ROLE_CSS = "";
+
+    public final String WQ_AM_ASSIGN_USER_REQUEST_EMAIL_NEW_USER_DESIGNATION_XPATH = "//*[@id='Item.MessageUniqueBody']//tr[3]/td/p[5]";
+    public final String WQ_AM_ASSIGN_USER_REQUEST_EMAIL_NEW_USER_DESIGNATION_CSS = "";
 
 
 }

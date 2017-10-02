@@ -185,7 +185,7 @@ public class WQReassignDMUserRequestTest extends TestBase {
     }
 
     @Test
-    public void verify_User_Assign_Request_Email_Title() throws InterruptedException {
+    public void verify_User_Reassign_Request_Email_Title() throws InterruptedException {
         String outlookURL = data.getValueByName("outlookURL");
         String BOUserEmail = data.getValueByName("AM_Email");
         String BOUserPassword = data.getValueByName("AM_Email_Password");
@@ -200,7 +200,7 @@ public class WQReassignDMUserRequestTest extends TestBase {
     }
 
     @Test
-    public void verify_User_Assign_Request_Email_Current_User_Details() throws InterruptedException {
+    public void verify_User_Reassign_Request_Email_Current_User_Details() throws InterruptedException {
         String outlookURL = data.getValueByName("outlookURL");
         String BOUserEmail = data.getValueByName("AM_Email");
         String BOUserPassword = data.getValueByName("AM_Email_Password");
@@ -220,7 +220,7 @@ public class WQReassignDMUserRequestTest extends TestBase {
     }
 
     @Test
-    public void verify_User_Assign_Request_Email_New_User_Details() throws InterruptedException {
+    public void verify_User_Reassign_Request_Email_New_User_Details() throws InterruptedException {
         String outlookURL = data.getValueByName("outlookURL");
         String BOUserEmail = data.getValueByName("AM_Email");
         String BOUserPassword = data.getValueByName("AM_Email_Password");
@@ -244,7 +244,7 @@ public class WQReassignDMUserRequestTest extends TestBase {
     }
 
     @Test
-    public void verify_User_Assign_Request_Email_Requested_Company() throws InterruptedException {
+    public void verify_User_Reassign_Request_Email_Requested_Company() throws InterruptedException {
         String outlookURL = data.getValueByName("outlookURL");
         String BOUserEmail = data.getValueByName("AM_Email");
         String BOUserPassword = data.getValueByName("AM_Email_Password");
@@ -259,7 +259,7 @@ public class WQReassignDMUserRequestTest extends TestBase {
     }
 
     @Test
-    public void verify_User_Assign_Request_Email_Requested_User_Role() throws InterruptedException {
+    public void verify_User_Reassign_Request_Email_Requested_User_Role() throws InterruptedException {
         String outlookURL = data.getValueByName("outlookURL");
         String BOUserEmail = data.getValueByName("AM_Email");
         String BOUserPassword = data.getValueByName("AM_Email_Password");

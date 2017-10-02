@@ -28,13 +28,20 @@ public class TestBase  {
 	protected WQSMDashboardPage wqSMDashboardPage;
 	protected WQDMDashboardPage wqdmDashboardPage;
 	protected WQManageUserRequestsPage wqManageUserRequestsPage;
+	protected WQAMAssignUsersPage wqamAssignUsersPage;
 
 
 	public static final String clientEmail = "605e5569-55f2-4fbd-a982-c274113ec83c@mailcatch.com";
 	public static final String newDMEmail = "596b2cf8-5fe3-4a42-95b0-2dc4845148c4@mailcatch.com";
+	public static final String SUEmail = "newspuser1@mailcatch.com";
 
 	//Request to change DM
 	public static String newDmEmailByEmail;
+
+	//Request to add new SU
+	public static String newSUEmailByEmail;
+	public static String newSURoleByEmail;
+	public static String userAssignRequestedCompany;
 
 
 	public void initDomainObjects(WebDriver driver) throws IOException {
@@ -54,6 +61,7 @@ public class TestBase  {
 		wqSMDashboardPage = new WQSMDashboardPage(driver);
 		wqdmDashboardPage = new WQDMDashboardPage(driver);
 		wqManageUserRequestsPage = new WQManageUserRequestsPage(driver);
+		wqamAssignUsersPage = new WQAMAssignUsersPage(driver);
 	}
 
 	public void setSiteURL(String siteUrl) {
