@@ -51,5 +51,11 @@ public interface wqCheckMailCatchEmailPage {
     public final String WQ_CLIENT_ACTIVATE_EMAIL_TEMP_PASSWORD_XPATH = "/html/body/table/tbody/tr[3]/td/div/div[2]";
     public final String WQ_CLIENT_ACTIVATE_EMAIL_TEMP_PASSWORD_CSS = "";
 
+    //New user Assigned Email
+    public final String WQ_CLIENT_NEW_USER_ASSIGNED_EMAIL_USER_NAME_XPATH = "html/body/table/tbody/tr[3]/td/div/p[4]";
+    public final String WQ_CLIENT_NEW_USER_ASSIGNED_EMAIL_USER_NAME_CSS = "";
+
+    public final String WQ_CLIENT_NEW_USER_ASSIGNED_EMAIL_TEMP_PASSWORD_XPATH = "html/body/table/tbody/tr[3]/td/div/p[5]";
+    public final String WQ_CLIENT_NEW_USER_ASSIGNED_EMAIL_TEMP_PASSWORD_CSS = "";
 
 }

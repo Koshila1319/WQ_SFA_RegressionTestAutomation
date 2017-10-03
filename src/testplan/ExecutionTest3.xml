@@ -118,9 +118,20 @@
 					<include name = "verify_Select_Company_From_The_DropDown"/>
 					<include name = "verify_Able_To_Assign_SU_Successfully"/>
 					<include name = "verify_Unable_To_Activate_Users_By_Adding_Invalid_Email"/>
-					<include name = "verify_Unable_To_Activate_Users_Without_Adding_User_Details"/>-->
-					<include name = "verify_Unable_To_Add_Same_User_To_The_Same_Role"/>
+					<include name = "verify_Unable_To_Activate_Users_Without_Adding_User_Details"/>
+					<include name = "verify_Unable_To_Add_Same_User_To_The_Same_Role"/>-->
 
+					<!--Verify New SP User-->
+					<!--<include name = "verify_User_Assigned_Email_In_Inbox"/>
+					<include name = "verify_User_Assigned_Email_Content"/>
+					<include name = "verify_Extract_New_SU_Details_In_Assigned_Email_Content()"/>-->
+
+					<!--Verify New SP User Dashboard-->
+					<!--<include name = "verify_User_Assigned_Email_In_Inbox"/>
+					<include name = "verify_User_Assigned_Email_Content"/>-->
+					<include name = "verify_Extract_New_SU_Details_In_Assigned_Email_Content()"/>
+					<include name = "verify_clicking_Link_Leads_To_WQ_Sign_In_Page"/>
+					<include name = "verify_SU_Login_To_Account"/>
 				</methods>
 			</class>
 		</classes>

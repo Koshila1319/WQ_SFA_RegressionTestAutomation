@@ -1,5 +1,6 @@
 package com.totalamber.qa.WQTest;
 
+import com.sun.xml.internal.ws.policy.AssertionSet;
 import com.totalamber.qa.automation.TestBase;
 import com.totalamber.qa.data.UI.elements.webQuarters.wqAMAssignUsersPage;
 import org.openqa.selenium.NoSuchElementException;
@@ -9,8 +10,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static com.totalamber.qa.data.UI.elements.webQuarters.wqAMAssignUsersPage.*;
+import static com.totalamber.qa.data.UI.elements.webQuarters.wqCheckMailCatchEmailPage.*;
 import static com.totalamber.qa.data.UI.elements.webQuarters.wqCheckOutLookEmailPage.*;
-import static com.totalamber.qa.data.UI.elements.webQuarters.wqDMDashboardPage.DM_DASHBOARD_ASSIGN_USERS_TILE_XPATH;
+import static com.totalamber.qa.data.UI.elements.webQuarters.wqDMDashboardPage.*;
 import static com.totalamber.qa.data.UI.elements.webQuarters.wqManageUserRequestsPage.*;
 
 /**
@@ -21,12 +23,14 @@ public class WQAssignSPUserRequestTest extends TestBase {
     @BeforeClass
     public void NavigateToPage() throws Exception {
         initDomainObjects(DRIVER);
-        String siteUrl = data.getValueByName("url");
+   /*     String siteUrl = data.getValueByName("url");
         setSiteURL(siteUrl);
         wqHomePage.action_Navigate_To_LoginPage();
         wqLoginPage.step_User_Enter_Given_Credentials(clientEmail,"asdf1234%");
         wqLoginPage.step_User_Click_Login_Button();
-        wqdmDashboardPage.step_Click_Home_Button();
+        wqdmDashboardPage.step_Click_Home_Button();*/
+
+        newSUEmailByEmail="aqwqw@mailcatch.com";
       }
 
     @AfterMethod
@@ -479,4 +483,104 @@ public class WQAssignSPUserRequestTest extends TestBase {
 
         Assert.assertEquals(wqamAssignUsersPage.verify_Data_Equals(WQ_AM_ASSIGN_USERS_EMAIL_USER_IN_SAME_GROUP_XPATH), userInSameGroupErrorMsg);
     }
+
+
+    //Login to New Support User Email
+
+    @Test
+    public void  verify_User_Assigned_Email_In_Inbox() throws InterruptedException {
+        String mailcatchURL = data.getValueByName("mailcatchURL");
+        String FromWQEmail = data.getValueByName("WQEmail");
+        String emailSubjectInbox = data.getValueByName("NewUserAssignedEmail_EmailSubjectInbox");
+
+        wqCheckMailcatchEmailPage.
+                check_Mailcatch_Email(mailcatchURL, newSUEmailByEmail);
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Available(WQ_CLIENT_INBOX_MAIL_SUBJECT_XPATH),true, "Email is available !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_INBOX_MAIL_FROM_XPATH),FromWQEmail, "Inbox email from text verified !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_INBOX_MAIL_SUBJECT_XPATH), emailSubjectInbox, "Inbox email subject verified !");
+    }
+
+    @Test
+    public void verify_User_Assigned_Email_Content() throws InterruptedException {
+        String mailcatchURL = data.getValueByName("mailcatchURL");
+        String FromWQEmail = data.getValueByName("WQEmail");
+        String emailSubject = data.getValueByName("NewUserAssignedEmail_EmailPageSubject");
+
+        wqCheckMailcatchEmailPage.
+                check_Mailcatch_Email(mailcatchURL, newSUEmailByEmail).
+                action_read_Latest_Received_Email_In_Mailcatch();
+        Thread.sleep(10000);
+
+
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_FROM_XPATH),FromWQEmail, "Email from text verified !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_SUBJECT_XPATH),emailSubject, "Email subject verified !");
+
+        wqCheckMailcatchEmailPage.
+                step_switch_ToFrame();
+
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Available(WQ_CLIENT_EMAIL_HEADER_IMAGE_XPATH),true, "Email header image is available !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_HEADER_TITLE_XPATH),"You are now assigned as Support User in WebQuarters…", "Email heading text verified !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Available(WQ_CLIENT_EMAIL_CONTENT_LINK_XPATH),true, "Verification link available !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_CONTENT_LINK_XPATH),"link to log in", "Verified link text !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.step_Get_Email_User_Details_Texts(WQ_CLIENT_NEW_USER_ASSIGNED_EMAIL_USER_NAME_XPATH),"Your user name", "User Name text verified !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.step_Get_Email_User_Details_Texts(WQ_CLIENT_NEW_USER_ASSIGNED_EMAIL_TEMP_PASSWORD_XPATH),"Temporary Password", "Temp pw text available !");
+    }
+
+    @Test
+    public void verify_Extract_New_SU_Details_In_Assigned_Email_Content() throws InterruptedException {
+        String mailcatchURL = data.getValueByName("mailcatchURL");
+        String newSUName = "";
+        String newSUtempPw = "";
+
+        wqCheckMailcatchEmailPage.
+                check_Mailcatch_Email(mailcatchURL, newSUEmailByEmail).
+                action_read_Latest_Received_Email_In_Mailcatch();
+        Thread.sleep(10000);
+        wqCheckMailcatchEmailPage.
+                step_switch_ToFrame();
+
+        newSUName = wqCheckMailcatchEmailPage.step_Get_Activated_User_Details(WQ_CLIENT_NEW_USER_ASSIGNED_EMAIL_USER_NAME_XPATH);
+        newSUtempPw = wqCheckMailcatchEmailPage.step_Get_Activated_User_Details(WQ_CLIENT_NEW_USER_ASSIGNED_EMAIL_TEMP_PASSWORD_XPATH);
+
+        Assert.assertEquals(newSUName, newSUEmailByEmail, "New SU name extracted !");
+        Assert.assertNotNull(newSUtempPw, "New SU Temp password extracted !");
+
+        newSUEmailByEmail = newSUName;
+        newSUTempPwByEmail = newSUtempPw;
+
+        System.out.println(newSUEmailByEmail + "---" + newSUTempPwByEmail);
+    }
+
+    @Test
+    public void verify_clicking_Link_Leads_To_WQ_Sign_In_Page() throws InterruptedException {
+        String mailcatchURL = data.getValueByName("mailcatchURL");
+        String signInPageBrowserTitle = data.getValueByName("SUSignInPage_BrowserTitle");
+
+        wqCheckMailcatchEmailPage.
+                check_Mailcatch_Email(mailcatchURL, newSUEmailByEmail).
+                action_read_Latest_Received_Email_In_Mailcatch();
+        Thread.sleep(10000);
+        wqCheckMailcatchEmailPage.
+                step_switch_ToFrame().
+                action_Click_On_Link();
+
+        Assert.assertEquals(wqLoginPage.check_Browser_Title_Of_The_Newly_Opend_Tab(),signInPageBrowserTitle);
+
+    }
+
+   //Login to New Support User Dashboard
+   @Test
+   public void verify_SU_Login_To_Account() throws Exception {
+       wqLoginPage.
+               step_User_Enter_Given_Credentials(newSUEmailByEmail,newSUTempPwByEmail).
+               step_User_Click_Login_Button();
+   }
+
+    @Test
+    public void verify_User_Change_Password() throws Exception {
+       String passwordSU = data.getValueByName("SU_Password");
+
+
+    }
+
 }

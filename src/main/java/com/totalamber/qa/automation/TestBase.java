@@ -33,7 +33,7 @@ public class TestBase  {
 
 	public static final String clientEmail = "605e5569-55f2-4fbd-a982-c274113ec83c@mailcatch.com";
 	public static final String newDMEmail = "596b2cf8-5fe3-4a42-95b0-2dc4845148c4@mailcatch.com";
-	public static final String SUEmail = "newspuser1@mailcatch.com";
+	public static final String SUEmail = "drftgyhu@mailcatch.com";
 
 	//Request to change DM
 	public static String newDmEmailByEmail;
@@ -42,6 +42,7 @@ public class TestBase  {
 	public static String newSUEmailByEmail;
 	public static String newSURoleByEmail;
 	public static String userAssignRequestedCompany;
+	public static String newSUTempPwByEmail;
 
 
 	public void initDomainObjects(WebDriver driver) throws IOException {

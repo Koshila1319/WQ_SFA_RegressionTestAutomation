@@ -31,6 +31,11 @@ public class WQCheckMailcatchEmailPage extends TestBase implements wqCheckMailCa
         return seleniumBase.checkElementIsDisplayed(elementXpath);
     }
 
+    public WQCheckMailcatchEmailPage step_switch_ToFrame() {
+        seleniumBase.switchedToiFrame("emailframe");
+        return this;
+    }
+
     public WQCheckMailcatchEmailPage check_Mailcatch_Email(String mailcatchURL, String clientEmail) {
         setSiteURL(mailcatchURL);
         seleniumBase.type(CLICK_ON_EMAIL_CSS, CLICK_ON_EMAIL_XPATH, clientEmail); //Enter email
@@ -67,7 +72,10 @@ public class WQCheckMailcatchEmailPage extends TestBase implements wqCheckMailCa
     }
 
     public String step_get_Temp_Pw_Text() {
-       // seleniumBase.switchedToiFrame("emailframe");
         return seleniumBase.splitTextGetNthWord(seleniumBase.getText(WQ_CLIENT_ACTIVATE_EMAIL_TEMP_PASSWORD_CSS, WQ_CLIENT_ACTIVATE_EMAIL_TEMP_PASSWORD_XPATH), ": ",1);
+    }
+
+    public String step_Get_Email_User_Details_Texts(String xpath) {
+        return seleniumBase.splitTextGetNthWord(seleniumBase.getText("", xpath), ": ",1);
     }
 }
