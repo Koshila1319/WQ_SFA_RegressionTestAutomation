@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -1118,7 +1119,7 @@ public class SeleniumBase {
 		List<WebElement>  columns = table.findElements(By.tagName("a"));
 		String str = null;
 		for(WebElement cell : columns){
-			String clientName = splitTextGetNthWord(cell.getText()," - ", 1);
+			String clientName = splitTextGetNthWord(cell.getText()," -", 1);
 			System.out.println(clientName);
 			if(clientName.equals(value)){
 				System.out.println("Table Value : " +cell.getText()+" is Matching with searching value : "+value);
@@ -1128,9 +1129,6 @@ public class SeleniumBase {
 		}
 		return str;
 	}
-
-
-
 
 
 	//Coded by : Shammi
@@ -1216,6 +1214,7 @@ public class SeleniumBase {
 
 	}
 
+
 	public boolean isElementNotAvailable(String xpath) {
 		try {
 			driver.findElement(By.xpath(xpath));
@@ -1224,6 +1223,32 @@ public class SeleniumBase {
 			return true;
 		}
 	}
+
+	public void mouseHoverAnElement(String xPath) {
+		WebElement element = driver.findElement(By.xpath(xPath));
+		Actions action = new Actions(driver);
+		action.moveToElement(element).build().perform();
+
+	}
+
+	// Tiresha - Radio Button is deselected - Suranjith to change
+	public boolean deselectedRadioButton(String xPath) {
+		List<WebElement> radioButton = driver.findElements(By.xpath(xPath));
+		boolean bool = false;
+		for (WebElement element : radioButton) {
+			if (element.isSelected()) {
+				bool = true;
+			}
+			bool = false;
+		}
+		return bool;
+	}
+
+	public void loadURLInCurrentBrowser(String url){
+		driver.navigate().to(url);
+	}
+
+
 }
 
 

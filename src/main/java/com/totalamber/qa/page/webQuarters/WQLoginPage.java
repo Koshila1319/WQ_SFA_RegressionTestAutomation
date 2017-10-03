@@ -113,6 +113,21 @@ public class WQLoginPage implements wqLoginPage {
         return seleniumBase.getNewlyOpenedTabTitle();
     }
 
+    public WQLoginPage step_Clear_Username_Field() {
+        seleniumBase.clearTextBox(LOGIN_USER_NAME_XPATH);
+        return this;
+    }
+
+
+    public String validate_ErrorMessage_For_Invalid_UNAndPW() {
+        return seleniumBase.getText(LOGIN_ERROR_MSG_T_CSS, LOGIN_ERROR_MSG_T_XPATH);
+    }
+
+    public WQLoginPage step_clear_Password_Field() {
+        seleniumBase.clearTextBox(LOGIN_PASSWORD_XPATH);
+        return this;
+    }
+
 }
 
 

@@ -30,8 +30,6 @@ public class TestBase  {
 	protected WQManageUserRequestsPage wqManageUserRequestsPage;
 	protected WQAMAssignUsersPage wqamAssignUsersPage;
 
-
-	public static final String clientEmail = "605e5569-55f2-4fbd-a982-c274113ec83c@mailcatch.com";
 	public static final String newDMEmail = "596b2cf8-5fe3-4a42-95b0-2dc4845148c4@mailcatch.com";
 	public static final String SUEmail = "drftgyhu@mailcatch.com";
 
@@ -43,6 +41,16 @@ public class TestBase  {
 	public static String newSURoleByEmail;
 	public static String userAssignRequestedCompany;
 	public static String newSUTempPwByEmail;
+
+	protected WQVerifyClientPage wqVerifyClientPage;
+	public static final String clientEmail = "4f13c64d-e10f-4ca2-8c70-c16aa4cb8592@mailcatch.com";
+	protected WQChangePWPage wqChangePWPage;
+	protected WQTAndCPage wqTAndCPage;
+	protected WQTAndCInProgressPage wqTAndCInProgressPage;
+	protected WQTAndCAccepted wqTAndCAccepted;
+	protected WQClientProfileUpdatePage wqClientProfileUpdatePage;
+
+
 
 
 	public void initDomainObjects(WebDriver driver) throws IOException {
@@ -63,6 +71,14 @@ public class TestBase  {
 		wqdmDashboardPage = new WQDMDashboardPage(driver);
 		wqManageUserRequestsPage = new WQManageUserRequestsPage(driver);
 		wqamAssignUsersPage = new WQAMAssignUsersPage(driver);
+		wqChangePWPage = new WQChangePWPage(driver);
+		wqTAndCPage = new WQTAndCPage(driver);
+		wqTAndCInProgressPage = new WQTAndCInProgressPage(driver);
+		wqTAndCAccepted = new WQTAndCAccepted(driver);
+		wqClientProfileUpdatePage = new WQClientProfileUpdatePage(driver);
+		wqVerifyClientPage = new WQVerifyClientPage(driver);
+
+
 	}
 
 	public void setSiteURL(String siteUrl) {

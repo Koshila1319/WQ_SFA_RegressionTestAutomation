@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by t.piyananda on 17/09/2017.
  */
-public class WQAMVerifyClientPage extends TestBase implements wqAMVerifyClientPage {
+public class WQAMVerifyClientPage implements wqAMVerifyClientPage {
     SeleniumBase seleniumBase;
 
     public WQAMVerifyClientPage (WebDriver driver){seleniumBase = new SeleniumBase(driver);}

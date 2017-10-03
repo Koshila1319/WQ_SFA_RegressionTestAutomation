@@ -27,7 +27,7 @@ public class WQClientRegTest extends TestBase {
 
     @AfterMethod
     public void endTestMethod() throws Throwable{
-        //quitDriver();
+        quitDriver();
     }
 
     //company name field validations
@@ -1101,10 +1101,10 @@ public class WQClientRegTest extends TestBase {
         Assert.assertEquals(wqClientRegPage.check_Thank_You_Page_Msg_Content3(),page_Content_3);
     }
 
-   /* @Test
+    @Test
     public void verify_Click_Hear_Link_Resend_The_Email() throws InterruptedException {
-
-
+        String subject="Email Verification of Registering with WebQuarters";
+        String mailcatch_URL=data.getValueByName("mailcatchURL");
         String fName = data.getValueByName("First_Name");
         String lName = data.getValueByName("Last_Name");
         String email = Clientemail;
@@ -1138,12 +1138,18 @@ public class WQClientRegTest extends TestBase {
         wqClientRegPage.
                 select_An_Email_Marketing().
                 click_Sign_Me_Up_Button().
-                click_Resend_Email().
-                user_Login_To_Account(Clientemail);
+                click_Resend_Email();
+
+        wqCheckMailcatchEmailPage.
+                check_Mailcatch_Email(mailcatch_URL,Clientemail);
+                Thread.sleep(5000);
+        wqCheckMailcatchEmailPage.
+                action_read_Latest_Received_Email_In_Mailcatch();
+        Assert.assertEquals(wqCheckMailcatchEmailPage.check_Email_Subject(),subject);
 
 
 
-    }*/
 
+    }
 
 }

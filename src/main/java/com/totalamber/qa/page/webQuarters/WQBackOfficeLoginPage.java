@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by t.piyananda on 13/09/2017.
  */
-public class WQBackOfficeLoginPage extends TestBase implements wqBackOfficeLoginPage{
+public class WQBackOfficeLoginPage implements wqBackOfficeLoginPage{
 
     SeleniumBase seleniumBase;
     public WQBackOfficeLoginPage(WebDriver driver) { seleniumBase = new SeleniumBase(driver);}
@@ -67,4 +67,6 @@ public class WQBackOfficeLoginPage extends TestBase implements wqBackOfficeLogin
        // seleniumBase.click(BO_SIGNIN_DROPDOWN_XPATH,BO_SIGNIN_DROPDOWN_CSS);
         return seleniumBase.listDropdownOptions(BO_SIGNIN_DROPDOWN_XPATH);
     }
+
+
 }

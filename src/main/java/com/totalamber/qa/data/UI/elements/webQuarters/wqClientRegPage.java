@@ -123,14 +123,7 @@ public interface wqClientRegPage {
     public final String WQCLIENT_THANK_YOU_PAGE_EMAIL_SEND_XPATH=".//*[contains(@id,'_ctl00_LinkButtonSendMail')]";
     public final String WQCLIENT_THANK_YOU_PAGE_EMAIL_SEND_CSS="";
 
-    public final String MAILCATCH_EMAIL_XPATH=".//*[@id='mailboxform']/input[1]";
-    public final String MAILICATCH_EMAIL_CSS="";
 
-    public final String MAILCATCH_GO_BUTTON_XPATH=".//*[@id='mailboxform']/input[2]";
-    public final String MAILCATCH_GO_BUTTON_CSS="";
-
-    public final String MAILCATCH_REFRESH_BUTTON_XPATH="//*[@id='mailsList']/h2/a[2]/img";
-    public final String MAILCATCH_REFRESH_BUTTON_CSS="";
 
 
 

@@ -102,5 +102,9 @@ public class WQHomePage  implements wqHomePage {
         seleniumBase.click(HOMEPAGE_WQ_SUPERHEROES1_VIDEO_XPATH,HOMEPAGE_WQ_SUPERHEROES1_VIDEO_CSS);
     }
 
-
+    //This needs to remove from the code after running in correct way
+    public WQHomePage action_Navigate_To_ClientProfilePage(String url) {
+        seleniumBase.loadURLInCurrentBrowser(url);
+        return this;
+    }
 }

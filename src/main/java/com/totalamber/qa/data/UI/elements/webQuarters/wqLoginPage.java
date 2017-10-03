@@ -18,4 +18,7 @@ public interface wqLoginPage {
 
     public final String LOGIN_PAGE_WQ_LOGO_XPATH="//img[contains(@src,'/_catalogs/masterpage/WQ/Images/main-talogo-b.jpg')]";
     public final String LOGIN_PAGE_ACTIVATE_SCREEN_SHARING_XPATH="//*[@id='engagementTab']";
+
+    public final String LOGIN_ERROR_MSG_T_XPATH = "//*[contains(@class,'error-msg')]";
+    public final String LOGIN_ERROR_MSG_T_CSS = "";
 }
