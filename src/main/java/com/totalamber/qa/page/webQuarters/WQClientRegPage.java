@@ -216,12 +216,14 @@ public class WQClientRegPage implements wqClientRegPage {
         return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_WEB_ADDRESS_CSS, WQCLIENT_REG_PAGE_WEB_ADDRESS_XPATH, "placeholder");
     }
 
-    public String software_Application_Text_Feild() {
-        return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_CSS, WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH, "value");
+    public WQClientRegPage software_Application_Text_Feild() {
+        seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_CSS, WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH, "value");
+        return this;
     }
 
-    public void select_SW_Application() {
+    public WQClientRegPage select_SW_Application() {
         seleniumBase.selectByVisibleText(WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_CSS, WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH, "IFS");
+        return this;
 
     }
 
@@ -229,8 +231,9 @@ public class WQClientRegPage implements wqClientRegPage {
         return seleniumBase.getText(WQCLIENT_REG_PAGE_MODULES_CSS, WQCLIENT_REG_PAGE_MODULES_XPATH);
     }
 
-    public void select_Modules() {
+    public WQClientRegPage select_Modules() {
         seleniumBase.setdropdownElements(WQCLIENT_REG_PAGE_MODULE_DIV, WQCLIENT_REG_PAGE_MODULES_XPATH);
+        return this;
 
     }
 
@@ -246,12 +249,14 @@ public class WQClientRegPage implements wqClientRegPage {
         seleniumBase.setdropdownElements(WQCLIENT_REG_PAGE_VERSIONS_DIV,WQCLIENT_REG_PAGE_VERSIONS_XPATH);
     }
 
-    public void select_CheckBox_In_Modules() {
+    public WQClientRegPage select_CheckBox_In_Modules() {
         seleniumBase.setdropdownElements(WQCLIENT_REG_PAGE_MODULE_DIV,WQCLIENT_REG_PAGE_MODULES_CHECKBOX_XPATH);
+        return this;
     }
 
-    public void select_CheckBox_In_Versions() {
+    public WQClientRegPage select_CheckBox_In_Versions() {
         seleniumBase.setdropdownElements(WQCLIENT_REG_PAGE_VERSIONS_DIV,WQCLIENT_REG_PAGE_VERSIONS_CHECKBOX_XPATH);
+        return this;
     }
 
     public boolean select_Versions_Without_The_SW() throws InterruptedException {

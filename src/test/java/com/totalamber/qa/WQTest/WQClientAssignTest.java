@@ -33,7 +33,7 @@ public class WQClientAssignTest extends TestBase{
 
     @AfterMethod
     public void endTestMethod() throws Throwable{
-       //quitDriver();
+       quitDriver();
     }
 
 

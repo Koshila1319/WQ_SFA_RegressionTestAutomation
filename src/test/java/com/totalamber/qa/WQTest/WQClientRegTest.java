@@ -27,7 +27,7 @@ public class WQClientRegTest extends TestBase {
 
     @AfterMethod
     public void endTestMethod() throws Throwable{
-        quitDriver();
+       quitDriver();
     }
 
     //company name field validations
@@ -881,6 +881,7 @@ public class WQClientRegTest extends TestBase {
         wqClientRegPage.
                 click_Sign_Me_Up_Button();
 
+        System.out.println(Clientemail);
 
 
     }

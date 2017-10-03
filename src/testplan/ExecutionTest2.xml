@@ -202,6 +202,8 @@
                                             <include name="verify_Exsiting_Emails"/>
 
 
+
+
 									</methods>
 									</class>-->
 
@@ -267,9 +269,9 @@
 									</class>-->
 									<!--Check the features in BackOffice Login Page-->
 
-									<class name ="com.totalamber.qa.WQTest.WQClientAssignTest">
+									<!--<class name ="com.totalamber.qa.WQTest.WQClientAssignTest">
 											<methods>
-												<!--<include name="verify_Company_Name_Link_Leads_To_Assign_Page"/>
+												<include name="verify_Company_Name_Link_Leads_To_Assign_Page"/>
 												<include name="verify_User_Can_Search_Company_In_The_Enter_Company_Name_Text_Feild"/>
 												<include name="verify_New_Company_Data_Display_As_Not_Verified_By_Click_On_Go_Button"/>
 												<include name="verify_Verified_Company_Names_Can_Be_Searched_By_Click_On_Go_Button"/>
@@ -282,14 +284,21 @@
 												<include name="verify_Assign_Button_Available"/>
 												<include name="verify_The_Copy_Right_Info"/>-
 
-												<include name="verify_Assign_Button_Text"/>-->
+												<include name="verify_Assign_Button_Text"/>
 
 												<include name="verify_User_Can_Select_AM_From_The_DropDown"/>
 												<include name="verify_User_Can_Assign_A_AM_Successfully"/>
 												<include name="verify_User_Redirects_SM_Dashboard_After_Assigning_AM"/>
 
 											</methods>
-									</class>
+									</class>-->
+									<!--Check features in the client profile-->
+												<class name="com.totalamber.qa.WQTest.WQClientCompanyProfileTest">
+														<methods>
+															<include name="verify_The_Compnay_Profile_Link_Leads_To_Company_Profile_Page"/>
+															<include name="verify_The_Page_Mandatory_Information"/>
+														</methods>
+												</class>
 
 
         </classes>
