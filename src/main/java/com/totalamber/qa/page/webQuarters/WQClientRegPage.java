@@ -194,9 +194,9 @@ public class WQClientRegPage implements wqClientRegPage {
         return seleniumBase.getTextByAttribute(WQCLIENT_REG_PAGE_FAX_CSS, WQCLIENT_REG_PAGE_FAX_XPATH, "placeholder");
     }
 
-    public WQClientRegPage select_Organization_Size() {
+    public WQClientRegPage select_Organization_Size(String OZ) {
 
-        seleniumBase.selectByVisibleText(WQCLIENT_REG_PAGE_ORG_SIZE_CSS, WQCLIENT_REG_PAGE_ORG_SIZE_XPATH, "Between 50 to 150");
+        seleniumBase.selectByVisibleText(WQCLIENT_REG_PAGE_ORG_SIZE_CSS, WQCLIENT_REG_PAGE_ORG_SIZE_XPATH, OZ);
         return this;
     }
 
@@ -221,8 +221,8 @@ public class WQClientRegPage implements wqClientRegPage {
         return this;
     }
 
-    public WQClientRegPage select_SW_Application() {
-        seleniumBase.selectByVisibleText(WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_CSS, WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH, "IFS");
+    public WQClientRegPage select_SW_Application(String SWApp) {
+        seleniumBase.selectByVisibleText(WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_CSS, WQCLIENT_REG_PAGE_SOFTWARE_APPLICATION_XPATH, SWApp);
         return this;
 
     }
@@ -368,8 +368,8 @@ public class WQClientRegPage implements wqClientRegPage {
         return seleniumBase.getText(WQCLIENT_REG_PAGE_COUNTRY_ERROR_MSG_CSS,WQCLIENT_REG_PAGE_COUNTRY_ERROR_MSG_XPATH);
     }
 
-    public WQClientRegPage select_Country() {
-        seleniumBase.selectByVisibleText(WQCLIENT_REG_PAGE_COUNTRY_DROPDOWN_CSS, WQCLIENT_REG_PAGE_COUNTRY_DROPDOWN_XPATH, "Algeria");
+    public WQClientRegPage select_Country(String country) {
+        seleniumBase.selectByVisibleText(WQCLIENT_REG_PAGE_COUNTRY_DROPDOWN_CSS, WQCLIENT_REG_PAGE_COUNTRY_DROPDOWN_XPATH, country);
         return this;
     }
 

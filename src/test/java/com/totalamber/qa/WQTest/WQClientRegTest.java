@@ -389,11 +389,14 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void  verify_User_Can_Select_A_Country_From_The_Country_Feild()
     {
+
+        String country=data.getValueByName("CompanyDetails_Country");
+
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
                 check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
-        wqClientRegPage.select_Country();
+        wqClientRegPage.select_Country(country);
     }
 
     //contact number features
@@ -513,12 +516,14 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_User_Can_Select_Organization_Size_From_Organization_Size_Feild()
     {
+        String organization_size=data.getValueByName("CompanyDetails_Organization_Size");
+
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
                 check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
         wqClientRegPage.
-                select_Organization_Size();
+                select_Organization_Size(organization_size);
     }
 
     //Web Address Features
@@ -569,13 +574,15 @@ public class WQClientRegTest extends TestBase {
 
     @Test
     public void verify_User_Can_Select_A_Software_From_Software_Application_Feild() throws InterruptedException {
+
+        String SWApp=data.getValueByName("Software_Application");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
                 check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
         Thread.sleep(5000);
         wqClientRegPage.
-                select_SW_Application();
+                select_SW_Application(SWApp);
 
     }
 
@@ -674,7 +681,7 @@ public class WQClientRegTest extends TestBase {
 
         String application_name_error_msg="Please select application name";
         String module_error_msg="Please select at least one module";
-
+        String SWApp=data.getValueByName("Software_Application");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
@@ -686,7 +693,7 @@ public class WQClientRegTest extends TestBase {
         Assert.assertEquals(wqClientRegPage.check_App_Name_Error_Msg(),application_name_error_msg);
         Thread.sleep(5000);
         wqClientRegPage.
-                select_SW_Application();
+                select_SW_Application(SWApp);
         wqClientRegPage.
                 click_Add_Button();
         Thread.sleep(10000);
@@ -695,13 +702,15 @@ public class WQClientRegTest extends TestBase {
 
     @Test
     public void verify_User_Can_Successfully_Add_SW_App_Info() throws InterruptedException {
+
+        String SWApp=data.getValueByName("Software_Application");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
                 check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
         Thread.sleep(5000);
         wqClientRegPage.
-                select_SW_Application();
+                select_SW_Application(SWApp);
         Thread.sleep(5000);
         wqClientRegPage.
                 select_CheckBox_In_Modules();
@@ -815,9 +824,11 @@ public class WQClientRegTest extends TestBase {
     @Test
     public void verify_How_Did_You_Hear_About_Us_Feild_Is_Mandatory(){
         String Error_Msg="Please select How did you get to know WQ?";
+        String organization_size=data.getValueByName("CompanyDetails_Organization_Size");
+
         verify_Adding_Organization_Size_Is_Mandatory();
         wqClientRegPage.
-                select_Organization_Size().
+                select_Organization_Size(organization_size).
                 click_Sign_Me_Up_Button();
         Assert.assertEquals(wqClientRegPage.check_How_Did_You_Hear_About_Us_Error_Msg(),Error_Msg);
     }
@@ -837,8 +848,10 @@ public class WQClientRegTest extends TestBase {
     public void verify_Adding_A_SW_App_Info_Is_Mandatory(){
         String Error_Msg="Please select application,version and modules details";
         verify_Adding_Country_Is_Mandatory();
+        String country=data.getValueByName("CompanyDetails_Country");
+
         wqClientRegPage.
-                select_Country().
+                select_Country(country).
                 click_Sign_Me_Up_Button();
         Assert.assertEquals(wqClientRegPage.check_Country_Error_Msg(),Error_Msg);
 
@@ -854,18 +867,21 @@ public class WQClientRegTest extends TestBase {
         String town = data.getValueByName("CompanyDetails_City");
         String contactNo = data.getValueByName("CompanyDetails_Phone");
         String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        String organization_size=data.getValueByName("CompanyDetails_Organization_Size");
+        String country=data.getValueByName("CompanyDetails_Country");
+        String SWApp=data.getValueByName("Software_Application");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
                 check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
         wqClientRegPage.
                 fill_Client_Registration_Info(companyName,fName,lName,email,jobTitle,address,town,contactNo);
-        wqClientRegPage.select_Organization_Size();
-        wqClientRegPage.select_Country();
+        wqClientRegPage.select_Organization_Size(organization_size);
+        wqClientRegPage.select_Country(country);
 
         Thread.sleep(5000);
         wqClientRegPage.
-                select_SW_Application();
+                select_SW_Application(SWApp);
         Thread.sleep(5000);
         wqClientRegPage.
                 select_CheckBox_In_Modules();
@@ -903,17 +919,20 @@ public class WQClientRegTest extends TestBase {
         String town = data.getValueByName("CompanyDetails_City");
         String contactNo = data.getValueByName("CompanyDetails_Phone");
         String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        String organization_size=data.getValueByName("CompanyDetails_Organization_Size");
+        String country=data.getValueByName("CompanyDetails_Country");
+        String SWApp=data.getValueByName("Software_Application");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
                 check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
         wqClientRegPage.
                 fill_Client_Registration_Info(companyName,fName,lName,email,jobTitle,address,town,contactNo);
-        wqClientRegPage.select_Organization_Size();
-        wqClientRegPage.select_Country();
+        wqClientRegPage.select_Organization_Size(organization_size);
+        wqClientRegPage.select_Country(country);
         Thread.sleep(5000);
         wqClientRegPage.
-                select_SW_Application();
+                select_SW_Application(SWApp);
         Thread.sleep(5000);
         wqClientRegPage.
                 select_CheckBox_In_Modules();
@@ -943,17 +962,20 @@ public class WQClientRegTest extends TestBase {
         String town = data.getValueByName("CompanyDetails_City");
         String contactNo = data.getValueByName("CompanyDetails_Phone");
         String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        String organization_size=data.getValueByName("CompanyDetails_Organization_Size");
+        String country=data.getValueByName("CompanyDetails_Country");
+        String SWApp=data.getValueByName("Software_Application");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
                 check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
         wqClientRegPage.
                 fill_Client_Registration_Info(companyName,fName,lName,email,jobTitle,address,town,contactNo);
-        wqClientRegPage.select_Organization_Size();
-        wqClientRegPage.select_Country();
+        wqClientRegPage.select_Organization_Size(organization_size);
+        wqClientRegPage.select_Country(country);
         Thread.sleep(5000);
         wqClientRegPage.
-                select_SW_Application();
+                select_SW_Application(SWApp);
         Thread.sleep(5000);
         wqClientRegPage.
                 select_CheckBox_In_Modules();
@@ -985,17 +1007,20 @@ public class WQClientRegTest extends TestBase {
         String town = data.getValueByName("CompanyDetails_City");
         String contactNo = data.getValueByName("CompanyDetails_Phone");
         String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        String organization_size=data.getValueByName("CompanyDetails_Organization_Size");
+        String country=data.getValueByName("CompanyDetails_Country");
+        String SWApp=data.getValueByName("Software_Application");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
                 check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
         wqClientRegPage.
                 fill_Client_Registration_Info(companyName,fName,lName,email,jobTitle,address,town,contactNo);
-        wqClientRegPage.select_Organization_Size();
-        wqClientRegPage.select_Country();
+        wqClientRegPage.select_Organization_Size(organization_size);
+        wqClientRegPage.select_Country(country);
         Thread.sleep(5000);
         wqClientRegPage.
-                select_SW_Application();
+                select_SW_Application(SWApp);
         Thread.sleep(5000);
         wqClientRegPage.
                 select_CheckBox_In_Modules();
@@ -1023,17 +1048,20 @@ public class WQClientRegTest extends TestBase {
         String town = data.getValueByName("CompanyDetails_City");
         String contactNo = data.getValueByName("CompanyDetails_Phone");
         String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        String organization_size=data.getValueByName("CompanyDetails_Organization_Size");
+        String country=data.getValueByName("CompanyDetails_Country");
+        String SWApp=data.getValueByName("Software_Application");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
                 check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
         wqClientRegPage.
                 fill_Client_Registration_Info(companyName,fName,lName,email,jobTitle,address,town,contactNo);
-        wqClientRegPage.select_Organization_Size();
-        wqClientRegPage.select_Country();
+        wqClientRegPage.select_Organization_Size(organization_size);
+        wqClientRegPage.select_Country(country);
         Thread.sleep(5000);
         wqClientRegPage.
-                select_SW_Application();
+                select_SW_Application(SWApp);
         Thread.sleep(5000);
         wqClientRegPage.
                 select_CheckBox_In_Modules();
@@ -1071,17 +1099,20 @@ public class WQClientRegTest extends TestBase {
         String town = data.getValueByName("CompanyDetails_City");
         String contactNo = data.getValueByName("CompanyDetails_Phone");
         String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        String organization_size=data.getValueByName("CompanyDetails_Organization_Size");
+        String country=data.getValueByName("CompanyDetails_Country");
+        String SWApp=data.getValueByName("Software_Application");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
                 check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
         wqClientRegPage.
                 fill_Client_Registration_Info(companyName,fName,lName,email,jobTitle,address,town,contactNo);
-        wqClientRegPage.select_Organization_Size();
-        wqClientRegPage.select_Country();
+        wqClientRegPage.select_Organization_Size(organization_size);
+        wqClientRegPage.select_Country(country);
         Thread.sleep(5000);
         wqClientRegPage.
-                select_SW_Application();
+                select_SW_Application(SWApp);
         Thread.sleep(5000);
         wqClientRegPage.
                 select_CheckBox_In_Modules();
@@ -1114,17 +1145,20 @@ public class WQClientRegTest extends TestBase {
         String town = data.getValueByName("CompanyDetails_City");
         String contactNo = data.getValueByName("CompanyDetails_Phone");
         String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        String organization_size=data.getValueByName("CompanyDetails_Organization_Size");
+        String country=data.getValueByName("CompanyDetails_Country");
+        String SWApp=data.getValueByName("Software_Application");
         wqHomePage.
                 action_Navigate_To_SignUp_Page();
         wqSignUpPage.
                 check_client_Radio_Button_Selection_Leads_To_Client_Registration_Page();
         wqClientRegPage.
                 fill_Client_Registration_Info(companyName,fName,lName,email,jobTitle,address,town,contactNo);
-        wqClientRegPage.select_Organization_Size();
-        wqClientRegPage.select_Country();
+        wqClientRegPage.select_Organization_Size(organization_size);
+        wqClientRegPage.select_Country(country);
         Thread.sleep(5000);
         wqClientRegPage.
-                select_SW_Application();
+                select_SW_Application(SWApp);
         Thread.sleep(5000);
         wqClientRegPage.
                 select_CheckBox_In_Modules();

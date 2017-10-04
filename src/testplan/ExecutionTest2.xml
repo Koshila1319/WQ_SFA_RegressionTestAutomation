@@ -103,111 +103,111 @@
 									</class>-->
 
 						<!--Check the features in Client Registration Page -->
-            						<!--<class name ="com.totalamber.qa.WQTest.WQClientRegTest">
-										<methods>
-											<include name ="verify_Company_Name_Text_Feild_Is_Single_Line_Of_Text"/>
-                                            <include name="verify_Company_Name_Feild_Text"/>
-                                            <include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Company_Name_Text_Feild"/>
+			<!--<class name ="com.totalamber.qa.WQTest.WQClientRegTest">
+                <methods>
+<include name ="verify_Company_Name_Text_Feild_Is_Single_Line_Of_Text"/>
+<include name="verify_Company_Name_Feild_Text"/>
+<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Company_Name_Text_Feild"/>
 
-                                            <include name="verify_Business_Reg_No_Text_Feild_Is_Single_Line_Of_Text"/>
-                                            <include name="verify_Business_Reg_No_Feild_Text"/>
-                                            <include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Business_Reg_No_Text_Feild"/>
+<include name="verify_Business_Reg_No_Text_Feild_Is_Single_Line_Of_Text"/>
+<include name="verify_Business_Reg_No_Feild_Text"/>
+<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Business_Reg_No_Text_Feild"/>
 
-                                            <include name="verify_Your_First_Name_Text_Feild_Is_Single_Line_Of_Text"/>
-                                            <include name="verify_Your_First_Name_Feild_Text"/>
-                                            <include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_First_Name_Text_Feild"/>
+<include name="verify_Your_First_Name_Text_Feild_Is_Single_Line_Of_Text"/>
+<include name="verify_Your_First_Name_Feild_Text"/>
+<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_First_Name_Text_Feild"/>
 
-                                            <include name="verify_Your_Last_Name_Text_Feild_Is_Single_Line_Of_Text"/>
-                                            <include name="verify_Your_Last_Name_Feild_Text"/>
-                                            <include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_Last_Name_Text_Feild"/>
+<include name="verify_Your_Last_Name_Text_Feild_Is_Single_Line_Of_Text"/>
+<include name="verify_Your_Last_Name_Feild_Text"/>
+<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_Last_Name_Text_Feild"/>
 
-                                            <include name="verify_Your_Email_Text_Feild_Is_Single_Line_Of_Text"/>
-                                            <include name="verify_Your_Email_Feild_Text"/>
-                                            <include name="verify_Email_Address_Is_Validated"/>
+<include name="verify_Your_Email_Text_Feild_Is_Single_Line_Of_Text"/>
+<include name="verify_Your_Email_Feild_Text"/>
+<include name="verify_Email_Address_Is_Validated"/>
 
-                                            <include name="verify_Your_Title_Designation_Text_Feild_Is_Single_Line_Of_Text"/>
-                                            <include name="verify_Your_Title_Designation_Feild_Text"/>
-                                               <include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_Title_Designation_Text_Feild"/>
+<include name="verify_Your_Title_Designation_Text_Feild_Is_Single_Line_Of_Text"/>
+<include name="verify_Your_Title_Designation_Feild_Text"/>
+<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Your_Title_Designation_Text_Feild"/>
 
-                                            <include name="verify_Company_Address_Text_Feild_Is_Single_Line_Of_Text"/>
-                                            <include name="verify_Company_Address_Feild_Text"/>
-                                            <include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Company_Address_Text_Feild"/>
+<include name="verify_Company_Address_Text_Feild_Is_Single_Line_Of_Text"/>
+<include name="verify_Company_Address_Feild_Text"/>
+<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Company_Address_Text_Feild"/>
 
-                                            <include name="verify_Town_City_Text_Feild_Is_Single_Line_Of_Text"/>
-                                            <include name="verify_Town_City_Feild_Text"/>
-                                            <include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Town_City_Text_Feild"/>
+<include name="verify_Town_City_Text_Feild_Is_Single_Line_Of_Text"/>
+<include name="verify_Town_City_Feild_Text"/>
+<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Town_City_Text_Feild"/>
 
-                                            <include name="verify_Country_State_Text_Feild_Is_Single_Line_Of_Text"/>
-                                            <include name="verify_Country_State_Feild_Text"/>
-                                            <include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Country_State_Text_Feild"/>
+<include name="verify_Country_State_Text_Feild_Is_Single_Line_Of_Text"/>
+<include name="verify_Country_State_Feild_Text"/>
+<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Country_State_Text_Feild"/>
 
-                                            <include name="verify_Postal_Zip_Code_Text_Feild_Is_Single_Line_Of_Text"/>
-                                            <include name="verify_Postal_Zip_Code_Feild_Text"/>
-                                            <include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Postal_Zip_Code_Text_Feild"/>
+<include name="verify_Postal_Zip_Code_Text_Feild_Is_Single_Line_Of_Text"/>
+<include name="verify_Postal_Zip_Code_Feild_Text"/>
+<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Postal_Zip_Code_Text_Feild"/>
 
-                                            <include name="verify_Country_Feild_Text"/>
-                                            <include name="verify_User_Can_Select_A_Country_From_The_Country_Feild"/>
+<include name="verify_Country_Feild_Text"/>
+<include name="verify_User_Can_Select_A_Country_From_The_Country_Feild"/>
 
-                                            <include name="verify_Contact_Number_Text_Feild_Is_Single_Line_Of_Text"/>
-                                            <include name="verify_Contact_Number_Feild_Text"/>
-                                            <include name="verify_User_Can_Enter_Numbers_To_Contact_Number_Feild"/>
+<include name="verify_Contact_Number_Text_Feild_Is_Single_Line_Of_Text"/>
+<include name="verify_Contact_Number_Feild_Text"/>
+<include name="verify_User_Can_Enter_Numbers_To_Contact_Number_Feild"/>
 
-                                            <include name="verify_Dialing_Code_Text_Feild_Is_Single_Line_Of_Text"/>
-                                            <include name="verify_Dialing_Code_Feild_Text"/>
-                                            <include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Dialing_Code_Text_Feild"/>
+<include name="verify_Dialing_Code_Text_Feild_Is_Single_Line_Of_Text"/>
+<include name="verify_Dialing_Code_Feild_Text"/>
+<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Dialing_Code_Text_Feild"/>
 
-                                            <include name="verify_Fax_Text_Feild_Is_Single_Line_Of_Text"/>
-                                            <include name="verify_Fax_Feild_Text"/>
-                                            <include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Fax_Text_Feild"/>
+<include name="verify_Fax_Text_Feild_Is_Single_Line_Of_Text"/>
+<include name="verify_Fax_Feild_Text"/>
+<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Fax_Text_Feild"/>
 
-                                            <include name="verify_Organization_Size_Text"/>
-                                            <include name="verify_User_Can_Select_Organization_Size_From_Organization_Size_Feild"/>
+<include name="verify_Organization_Size_Text"/>
+<include name="verify_User_Can_Select_Organization_Size_From_Organization_Size_Feild"/>
 
-                                            <include name="verify_Company_Web_Address_Feild_Is_Single_Line_Of_Text"/>
-                                            <include name="verify_Company_Web_Address_Feild_Text"/>
-                                            <include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Company_Web_Address_Text_Feild"/>
+<include name="verify_Company_Web_Address_Feild_Is_Single_Line_Of_Text"/>
+<include name="verify_Company_Web_Address_Feild_Text"/>
+<include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Company_Web_Address_Text_Feild"/>
 
-                                            <include name="verify_Software_Application_Text"/>
-                                            <include name="verify_User_Can_Select_A_Software_From_Software_Application_Feild"/>
+<include name="verify_Software_Application_Text"/>
+<include name="verify_User_Can_Select_A_Software_From_Software_Application_Feild"/>
 
-                                            <include name="verify_Modules_Text"/>
-                                            <include name="verify_User_Can_Tick_The_Module_Checkboxes_According_To_SW_Application"/>
-                                            <include name="verify_Data_Availability_In_Modules_When_User_Selecting_A_SW_Application"/>
-                                            <include name="verify_Data_Availiability_In_Modules_Without_User_Selecting_A_SW_Application"/>
+<include name="verify_Modules_Text"/>
+<include name="verify_User_Can_Tick_The_Module_Checkboxes_According_To_SW_Application"/>
+<include name="verify_Data_Availability_In_Modules_When_User_Selecting_A_SW_Application"/>
+<include name="verify_Data_Availiability_In_Modules_Without_User_Selecting_A_SW_Application"/>
 
-                                            <include name="verify_Versions_Text"/>
-                                            <include name="verify_Data_Availiability_In_Modules_Without_User_Selecting_A_SW_Application"/>
-                                            <include name="verify_User_Can_Tick_The_Version_Checkboxes_According_To_SW_Application"/>
-                                            <include name="verify_Data_Availiability_In_Version_Without_User_Selecting_A_SW_Application"/>
+<include name="verify_Versions_Text"/>
+<include name="verify_Data_Availiability_In_Modules_Without_User_Selecting_A_SW_Application"/>
+<include name="verify_User_Can_Tick_The_Version_Checkboxes_According_To_SW_Application"/>
+<include name="verify_Data_Availiability_In_Version_Without_User_Selecting_A_SW_Application"/>
 
-                                            <include name="verify_Add_Button_Text_Feild"/>
-                                            <include name="verify_The_Mandatory_feilds"/>
-                                            <include name="verify_User_Can_Successfully_Add_SW_App_Info"/>
+<include name="verify_Add_Button_Text_Feild"/>
+<include name="verify_The_Mandatory_feilds"/>
+<include name="verify_User_Can_Successfully_Add_SW_App_Info"/>
 
-                                            <include name="verify_Delete_Button_Text_Feild"/>
-                                            <include name="verify_User_Can_Successfully_Delete_SW_App_Info"/>
+<include name="verify_Delete_Button_Text_Feild"/>
+<include name="verify_User_Can_Successfully_Delete_SW_App_Info"/>
 
-                                            <include name="verify_How_Did_You_Hear_About_Us_Title"/>
-                                            <include name="verify_The_Selection_Dropdown_Text"/>
-                                            <include name="verify_User_Can_Select_An_Email_Marketing_Using_The_DropDown"/>
+<include name="verify_How_Did_You_Hear_About_Us_Title"/>
+<include name="verify_The_Selection_Dropdown_Text"/>
+<include name="verify_User_Can_Select_An_Email_Marketing_Using_The_DropDown"/>
 
-                                            <include name="verify_Sign_Me_Up_Button_Text_Feild"/>
-                                            <include name="verify_The_Client_Reg_Form_Mandatory_feilds"/>
-                                            <include name="verify_Adding_Organization_Size_Is_Mandatory"/>
-                                            <include name="verify_How_Did_You_Hear_About_Us_Feild_Is_Mandatory"/>
-                                            <include name="verify_Adding_Country_Is_Mandatory"/>
-                                            <include name="verify_Adding_A_SW_App_Info_Is_Mandatory"/>
-                                            <include name="verify_User_Can_Register_The_Client_Info_Successfully"/>
-                                            <include name="verify_Sign_Me_Up_Button_Leads_To_Thank_You_For_SignUp_Page"/>
-                                            <include name="verify_Exsiting_Emails"/>
-
-
+<include name="verify_Sign_Me_Up_Button_Text_Feild"/>
+<include name="verify_The_Client_Reg_Form_Mandatory_feilds"/>
+<include name="verify_Adding_Organization_Size_Is_Mandatory"/>
+<include name="verify_How_Did_You_Hear_About_Us_Feild_Is_Mandatory"/>
+<include name="verify_Adding_Country_Is_Mandatory"/>
+<include name="verify_Adding_A_SW_App_Info_Is_Mandatory"/>
+<include name="verify_User_Can_Register_The_Client_Info_Successfully"/>
+<include name="verify_Sign_Me_Up_Button_Leads_To_Thank_You_For_SignUp_Page"/>
+<include name="verify_Exsiting_Emails"/>
 
 
-									</methods>
-									</class>-->
 
-									<!--Check the features in Client Registration Page -->
+
+</methods>
+</class>-->
+
+    <!--Check the features in Client Registration Page -->
 									<!--<class name ="com.totalamber.qa.WQTest.WQClientRegTest">
 										<methods>
 											<include name="verify_The_Page_Browser_Title"/>
@@ -295,8 +295,22 @@
 									<!--Check features in the client profile-->
 												<class name="com.totalamber.qa.WQTest.WQClientCompanyProfileTest">
 														<methods>
-															<include name="verify_The_Compnay_Profile_Link_Leads_To_Company_Profile_Page"/>
+															<!--<include name="verify_The_Compnay_Profile_Link_Leads_To_Company_Profile_Page"/>
 															<include name="verify_The_Page_Mandatory_Information"/>
+															<include name="verify_Company_Profile_Browser_Title"/>
+															<include name="verify_Company_Profile_Details_Available"/>
+															<include name="verify_Edit_Button_IsAvailable"/>
+															<include name="verify_Clicking_Edit_Button_Leads_To_Client_Profile_Update_page"/>
+															<include name="verify_CopyRight_Info_Availability"/>
+															<include name="verify_Company_Logo_Availability"/>
+															<include name="verify_User_Profile_Link_Leads_To_User_Profile_Page"/>
+															<include name="verify_Dicision_Maker_Dashboard_Link_Leads_To_WQ_DM_Portal_Page"/>
+															<include name="verify_User_Can_Logout_From_The_System"/>
+															<include name="verify_Top_Navigation_Panel_Available"/>
+															<include name="verify_WQ_Logo_Available"/>-->
+															<include name="verify_User_Can_Navigate_To_Update_Profile_Page_Using_The_Setting_Option"/>
+															<include name="verify_User_Can_Navigate_To_Change_Password_Page_Using_The_Setting_Option"/>
+															<include name="verify_User_Can_Navigate_To_Decision_Maker_Decision_Dashboard_Page_Using_The_Setting_Option"/>
 														</methods>
 												</class>
 
