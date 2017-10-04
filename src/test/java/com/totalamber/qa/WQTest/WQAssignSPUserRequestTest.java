@@ -3,6 +3,7 @@ package com.totalamber.qa.WQTest;
 import com.sun.xml.internal.ws.policy.AssertionSet;
 import com.totalamber.qa.automation.TestBase;
 import com.totalamber.qa.data.UI.elements.webQuarters.wqAMAssignUsersPage;
+import com.totalamber.qa.data.UI.elements.webQuarters.wqUserProfileUpdatePage;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -14,6 +15,7 @@ import static com.totalamber.qa.data.UI.elements.webQuarters.wqCheckMailCatchEma
 import static com.totalamber.qa.data.UI.elements.webQuarters.wqCheckOutLookEmailPage.*;
 import static com.totalamber.qa.data.UI.elements.webQuarters.wqDMDashboardPage.*;
 import static com.totalamber.qa.data.UI.elements.webQuarters.wqManageUserRequestsPage.*;
+import static com.totalamber.qa.data.UI.elements.webQuarters.wqUserProfileUpdatePage.*;
 
 /**
  * Created by e.koshila on 10/2/2017.
@@ -23,14 +25,12 @@ public class WQAssignSPUserRequestTest extends TestBase {
     @BeforeClass
     public void NavigateToPage() throws Exception {
         initDomainObjects(DRIVER);
-   /*     String siteUrl = data.getValueByName("url");
+        String siteUrl = data.getValueByName("url");
         setSiteURL(siteUrl);
         wqHomePage.action_Navigate_To_LoginPage();
         wqLoginPage.step_User_Enter_Given_Credentials(clientEmail,"asdf1234%");
         wqLoginPage.step_User_Click_Login_Button();
-        wqdmDashboardPage.step_Click_Home_Button();*/
-
-        newSUEmailByEmail="aqwqw@mailcatch.com";
+        wqdmDashboardPage.step_Click_Home_Button();
       }
 
     @AfterMethod
@@ -38,7 +38,7 @@ public class WQAssignSPUserRequestTest extends TestBase {
        // quitDriver();
     }
 
-    //Request users (Add New SU)
+    //----------Request users (Add New SU)
     @Test
     public void verify_Assign_Users_Tile_Is_Available() throws Exception {
         NavigateToPage();
@@ -163,7 +163,7 @@ public class WQAssignSPUserRequestTest extends TestBase {
        // Assert.assertEquals(wqManageUserRequestsPage.Is_Element_Not_Available(WQ_CLIENT_CHANGE_POPUP_TITLE_XPATH), true, "Popup closed !");
     }
 
-    //Check Email AM
+    //----------Check Email AM
     @Test
     public void verify_AM_Loging_To_Email() throws InterruptedException, NoSuchElementException {
         String outlookURL = data.getValueByName("outlookURL");
@@ -266,7 +266,7 @@ public class WQAssignSPUserRequestTest extends TestBase {
         Assert.assertEquals(wqCheckOutLookEmailPage.verify_Data_Equals(WQ_AM_ASSIGN_USER_REQUEST_EMAIL_NEW_USER_ROLE_XPATH), "User Role : Support User", "Requested users role verified !");
     }
 
-    //Assign SU by AM
+    //----------Assign SU by AM
 
     @Test
     public void verify_Login_To_AM_Account() throws InterruptedException {
@@ -485,7 +485,7 @@ public class WQAssignSPUserRequestTest extends TestBase {
     }
 
 
-    //Login to New Support User Email
+    //----------Login to New Support User Email
 
     @Test
     public void  verify_User_Assigned_Email_In_Inbox() throws InterruptedException {
@@ -495,6 +495,7 @@ public class WQAssignSPUserRequestTest extends TestBase {
 
         wqCheckMailcatchEmailPage.
                 check_Mailcatch_Email(mailcatchURL, newSUEmailByEmail);
+
         Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Available(WQ_CLIENT_INBOX_MAIL_SUBJECT_XPATH),true, "Email is available !");
         Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_INBOX_MAIL_FROM_XPATH),FromWQEmail, "Inbox email from text verified !");
         Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_INBOX_MAIL_SUBJECT_XPATH), emailSubjectInbox, "Inbox email subject verified !");
@@ -565,22 +566,49 @@ public class WQAssignSPUserRequestTest extends TestBase {
                 action_Click_On_Link();
 
         Assert.assertEquals(wqLoginPage.check_Browser_Title_Of_The_Newly_Opend_Tab(),signInPageBrowserTitle);
-
     }
 
-   //Login to New Support User Dashboard
+   //----------Login to New Support User Dashboard - (methods dependent)
    @Test
-   public void verify_SU_Login_To_Account() throws Exception {
+   public void verify_SU_Login_To_Account_Successfully() throws Exception {
+       String expetedTitle1 = data.getValueByName("ChangePW_Title1");
+       String expetedTitle3 = data.getValueByName("ChangePW_Title3");
+       String passwordSU = data.getValueByName("SU_Password");
+       String userUpdateProfileBrowserTitle = data.getValueByName("UserUpdateProfileBrowserTitle");
+       String fNameSU = data.getValueByName("SU_Fname");
+       String lNameSU = data.getValueByName("SU_Lname");
+       String phoneSU = data.getValueByName("SU_Phone");
+       String mobileSU = data.getValueByName("SU_Mobile");
+       String designationSU = data.getValueByName("SU_Designation");
+       String officeSU = data.getValueByName("SU_Office");
+
+       //user sign in
        wqLoginPage.
                step_User_Enter_Given_Credentials(newSUEmailByEmail,newSUTempPwByEmail).
                step_User_Click_Login_Button();
+
+       Assert.assertEquals(wqChangePWPage.validate_the_PageTitle(),expetedTitle1+newSUEmailByEmail+expetedTitle3, "Change Password page title greeting is available !");
+
+       //user change PW
+       wqChangePWPage.
+               Step_Enter_Password_ChangePW(passwordSU);
+       wqChangePWPage.
+               step_Click_ChangePassword_Button();
+
+       Assert.assertEquals(wqChangePWPage.check_Page_Browser_Title(),userUpdateProfileBrowserTitle);
+
+       //update user profile
+       wqUserProfileUpdatePage.
+               action_add_Update_User_Profile_Details(fNameSU, lNameSU, phoneSU, mobileSU, designationSU, officeSU);
+       wqUserProfileUpdatePage.
+               action_click_Update_Button();
+       Thread.sleep(5000);
+
+       Assert.assertEquals(wqUserProfileUpdatePage.verify_Element_Is_Available(WQ_SUPPORT_DASHBOARD_LINK_XPATH),true, "Support Dashboard available !");
+       Assert.assertEquals(wqUserProfileUpdatePage.verify_Element_Is_Enabled(WQ_SUPPORT_TILE_XPATH),true, "24x7 Support tile is enabled !");
+
    }
 
-    @Test
-    public void verify_User_Change_Password() throws Exception {
-       String passwordSU = data.getValueByName("SU_Password");
 
-
-    }
 
 }

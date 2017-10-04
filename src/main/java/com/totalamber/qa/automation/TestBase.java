@@ -29,26 +29,28 @@ public class TestBase  {
 	protected WQDMDashboardPage wqdmDashboardPage;
 	protected WQManageUserRequestsPage wqManageUserRequestsPage;
 	protected WQAMAssignUsersPage wqamAssignUsersPage;
-
-	public static final String newDMEmail = "596b2cf8-5fe3-4a42-95b0-2dc4845148c4@mailcatch.com";
-	public static final String SUEmail = "drftgyhu@mailcatch.com";
-
-	//Request to change DM
-	public static String newDmEmailByEmail;
-
-	//Request to add new SU
-	public static String newSUEmailByEmail;
-	public static String newSURoleByEmail;
-	public static String userAssignRequestedCompany;
-	public static String newSUTempPwByEmail;
-
-	protected WQVerifyClientPage wqVerifyClientPage;
-	public static final String clientEmail = "4f13c64d-e10f-4ca2-8c70-c16aa4cb8592@mailcatch.com";
+	protected WQUserProfileUpdatePage wqUserProfileUpdatePage;
 	protected WQChangePWPage wqChangePWPage;
 	protected WQTAndCPage wqTAndCPage;
 	protected WQTAndCInProgressPage wqTAndCInProgressPage;
 	protected WQTAndCAccepted wqTAndCAccepted;
 	protected WQClientProfileUpdatePage wqClientProfileUpdatePage;
+	protected WQVerifyClientPage wqVerifyClientPage;
+
+	//Request to change DM
+	public static String newDmEmailByEmail = "";
+
+	//Request to add new SU
+	public static String newSUEmailByEmail = "";
+	public static String newSURoleByEmail = "";
+	public static String userAssignRequestedCompany = "";
+	public static String newSUTempPwByEmail = "";
+
+
+	public static final String clientEmail = "4f13c64d-e10f-4ca2-8c70-c16aa4cb8592@mailcatch.com";
+	public static final String newDMEmail = "596b2cf8-5fe3-4a42-95b0-2dc4845148c4@mailcatch.com";
+	public static final String SUEmail = "drftgyhu@mailcatch.com";
+
 
 
 
@@ -77,7 +79,7 @@ public class TestBase  {
 		wqTAndCAccepted = new WQTAndCAccepted(driver);
 		wqClientProfileUpdatePage = new WQClientProfileUpdatePage(driver);
 		wqVerifyClientPage = new WQVerifyClientPage(driver);
-
+		wqUserProfileUpdatePage = new WQUserProfileUpdatePage(driver);
 
 	}
 

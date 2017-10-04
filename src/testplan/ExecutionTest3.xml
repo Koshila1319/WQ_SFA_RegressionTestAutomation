@@ -129,9 +129,9 @@
 					<!--Verify New SP User Dashboard-->
 					<!--<include name = "verify_User_Assigned_Email_In_Inbox"/>
 					<include name = "verify_User_Assigned_Email_Content"/>-->
-					<include name = "verify_Extract_New_SU_Details_In_Assigned_Email_Content()"/>
-					<include name = "verify_clicking_Link_Leads_To_WQ_Sign_In_Page"/>
-					<include name = "verify_SU_Login_To_Account"/>
+					<!--<include name = "verify_Extract_New_SU_Details_In_Assigned_Email_Content()"/>
+					<include name = "verify_clicking_Link_Leads_To_WQ_Sign_In_Page"/>-->
+					<include name = "verify_SU_Login_To_Account_Successfully"/>
 				</methods>
 			</class>
 		</classes>
