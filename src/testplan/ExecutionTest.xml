@@ -186,12 +186,74 @@
 					<include name = "verify_Clciking_ProceedButton_GoesTo_ClientProfileUpdatePage" />-->
 
 					<!--Client ProfileUpdatePage-->
-					<include name = "verify_ApplicationInformation_Accordian_IsAvailable" />
+					<include name = "verify_Entered_CompanyDetails_areSameAs_Registration_Data" />
+					<include name = "verify_nonEditableFields_in_CompanyDetails_Section" />
+					<!--<include name = "verify_Updating_CompanyDetails" />-->
+
+					<!--Application Information-->
+					<!--<include name = "verify_ApplicationInformation_Accordian_IsAvailable" />
 					<include name = "verify_Clicking_ApplicationInformation_Accordian_Displays_Information" />
-					<include name = "verify_OtherCompanyDetails_Accordian_IsAvailable" />
+					<include name = "verify_Entered_ApplicationInformation_areSameAs_Registration_Data" />
+					<include name = "verify_DeleteButton_Isavailble_In_AppInfo_Page" />
+					<include name = "verify_delete_Button_Text" />
+					<include name = "verify_Clicking_Delete_Button_Removes_SWInfo" />
+					<include name = "verify_DeleteButton_IsNotAvailable_When_No_AppInfo_Is_Added" />
+					<include name = "verify_SW_Dropdown_IsAvailable" />
+					<include name = "verify_SW_Dropdown_defaultValue" />
+					<include name = "verify_AddButton_Isavailble_In_AppInfo_Page" />
+					<include name = "verify_add_Button_Text" />
+					<include name = "verify_clicking_AddButton_Without_Any_selected_SW" />
+					<include name = "verify_Selected_SW_Displays_ModuleList_And_Version_List" />
+					<include name = "verify_Clicking_AddButton_Selecting_Version_AccordingTo_SW" />
+					<include name = "verify_Clicking_AddButton_Selecting_Module_AccordingTo_SW" />
+					<include name = "verify_Clicking_AddButton_Selecting_Module_And_Version_AccordingTo_SW" />
+					<include name = "verify_Clicking_AddButton_WithSW" />-->
+
+					<!--Other Company Details-->
+					<!--<include name = "verify_OtherCompanyDetails_Accordian_IsAvailable" />
 					<include name = "verify_Clicking_OtherCompanyDetails_Accordian_displays_Information" />
+					<include name = "verify_UploadCompanyLogo_Label_IsAvailable" />
+					<include name = "verify_UploadCompanyLogo_ChooseFile_BUtton_IsAvailable" />
+					<include name = "verify_Choosing_InvalidFile_In_UploadCompanyLogo_gives_an_Error" />
+					<include name = "verify_Choosing_CorrectType_Of_File_in_Upload_CompanyLogo" />
+					<include name = "verify_UploadProfilePicture_Label_IsAvailable" />
+					<include name = "verify_UploadProfilePic_ChooseFile_BUtton_IsAvailable" />
+					<include name = "verify_Choosing_InvalidFile_In_ProfilePic_gives_an_Error" />
+					<include name = "verify_Choosing_CorrectType_Of_File_Upload_ProfilePic" />
+					<include name = "verify_CompanyType_Dropdown_IsAvailable" />
+					<include name = "verify_CompanyType_DefaultValue" />
+					<include name = "verify_Selecting_CompanyType" />
+					<include name = "verify_CompanyFormat_Dropdown_IsAvailable" />
+					<include name = "verify_CompanyFormat_DefaultValue" />
+					<include name = "verify_Selecting_CompanyFormat" />
+					<include name = "verify_Industry_Dropdown_IsAvailable" />
+					<include name = "verify_Industry_DefaultValue" />
+					<include name = "verify_Selecting_Industry" />
+					<include name = "verify_SubMarket_Dropdown_IsAvailable" />
+					<include name = "verify_SubMarket_DefaultValue" />
+					<include name = "verify_Selecting_SubMarket" />
+					<include name = "verify_VerticalMarket_Dropdown_IsAvailable" />
+					<include name = "verify_VerticalMarket_DefaultValue" />-->
+					<include name = "verify_Selecting_VerticalMarket" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+
+					<!--Billing Details-->
 					<include name = "verify_BillingDetails_Accordian_IsAvailable" />
 					<include name = "verify_Clicking_BillingDetails_Accordian_displays_Information" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
+					<include name = "" />
 					<include name = "" />
 					<include name = "" />
 					<include name = "" />
