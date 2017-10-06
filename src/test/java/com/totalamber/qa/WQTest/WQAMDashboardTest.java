@@ -5,9 +5,7 @@ import com.totalamber.qa.automation.TestBase;
 import com.totalamber.qa.page.webQuarters.WQAMDashboardPage;
 import com.totalamber.qa.page.webQuarters.WQBackOfficeLoginPage;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 
@@ -16,16 +14,17 @@ import java.io.IOException;
  */
 public class WQAMDashboardTest extends TestBase {
 
-    @BeforeClass
+    @BeforeMethod
     public void NavigateToPage() throws InterruptedException, IOException {
         initDomainObjects(DRIVER);
         String siteUrl = data.getValueByName("BackOfficeUrl");
         setSiteURL(siteUrl);
+
     }
 
-    @AfterClass
+    @AfterMethod
     public void endTestMethod() throws Throwable{
-        //quitDriver();
+        quitDriver();
     }
 
     @Test
@@ -33,18 +32,20 @@ public class WQAMDashboardTest extends TestBase {
         String AMUsername = data.getValueByName("AM_Username");
         String AMPassword = data.getValueByName("AM_Password");
         String WindowsAuthOption = data.getValueByName("SignInOption1");
-        wqBackOfficeLoginPage.action_Login_as_BOUser(AMUsername, AMPassword);
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
         Thread.sleep(10000);
-        wqBackOfficeLoginPage.action_selectAuthentication(WindowsAuthOption);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
         Thread.sleep(10000);
+        //--------------
         Assert.assertNotNull(wqamDashboardPage.check_Pending_Client_Table_Available());
 
     }
 
     @Test
     public void verify_TableHeaderText_PendingClientsTable_Table_Available() throws InterruptedException {
-        String pendingClients_TableHeader = data.getValueByName("AM_pendingClients_TableHeader");
-        Assert.assertEquals(wqamDashboardPage.check_PendingClientsTable_Table_HeaderText(),pendingClients_TableHeader);
+        Assert.assertEquals(wqamDashboardPage.check_PendingClientsTable_Table_HeaderText(),"Pending Clients");
 
     }
 
@@ -61,7 +62,8 @@ public class WQAMDashboardTest extends TestBase {
     @Test
     public void verify_Client_Available_to_Click_and_Navigate(){
         String clientName = data.getValueByName("CompanyDetails_CompanyName");
-        wqamDashboardPage.step_user_clicks_Client(clientName);
+        wqamDashboardPage
+                .step_user_clicks_Client(clientName);
         String expectedTitle = data.getValueByName("BOVerifyPage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(), expectedTitle);
     }
@@ -364,10 +366,12 @@ public class WQAMDashboardTest extends TestBase {
 
     @Test
     public void verify_ClientsTile_Click_GoesTo_AssignedClientsPage(){
-        wqamDashboardPage.step_Click_Client_Tile();
+        wqamDashboardPage
+                .step_Click_Client_Tile();
         String clientTilePage = data.getValueByName("AM_ClientTilePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),clientTilePage);
-        wqPanel.check_User_goes_To_HomePage();
+        wqPanel
+                .step_User_clicks_HomePage();
         verify_The_Home_Page_Browser_Title();
 
     }
@@ -387,10 +391,12 @@ public class WQAMDashboardTest extends TestBase {
 
     @Test
     public void verify_SuspiciousConnections_Tile_Click_GoesTo_ConnectionSuspicious_Page(){
-        wqamDashboardPage.step_Click_SuspiciousConnections_Tile();
+        wqamDashboardPage
+                .step_Click_SuspiciousConnections_Tile();
         String suspiciousTilePage = data.getValueByName("AM_suspiciousTilePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),suspiciousTilePage);
-        wqPanel.check_User_goes_To_HomePage();
+        wqPanel
+                .step_User_clicks_HomePage();
         verify_The_Home_Page_Browser_Title();
 
     }
@@ -410,10 +416,12 @@ public class WQAMDashboardTest extends TestBase {
 
     @Test
     public void verify_Contractor_Matching_Tile_Click_GoesTo_ConsultantSearch_Page(){
-        wqamDashboardPage.step_Click_Contractor_Matching_Tile();
+        wqamDashboardPage
+                .step_Click_Contractor_Matching_Tile();
         String contractorMatchTilePage = data.getValueByName("AM_contractorMatchTilePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),contractorMatchTilePage);
-        wqPanel.check_User_goes_To_HomePage();
+        wqPanel
+                .step_User_clicks_HomePage();
         verify_The_Home_Page_Browser_Title();
 
     }
@@ -433,10 +441,12 @@ public class WQAMDashboardTest extends TestBase {
 
     @Test
     public void verify_Reports_Tile_Click_GoesTo_ViewReports_Page(){
-        wqamDashboardPage.step_Click_Reports_Tile();
+        wqamDashboardPage
+                .step_Click_Reports_Tile();
         String reportsTilePage = data.getValueByName("AM_reportsTilePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),reportsTilePage);
-        wqPanel.check_User_goes_To_HomePage();
+        wqPanel
+                .step_User_clicks_HomePage();
         verify_The_Home_Page_Browser_Title();
 
     }
@@ -456,10 +466,12 @@ public class WQAMDashboardTest extends TestBase {
 
     @Test
     public void verify_Assign_Users_Tile_Click_GoesTo_Assign_Users_Page(){
-        wqamDashboardPage.step_Click_Assign_Users_Tile();
+        wqamDashboardPage
+                .step_Click_Assign_Users_Tile();
         String assignUsersTilePage = data.getValueByName("AM_assignUsersTilePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),assignUsersTilePage);
-        wqPanel.check_User_goes_To_HomePage();
+        wqPanel
+                .step_User_clicks_HomePage();
         verify_The_Home_Page_Browser_Title();
 
     }
@@ -479,10 +491,12 @@ public class WQAMDashboardTest extends TestBase {
 
     @Test
     public void verify_Partners_Tile_Click_GoesTo_Partners_Page(){
-        wqamDashboardPage.step_Click_Partners_Tile();
+        wqamDashboardPage
+                .step_Click_Partners_Tile();
         String partnersTilePage = data.getValueByName("AM_partnersTilePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),partnersTilePage);
-        wqPanel.check_User_goes_To_HomePage();
+        wqPanel
+                .step_User_clicks_HomePage();
         verify_The_Home_Page_Browser_Title();
 
     }
@@ -502,10 +516,12 @@ public class WQAMDashboardTest extends TestBase {
 
     @Test
     public void verify_Contact_Client_Tile_Click_GoesTo_Contact_Client_Page(){
-        wqamDashboardPage.step_Click_Contact_Client_Tile();
+        wqamDashboardPage
+                .step_Click_Contact_Client_Tile();
         String contactClientTilePage = data.getValueByName("AM_contactClientTilePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),contactClientTilePage);
-        wqPanel.check_User_goes_To_HomePage();
+        wqPanel
+                .step_User_clicks_HomePage();
         verify_The_Home_Page_Browser_Title();
 
     }
@@ -582,7 +598,8 @@ public class WQAMDashboardTest extends TestBase {
     // Depends with the signedup Client
     @Test
     public void verify_Searching_aValidCompany_and_ClickaCompany_FromList_goesTo_ClientProfilePage() throws InterruptedException {
-        wqPanel.check_User_goes_To_HomePage();
+        wqPanel
+                .step_User_clicks_HomePage();
         verify_The_Home_Page_Browser_Title();
         wqamDashboardPage.check_EnterCompanyName_TextBox_isEmpty();
         String ClientName = data.getValueByName("AM_pendingClient");
@@ -592,7 +609,8 @@ public class WQAMDashboardTest extends TestBase {
         wqamDashboardPage.step_user_clicks_aClient_from_SearchClient_Area(ClientName);
         String expectedTitle = data.getValueByName("AM_ClientEngagement_Page");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),expectedTitle);
-        wqPanel.check_User_goes_To_HomePage();
+        wqPanel
+                .step_User_clicks_HomePage();
         verify_The_Home_Page_Browser_Title();
 
     }
@@ -715,7 +733,7 @@ public class WQAMDashboardTest extends TestBase {
     // Depends with the signedup Client who has rejected T&C
     @Test
     public void verify_Click_PromptAgainButton_InClientEvaluationPage_goesTo_AMDashboardPage(){
-        wqTermsEvaluationPage.click_PromptAgain_Button();
+        wqTermsEvaluationPage.step_click_PromptAgain_Button();
         String expectedTitle = data.getValueByName("AM_HomePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),expectedTitle);
     }
