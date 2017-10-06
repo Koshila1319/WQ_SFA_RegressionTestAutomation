@@ -493,11 +493,14 @@ public class WQClientFirstLoginTest extends TestBase{
         String AMUsername = data.getValueByName("AM_Username");
         String AMPassword = data.getValueByName("AM_Password");
         String WindowsAuthOption = data.getValueByName("SignInOption1");
-        wqBackOfficeLoginPage.action_Login_as_BOUser(AMUsername,AMPassword);
-        wqBackOfficeLoginPage.action_selectAuthentication(WindowsAuthOption);
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername,AMPassword);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
 
         String clientName = data.getValueByName("ClientFirstLogin_ClientName");
-        wqamDashboardPage.step_user_clicks_TANDC_Rejected_Client(clientName);
+        wqamDashboardPage
+                .step_user_clicks_TANDC_Rejected_Client(clientName);
 
         String eMail = data.getValueByName("ClientFirstLogin_UName");
         Assert.assertEquals(wqTermsEvaluationPage.check_Email_Client_Data_In_ClientTermsEvaluationPage(),eMail);
@@ -505,7 +508,8 @@ public class WQClientFirstLoginTest extends TestBase{
         String rejectedReason = data.getValueByName("AM_textToEnter");
         Assert.assertEquals(wqTermsEvaluationPage.check_Rejected_Reason_In_ClientTermsEvaluationPage(),rejectedReason);
 
-        wqTermsEvaluationPage.click_PromptAgain_Button();
+        wqTermsEvaluationPage
+                .step_click_PromptAgain_Button();
         String expectedTitle = data.getValueByName("AM_HomePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),expectedTitle);
 
@@ -558,98 +562,13 @@ public class WQClientFirstLoginTest extends TestBase{
 
     @Test
     public void verify_Clciking_ProceedButton_GoesTo_ClientProfileUpdatePage(){
-        wqTAndCAccepted.step_Clcking_ProceedButton();
+        wqTAndCAccepted
+                .step_Clcking_ProceedButton();
         String expectedPageTitle = data.getValueByName("ClientProfileUpdate_PageTitle");
         Assert.assertEquals(wqClientProfileUpdatePage.validate_PageTitle(),expectedPageTitle);
     }
 
-    //Company Details Textboxes from Shammi
 
-    //Application Information
-    @Test
-    public void verify_ApplicationInformation_Accordian_IsAvailable() throws Exception {
-        //Below line added as the above test cases executed Successfully
-        //-------------------
-        String siteUrl = data.getValueByName("url");
-        setSiteURL(siteUrl);
-        wqHomePage.
-                action_Navigate_To_LoginPage();
-        wqLoginPage.step_Clear_Username_Field();
-        String Uname = data.getValueByName("ClientFirstLogin_UName");
-        String Password = data.getValueByName("ChangePW_MoreSix_1Num_5Special");
-        wqLoginPage.
-                step_User_Enter_Given_Credentials(Uname,Password).
-                step_User_Click_Login_Button();
-        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
-        wqHomePage.action_Navigate_To_ClientProfilePage(profileUpdateURL);
-        //--------------------------
-        wqClientProfileUpdatePage.validate_ApplicationInformation_Accordian();
-    }
-
-    @Test
-    public void verify_Clicking_ApplicationInformation_Accordian_Displays_Information(){
-        wqClientProfileUpdatePage.click_AppInfo_Accordian();
-        Assert.assertNotNull(wqClientProfileUpdatePage.validate_AppInfo_Data_Displays());
-    }
-
-    @Test
-    public void verify_Entered_CompanyDetails_areSameAs_Registration_Data(){
-        String regNumber = data.getValueByName("CompanyDetails_BusRegNumber");
-        String companyName = data.getValueByName("CompanyDetails_CompanyName");
-        String lastname = data.getValueByName("");
-        String firstname = data.getValueByName("");
-        String email = data.getValueByName("");
-        String phone = data.getValueByName("");
-        String dialcode = data.getValueByName("");
-        String address = data.getValueByName("");
-        String city = data.getValueByName("");
-        String county = data.getValueByName("");
-        String fax = data.getValueByName("");
-        String postcode = data.getValueByName("");
-        String designation = data.getValueByName("");
-        String website = data.getValueByName("");
-
-        Assert.assertEquals(wqClientProfileUpdatePage.check_regNumber_field_In_ClientProfilePage(),regNumber);
-        Assert.assertEquals(wqClientProfileUpdatePage.check_companyName_field_In_ClientProfilePage(),companyName);
-        Assert.assertEquals(wqClientProfileUpdatePage.check_lastname_field_In_ClientProfilePage(),lastname);
-        Assert.assertEquals(wqClientProfileUpdatePage.check_firstname_field_In_ClientProfilePage(),firstname);
-        Assert.assertEquals(wqClientProfileUpdatePage.check_email_field_In_ClientProfilePage(),email);
-        Assert.assertEquals(wqClientProfileUpdatePage.check_phone_field_In_ClientProfilePage(),phone);
-        Assert.assertEquals(wqClientProfileUpdatePage.check_dialcode_field_In_ClientProfilePage(),dialcode);
-        Assert.assertEquals(wqClientProfileUpdatePage.check_address_field_In_ClientProfilePage(),address);
-        Assert.assertEquals(wqClientProfileUpdatePage.check_city_field_In_ClientProfilePage(),city);
-        Assert.assertEquals(wqClientProfileUpdatePage.check_county_field_In_ClientProfilePage(),county);
-        Assert.assertEquals(wqClientProfileUpdatePage.check_fax_field_In_ClientProfilePage(),fax);
-        Assert.assertEquals(wqClientProfileUpdatePage.check_postcode_field_In_ClientProfilePage(),postcode);
-        Assert.assertEquals(wqClientProfileUpdatePage.check_designation_field_In_ClientProfilePage(),designation);
-        Assert.assertEquals(wqClientProfileUpdatePage.check_website_field_In_ClientProfilePage(),website);
-
-    }
-
-    //Other Company Details
-    @Test
-    public void verify_OtherCompanyDetails_Accordian_IsAvailable(){
-        wqClientProfileUpdatePage.validate_OtherCompanyDetails_Accordian();
-    }
-
-    @Test
-    public void verify_Clicking_OtherCompanyDetails_Accordian_displays_Information(){
-        wqClientProfileUpdatePage.click_OtherCompanyDetails_Accordian();
-        Assert.assertNotNull(wqClientProfileUpdatePage.validate_OtherCompanyDetails_Data_Displays());
-    }
-
-    //Billing Details
-    @Test
-    public void verify_BillingDetails_Accordian_IsAvailable(){
-        wqClientProfileUpdatePage.validate_BillingDetails_Accordian();
-    }
-
-    @Test
-    public void verify_Clicking_BillingDetails_Accordian_displays_Information() throws InterruptedException {
-        Thread.sleep(5000);
-        wqClientProfileUpdatePage.click_BillingDetails_Accordian();
-        Assert.assertNotNull(wqClientProfileUpdatePage.validate_BillingDetails_Data_Displays());
-    }
 
 
 }
