@@ -307,10 +307,19 @@
 															<include name="verify_Dicision_Maker_Dashboard_Link_Leads_To_WQ_DM_Portal_Page"/>
 															<include name="verify_User_Can_Logout_From_The_System"/>
 															<include name="verify_Top_Navigation_Panel_Available"/>
-															<include name="verify_WQ_Logo_Available"/>-->
+															<include name="verify_WQ_Logo_Available"/>
 															<include name="verify_User_Can_Navigate_To_Update_Profile_Page_Using_The_Setting_Option"/>
 															<include name="verify_User_Can_Navigate_To_Change_Password_Page_Using_The_Setting_Option"/>
 															<include name="verify_User_Can_Navigate_To_Decision_Maker_Decision_Dashboard_Page_Using_The_Setting_Option"/>
+
+															<include name="verify_User_Can_Update_Some_Information_In_The_Client_Profile_Update"/>
+															<include name="verify_The_Title_of_The_Page"/>
+															<include name="verify_Company_Logo_Available"/>
+															<include name="verify_Top_Navigation_Available"/>
+															<include name="verify_Sign_Out_Option_Available"/>
+															<include name="verify_Update_Button_Available"/>-->
+															<include name="verify_Copy_Right_Info_Available"/>
+
 														</methods>
 												</class>
 

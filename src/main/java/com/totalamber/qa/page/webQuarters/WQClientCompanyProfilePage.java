@@ -18,6 +18,7 @@ public class WQClientCompanyProfilePage implements wqClientCompanyProfilePage {
 
     public WQClientCompanyProfilePage action_Navigate_To_HomePage() {
         seleniumBase.click(WQ_CLIENT_HOME_ICON_XPATH,WQ_CLIENT_HOME_ICON_CSS);
+        seleniumBase.isAlertPresent();
         return this;
     }
 
@@ -101,7 +102,8 @@ public class WQClientCompanyProfilePage implements wqClientCompanyProfilePage {
 
 
     public boolean check_Edit_Button_Available() {
-        return seleniumBase.checkIsElementEnabled(WQ_COMPANY_PROFILE_PAGE_EDIT_BUTTON_XPATH);
+       return seleniumBase.checkIsElementEnabled(WQ_COMPANY_PROFILE_PAGE_EDIT_BUTTON_XPATH);
+
     }
 
     public WQClientCompanyProfilePage click_Edit_Button() {
