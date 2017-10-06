@@ -1,10 +1,7 @@
 package com.totalamber.qa.automation;
 
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -256,6 +253,8 @@ public class SeleniumBase {
 		textBox.sendKeys(textToEnter);
 
 	}
+
+
 
 	/**
 	 * @param cSS
@@ -1243,8 +1242,30 @@ public class SeleniumBase {
 		return bool;
 	}
 
+
+	//Coded By:Shammi
+	//Handle Unexpected alert windows
+	public boolean isAlertPresent(){
+		try{
+			driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+			Alert a=driver.switchTo().alert();
+			a.accept();
+			//System.out.println("Alert is present");
+			return true;
+		}
+		catch (NoAlertPresentException e) {
+			//System.out.println("Alert is not present");
+			return false;
+		}
+		finally{
+			driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		}
+	}
+
+
 	//Tiresha
 	//Loadthe URL in current Browser
+
 	public void loadURLInCurrentBrowser(String url){
 		driver.navigate().to(url);
 	}
