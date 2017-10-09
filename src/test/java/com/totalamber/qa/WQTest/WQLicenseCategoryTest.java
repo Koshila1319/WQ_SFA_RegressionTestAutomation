@@ -167,6 +167,8 @@ public class WQLicenseCategoryTest extends TestBase {
         Assert.assertEquals(wqLicenseCategoryPage.validate_Browser_Title_Of_Page(),browserTitle);
     }
 
+    //------------------------------------------------------------------
+    //Writing in Same Test
     //Early Adopter Package Page
     @Test (enabled = false)
     public void verify_PAgeTitle_Of_LicensePackage_Page() throws Exception {
@@ -1155,5 +1157,89 @@ public class WQLicenseCategoryTest extends TestBase {
         Thread.sleep(3000);
         String browserTitle = data.getValueByName("LicenseSuccessful_BrowserTitle");
         Assert.assertEquals(wqPackagePage.validate_browser_title_of_LicenseSuccessful(),browserTitle);
+    }
+
+    //--------------
+    //License Preference Successful Page Test Cases
+    //-------------
+
+    //This section depends on the License preference package.These needs to execute in a stretch
+    //Added the methods in the Execution XML
+
+    @Test (enabled = false)
+    public void verify_Page_Title_Of_LicenseSuccessful_Page() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        String Uname = data.getValueByName("LicenseSuccessful_UN");
+        String Password = data.getValueByName("LicenseSuccessful_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        //--------------------------
+        String category = data.getValueByName("LicensePreference_Category");
+        wqLicenseCategoryPage
+                .step_select_LicenseCategory(category)
+                .step_click_Continue_Btn();
+        Thread.sleep(2000);
+        //-----------
+        String licensePackage = data.getValueByName("LicensePackage_Package");
+        wqPackagePage
+                .step_select_a_Package(licensePackage);
+        Thread.sleep(3000);
+        //------------
+        String userType1 = data.getValueByName("LicensePackage_AdditionalLicense_UserType1");
+        String userType2 = data.getValueByName("LicensePackage_AdditionalLicense_UserType2");
+        String userCount1 = data.getValueByName("LicensePackage_AdditionalLicense_UserCount1");
+        String userCount2 = data.getValueByName("LicensePackage_AdditionalLicense_UserCount2");
+        wqPackagePage
+                .step_select_a_UserType(userType1)
+                .step_select_a_UserCount(userCount1);
+        Thread.sleep(8000);
+        wqPackagePage
+                .step_Click_add_button_In_AdditionalLicenses();
+        wqPackagePage
+                .step_select_a_UserType(userType2)
+                .step_select_a_UserCount(userCount2);
+        Thread.sleep(8000);
+        wqPackagePage
+                .step_Click_add_button_In_AdditionalLicenses();
+        Thread.sleep(5000);
+        //-----------------
+        String paymentMethod = data.getValueByName("LicensePackage_Payment_Method");
+        wqPackagePage
+                .step_select_a_PaymentMethod(paymentMethod);
+        wqPackagePage
+                .step_click_Continue_Btn_InLicense_Page();
+        Thread.sleep(3000);
+        //----------------
+
+        //Verify_PageTitle
+        String pageTitle = data.getValueByName("LicenseSuccessful_PageTitle");
+        Assert.assertEquals(wqLicenseSuccessfulPage.validate_LicenseSuccessful_Page_Title(),pageTitle);
+    }
+
+    @Test(enabled = false)
+    public void verify_PageContent_WithPackageDetails(){
+        String selectedPackage = data.getValueByName("LicensePackage_Package");
+        Assert.assertEquals(wqLicenseSuccessfulPage.check_selectedPackage_exist_In_SuccessfulPage(),selectedPackage);
+    }
+
+    @Test(enabled = false)
+    public void verifyHomeButton_IsAvailable(){
+        Assert.assertNotNull(wqLicenseSuccessfulPage.check_Home_Button_IsAvailable());
+    }
+
+    @Test(enabled = false)
+    public void verify_HomeButton_Text(){
+        Assert.assertEquals(wqLicenseSuccessfulPage.check_HomeButton_Text(),"Home");
+    }
+
+    @Test(enabled = false)
+    public void verify_ClickingHome_Button_GoesTo_WQMainPage(){
+        wqLicenseSuccessfulPage.step_click_Home_button();
+        String mainPageBrowserTitle = data.getValueByName("LicenseSuccessful_MainPage_BrowserTitle");
+        Assert.assertEquals(wqLicenseSuccessfulPage.validate_browser_Title_of_MainPage(),mainPageBrowserTitle);
     }
 }
