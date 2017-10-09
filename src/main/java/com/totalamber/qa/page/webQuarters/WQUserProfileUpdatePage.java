@@ -6,7 +6,7 @@ import com.totalamber.qa.data.UI.elements.webQuarters.wqUserProfileUpdatePage;
 import org.openqa.selenium.WebDriver;
 
 /**
- * Created by e.koshila on 10/2/2017.
+ * Created by e.koshila on 10/4/2017.
  */
 public class WQUserProfileUpdatePage extends TestBase implements wqUserProfileUpdatePage {
 

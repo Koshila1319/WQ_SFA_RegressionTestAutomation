@@ -1,6 +1,7 @@
 package com.totalamber.qa.WQTest;
 
 import com.totalamber.qa.automation.TestBase;
+import com.totalamber.qa.data.UI.elements.webQuarters.wqAMAssignUsersPage;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -10,9 +11,15 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
+import static com.totalamber.qa.data.UI.elements.webQuarters.wqAMAssignUsersPage.*;
+import static com.totalamber.qa.data.UI.elements.webQuarters.wqCheckMailCatchEmailPage.*;
+import static com.totalamber.qa.data.UI.elements.webQuarters.wqCheckMailCatchEmailPage.WQ_CLIENT_EMAIL_CONTENT_LINK_XPATH;
 import static com.totalamber.qa.data.UI.elements.webQuarters.wqCheckOutLookEmailPage.*;
 import static com.totalamber.qa.data.UI.elements.webQuarters.wqDMDashboardPage.*;
 import static com.totalamber.qa.data.UI.elements.webQuarters.wqManageUserRequestsPage.*;
+import static com.totalamber.qa.data.UI.elements.webQuarters.wqUserProfileUpdatePage.WQ_DM_DASHBOARD_TILE_XPATH;
+import static com.totalamber.qa.data.UI.elements.webQuarters.wqUserProfileUpdatePage.WQ_SUPPORT_DASHBOARD_LINK_XPATH;
+import static com.totalamber.qa.data.UI.elements.webQuarters.wqUserProfileUpdatePage.WQ_SUPPORT_TILE_XPATH;
 
 /**
  * Created by e.koshila on 9/28/2017.
@@ -28,7 +35,7 @@ public class WQReassignDMUserRequestTest extends TestBase {
         wqLoginPage.step_User_Enter_Given_Credentials(clientEmail,"asdf1234%");
         wqLoginPage.step_User_Click_Login_Button();
         wqdmDashboardPage.step_Click_Home_Button();
-      }
+    }
 
     @AfterMethod
     public void endTestMethod() throws Throwable{
@@ -44,21 +51,21 @@ public class WQReassignDMUserRequestTest extends TestBase {
 
     @Test
     public void verify_Clicking_Assign_Users_Tile_Leads_To_Manage_User_Requests_Page() throws Exception {
-       NavigateToPage();
-       wqdmDashboardPage.
-               step_Click_Assign_Users_Tile();
-       Assert.assertEquals(wqdmDashboardPage.check_Browser_Title(),"WebQuarters LicensePreferancesManageUserRequests","Browser title verified !");
+        NavigateToPage();
+        wqdmDashboardPage.
+                step_Click_Assign_Users_Tile();
+        Assert.assertEquals(wqdmDashboardPage.check_Browser_Title(),"WebQuarters LicensePreferancesManageUserRequests","Browser title verified !");
     }
 
     @Test
     public void verify_DM_Details_In_User_Request_Table() throws Exception {
-      String clientFname = data.getValueByName("testFname");
-      String clientLname = data.getValueByName("testLname");
+        String clientFname = data.getValueByName("testFname");
+        String clientLname = data.getValueByName("testLname");
 
-      NavigateToPage();
-      wqdmDashboardPage.
+        NavigateToPage();
+        wqdmDashboardPage.
                 step_Click_Assign_Users_Tile();
-      Assert.assertEquals(wqManageUserRequestsPage.verify_Data_Equals(WQ_CLIENT_MANAGE_USER_REQUESTS_XPATH),clientFname+" "+clientLname,"DM fname and lname available !");
+        Assert.assertEquals(wqManageUserRequestsPage.verify_Data_Equals(WQ_CLIENT_MANAGE_USER_REQUESTS_XPATH),clientFname+" "+clientLname,"DM fname and lname available !");
     }
 
     @Test
@@ -157,10 +164,10 @@ public class WQReassignDMUserRequestTest extends TestBase {
         wqManageUserRequestsPage.
                 action_Click_Cancel_Button_In_Popup();
         Thread.sleep(2000);
-       // Assert.assertEquals(wqManageUserRequestsPage.Is_Element_Not_Available(WQ_CLIENT_CHANGE_POPUP_TITLE_XPATH), true, "Popup closed !");
+        // Assert.assertEquals(wqManageUserRequestsPage.Is_Element_Not_Available(WQ_CLIENT_CHANGE_POPUP_TITLE_XPATH), true, "Popup closed !");
     }
 
-    //Check Email
+    //----------Check Email AM
     @Test
     public void verify_AM_Loging_To_Email() throws InterruptedException, NoSuchElementException {
         String outlookURL = data.getValueByName("outlookURL");
@@ -173,15 +180,15 @@ public class WQReassignDMUserRequestTest extends TestBase {
 
     @Test
     public void verify_User_Reassign_Request_Email_IsAvailable() throws InterruptedException {
-       String outlookURL = data.getValueByName("outlookURL");
-       String BOUserEmail = data.getValueByName("AM_Email");
-       String BOUserPassword = data.getValueByName("AM_Email_Password");
-       String userAssignRequestEmailInAM = data.getValueByName("CheckOutlookEmailPage_AMUserReassignRequestEmailSubjectInbox");
+        String outlookURL = data.getValueByName("outlookURL");
+        String BOUserEmail = data.getValueByName("AM_Email");
+        String BOUserPassword = data.getValueByName("AM_Email_Password");
+        String userAssignRequestEmailInAM = data.getValueByName("CheckOutlookEmailPage_AMUserReassignRequestEmailSubjectInbox");
 
-       wqCheckOutLookEmailPage.
+        wqCheckOutLookEmailPage.
                 check_Outlook_Email(outlookURL, BOUserEmail, BOUserPassword);
-       Thread.sleep(2000);
-       Assert.assertEquals(wqCheckOutLookEmailPage.verify_Data_Equals(LATEST_RECEIVED_OUTLOOK_EMAIL_XPATH),userAssignRequestEmailInAM);
+        Thread.sleep(2000);
+        Assert.assertEquals(wqCheckOutLookEmailPage.verify_Data_Equals(LATEST_RECEIVED_OUTLOOK_EMAIL_XPATH),userAssignRequestEmailInAM);
     }
 
     @Test
@@ -207,7 +214,6 @@ public class WQReassignDMUserRequestTest extends TestBase {
         String currentDmEmail = clientEmail;
         String currentDmFname = data.getValueByName("testFname");
         String currentDmLname = data.getValueByName("testLname");
-
 
         wqCheckOutLookEmailPage.
                 check_Outlook_Email(outlookURL, BOUserEmail, BOUserPassword);
@@ -255,7 +261,10 @@ public class WQReassignDMUserRequestTest extends TestBase {
         wqCheckOutLookEmailPage.
                 action_read_Latest_Received_Email_In_OutLook();
         Thread.sleep(15000);
-        Assert.assertEquals(wqCheckOutLookEmailPage.verify_Data_Equals(WQ_AM_REASSIGN_USER_REQUEST_EMAIL_REQUESTED_COMPAMY_XPATH), "DM from "+userRequestedCompany+" has requested to reassign the following user.", "User requested company verified !");
+
+        userAssignRequestedCompany = wqCheckOutLookEmailPage.step_Extract_Company_Details(WQ_AM_REASSIGN_USER_REQUEST_EMAIL_REQUESTED_COMPAMY_XPATH);
+        System.out.println(userAssignRequestedCompany);
+        Assert.assertEquals(userAssignRequestedCompany, userRequestedCompany, "User requested company verified !");
     }
 
     @Test
@@ -272,5 +281,324 @@ public class WQReassignDMUserRequestTest extends TestBase {
         Assert.assertEquals(wqCheckOutLookEmailPage.verify_Data_Equals(WQ_AM_REASSIGN_USER_REQUEST_EMAIL_REQUESTED_USER_ROLE_XPATH), "User Role: WQ Decision Maker", "Requested users role verified !");
     }
 
+    //Reassign DM by AM
+
+    @Test
+    public void verify_Login_To_AM_Account() throws InterruptedException {
+        String siteUrl = data.getValueByName("BackOfficeUrl");
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        String expectedTitle = data.getValueByName("AM_HomePage");
+
+        setSiteURL(siteUrl);
+
+        wqBackOfficeLoginPage.
+                action_Login_as_BOUser(AMUsername,AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage.
+                action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+
+        Assert.assertEquals(wqBackOfficeLoginPage.validate_BrowserTitle(), expectedTitle);
+    }
+
+    @Test
+    public void verify_Assign_Users_Tile_IsAvailable() throws InterruptedException {
+        String siteUrl = data.getValueByName("BackOfficeUrl");
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+
+        setSiteURL(siteUrl);
+
+        wqBackOfficeLoginPage.
+                action_Login_as_BOUser(AMUsername,AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage.
+                action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+
+        Assert.assertEquals(wqamDashboardPage.check_Assign_Users_Tile_Is_Available(), true);
+    }
+
+    @Test
+    public void verify_Clicking_Assign_Users_Tile_Leads_To_Assign_Users_Page()throws InterruptedException {
+        String siteUrl = data.getValueByName("BackOfficeUrl");
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        String assignUsersBrowserTitle = data.getValueByName("AM_assignUsersTilePage");
+
+        setSiteURL(siteUrl);
+
+        wqBackOfficeLoginPage.
+                action_Login_as_BOUser(AMUsername,AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage.
+                action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        wqamDashboardPage.step_Click_Assign_Users_Tile();
+
+        Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),assignUsersBrowserTitle);
+    }
+
+    @Test
+    public void verify_Company_DropDown_IsAvailable()throws InterruptedException {
+        String siteUrl = data.getValueByName("BackOfficeUrl");
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+
+        setSiteURL(siteUrl);
+
+        wqBackOfficeLoginPage.
+                action_Login_as_BOUser(AMUsername,AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage.
+                action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        wqamDashboardPage.
+                step_Click_Assign_Users_Tile();
+
+        Assert.assertEquals(wqamAssignUsersPage.verify_Element_Is_Available(wqAMAssignUsersPage.WQ_AM_ASSIGN_USERS_SELECT_COMPANY_DROPDOWN_XPATH), true, "Select Company dropdown is available !");
+    }
+
+    @Test
+    public void verify_Select_Company_From_The_DropDown()throws InterruptedException {
+        String siteUrl = data.getValueByName("BackOfficeUrl");
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+
+        setSiteURL(siteUrl);
+
+        wqBackOfficeLoginPage.
+                action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage.
+                action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        wqamDashboardPage.
+                step_Click_Assign_Users_Tile();
+        wqamAssignUsersPage.
+                action_Select_Company(userAssignRequestedCompany);
+        Thread.sleep(5000);
+
+        Assert.assertEquals(wqamAssignUsersPage.verify_Data_Equals(WQ_AM_ASSIGN_USERS_SELECTED_COMPANY_XPATH),userAssignRequestedCompany);
+    }
+
+    @Test
+    public void verify_Unable_To_Reassign_Same_DM()throws InterruptedException {
+        String siteUrl = data.getValueByName("BackOfficeUrl");
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        String reassignSameUserErrorMsg = data.getValueByName("AMAssignUsersPage_reassignSameUserErrorMsg");
+
+        setSiteURL(siteUrl);
+
+        wqBackOfficeLoginPage.
+                action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage.
+                action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        wqamDashboardPage.
+                step_Click_Assign_Users_Tile();
+        wqamAssignUsersPage.
+                action_Select_Company(userAssignRequestedCompany);
+        Thread.sleep(5000);
+        wqamAssignUsersPage.
+                action_Reassign_Same_DM(DMEmailByEmail).
+                action_Click_Reassign_Button();
+
+        Assert.assertEquals(wqamAssignUsersPage.verify_Data_Equals(WQ_AM_REASSIGN_DM_ERROR_MESSAGE_XPATH), reassignSameUserErrorMsg);
+    }
+
+    @Test
+    public void verify_Unable_To_Reassign_Already_Assigned_DM_From_Another_Company() throws InterruptedException {
+        String siteUrl = data.getValueByName("BackOfficeUrl");
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        String reassignDMOfAnotherCompanyErrorMsg = data.getValueByName("AMAssignUsersPage_reassignDMOfAnotherCompanyErrorMsg");
+
+        setSiteURL(siteUrl);
+
+        wqBackOfficeLoginPage.
+                action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage.
+                action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        wqamDashboardPage.
+                step_Click_Assign_Users_Tile();
+        wqamAssignUsersPage.
+                action_Select_Company(userAssignRequestedCompany);
+        Thread.sleep(5000);
+        wqamAssignUsersPage.
+                action_Reassign_Same_DM(DMOfAnotherCompanyEmail).
+                action_Click_Reassign_Button();
+
+        Assert.assertEquals(wqamAssignUsersPage.verify_Data_Equals(WQ_AM_REASSIGN_DM_ERROR_MESSAGE_XPATH), reassignDMOfAnotherCompanyErrorMsg);
+    }
+
+    @Test
+    public void verify_Able_To_Reassign_DM_Successfully()throws InterruptedException {
+        String siteUrl = data.getValueByName("BackOfficeUrl");
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+
+        setSiteURL(siteUrl);
+
+        wqBackOfficeLoginPage.
+                action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage.
+                action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        wqamDashboardPage.
+                step_Click_Assign_Users_Tile();
+        wqamAssignUsersPage.
+                action_Select_Company(userAssignRequestedCompany);
+        Thread.sleep(5000);
+        wqamAssignUsersPage.
+                action_Reassign_New_DM(newDmEmailByEmail).
+                action_Click_Reassign_Button();
+
+        Assert.assertEquals(wqamAssignUsersPage.verify_Data_Equals(WQ_AM_REASSIGN_DM_SUCCESS_MESSAGE_XPATH), "User Reassigned : "+ DMEmailByEmail + " to " + newDmEmailByEmail, "Successfully reassigned new DM !");
+    }
+
+    //check old DM Email
+    @Test
+    public void  verify_Previous_DM_Role_Ended_Email_In_Inbox() throws InterruptedException {
+        String mailcatchURL = data.getValueByName("mailcatchURL");
+        String FromWQEmail = data.getValueByName("WQEmail");
+        String emailSubjectInbox = data.getValueByName("PreviousDMRoleEndedPage_EmailSubjectInbox");
+
+        wqCheckMailcatchEmailPage.
+                check_Mailcatch_Email(mailcatchURL, DMEmailByEmail);
+
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Available(WQ_CLIENT_INBOX_MAIL_SUBJECT_XPATH),true, "Email is available !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_INBOX_MAIL_FROM_XPATH),FromWQEmail, "Inbox email from text verified !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_INBOX_MAIL_SUBJECT_XPATH), emailSubjectInbox, "Inbox email subject verified !");
+    }
+
+    @Test
+    public void  verify_Previous_DM_Role_Ended_Email_Content() throws InterruptedException {
+
+        String mailcatchURL = data.getValueByName("mailcatchURL");
+        String FromWQEmail = data.getValueByName("WQEmail");
+        String emailSubject = data.getValueByName("PreviousDMRoleEndedPage_EmailPageSubject");
+        String emailContentText = data.getValueByName("PreviousDMRoleEndedPage_EmailPageContentText");
+
+        wqCheckMailcatchEmailPage.
+                check_Mailcatch_Email(mailcatchURL, DMEmailByEmail).
+                action_read_Latest_Received_Email_In_Mailcatch();
+        Thread.sleep(10000);
+
+
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_FROM_XPATH),FromWQEmail, "Email from text verified !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_SUBJECT_XPATH),emailSubject, "Email subject verified !");
+
+        wqCheckMailcatchEmailPage.
+                step_switch_ToFrame();
+
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Available(WQ_CLIENT_EMAIL_HEADER_IMAGE_XPATH),true, "Email header image is available !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_HEADER_TITLE_XPATH),"Your role in WebQuarters has been ended", "Email heading text verified !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_PREVIVOUS_USER_ROLE_ENDED_EMAIL_CONTENT_XPATH),emailContentText, "Verified Email content text !");
+    }
+
+    // check new DM Email
+    @Test
+    public void  verify_New_DM_Assigned_Email_In_Inbox() throws InterruptedException {
+        String mailcatchURL = data.getValueByName("mailcatchURL");
+        String FromWQEmail = data.getValueByName("WQEmail");
+        String emailSubjectInbox = data.getValueByName("NewUserAssignedEmail_EmailSubjectInbox");
+
+        wqCheckMailcatchEmailPage.
+                check_Mailcatch_Email(mailcatchURL, newDmEmailByEmail);
+
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Available(WQ_CLIENT_INBOX_MAIL_SUBJECT_XPATH),true, "Email is available !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_INBOX_MAIL_FROM_XPATH),FromWQEmail, "Inbox email from text verified !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_INBOX_MAIL_SUBJECT_XPATH), emailSubjectInbox, "Inbox email subject verified !");
+    }
+
+    @Test
+    public void verify_New_DM_Assigned_Email_Content() throws InterruptedException {
+        String mailcatchURL = data.getValueByName("mailcatchURL");
+        String FromWQEmail = data.getValueByName("WQEmail");
+        String emailSubject = data.getValueByName("NewUserAssignedEmail_EmailPageSubject");
+
+        wqCheckMailcatchEmailPage.
+                check_Mailcatch_Email(mailcatchURL, newDmEmailByEmail).
+                action_read_Latest_Received_Email_In_Mailcatch();
+        Thread.sleep(10000);
+
+
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_FROM_XPATH),FromWQEmail, "Email from text verified !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_SUBJECT_XPATH),emailSubject, "Email subject verified !");
+
+        wqCheckMailcatchEmailPage.
+                step_switch_ToFrame();
+
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Available(WQ_CLIENT_EMAIL_HEADER_IMAGE_XPATH),true, "Email header image is available !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_HEADER_TITLE_XPATH),"You are now assigned as WQ Decision Maker in WebQuarters…", "Email heading text verified !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Element_Is_Available(WQ_CLIENT_EMAIL_CONTENT_LINK_XPATH),true, "Verification link available !");
+        Assert.assertEquals(wqCheckMailcatchEmailPage.verify_Data_Equals(WQ_CLIENT_EMAIL_CONTENT_LINK_XPATH),"link to log in", "Verified link text !");
+    }
+
+    //Login to New DM Account
+    @Test
+    public void verify_New_DM_Reassigned_By_Clicking_Login_Link() throws Exception {
+        String mailcatchURL = data.getValueByName("mailcatchURL");
+        String signInPageBrowserTitle = data.getValueByName("SUSignInPage_BrowserTitle");
+        String passwordSU = data.getValueByName("SU_Password");
+
+        wqCheckMailcatchEmailPage.
+                check_Mailcatch_Email(mailcatchURL, newDmEmailByEmail).
+                action_read_Latest_Received_Email_In_Mailcatch();
+        Thread.sleep(10000);
+        wqCheckMailcatchEmailPage.
+                step_switch_ToFrame().
+                action_Click_On_Link();
+
+        Assert.assertEquals(wqLoginPage.check_Browser_Title_Of_The_Newly_Opend_Tab(),signInPageBrowserTitle);
+
+        wqLoginPage.
+                step_User_Enter_Given_Credentials(newDmEmailByEmail,passwordSU).
+                step_User_Click_Login_Button();
+        Thread.sleep(5000);
+        wqdmDashboardPage.
+                step_Click_Home_Button();
+        Thread.sleep(5000);
+
+        Assert.assertEquals(wqdmDashboardPage.verify_Element_Is_Available(WQ_SUPPORT_DASHBOARD_LINK_XPATH),true, "Support Dashboard available !");
+        Assert.assertEquals(wqdmDashboardPage.verify_Element_Is_Enabled(WQ_SUPPORT_TILE_XPATH),true, "24x7 Support tile is enabled !");
+        Assert.assertEquals(wqdmDashboardPage.verify_Element_Is_Enabled(WQ_DM_DASHBOARD_TILE_XPATH),true, "DM dashboard tile is enabled !");
+
+    }
+
+    //Login to Previous DM Account
+    @Test
+    public void verify_Previous_DM_Login_To_Account_Successfully() throws Exception {
+        String passwordSU = data.getValueByName("SU_Password");
+        String supportDashboardLink = data.getValueByName("SU_DashboardPage_SupportDashboardLink");
+
+        setSiteURL("http://qa.webquarters.com:33366/_layouts/15/TA.WQ.Web/Login.aspx");
+
+        wqLoginPage.
+                step_User_Enter_Given_Credentials(DMEmailByEmail,passwordSU).
+                step_User_Click_Login_Button();
+        Thread.sleep(5000);
+
+        Assert.assertEquals(wqsuDashboardPage.verify_Element_Is_Available(WQ_SUPPORT_DASHBOARD_LINK_XPATH),true, "Support Dashboard available !");
+        Assert.assertEquals(wqsuDashboardPage.verify_Element_Is_Enabled(WQ_SUPPORT_TILE_XPATH),true, "24x7 Support tile is enabled !");
+        Assert.assertEquals(wqsuDashboardPage.check_Browser_Title(),supportDashboardLink, "Role as a DM ended verified !");
+    }
+
+   
 
 }

@@ -1,7 +1,7 @@
 package com.totalamber.qa.data.UI.elements.webQuarters;
 
 /**
- * Created by e.koshila on 10/2/2017.
+ * Created by e.koshila on 10/4/2017.
  */
 public interface wqUserProfileUpdatePage {
 
@@ -29,12 +29,11 @@ public interface wqUserProfileUpdatePage {
     public final String WQ_SUPPORT_TILE_XPATH = ".//*[@id='ctl00_MainTab21_ctl00_HyperLinkCaseMatch']";
     public final String WQ_SUPPORT_TILE_CSS = "";
 
+
+    public final String WQ_DM_DASHBOARD_TILE_XPATH = "//*[contains(@id,'_HyperLinkDMDashboard')]";
+    public final String WQ_DM_DASHBOARD_TILE_CSS = "";
+
     public final String WQ_USER_PROFILE_UPDATE_BUTTON_XPATH = "//*[@id='ctl00_ctl39_g_F431FFFF_FCC5_4EDF_B089_82F961E81991_ctl00_updateButton']";
     public final String WQ_USER_PROFILE_UPDATE_BUTTON_CSS = "";
-
-
-
-
-
 
 }
