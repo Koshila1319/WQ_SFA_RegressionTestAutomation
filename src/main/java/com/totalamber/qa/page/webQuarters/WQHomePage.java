@@ -107,4 +107,10 @@ public class WQHomePage  implements wqHomePage {
         seleniumBase.loadURLInCurrentBrowser(url);
         return this;
     }
+
+    //This needs to remove from the code after running in correct way
+    public WQHomePage action_Navigate_To_MainPage(String url) {
+        seleniumBase.loadURLInCurrentBrowser(url);
+        return this;
+    }
 }

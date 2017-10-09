@@ -16,8 +16,12 @@ public class WQPanel implements wqPanel{
         return seleniumBase.checkIsElementEnabled(AM_DASHBOARD_HOMELINK_HIGHLIGHTED_XPATH);
     }
 
+    public boolean validate_Mainlink_is_highlighted() {
+        return seleniumBase.checkIsElementEnabled(MAINLINK_HIGHLIGHTED_XPATH);
+    }
+
     public String validate_signIn_As() {
-        String labelText = seleniumBase.getText(AM_DASHBOARD_SIGNEDINAS_CSS, AM_DASHBOARD_SIGNEDINAS_XPATH);
+        String labelText = seleniumBase.getText(SIGNEDINAS_CSS, SIGNEDINAS_XPATH);
         return seleniumBase.splitTextGetNthWord(labelText,": ",2);
     }
 
@@ -29,8 +33,5 @@ public class WQPanel implements wqPanel{
         return seleniumBase.getText(AM_DASHBOARD_FOOTER_AREA_CSS,AM_DASHBOARD_FOOTER_AREA_XPATH);
     }
 
-    public WQPanel step_User_clicks_HomePage() {
-        seleniumBase.click(AM_DASHBOARD_HOMELINK_XPATH,AM_DASHBOARD_HOMELINK_CSS);
-        return this;
-    }
+
 }

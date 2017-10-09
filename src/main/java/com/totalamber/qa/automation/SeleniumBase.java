@@ -1067,6 +1067,8 @@ public class SeleniumBase {
         return value;
     }
 
+
+
     //read a Value attribute from Textbox
     public String readValueFromTextBox(String xpath){
 
@@ -1272,6 +1274,40 @@ public class SeleniumBase {
 		for (WebElement element : checkBox) {
 			if (element.getText().equals(value)) {
 				element.click();
+				break;
+			}
+		}
+	}
+
+	//Tiresha
+	//Check the selected option exist in List box
+	public String checkDropdownTextValueInList(String xPath, String option) {
+		String value= null;
+		WebElement list = SeleniumBase.driver.findElement(By.xpath(xPath));
+		Select select = new Select(list);
+		List<WebElement> allOptions = select.getOptions();
+		for (int i=0; i<allOptions.size(); i++){
+			value = allOptions.get(i).getText();
+			if(option.equals(value)) {
+				System.out.println("Selected Option Value : " + option + " is existing in List as : " + value);
+				break;
+			}
+		}
+		return value;
+	}
+
+	//Tiresha
+	//Click the option exist in List box
+	public void clickTextValueInList(String xPath, String option) {
+		String value= null;
+		WebElement list = SeleniumBase.driver.findElement(By.xpath(xPath));
+		Select select = new Select(list);
+		List<WebElement> allOptions = select.getOptions();
+		for (int i=0; i<allOptions.size(); i++){
+			value = allOptions.get(i).getText();
+			if(option.equals(value)) {
+				System.out.println("Selected Option Value : " + option + " is existing in List as : " + value);
+				allOptions.get(i).click();
 				break;
 			}
 		}
