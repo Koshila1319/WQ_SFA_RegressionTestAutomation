@@ -103,9 +103,9 @@
 									</class>-->
 
 						<!--Check the features in Client Registration Page -->
-			<class name ="com.totalamber.qa.WQTest.WQClientRegTest">
+			<!--<class name ="com.totalamber.qa.WQTest.WQClientRegTest">
                 <methods>
-<!--<include name ="verify_Company_Name_Text_Feild_Is_Single_Line_Of_Text"/>
+<include name ="verify_Company_Name_Text_Feild_Is_Single_Line_Of_Text"/>
 <include name="verify_Company_Name_Feild_Text"/>
 <include name="verify_User_Can_Type_Numbers_Or_Any_Character_In_the_Company_Name_Text_Feild"/>
 
@@ -199,7 +199,7 @@
 <include name="verify_Adding_A_SW_App_Info_Is_Mandatory"/>
 <include name="verify_User_Can_Register_The_Client_Info_Successfully"/>
 <include name="verify_Sign_Me_Up_Button_Leads_To_Thank_You_For_SignUp_Page"/>
-<include name="verify_Exsiting_Emails"/>-->
+<include name="verify_Exsiting_Emails"/>
 
 <include name="verify_User_Can_Register_The_Client_Info_Successfully"/>
 
@@ -207,7 +207,7 @@
 
 
 </methods>
-</class>
+</class>-->
 
     <!--Check the features in Client Registration Page -->
 									<!--<class name ="com.totalamber.qa.WQTest.WQClientRegTest">
@@ -324,6 +324,19 @@
 
 														</methods>
 												</class>-->
+
+															<class name="com.totalamber.qa.WQTest.WQUserProfileTest">
+															<methods>
+																<!--<include name="verify_Clicking_User_profile_Link_Leads_To_User_Profile_Page"/>
+																<include name="verify_User_Profile_Browser_Title"/>
+																<include name="verify_User_Profile_Details_Available"/>
+																<include name="verify_Edit_Button_IsAvailable"/>-->
+																<include name="verfy_Clicking_Edit_Button_Leads_To_User_Profile_Update_page"/>
+																<include name="verify_Update_Company_Profile_Details"/>
+																<include name="verify_Updated_Details_Available"/>
+																	</methods>
+
+															</class>
 
 
         </classes>
