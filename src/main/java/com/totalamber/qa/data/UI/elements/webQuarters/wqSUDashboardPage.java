@@ -13,4 +13,6 @@ public interface wqSUDashboardPage {
     public final String DM_DASHBOARD_ASSIGN_USERS_TILE_XPATH = "//*[@id='ctl00_ctl39_g_C95A5BB3_48BB_42AC_BDD4_33F39F4DECC3_ctl00_HyperlinkAssignUserTile']";
     public final String DM_DASHBOARD_ASSIGN_USERS_TILE_CSS  = "";
 
+
+
 }

@@ -450,7 +450,6 @@ public class WQReassignDMUserRequestTest extends TestBase {
         String AMUsername = data.getValueByName("AM_Username");
         String AMPassword = data.getValueByName("AM_Password");
         String WindowsAuthOption = data.getValueByName("SignInOption1");
-        String assignUsersSuccessMsg = data.getValueByName("AMAssignUsersPage_UserAddedSuccessMsg");
 
         setSiteURL(siteUrl);
 
@@ -600,6 +599,6 @@ public class WQReassignDMUserRequestTest extends TestBase {
         Assert.assertEquals(wqsuDashboardPage.check_Browser_Title(),supportDashboardLink, "Role as a DM ended verified !");
     }
 
-
+   
 
 }
