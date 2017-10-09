@@ -36,6 +36,7 @@ public class TestBase  {
 	protected WQClientAssignPage wqClientAssignPage;
 	protected WQClientCompanyProfilePage wqClientCompanyProfilePage;
 	protected WQClientCompanyProfileUpdatePage wqClientCompanyProfileUpdatePage;
+	protected WQLicenseCategoryPage wqLicenseCategoryPage;
 
 
 
@@ -63,6 +64,7 @@ public class TestBase  {
 		wqClientAssignPage = new WQClientAssignPage(driver);
 		wqClientCompanyProfilePage = new WQClientCompanyProfilePage(driver);
 		wqClientCompanyProfileUpdatePage=new WQClientCompanyProfileUpdatePage(driver);
+		wqLicenseCategoryPage = new WQLicenseCategoryPage(driver);
 
 	}
 
