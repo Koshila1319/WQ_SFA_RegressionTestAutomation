@@ -128,8 +128,9 @@ public class WQUserProfileTest extends TestBase {
             String Password = data.getValueByName("DM_SU_Password");
             String mobile=data.getValueByName("DM_SU_Mobile");
             String office_Site=data.getValueByName("DM_SU_OfficeSite");
+            String filepath1 = System.getProperty("user.dir")+ data.getValueByName("ClientProfileUpdate_ProfilePic2");
 
-            String filepath2 = data.getValueByName("ClientProfileUpdate_ProfilePic2");
+
             wqHomePage.
                     action_Navigate_To_LoginPage();
             wqLoginPage.
@@ -142,7 +143,7 @@ public class WQUserProfileTest extends TestBase {
                     click_On_Edit_Button().
                     enter_Mobile(mobile).
                     enter_Office_Site(office_Site).
-                    step_click_Profile_Pic_Upload_button(filepath2).
+                    step_click_Profile_Pic_Upload_button(filepath1).
                     click_Update_Button();
 
         }
@@ -154,8 +155,8 @@ public class WQUserProfileTest extends TestBase {
             String Password = data.getValueByName("DM_SU_Password");
             String mobile=data.getValueByName("DM_SU_Mobile");
             String office_Site=data.getValueByName("DM_SU_OfficeSite");
+            String filepath2 =  System.getProperty("user.dir")+ data.getValueByName("ClientProfileUpdate_ProfilePic2");
 
-            String filepath2 = data.getValueByName("ClientProfileUpdate_ProfilePic2");
             wqHomePage.
                     action_Navigate_To_LoginPage();
             wqLoginPage.

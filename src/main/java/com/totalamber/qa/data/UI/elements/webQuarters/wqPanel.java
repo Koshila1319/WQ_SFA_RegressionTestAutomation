@@ -8,11 +8,15 @@ public interface wqPanel {
     public final String AM_DASHBOARD_HOMELINK_HIGHLIGHTED_XPATH = "//*[contains(@class,'active')]";
     public final String AM_DASHBOARD_HOMELINK_HIGHLIGHTED_CSS  = "";
 
+
+    public final String MAINLINK_HIGHLIGHTED_XPATH = "//a[contains(@id,'HyperLinkWQ')][contains(@class,'wq active')]";
+    public final String MAINLINK_HIGHLIGHTED_CSS  = "";
+
     public final String AM_DASHBOARD_HOMELINK_XPATH  = "//*[contains(@id,'_HyperLinkHome')]";
     public final String AM_DASHBOARD_HOMELINK_CSS  = "";
 
-    public final String AM_DASHBOARD_SIGNEDINAS_XPATH = "//*[contains(@id,'LabelName')]";
-    public final String AM_DASHBOARD_SIGNEDINAS_CSS  = "";
+    public final String SIGNEDINAS_XPATH = "//*[contains(@id,'LabelName')]";
+    public final String SIGNEDINAS_CSS  = "";
 
     public final String AM_DASHBOARD_SIGNOUT_LINK_XPATH = "//*[contains(@id,'HyperLinkInternalUsersSignOut')]";
     public final String AM_DASHBOARD_SIGNOUT_LINK_CSS  = "";
@@ -20,5 +24,10 @@ public interface wqPanel {
     public final String AM_DASHBOARD_FOOTER_AREA_XPATH = "//div[@class='wr-footer text-align-center']";
     public final String AM_DASHBOARD_FOOTER_AREA_CSS  = "";
 
+    public final String WQLOGO_XPATH = "//div[contains(@class,'main-logo')]";
+    public final String WQLOGO_CSS = "";
+
+    public final String SIGNOUT_XPATH = "//*[contains(@id,'HyperLinkSignOut')]";
+    public final String SIGNOUT_CSS = "";
 
 }

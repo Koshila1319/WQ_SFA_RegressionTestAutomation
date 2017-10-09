@@ -24,7 +24,7 @@
                     <methods>
 
                         <include name = "verify_PendingClientsTable_Available" />
-                        <include name = "verify_TableHeaderText_PendingClientsTable_Table_Available" />
+                        <include name = "verify_TableHeaderText_of_PendingClientsTable_isAvailable" />
                         &lt;!&ndash;<include name = "verify_Client_In_PendingClients_List_IsAvailable" />
                         <include name = "verify_Client_Available_to_Click_and_Navigate" />
                         <include name = "verify_CompanyDetails_In_VerifyPage" />
@@ -289,13 +289,25 @@
 					<include name = "" />
 					<include name = "" />
 					<include name = "" />
-
-
-
-
-
 				</methods>
 			</class>
 		</classes>
 	</test>
+
+	<!--<test name="License Successful Page Test">
+		<classes>
+			&lt;!&ndash;This class name should add&ndash;&gt;
+			<class name="com.totalamber.qa.WQTest.WQBackOfficeLoginTest">
+				<methods>
+					<include name="verify_Page_Title_Of_LicenseSuccessful_Page" />
+					<include name="verify_PageContent_WithPackageDetails" />
+					<include name="verifyHomeButton_IsAvailable" />
+					<include name="verify_HomeButton_Text" />
+					<include name="verify_ClickingHome_Button_GoesTo_WQMainPage" />
+				</methods>
+			</class>
+		</classes>
+	</test>&ndash;&gt;-->
+
+
 </suite>

@@ -6,8 +6,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
-
 /**
  * Created by t.piyananda on 30/09/2017.
  */
@@ -426,8 +424,9 @@ public class WQClientFirstProfileUpdateTest extends TestBase {
         //--------------------------
         wqClientProfileUpdatePage
                 .step_click_AppInfo_Accordian();
+        String software = data.getValueByName("Software_Application");
         wqClientProfileUpdatePage
-                .step_select_a_Software("IFS");
+                .step_select_a_Software(software);
         Thread.sleep(10000);
         Assert.assertNotNull(wqClientProfileUpdatePage.check_Module_List_IsAvailable());
         Assert.assertNotNull(wqClientProfileUpdatePage.check_Version_List_IsAvailable());
@@ -452,10 +451,17 @@ public class WQClientFirstProfileUpdateTest extends TestBase {
         //--------------------------
         wqClientProfileUpdatePage
                 .step_click_AppInfo_Accordian();
+        String software = data.getValueByName("Software_Application");
         wqClientProfileUpdatePage
-                .step_click_A_Module("IFS Report Designer")
-                .step_click_A_Module("IFS Developer Studio")
-                .step_click_A_Module("IFS Connected (Extended Server)")
+                .step_select_a_Software(software);
+        Thread.sleep(5000);
+        String software1 = data.getValueByName("Software_Module1");
+        String software2 = data.getValueByName("Software_Module2");
+        String software3 = data.getValueByName("Software_Module3");
+        wqClientProfileUpdatePage
+                .step_click_A_Module(software1)
+                .step_click_A_Module(software2)
+                .step_click_A_Module(software3)
                 .step_click_Add_button();
         Thread.sleep(5000);
 
@@ -479,13 +485,18 @@ public class WQClientFirstProfileUpdateTest extends TestBase {
         //--------------------------
         wqClientProfileUpdatePage
                 .step_click_AppInfo_Accordian();
+        String software = data.getValueByName("Software_Application");
         wqClientProfileUpdatePage
-                .step_select_a_Software("IFS");
+                .step_select_a_Software(software);
+        Thread.sleep(5000);
+        String version1 = data.getValueByName("Software_Version1");
+        String version2 = data.getValueByName("Software_Version2");
+        String version3 = data.getValueByName("Software_Version3");
         Thread.sleep(5000);
         wqClientProfileUpdatePage
-                .step_click_A_Version("IFS App 7.5")
-                .step_click_A_Version("IFS 2001-3")
-                .step_click_A_Version("IFS App 9")
+                .step_click_A_Version(version1)
+                .step_click_A_Version(version2)
+                .step_click_A_Version(version3)
                 .step_click_Add_button();
         Thread.sleep(5000);
 
@@ -509,17 +520,27 @@ public class WQClientFirstProfileUpdateTest extends TestBase {
         //--------------------------
         wqClientProfileUpdatePage
                 .step_click_AppInfo_Accordian();
+        String software = data.getValueByName("Software_Application");
         wqClientProfileUpdatePage
-                .step_select_a_Software("IFS");
+                .step_select_a_Software(software);
+        Thread.sleep(5000);
+        String software1 = data.getValueByName("Software_Module1");
+        String software2 = data.getValueByName("Software_Module2");
+        String software3 = data.getValueByName("Software_Module3");
+        wqClientProfileUpdatePage
+                .step_click_A_Module(software1)
+                .step_click_A_Module(software2)
+                .step_click_A_Module(software3);
+        Thread.sleep(5000);
+        String version1 = data.getValueByName("Software_Version1");
+        String version2 = data.getValueByName("Software_Version2");
+        String version3 = data.getValueByName("Software_Version3");
         Thread.sleep(5000);
         wqClientProfileUpdatePage
-                .step_click_A_Module("IFS Report Designer")
-                .step_click_A_Module("IFS Developer Studio")
-                .step_click_A_Module("IFS Connected (Extended Server)");
+                .step_click_A_Version(version1)
+                .step_click_A_Version(version2)
+                .step_click_A_Version(version3);
         wqClientProfileUpdatePage
-                .step_click_A_Version("IFS App 7.5")
-                .step_click_A_Version("IFS 2001-3")
-                .step_click_A_Version("IFS App 9")
                 .step_click_Add_button();
         Thread.sleep(5000);
 
@@ -543,8 +564,9 @@ public class WQClientFirstProfileUpdateTest extends TestBase {
         //--------------------------
         wqClientProfileUpdatePage
                 .step_click_AppInfo_Accordian();
+        String software = data.getValueByName("Software_Application");
         wqClientProfileUpdatePage
-                .step_select_a_Software("IFS");
+                .step_select_a_Software(software);
         Thread.sleep(5000);
         wqClientProfileUpdatePage
                 .step_click_Add_button();
@@ -1120,7 +1142,7 @@ public class WQClientFirstProfileUpdateTest extends TestBase {
     }
 
     @Test (enabled = false)
-    public void verify_StrockPrice_Textbox_IsAvailable() throws Exception {
+    public void verify_StockPrice_Textbox_IsAvailable() throws Exception {
         //Below line added as Suranjith told to proceed as individual tests
         //-------------------
         wqHomePage.
@@ -1161,7 +1183,7 @@ public class WQClientFirstProfileUpdateTest extends TestBase {
 
         wqClientProfileUpdatePage
                 .step_click_OtherCompanyDetails_Accordian();
-        Assert.assertEquals(wqClientProfileUpdatePage.check_PlaceHolderText_of_StockProce_Textbox(),"Stock Price1");
+        Assert.assertEquals(wqClientProfileUpdatePage.check_PlaceHolderText_of_StockProce_Textbox(),"Stock Price");
 
     }
 
@@ -1185,8 +1207,31 @@ public class WQClientFirstProfileUpdateTest extends TestBase {
         wqClientProfileUpdatePage
                 .step_click_OtherCompanyDetails_Accordian();
         Thread.sleep(2000);
+        String textToEnter= data.getValueByName("AM_textToEnter");
         wqClientProfileUpdatePage
-                .step_enter_Characters_In_StockPrice_Textbox("1we%");
+                .step_enter_Characters_In_StockPrice_Textbox(textToEnter);
+
+    }
+    @Test (enabled = false)
+    public void verify_Country_Dropdown_IsAvailable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        wqClientProfileUpdatePage
+                .step_click_OtherCompanyDetails_Accordian();
+        Thread.sleep(2000);
+        Assert.assertNotNull(wqClientProfileUpdatePage.check_addingCountry_Dropdown_IsAvailable());
 
     }
 
@@ -1207,32 +1252,16 @@ public class WQClientFirstProfileUpdateTest extends TestBase {
                 .action_Navigate_To_ClientProfilePage(profileUpdateURL);
         //--------------------------
 
-        Assert.assertEquals(wqClientProfileUpdatePage.check_addingCountry_Dropdown_IsAvailable(),"");
+        wqClientProfileUpdatePage
+                .step_click_OtherCompanyDetails_Accordian();
+        Thread.sleep(2000);
+        Assert.assertEquals(wqClientProfileUpdatePage.check_Default_Dropdown_Value_of_SelectCountry(),"--- Please select ---");
 
     }
+
+
 
     @Test (enabled = false)
-    public void verify_Country_Dropdown_IsAvailable() throws Exception {
-        //Below line added as Suranjith told to proceed as individual tests
-        //-------------------
-        wqHomePage.
-                action_Navigate_To_LoginPage();
-        //wqLoginPage.step_Clear_Username_Field();
-        String Uname = data.getValueByName("ClientProf_Update_UN");
-        String Password = data.getValueByName("ClientProf_Update_PW");
-        wqLoginPage
-                .step_User_Enter_Given_Credentials(Uname,Password)
-                .step_User_Click_Login_Button();
-        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
-        wqHomePage
-                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
-        //--------------------------
-
-        Assert.assertNotNull(wqClientProfileUpdatePage.check_Default_Dropdown_Value_of_SelectCountry(),"--- Please select ---");
-
-    }
-
-    @Test (enabled = true)
     public void verify_Selecting_Country() throws Exception {
         //Below line added as Suranjith told to proceed as individual tests
         //-------------------
@@ -1249,21 +1278,1180 @@ public class WQClientFirstProfileUpdateTest extends TestBase {
                 .action_Navigate_To_ClientProfilePage(profileUpdateURL);
         //--------------------------
 
-        Assert.assertNotNull(wqClientProfileUpdatePage.check_Default_Dropdown_Value_of_SelectCountry(),"--- Please select ---");
+        wqClientProfileUpdatePage
+                .step_click_OtherCompanyDetails_Accordian();
+        Thread.sleep(2000);
+        String country = data.getValueByName("ClientProfileUpdate_Country");
+        wqClientProfileUpdatePage.step_select_a_Country(country);
 
     }
 
-    /*
+    @Test (enabled = false)
+    public void verify_AddButton_IsAvailable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        wqClientProfileUpdatePage
+                .step_click_OtherCompanyDetails_Accordian();
+        Thread.sleep(2000);
+        Assert.assertNotNull(wqClientProfileUpdatePage.check_AddButton_IsAvailable());
+
+    }
+
+    @Test (enabled = false)
+    public void verify_AddButton_Text() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        wqClientProfileUpdatePage
+                .step_click_OtherCompanyDetails_Accordian();
+        Thread.sleep(2000);
+        Assert.assertEquals(wqClientProfileUpdatePage.check_AddButton_Text(),"Add");
+
+    }
+
+    @Test (enabled = false)
+    public void verifyClicking_Add_button_With_Country_Selected() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+
+        wqClientProfileUpdatePage
+                .step_click_OtherCompanyDetails_Accordian();
+        Thread.sleep(2000);
+        String country1 = data.getValueByName("ClientProfileUpdate_Country1");
+        String country2 = data.getValueByName("ClientProfileUpdate_Country2");
+        wqClientProfileUpdatePage.step_select_a_Country(country1);
+        wqClientProfileUpdatePage.step_click_AddCountry_button();
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage.step_select_a_Country(country2);
+        wqClientProfileUpdatePage.step_click_AddCountry_button();
+        Thread.sleep(5000);
+        Assert.assertEquals(wqClientProfileUpdatePage.check_AddedCountry_In_CountryList(country1),country1);
+
+    }
+
+    @Test (enabled = false)
+    public void verify_RemoveButton_IsAvailable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        wqClientProfileUpdatePage
+                .step_click_OtherCompanyDetails_Accordian();
+        Thread.sleep(2000);
+        Assert.assertNotNull(wqClientProfileUpdatePage.check_RemoveButton_IsAvailable());
+
+    }
+
+    @Test (enabled = false)
+    public void verify_RemoveButton_Text() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        wqClientProfileUpdatePage
+                .step_click_OtherCompanyDetails_Accordian();
+        Thread.sleep(2000);
+        Assert.assertEquals(wqClientProfileUpdatePage.check_RemoveButton_Text(),"Remove");
+
+    }
+
+    @Test (enabled = false)
+    public void verify_Clicking_RemoveButton_withSelected_Country() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        wqClientProfileUpdatePage
+                .step_click_OtherCompanyDetails_Accordian();
+        Thread.sleep(2000);
+        String country1 = data.getValueByName("ClientProfileUpdate_Country1");
+        String country2 = data.getValueByName("ClientProfileUpdate_Country2");
+        wqClientProfileUpdatePage
+                .step_select_a_Country(country1)
+                .step_click_AddCountry_button();
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .step_select_a_Country(country2)
+                .step_click_AddCountry_button();
+        Thread.sleep(5000);
+
+        wqClientProfileUpdatePage
+                .step_click_Country_from_List(country1);
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .step_click_RemoveButton();
+
+    }
+
     //Billing Details
-    @Test
-    public void verify_BillingDetails_Accordian_IsAvailable(){
+    @Test (enabled = false)
+    public void verify_BillingDetails_Accordian_IsAvailable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
         wqClientProfileUpdatePage.validate_BillingDetails_Accordian();
     }
 
-    @Test
-    public void verify_Clicking_BillingDetails_Accordian_displays_Information() throws InterruptedException {
+    @Test (enabled = false)
+    public void verify_Clicking_BillingDetails_Accordian_displays_Information() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
         Thread.sleep(5000);
         wqClientProfileUpdatePage.click_BillingDetails_Accordian();
         Assert.assertNotNull(wqClientProfileUpdatePage.validate_BillingDetails_Data_Displays());
-    }*/
+    }
+
+    @Test (enabled = false)
+    public void verify_NumberOfSites_TextBoxI_IsAvailable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertNotNull(wqClientProfileUpdatePage.check_NumberOfSites_TextBox_IsAvailable());
+    }
+
+    @Test (enabled = false)
+    public void verify_NumberOfSites_TextBox_Placeholder() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertEquals(wqClientProfileUpdatePage.check_NumberOfSites_TextBox_PlaceHolder(),"Number of sites");
+    }
+
+    @Test (enabled = false)
+    public void verify_NumberOfSites_TextBox_IsEditable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+
+        String textToEnter= data.getValueByName("AM_textToEnter");
+        wqClientProfileUpdatePage
+                .step_enter_Characters_In_NumberOfSites_Textbox(textToEnter);
+
+    }
+
+    @Test (enabled = false)
+    public void verify_AnnualRevenue_TextBox_IsAvailable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertNotNull(wqClientProfileUpdatePage.check_AnnualRevenue_TextBox_IsAvailable());
+    }
+
+    @Test (enabled = false)
+    public void verify_AnnualRevenue_TextBox_Placeholder() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertEquals(wqClientProfileUpdatePage.check_AnnualRevenue_TextBox_PlaceHolder(),"Annual Revenue");
+    }
+
+    @Test (enabled = false)
+    public void verify_AnnualRevenue_TextBox_IsEditable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+
+        String textToEnter= data.getValueByName("AM_textToEnter");
+        wqClientProfileUpdatePage
+                .step_enter_Characters_In_AnnualRevenue_Textbox(textToEnter);
+
+    }
+
+    @Test (enabled = false)
+    public void verify_Address_TextBox_IsAvailable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertNotNull(wqClientProfileUpdatePage.check_Address_TextBox_IsAvailable());
+    }
+
+    @Test (enabled = false)
+    public void verify_Address_TextBox_Placeholder() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertEquals(wqClientProfileUpdatePage.check_Address_TextBox_PlaceHolder(),"Address");
+    }
+
+    @Test (enabled = false)
+    public void verify_Address_TextBox_IsEditable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Thread.sleep(2000);
+        String textToEnter= data.getValueByName("AM_textToEnter");
+        wqClientProfileUpdatePage
+                .step_enter_Characters_In_Address_Textbox(textToEnter);
+
+    }
+
+    @Test (enabled = false)
+    public void verify_Town_TextBox_IsAvailable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertNotNull(wqClientProfileUpdatePage.check_Town_TextBox_IsAvailable());
+    }
+
+    @Test (enabled = false)
+    public void verify_Town_TextBox_Placeholder() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertEquals(wqClientProfileUpdatePage.check_Town_TextBox_PlaceHolder(),"Town / city");
+    }
+
+    @Test (enabled = false)
+    public void verify_Town_TextBox_IsEditable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Thread.sleep(2000);
+        String textToEnter= data.getValueByName("AM_textToEnter");
+        wqClientProfileUpdatePage
+                .step_enter_Characters_In_Town_Textbox(textToEnter);
+
+    }
+
+    @Test (enabled = false)
+    public void verify_County_TextBox_IsAvailable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertNotNull(wqClientProfileUpdatePage.check_County_TextBox_IsAvailable());
+    }
+
+    @Test (enabled = false)
+    public void verify_County_TextBox_Placeholder() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertEquals(wqClientProfileUpdatePage.check_County_TextBox_PlaceHolder(),"County / state");
+    }
+
+    @Test (enabled = false)
+    public void verify_County_TextBox_IsEditable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Thread.sleep(2000);
+        String textToEnter= data.getValueByName("AM_textToEnter");
+        wqClientProfileUpdatePage
+                .step_enter_Characters_In_County_Textbox(textToEnter);
+
+    }
+
+    @Test (enabled = false)
+    public void verify_Post_TextBox_IsAvailable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertNotNull(wqClientProfileUpdatePage.check_Post_TextBox_IsAvailable());
+    }
+
+    @Test (enabled = false)
+    public void verify_Post_TextBox_Placeholder() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertEquals(wqClientProfileUpdatePage.check_Post_TextBox_PlaceHolder(),"Post / Zip code");
+    }
+
+    @Test (enabled = false)
+    public void verify_Post_TextBox_IsEditable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Thread.sleep(2000);
+        String textToEnter= data.getValueByName("AM_textToEnter");
+        wqClientProfileUpdatePage
+                .step_enter_Characters_In_Post_Textbox(textToEnter);
+
+    }
+
+
+    @Test (enabled = false)
+    public void verify_BillingCountry_Dropdown_IsAvailable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertNotNull(wqClientProfileUpdatePage.check_BillingCountry_Dropdown_IsAvailable());
+    }
+
+    @Test (enabled = false)
+    public void verify_BillingCountry_DefaultValue() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertEquals(wqClientProfileUpdatePage.check_BillingCountry_DefaultValue(),"Billing Country");
+    }
+
+    @Test (enabled = false)
+    public void verify_Selecting_A_Value_From_BillingCountry_Dropdown() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Thread.sleep(2000);
+        String country = data.getValueByName("ClientProfileUpdate_Country1");
+        wqClientProfileUpdatePage
+                .step_select_a_BillingCountry(country);
+
+    }
+
+    @Test (enabled = false)
+    public void verify_Turnover_Dropdown_IsAvailable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertNotNull(wqClientProfileUpdatePage.check_Turnover_Dropdown_IsAvailable());
+    }
+
+    @Test (enabled = false)
+    public void verify_TurnOver_Dropdown_Values() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertEquals(wqClientProfileUpdatePage.check_TurnOver_DefaultValue(),"Turnover");
+    }
+
+    @Test (enabled = false)
+    public void verify_Selecting_A_Value_From_TurnOver_Dropdown() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Thread.sleep(2000);
+        String turnOver = data.getValueByName("ClientProfileUpdate_TurnOver");
+        wqClientProfileUpdatePage
+                .step_select_a_TurnOver(turnOver);
+
+    }
+
+
+
+    @Test (enabled = false)
+    public void verify_Description_TextArea_IsAvailable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertNotNull(wqClientProfileUpdatePage.check_Description_TextArea_IsAvailable());
+    }
+
+    @Test (enabled = false)
+    public void verify_Description_TextArea_Placeholder() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Assert.assertEquals(wqClientProfileUpdatePage.check_Description_TextArea_PlaceHolder(),"Description");
+    }
+
+    @Test (enabled = false)
+    public void verify_Description_TextArea_IsEditable() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        Thread.sleep(2000);
+        String textToEnter= data.getValueByName("AM_textToEnter");
+        wqClientProfileUpdatePage
+                .step_enter_Characters_In_Description_TextArea(textToEnter);
+
+    }
+
+    //Update button
+
+    @Test (enabled = false)
+    public void verify_UpdateButton_Isavailble_In_AppInfo_Page() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage.
+                step_User_Enter_Given_Credentials(Uname,Password).
+                step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Assert.assertNotNull(wqClientProfileUpdatePage.validate_Update_Button_IsAvailable());
+    }
+
+    @Test (enabled = false)
+    public void verify_Update_Button_Text() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage.
+                step_User_Enter_Given_Credentials(Uname,Password).
+                step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        Assert.assertEquals(wqClientProfileUpdatePage.validate_UpdateButton_Text(),"Update");
+    }
+
+    @Test (enabled = false)
+    public void verify_ClickingUpdate_Button_without_NumberOfSites() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        String numberOfSites = data.getValueByName("ClientProfileUpdate_NumberOfSites");
+        String annualRevenue = data.getValueByName("ClientProfileUpdate_AnnualRevenue");
+        String address = data.getValueByName("ClientProfileUpdate_Address");
+        String town = data.getValueByName("ClientProfileUpdate_Town");
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .step_enter_Characters_In_AnnualRevenue_Textbox(annualRevenue)
+                .step_enter_Characters_In_Address_Textbox(address)
+                .step_enter_Characters_In_Town_Textbox(town);
+        Thread.sleep(4000);
+        wqClientProfileUpdatePage
+                .step_click_Update_Button();
+        Thread.sleep(4000);
+        Assert.assertEquals("rgba(255, 0, 0, 1)",wqClientProfileUpdatePage.check_NumberOfSites_TextBox_IsMandatory());
+
+    }
+
+
+    @Test (enabled = false)
+    public void verify_ClickingUpdate_Button_without_AnnualRevenue() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        String numberOfSites = data.getValueByName("ClientProfileUpdate_NumberOfSites");
+        String annualRevenue = data.getValueByName("ClientProfileUpdate_AnnualRevenue");
+        String address = data.getValueByName("ClientProfileUpdate_Address");
+        String town = data.getValueByName("ClientProfileUpdate_Town");
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .step_enter_Characters_In_NumberOfSites_Textbox(numberOfSites)
+                .step_enter_Characters_In_Address_Textbox(address)
+                .step_enter_Characters_In_Town_Textbox(town);
+        Thread.sleep(4000);
+        wqClientProfileUpdatePage
+                .step_click_Update_Button();
+        Thread.sleep(4000);
+        Assert.assertEquals("rgba(255, 0, 0, 1)",wqClientProfileUpdatePage.check_AnnualRevenue_TextBox_IsMandatory());
+
+    }
+
+    @Test (enabled = false)
+    public void verify_ClickingUpdate_Button_without_Address() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        String numberOfSites = data.getValueByName("ClientProfileUpdate_NumberOfSites");
+        String annualRevenue = data.getValueByName("ClientProfileUpdate_AnnualRevenue");
+        String address = data.getValueByName("ClientProfileUpdate_Address");
+        String town = data.getValueByName("ClientProfileUpdate_Town");
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .step_enter_Characters_In_NumberOfSites_Textbox(numberOfSites)
+                .step_enter_Characters_In_AnnualRevenue_Textbox(annualRevenue)
+                .step_enter_Characters_In_Town_Textbox(town);
+        Thread.sleep(4000);
+        wqClientProfileUpdatePage
+                .step_click_Update_Button();
+        Thread.sleep(4000);
+        Assert.assertEquals("rgba(255, 0, 0, 1)",wqClientProfileUpdatePage.check_Address_TextBox_IsMandatory());
+
+    }
+
+    @Test (enabled = false)
+    public void verify_ClickingUpdate_Button_without_Town() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        String numberOfSites = data.getValueByName("ClientProfileUpdate_NumberOfSites");
+        String annualRevenue = data.getValueByName("ClientProfileUpdate_AnnualRevenue");
+        String address = data.getValueByName("ClientProfileUpdate_Address");
+        String town = data.getValueByName("ClientProfileUpdate_Town");
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .step_enter_Characters_In_NumberOfSites_Textbox(numberOfSites)
+                .step_enter_Characters_In_AnnualRevenue_Textbox(annualRevenue)
+                .step_enter_Characters_In_Address_Textbox(address);
+        Thread.sleep(4000);
+        wqClientProfileUpdatePage
+                .step_click_Update_Button();
+        Thread.sleep(4000);
+        Assert.assertEquals("rgba(255, 0, 0, 1)",wqClientProfileUpdatePage.check_Town_TextBox_IsMandatory());
+
+    }
+
+    @Test (enabled = true)
+    public void verify_ClickingUpdate_Button_withouT_App_Info() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        String numberOfSites = data.getValueByName("ClientProfileUpdate_NumberOfSites");
+        String annualRevenue = data.getValueByName("ClientProfileUpdate_AnnualRevenue");
+        String address = data.getValueByName("ClientProfileUpdate_Address");
+        String town = data.getValueByName("ClientProfileUpdate_Town");
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .step_clear_BillingDetail_Mandatory_TextBoxes()
+                .step_enter_Characters_In_NumberOfSites_Textbox(numberOfSites)
+                .step_enter_Characters_In_AnnualRevenue_Textbox(annualRevenue)
+                .step_enter_Characters_In_Address_Textbox(address)
+                .step_enter_Characters_In_Town_Textbox(town);
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .step_click_AppInfo_Accordian();
+        Thread.sleep(4000);
+        wqClientProfileUpdatePage
+                .step_click_DeleteBUtton_Of_ARecord();
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .step_click_Update_Button();
+        Assert.assertEquals(wqClientProfileUpdatePage.check_Error_Message(),"Please select application,version and modules details");
+
+    }
+
+    @Test (enabled = false)
+    public void verify_ClickingUpdate_Button_with_AllValues() throws Exception {
+        //Below line added as Suranjith told to proceed as individual tests
+        //-------------------
+        wqHomePage.
+                action_Navigate_To_LoginPage();
+        //wqLoginPage.step_Clear_Username_Field();
+        String Uname = data.getValueByName("ClientProf_Update_UN");
+        String Password = data.getValueByName("ClientProf_Update_PW");
+        wqLoginPage
+                .step_User_Enter_Given_Credentials(Uname,Password)
+                .step_User_Click_Login_Button();
+        String profileUpdateURL = data.getValueByName("ClientProfileUpdate_ProfileUpdateURL");
+        wqHomePage
+                .action_Navigate_To_ClientProfilePage(profileUpdateURL);
+        //--------------------------
+
+        //Add Application information
+        wqClientProfileUpdatePage
+                .step_click_AppInfo_Accordian();
+        Thread.sleep(4000);
+        String software = data.getValueByName("Software_Application");
+        wqClientProfileUpdatePage
+                .step_select_a_Software(software);
+        Thread.sleep(5000);
+        String software1 = data.getValueByName("Software_Module1");
+        String software2 = data.getValueByName("Software_Module2");
+        String software3 = data.getValueByName("Software_Module3");
+        wqClientProfileUpdatePage
+                .step_click_A_Module(software1)
+                .step_click_A_Module(software2)
+                .step_click_A_Module(software3);
+        Thread.sleep(5000);
+        String version1 = data.getValueByName("Software_Version1");
+        String version2 = data.getValueByName("Software_Version2");
+        String version3 = data.getValueByName("Software_Version3");
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .step_click_A_Version(version1)
+                .step_click_A_Version(version2)
+                .step_click_A_Version(version3);
+        wqClientProfileUpdatePage
+                .step_click_Add_button();
+        Thread.sleep(5000);
+
+        //Add billing Information
+        wqClientProfileUpdatePage
+                .click_BillingDetails_Accordian();
+        String numberOfSites = data.getValueByName("ClientProfileUpdate_NumberOfSites");
+        String annualRevenue = data.getValueByName("ClientProfileUpdate_AnnualRevenue");
+        String address = data.getValueByName("ClientProfileUpdate_Address");
+        String town = data.getValueByName("ClientProfileUpdate_Town");
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .step_clear_BillingDetail_Mandatory_TextBoxes()
+                .step_enter_Characters_In_NumberOfSites_Textbox(numberOfSites)
+                .step_enter_Characters_In_AnnualRevenue_Textbox(annualRevenue)
+                .step_enter_Characters_In_Address_Textbox(address)
+                .step_enter_Characters_In_Town_Textbox(town);
+        Thread.sleep(5000);
+        wqClientProfileUpdatePage
+                .step_click_Update_Button();
+        String browserTitle = data.getValueByName("LicensePreference_BrowserTitle");
+        Thread.sleep(5000);
+        Assert.assertEquals(wqClientProfileUpdatePage.validate_user_Goes_To_Page(),browserTitle);
+    }
+
+
+
 }

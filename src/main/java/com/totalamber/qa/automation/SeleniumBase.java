@@ -13,11 +13,10 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -1068,6 +1067,8 @@ public class SeleniumBase {
         return value;
     }
 
+
+
     //read a Value attribute from Textbox
     public String readValueFromTextBox(String xpath){
 
@@ -1308,6 +1309,7 @@ public class SeleniumBase {
 		}
 	}
 
+
 	//Coded By:Shammi
 	//Used to overwrite the value
 	public void clear_Data_Feilds(String xpath)
@@ -1315,6 +1317,42 @@ public class SeleniumBase {
 		WebElement element = driver.findElement(By.xpath(xpath));
 		element.clear();
 	}
+
+	//Tiresha
+	//Check the selected option exist in List box
+	public String checkDropdownTextValueInList(String xPath, String option) {
+		String value= null;
+		WebElement list = SeleniumBase.driver.findElement(By.xpath(xPath));
+		Select select = new Select(list);
+		List<WebElement> allOptions = select.getOptions();
+		for (int i=0; i<allOptions.size(); i++){
+			value = allOptions.get(i).getText();
+			if(option.equals(value)) {
+				System.out.println("Selected Option Value : " + option + " is existing in List as : " + value);
+				break;
+			}
+		}
+		return value;
+	}
+
+	//Tiresha
+	//Click the option exist in List box
+	public void clickTextValueInList(String xPath, String option) {
+		String value= null;
+		WebElement list = SeleniumBase.driver.findElement(By.xpath(xPath));
+		Select select = new Select(list);
+		List<WebElement> allOptions = select.getOptions();
+		for (int i=0; i<allOptions.size(); i++){
+			value = allOptions.get(i).getText();
+			if(option.equals(value)) {
+				System.out.println("Selected Option Value : " + option + " is existing in List as : " + value);
+				allOptions.get(i).click();
+				break;
+			}
+		}
+	}
+
+
 
 
 }
