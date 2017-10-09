@@ -110,4 +110,8 @@ public class WQTAndCPage implements wqTAndCPage {
         seleniumBase.clearTextBox(TANDCPAGE_IDISAGREE_REASON_XPATH);
         return this;
     }
+
+    public String check_TextArea_IsMandatory() {
+        return seleniumBase.check_CSS_Value(TANDCPAGE_IDISAGREE_REASON_XPATH);
+    }
 }

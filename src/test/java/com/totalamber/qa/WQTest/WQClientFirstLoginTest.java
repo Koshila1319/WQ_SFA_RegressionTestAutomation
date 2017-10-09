@@ -446,10 +446,7 @@ public class WQClientFirstLoginTest extends TestBase{
                 .step_clearTextArea()
                 .step_selectDisagreeButton()
                 .step_click_ConfirmButton();
-
-        //error message code from Shammi
-        Assert.assertNotNull(wqTAndCPage.validate_ErrorMessage());
-
+        Assert.assertEquals("rgba(255, 0, 0, 1)",wqTAndCPage.check_TextArea_IsMandatory());
     }
 
     @Test

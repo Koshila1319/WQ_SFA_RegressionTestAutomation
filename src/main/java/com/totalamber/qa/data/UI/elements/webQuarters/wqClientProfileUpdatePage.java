@@ -210,10 +210,26 @@ public interface wqClientProfileUpdatePage {
     public final String PROFILEUPDATE_PAGE_BILLING_COUNTRY_XPATH = "//*[contains(@name,'billingCountryDropDownList')]";
     public final String PROFILEUPDATE_PAGE_BILLING_COUNTRY_CSS  = "";
 
+    public final String PROFILEUPDATE_PAGE_BILLING_COUNTRY_SELECTED_XPATH = "//select[contains(@name,'billingCountryDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_BILLING_COUNTRY_SELECTED_CSS  = "";
+
     public final String PROFILEUPDATE_PAGE_BILLING_TURNOVER_XPATH = "//*[contains(@name,'turnoverDropDownList')]";
     public final String PROFILEUPDATE_PAGE_BILLING_TURNOVER_CSS  = "";
 
+    public final String PROFILEUPDATE_PAGE_BILLING_TURNOVER_SELECTED_XPATH = "//select[contains(@name,'turnoverDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_BILLING_TURNOVER_SELECTED_CSS  = "";
+
     public final String PROFILEUPDATE_PAGE_BILLING_DESCRIPTION_XPATH = "//*[contains(@name,'descriptionTextBox')]";
     public final String PROFILEUPDATE_PAGE_BILLING_DESCRIPTION_CSS  = "";
+
+    //Update Button
+    public final String PROFILEUPDATE_PAGE_UPDATE_BUTTON_XPATH = "//*[contains(@name,'updateButton')]";
+    public final String PROFILEUPDATE_PAGE_UPDATE_BUTTON_CSS = "";
+
+    public final String PROFILEUPDATE_PAGE_ERROR_MSG_XPATH = "//div[contains(@class,'error')]";
+    public final String PROFILEUPDATE_PAGE_ERROR_MSG_CSS = "";
+
+
+
 
 }

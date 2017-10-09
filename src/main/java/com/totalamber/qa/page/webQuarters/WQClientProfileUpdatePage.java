@@ -409,6 +409,209 @@ public class WQClientProfileUpdatePage implements wqClientProfileUpdatePage{
     }
 
     public String check_Default_Dropdown_Value_of_SelectCountry() {
-        return seleniumBase.getText(PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_SELECTED_CSS,PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_SELECTED_XPATH);
+        return seleniumBase.verifyDataEquals(PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_SELECTED_XPATH);
     }
+
+    public WQClientProfileUpdatePage step_select_a_Country(String s) {
+        seleniumBase.selectByVisibleText(PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_CSS,PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_XPATH,s);
+        return this;
+    }
+
+    public boolean check_AddButton_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_ADD_BUTTON_XPATH);
+    }
+
+    public String check_AddButton_Text() {
+        return seleniumBase.getTextByAttribute(PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_ADD_BUTTON_CSS,PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_ADD_BUTTON_XPATH,"value");
+    }
+
+    public WQClientProfileUpdatePage step_click_AddCountry_button() {
+        seleniumBase.click(PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_ADD_BUTTON_XPATH,PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_ADD_BUTTON_CSS);
+        return this;
+    }
+
+    public boolean check_RemoveButton_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_REMOVE_BUTTON_XPATH);
+    }
+
+    public String check_RemoveButton_Text() {
+        return seleniumBase.getTextByAttribute(PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_REMOVE_BUTTON_CSS,PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_REMOVE_BUTTON_XPATH,"value");
+    }
+
+    public String check_AddedCountry_In_CountryList(String country) {
+       return seleniumBase.checkDropdownTextValueInList(PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_COUNTRYSERVEDLIST_XPATH,country);
+    }
+
+    public WQClientProfileUpdatePage step_click_Country_from_List(String s) {
+        seleniumBase.clickTextValueInList(PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_COUNTRYSERVEDLIST_XPATH,s);
+        return this;
+    }
+
+    public WQClientProfileUpdatePage step_click_RemoveButton() {
+        seleniumBase.click(PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_REMOVE_BUTTON_XPATH,PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_REMOVE_BUTTON_CSS);
+        return this;
+    }
+
+    public boolean check_NumberOfSites_TextBox_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_BILLING_NUMBEROFSITES_XPATH);
+    }
+
+    public String check_NumberOfSites_TextBox_PlaceHolder() {
+        return seleniumBase.getTextByAttribute(PROFILEUPDATE_PAGE_BILLING_NUMBEROFSITES_CSS,PROFILEUPDATE_PAGE_BILLING_NUMBEROFSITES_XPATH,"placeholder");
+    }
+
+    public WQClientProfileUpdatePage step_enter_Characters_In_NumberOfSites_Textbox(String s) {
+        seleniumBase.type(PROFILEUPDATE_PAGE_BILLING_NUMBEROFSITES_CSS,PROFILEUPDATE_PAGE_BILLING_NUMBEROFSITES_XPATH,s);
+        return this;
+    }
+
+    public boolean check_AnnualRevenue_TextBox_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_BILLING_ANNUALREV_XPATH);
+    }
+
+    public String check_AnnualRevenue_TextBox_PlaceHolder() {
+        return seleniumBase.getTextByAttribute(PROFILEUPDATE_PAGE_BILLING_ANNUALREV_CSS,PROFILEUPDATE_PAGE_BILLING_ANNUALREV_XPATH,"placeholder");
+    }
+
+    public WQClientProfileUpdatePage step_enter_Characters_In_AnnualRevenue_Textbox(String s) {
+        seleniumBase.type(PROFILEUPDATE_PAGE_BILLING_ANNUALREV_CSS,PROFILEUPDATE_PAGE_BILLING_ANNUALREV_XPATH,s);
+        return this;
+    }
+
+    public boolean check_Address_TextBox_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_BILLING_ADDRESS_XPATH);
+    }
+
+    public String check_Address_TextBox_PlaceHolder() {
+        return seleniumBase.getTextByAttribute(PROFILEUPDATE_PAGE_BILLING_ADDRESS_CSS,PROFILEUPDATE_PAGE_BILLING_ADDRESS_XPATH,"placeholder");
+    }
+
+    public WQClientProfileUpdatePage step_enter_Characters_In_Address_Textbox(String s) {
+        seleniumBase.type(PROFILEUPDATE_PAGE_BILLING_ADDRESS_CSS,PROFILEUPDATE_PAGE_BILLING_ADDRESS_XPATH,s);
+        return this;
+    }
+
+    public boolean check_Town_TextBox_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_BILLING_TOWN_XPATH);
+    }
+
+    public String check_Town_TextBox_PlaceHolder() {
+        return seleniumBase.getTextByAttribute(PROFILEUPDATE_PAGE_BILLING_TOWN_CSS,PROFILEUPDATE_PAGE_BILLING_TOWN_XPATH,"placeholder");
+    }
+
+    public WQClientProfileUpdatePage step_enter_Characters_In_Town_Textbox(String s) {
+        seleniumBase.type(PROFILEUPDATE_PAGE_BILLING_TOWN_CSS,PROFILEUPDATE_PAGE_BILLING_TOWN_XPATH,s);
+        return this;
+    }
+
+    public boolean check_County_TextBox_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_BILLING_COUNTY_XPATH);
+    }
+
+    public String check_County_TextBox_PlaceHolder() {
+        return seleniumBase.getTextByAttribute(PROFILEUPDATE_PAGE_BILLING_COUNTY_CSS,PROFILEUPDATE_PAGE_BILLING_COUNTY_XPATH,"placeholder");
+    }
+
+    public WQClientProfileUpdatePage step_enter_Characters_In_County_Textbox(String s) {
+        seleniumBase.type(PROFILEUPDATE_PAGE_BILLING_COUNTY_CSS,PROFILEUPDATE_PAGE_BILLING_COUNTY_XPATH,s);
+        return this;
+    }
+
+    public boolean check_Post_TextBox_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_BILLING_POSTAL_XPATH);
+    }
+
+    public String check_Post_TextBox_PlaceHolder() {
+        return seleniumBase.getTextByAttribute(PROFILEUPDATE_PAGE_BILLING_POSTAL_CSS,PROFILEUPDATE_PAGE_BILLING_POSTAL_XPATH,"placeholder");
+    }
+
+    public WQClientProfileUpdatePage step_enter_Characters_In_Post_Textbox(String s) {
+        seleniumBase.type(PROFILEUPDATE_PAGE_BILLING_POSTAL_CSS,PROFILEUPDATE_PAGE_BILLING_POSTAL_XPATH,s);
+        return this;
+    }
+
+    public boolean check_BillingCountry_Dropdown_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_BILLING_COUNTRY_XPATH);
+    }
+
+    public String check_BillingCountry_DefaultValue() {
+        return seleniumBase.getText(PROFILEUPDATE_PAGE_BILLING_COUNTRY_SELECTED_CSS,PROFILEUPDATE_PAGE_BILLING_COUNTRY_SELECTED_XPATH);
+    }
+
+    public WQClientProfileUpdatePage step_select_a_BillingCountry(String s) {
+        seleniumBase.selectByVisibleText(PROFILEUPDATE_PAGE_BILLING_COUNTRY_CSS,PROFILEUPDATE_PAGE_BILLING_COUNTRY_XPATH,s);
+        return this;
+    }
+
+    public boolean check_Turnover_Dropdown_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_BILLING_TURNOVER_XPATH);
+    }
+
+    public String check_TurnOver_DefaultValue() {
+        return seleniumBase.getText(PROFILEUPDATE_PAGE_BILLING_TURNOVER_SELECTED_CSS,PROFILEUPDATE_PAGE_BILLING_TURNOVER_SELECTED_XPATH);
+    }
+
+    public WQClientProfileUpdatePage step_select_a_TurnOver(String s) {
+        seleniumBase.selectByVisibleText(PROFILEUPDATE_PAGE_BILLING_TURNOVER_CSS,PROFILEUPDATE_PAGE_BILLING_TURNOVER_XPATH,s);
+        return this;
+    }
+
+    public boolean check_Description_TextArea_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_BILLING_DESCRIPTION_XPATH);
+    }
+
+    public String check_Description_TextArea_PlaceHolder() {
+        return seleniumBase.getTextByAttribute(PROFILEUPDATE_PAGE_BILLING_DESCRIPTION_CSS,PROFILEUPDATE_PAGE_BILLING_DESCRIPTION_XPATH,"placeholder");
+    }
+
+    public WQClientProfileUpdatePage step_enter_Characters_In_Description_TextArea(String s) {
+        seleniumBase.type(PROFILEUPDATE_PAGE_BILLING_DESCRIPTION_CSS,PROFILEUPDATE_PAGE_BILLING_DESCRIPTION_XPATH,s);
+        return this;
+    }
+
+    public boolean validate_Update_Button_IsAvailable() {
+        return seleniumBase.verifyAvailableObject(PROFILEUPDATE_PAGE_UPDATE_BUTTON_XPATH);
+    }
+
+    public String validate_UpdateButton_Text() {
+        return seleniumBase.getTextByAttribute(PROFILEUPDATE_PAGE_UPDATE_BUTTON_CSS,PROFILEUPDATE_PAGE_UPDATE_BUTTON_XPATH,"value");
+    }
+
+    public WQClientProfileUpdatePage step_click_Update_Button() {
+        seleniumBase.click(PROFILEUPDATE_PAGE_UPDATE_BUTTON_XPATH,PROFILEUPDATE_PAGE_UPDATE_BUTTON_CSS);
+        return this;
+    }
+
+    public String check_NumberOfSites_TextBox_IsMandatory() {
+        return seleniumBase.check_CSS_Value(PROFILEUPDATE_PAGE_BILLING_NUMBEROFSITES_XPATH);
+    }
+
+    public String check_AnnualRevenue_TextBox_IsMandatory() {
+        return seleniumBase.check_CSS_Value(PROFILEUPDATE_PAGE_BILLING_ANNUALREV_XPATH);
+    }
+
+    public String check_Address_TextBox_IsMandatory() {
+        return seleniumBase.check_CSS_Value(PROFILEUPDATE_PAGE_BILLING_ADDRESS_XPATH);
+    }
+
+    public String check_Town_TextBox_IsMandatory() {
+        return seleniumBase.check_CSS_Value(PROFILEUPDATE_PAGE_BILLING_TOWN_XPATH);
+    }
+
+    public String check_Error_Message() {
+        return seleniumBase.getText(PROFILEUPDATE_PAGE_ERROR_MSG_CSS,PROFILEUPDATE_PAGE_ERROR_MSG_XPATH);
+    }
+
+    public WQClientProfileUpdatePage step_clear_BillingDetail_Mandatory_TextBoxes() {
+        seleniumBase.clearTextBox(PROFILEUPDATE_PAGE_BILLING_NUMBEROFSITES_XPATH);
+        seleniumBase.clearTextBox(PROFILEUPDATE_PAGE_BILLING_ANNUALREV_XPATH);
+        seleniumBase.clearTextBox(PROFILEUPDATE_PAGE_BILLING_ADDRESS_XPATH);
+        seleniumBase.clearTextBox(PROFILEUPDATE_PAGE_BILLING_TOWN_XPATH);
+        return this;
+    }
+
+    public String validate_user_Goes_To_Page() {
+        return seleniumBase.driver.getTitle();
+    }
+
 }
