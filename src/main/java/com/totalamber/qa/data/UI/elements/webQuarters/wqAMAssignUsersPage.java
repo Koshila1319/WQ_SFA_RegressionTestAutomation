@@ -32,7 +32,8 @@ public interface wqAMAssignUsersPage {
     public final String WQ_AM_ASSIGN_USERS_EMAIL_USER_IN_SAME_GROUP_XPATH = "//*[@id='ctl00_ctl39_g_f54a3f45_8f0d_4f51_adc3_9e39c4866d23_ctl00_errormessage']";
     public final String WQ_AM_ASSIGN_USERS_EMAIL_USER_IN_SAME_GROUP_CSS = "";
 
-
+    public final String WQ_AM_DEACTIVATE_SU_BUTTON_XPATH = ".//*[@id='ctl00_ctl39_g_f54a3f45_8f0d_4f51_adc3_9e39c4866d23_ctl00_buttonActivateUser']";
+    public final String WQ_AM_DEACTIVATE_SU_BUTTON_CSS = "";
 
 
 }
