@@ -1309,6 +1309,15 @@ public class SeleniumBase {
 		}
 	}
 
+
+	//Coded By:Shammi
+	//Used to overwrite the value
+	public void clear_Data_Feilds(String xpath)
+	{
+		WebElement element = driver.findElement(By.xpath(xpath));
+		element.clear();
+	}
+
 	//Tiresha
 	//Check the selected option exist in List box
 	public String checkDropdownTextValueInList(String xPath, String option) {
@@ -1342,6 +1351,7 @@ public class SeleniumBase {
 			}
 		}
 	}
+
 
 
 
