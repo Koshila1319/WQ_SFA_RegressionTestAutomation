@@ -58,4 +58,9 @@ public interface wqCheckMailCatchEmailPage {
     public final String WQ_CLIENT_NEW_USER_ASSIGNED_EMAIL_TEMP_PASSWORD_XPATH = "html/body/table/tbody/tr[3]/td/div/p[5]";
     public final String WQ_CLIENT_NEW_USER_ASSIGNED_EMAIL_TEMP_PASSWORD_CSS = "";
 
+    //Reassign Email Prevoius DM
+
+    public final String WQ_CLIENT_PREVIVOUS_USER_ROLE_ENDED_EMAIL_CONTENT_XPATH = "/html/body/table/tbody/tr[3]/td/div/p";
+    public final String WQ_CLIENT_PREVIVOUS_USER_ROLE_ENDED_EMAIL_CONTENT_CSS = "";
+
 }

@@ -65,32 +65,57 @@
 			</class>-->
 
 			<!--Replace DM  -->
-			<!--<class name ="com.totalamber.qa.WQTest.WQReassignDMUserRequestTest">
+			<class name ="com.totalamber.qa.WQTest.WQReassignDMUserRequestTest">
 				<methods>
-					&lt;!&ndash;Request To Change DM&ndash;&gt;
+					<!--Request To Change DM&ndash;&gt;
 					<include name = "verify_Assign_Users_Tile_Is_Available"/>
 					<include name = "verify_Clicking_Assign_Users_Tile_Leads_To_Manage_User_Requests_Page"/>
 					<include name = "verify_DM_Details_In_User_Request_Table"/>
-					<include name = "verify_Clicking_Request_Change_Button_In_DM_Leads_To_User_Information_Popup"/>&ndash;&gt;
-					<include name = "verify_User_Information_Popup_Element_Texts"/>
+					<include name = "verify_Clicking_Request_Change_Button_In_DM_Leads_To_User_Information_Popup"/>-->
+					<!--<include name = "verify_User_Information_Popup_Element_Texts"/>
 					<include name = "verify_User_Information_Popup_Buttons_Enabled"/>
 					<include name = "verify_Unable_To_Submit_Request_Without_Adding_Required_DM_Details"/>
 					<include name = "verify_Able_To_Submit_Request_Successfully_By_Adding_DM_Details"/>
 					<include name = "verify_Close_The_User_Information_Popup_By_Clicking_Cancel_Button"/>
-
-					&lt;!&ndash;Check Email AM&ndash;&gt;
-					<include name = "verify_AM_Loging_To_Email"/>
+-->
+					<!--Check Email AM-->
+					<!--<include name = "verify_AM_Loging_To_Email"/>
 					<include name = "verify_User_Reassign_Request_Email_IsAvailable"/>
 					<include name = "verify_User_Reassign_Request_Email_Title"/>
 					<include name = "verify_User_Reassign_Request_Email_Current_User_Details"/>
 					<include name = "verify_User_Reassign_Request_Email_New_User_Details"/>
 					<include name = "verify_User_Reassign_Request_Email_Requested_Company"/>
-					<include name = "verify_User_Reassign_Request_Email_Requested_User_Role"/>
-				</methods>
-			</class>-->
+					<include name = "verify_User_Reassign_Request_Email_Requested_User_Role"/>-->
 
-			<class name ="com.totalamber.qa.WQTest.WQAssignSPUserRequestTest">
-				<methods>
+					<!--Reassign DM by AM-->
+				<!--	<include name = "verify_Login_To_AM_Account"/>
+					<include name = "verify_Assign_Users_Tile_IsAvailable"/>
+					<include name = "verify_Clicking_Assign_Users_Tile_Leads_To_Assign_Users_Page"/>
+					<include name = "verify_Company_DropDown_IsAvailable"/>
+					<include name = "verify_Select_Company_From_The_DropDown"/>
+					<include name = "verify_Unable_To_Reassign_Same_DM"/>
+					<include name = "verify_Unable_To_Reassign_Already_Assigned_DM_From_Another_Company"/>-->
+					<!--<include name = "verify_Able_To_Reassign_DM_Successfully"/>-->
+
+					<!--Previous DM Email-->
+					<!--<include name = "verify_Previous_DM_Role_Ended_Email_In_Inbox"/>
+					<include name = "verify_Previous_DM_Role_Ended_Email_Content"/>-->
+
+					<!--New DM Email-->
+					<!--<include name = "verify_New_DM_Assigned_Email_In_Inbox"/>
+					<include name = "verify_New_DM_Assigned_Email_Content"/>-->
+				<!--	<include name = "verify_clicking_Link_Leads_To_WQ_Sign_In_Page"/>
+
+
+					<include name = "verify_New_DM_Login_To_Account_Successfully"/>-->
+					<include name = "verify_Previous_DM_Login_To_Account_Successfully"/>-->
+
+
+				</methods>
+			</class>
+
+			<!--<class name ="com.totalamber.qa.WQTest.WQAssignSPUserRequestTest">
+				<methods>-->
 					<!--Request To New SU-->
 					<!--<include name = "verify_Assign_Users_Tile_Is_Available"/>
 					<include name = "verify_Clicking_Assign_Users_Tile_Leads_To_Manage_User_Requests_Page"/>
@@ -130,10 +155,51 @@
 					<!--<include name = "verify_User_Assigned_Email_In_Inbox"/>
 					<include name = "verify_User_Assigned_Email_Content"/>-->
 					<!--<include name = "verify_Extract_New_SU_Details_In_Assigned_Email_Content()"/>
-					<include name = "verify_clicking_Link_Leads_To_WQ_Sign_In_Page"/>-->
-					<include name = "verify_SU_Login_To_Account_Successfully"/>
+					<include name = "verify_clicking_Link_Leads_To_WQ_Sign_In_Page"/>
+					<include name = "verify_SU_Login_To_Account_Successfully"/>-->
+			<!--	</methods>
+			</class>-->
+		<!--	<class name ="com.totalamber.qa.WQTest.WQAssignDMAsSPUserRequestTest">
+				<methods>-->
+					<!--Request To Assign DM as SU-->
+				<!--	<include name = "verify_Assign_Users_Tile_Is_Available"/>
+					<include name = "verify_Clicking_Assign_Users_Tile_Leads_To_Manage_User_Requests_Page"/>
+					<include name = "verify_DM_Details_In_User_Request_Table"/>
+					<include name = "verify_Clicking_Request_Assign_Button_In_SU_Leads_To_User_Information_Popup"/>
+					<include name = "verify_User_Information_Popup_Element_Texts"/>
+					<include name = "verify_User_Information_Popup_Buttons_Enabled"/>
+					<include name = "verify_Unable_To_Submit_Request_Without_Adding_Required_SU_Details"/>-->
+					<!--<include name = "verify_Able_To_Submit_Request_Successfully_By_Adding_SU_Details"/>-->
+					<!--<include name = "verify_Close_The_User_Information_Popup_By_Clicking_Cancel_Button"/>-->
+
+					<!--Check Email AM-->
+				<!--	<include name = "verify_AM_Loging_To_Email"/>
+					<include name = "verify_User_Assign_Request_Email_IsAvailable"/>
+					<include name = "verify_User_Assign_Request_Email_Title"/>
+					<include name = "verify_User_Assign_Request_Email_Requested_Company"/>
+					<include name = "verify_User_Assign_Request_Email_New_User_Details"/>
+					<include name = "verify_User_Assign_Request_Email_Requested_User_Role"/>-->
+
+					<!--Assign SP-->
+					<!--<include name = "verify_Login_To_AM_Account"/>
+					<include name = "verify_Assign_Users_Tile_IsAvailable"/>
+					<include name = "verify_Clicking_Assign_Users_Tile_Leads_To_Assign_Users_Page"/>
+					<include name = "verify_Company_DropDown_IsAvailable"/>-->
+					<!--<include name = "verify_Select_Company_From_The_DropDown"/>
+					<include name = "verify_Able_To_Assign_DM_As_SU_Successfully"/>
+					<include name = "verify_Unable_To_Activate_Users_By_Adding_Invalid_Email"/>
+					<include name = "verify_Unable_To_Activate_Users_Without_Adding_User_Details"/>
+					<include name = "verify_Unable_To_Add_Same_User_To_The_Same_Role"/>-->
+
+					<!--Verify New SP User-->
+					<!--<include name = "verify_User_Assigned_Email_In_Inbox"/>
+					<include name = "verify_User_Assigned_Email_Content"/>
+					<include name = "verify_clicking_Link_Leads_To_WQ_Sign_In_Page()"/>-->
+
+					<!--<include name = "verify_SU_Login_To_Account_Successfully"/>
+
 				</methods>
-			</class>
+			</class>-->
 		</classes>
         </test>
     </suite>

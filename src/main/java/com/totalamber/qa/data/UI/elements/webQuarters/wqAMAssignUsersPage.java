@@ -33,6 +33,18 @@ public interface wqAMAssignUsersPage {
     public final String WQ_AM_ASSIGN_USERS_EMAIL_USER_IN_SAME_GROUP_CSS = "";
 
 
+    //Reassign DM
+    public final String WQ_AM_REASSIGN_DM_EMAIL_TEXTBOX_XPATH = "//*[@id='ctl00_ctl39_g_f54a3f45_8f0d_4f51_adc3_9e39c4866d23_ctl00_decisionMakerListView_ctrl0_emailTextBoxDecisionMaker']";
+    public final String WQ_AM_REASSIGN_DM_EMAIL_TEXTBOX_CSS = "";
+
+    public final String WQ_AM_REASSIGN_DM_BUTTON_XPATH = "//*[@id='ctl00_ctl39_g_f54a3f45_8f0d_4f51_adc3_9e39c4866d23_ctl00_decisionMakerListView_ctrl0_buttonReAssignDecisionMaker']";
+    public final String WQ_AM_REASSIGN_DM_BUTTON_CSS = "";
+
+    public final String WQ_AM_REASSIGN_DM_ERROR_MESSAGE_XPATH = "//*[@id='ctl00_ctl39_g_f54a3f45_8f0d_4f51_adc3_9e39c4866d23_ctl00_errormessageDm']";
+    public final String WQ_AM_REASSIGN_DM_ERROR_MESSAGE_CSS = "";
+
+    public final String WQ_AM_REASSIGN_DM_SUCCESS_MESSAGE_XPATH = "//*[@id='ctl00_ctl39_g_f54a3f45_8f0d_4f51_adc3_9e39c4866d23_ctl00_successDm']";
+    public final String WQ_AM_REASSIGN_DM_SUCCESS_MESSAGE_CSS = "";
 
 
 }
