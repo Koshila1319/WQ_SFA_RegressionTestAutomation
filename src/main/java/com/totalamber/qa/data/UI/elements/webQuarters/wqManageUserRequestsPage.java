@@ -11,6 +11,9 @@ public interface wqManageUserRequestsPage {
     public final String WQ_DM_REQUEST_ASSIGN_BUTTON_1_XPATH = ".//*[contains(@id,'_ListViewUserRequests_ctrl2_ButtonRequest')]";
     public final String WQ_DM_REQUEST_ASSIGN_BUTTON_1_CSS = "";
 
+    public final String WQ_DM_REQUEST_ASSIGN_BUTTON_2_XPATH = ".//*[contains(@id,'_ListViewUserRequests_ctrl3_ButtonRequest')]";
+    public final String WQ_DM_REQUEST_ASSIGN_BUTTON_2_CSS = "";
+
     public final String WQ_DM_REQUEST_CHANGE_BUTTON_XPATH = ".//*[contains(@id,'_ListViewUserRequests_ctrl0_ButtonRequest')]";
     public final String WQ_DM_REQUEST_CHANGE_BUTTON_CSS = "";
 
