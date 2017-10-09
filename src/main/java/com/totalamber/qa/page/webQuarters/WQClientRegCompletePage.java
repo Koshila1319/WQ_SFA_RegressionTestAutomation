@@ -5,9 +5,6 @@ import com.totalamber.qa.automation.TestBase;
 import com.totalamber.qa.data.UI.elements.webQuarters.wqClientRegCompletePage;
 import org.openqa.selenium.WebDriver;
 
-
-
-
 /**
  * Created by e.koshila on 09/26/2017.
  */

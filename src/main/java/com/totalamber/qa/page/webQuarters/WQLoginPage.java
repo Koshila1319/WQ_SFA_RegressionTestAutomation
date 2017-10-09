@@ -108,6 +108,10 @@ public class WQLoginPage implements wqLoginPage {
         return  seleniumBase.getTextByAttribute(LOGIN_BTN_CSS,LOGIN_BTN_XPATH,"value");
     }
 
+    //koshi
+    public String check_Browser_Title_Of_The_Newly_Opend_Tab() {
+        return seleniumBase.getNewlyOpenedTabTitle();
+    }
 
     public WQLoginPage step_Clear_Username_Field() {
         seleniumBase.clearTextBox(LOGIN_USER_NAME_XPATH);

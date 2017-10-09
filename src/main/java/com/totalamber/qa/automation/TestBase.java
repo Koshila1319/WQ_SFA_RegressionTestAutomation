@@ -26,13 +26,16 @@ public class TestBase  {
 	protected WQCheckOutlookEmailPage wqCheckOutLookEmailPage;
 	protected WQClientRegCompletePage wqClientRegCompletePage;
 	protected WQSMDashboardPage wqSMDashboardPage;
-	protected WQVerifyClientPage wqVerifyClientPage;
-	public static final String clientEmail = "4f13c64d-e10f-4ca2-8c70-c16aa4cb8592@mailcatch.com";
+	protected WQDMDashboardPage wqdmDashboardPage;
+	protected WQManageUserRequestsPage wqManageUserRequestsPage;
+	protected WQAMAssignUsersPage wqamAssignUsersPage;
+	protected WQUserProfileUpdatePage wqUserProfileUpdatePage;
 	protected WQChangePWPage wqChangePWPage;
 	protected WQTAndCPage wqTAndCPage;
 	protected WQTAndCInProgressPage wqTAndCInProgressPage;
 	protected WQTAndCAccepted wqTAndCAccepted;
 	protected WQClientProfileUpdatePage wqClientProfileUpdatePage;
+	protected WQVerifyClientPage wqVerifyClientPage;
 	protected WQClientAssignPage wqClientAssignPage;
 	protected WQClientCompanyProfilePage wqClientCompanyProfilePage;
 	protected WQClientCompanyProfileUpdatePage wqClientCompanyProfileUpdatePage;
@@ -40,6 +43,20 @@ public class TestBase  {
 	protected WQLicenseCategoryPage wqLicenseCategoryPage;
 	protected WQPackagePage wqPackagePage;
 	protected WQLicenseSuccessfulPage wqLicenseSuccessfulPage;
+
+	//Request to change DM
+	public static String newDmEmailByEmail = "";
+
+	//Request to add new SU
+	public static String newSUEmailByEmail = "";
+	public static String newSURoleByEmail = "";
+	public static String userAssignRequestedCompany = "";
+	public static String newSUTempPwByEmail = "";
+	public static final String clientEmail = "4f13c64d-e10f-4ca2-8c70-c16aa4cb8592@mailcatch.com";
+	public static final String newDMEmail = "596b2cf8-5fe3-4a42-95b0-2dc4845148c4@mailcatch.com";
+	public static final String SUEmail = "drftgyhu@mailcatch.com";
+
+
 
 
 
@@ -59,12 +76,16 @@ public class TestBase  {
 		wqCheckOutLookEmailPage = new WQCheckOutlookEmailPage(driver);
 		wqClientRegCompletePage = new WQClientRegCompletePage(driver);
 		wqSMDashboardPage = new WQSMDashboardPage(driver);
+		wqdmDashboardPage = new WQDMDashboardPage(driver);
+		wqManageUserRequestsPage = new WQManageUserRequestsPage(driver);
+		wqamAssignUsersPage = new WQAMAssignUsersPage(driver);
 		wqChangePWPage = new WQChangePWPage(driver);
 		wqTAndCPage = new WQTAndCPage(driver);
 		wqTAndCInProgressPage = new WQTAndCInProgressPage(driver);
 		wqTAndCAccepted = new WQTAndCAccepted(driver);
 		wqClientProfileUpdatePage = new WQClientProfileUpdatePage(driver);
 		wqVerifyClientPage = new WQVerifyClientPage(driver);
+		wqUserProfileUpdatePage = new WQUserProfileUpdatePage(driver);
 		wqClientAssignPage = new WQClientAssignPage(driver);
 		wqClientCompanyProfilePage = new WQClientCompanyProfilePage(driver);
 		wqClientCompanyProfileUpdatePage=new WQClientCompanyProfileUpdatePage(driver);
