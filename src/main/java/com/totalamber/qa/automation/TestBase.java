@@ -63,11 +63,6 @@ public class TestBase  {
 	public static final String SUEmail = "newnewnew@mailcatch.com";
 
 
-
-
-
-
-
 	public void initDomainObjects(WebDriver driver) throws IOException {
 		data = new Dataprovider();
 		wqLoginPage = new WQLoginPage(driver);
