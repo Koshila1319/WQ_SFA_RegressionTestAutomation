@@ -33,5 +33,12 @@ public class WQPanel implements wqPanel{
         return seleniumBase.getText(AM_DASHBOARD_FOOTER_AREA_CSS,AM_DASHBOARD_FOOTER_AREA_XPATH);
     }
 
+    public boolean check_WQLogo_Is_Available() {
+        return seleniumBase.verifyAvailableObject(WQLOGO_XPATH);
+    }
+    public boolean check_Signout_link_Is_Available_In_Client() {
+        return seleniumBase.verifyAvailableObject(SIGNOUT_XPATH);
+    }
+
 
 }

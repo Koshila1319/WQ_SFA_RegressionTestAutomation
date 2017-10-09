@@ -24,6 +24,10 @@ public interface wqPanel {
     public final String AM_DASHBOARD_FOOTER_AREA_XPATH = "//div[@class='wr-footer text-align-center']";
     public final String AM_DASHBOARD_FOOTER_AREA_CSS  = "";
 
+    public final String WQLOGO_XPATH = "//div[contains(@class,'main-logo')]";
+    public final String WQLOGO_CSS = "";
 
+    public final String SIGNOUT_XPATH = "//*[contains(@id,'HyperLinkSignOut')]";
+    public final String SIGNOUT_CSS = "";
 
 }
