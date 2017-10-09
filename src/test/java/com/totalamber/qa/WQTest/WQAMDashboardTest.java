@@ -5,9 +5,7 @@ import com.totalamber.qa.automation.TestBase;
 import com.totalamber.qa.page.webQuarters.WQAMDashboardPage;
 import com.totalamber.qa.page.webQuarters.WQBackOfficeLoginPage;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 
@@ -16,59 +14,111 @@ import java.io.IOException;
  */
 public class WQAMDashboardTest extends TestBase {
 
-    @BeforeClass
+    @BeforeMethod
     public void NavigateToPage() throws InterruptedException, IOException {
         initDomainObjects(DRIVER);
         String siteUrl = data.getValueByName("BackOfficeUrl");
         setSiteURL(siteUrl);
+
     }
 
-    @AfterClass
+    @AfterMethod
     public void endTestMethod() throws Throwable{
         //quitDriver();
     }
 
-    @Test
+    @Test (enabled = false)
     public void verify_PendingClientsTable_Available() throws InterruptedException {
+        //-------------
         String AMUsername = data.getValueByName("AM_Username");
         String AMPassword = data.getValueByName("AM_Password");
         String WindowsAuthOption = data.getValueByName("SignInOption1");
-        wqBackOfficeLoginPage.action_Login_as_BOUser(AMUsername, AMPassword);
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
         Thread.sleep(10000);
-        wqBackOfficeLoginPage.action_selectAuthentication(WindowsAuthOption);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
         Thread.sleep(10000);
+        //--------------
         Assert.assertNotNull(wqamDashboardPage.check_Pending_Client_Table_Available());
 
     }
 
-    @Test
-    public void verify_TableHeaderText_PendingClientsTable_Table_Available() throws InterruptedException {
-        String pendingClients_TableHeader = data.getValueByName("AM_pendingClients_TableHeader");
-        Assert.assertEquals(wqamDashboardPage.check_PendingClientsTable_Table_HeaderText(),pendingClients_TableHeader);
+    @Test (enabled = false)
+    public void verify_TableHeaderText_of_PendingClientsTable_isAvailable() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        Assert.assertEquals(wqamDashboardPage.check_PendingClientsTable_Table_HeaderText(),"Pending Clients");
 
     }
 
     // Depends with the signedup Client
-    @Test
+    @Test (enabled = false)
     public void verify_Client_In_PendingClients_List_IsAvailable() throws InterruptedException {
-        /*wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();*/
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
         String clientName = data.getValueByName("AM_pendingClient");
         Assert.assertNotNull(wqamDashboardPage.check_Client_In_Table_Available(clientName));
     }
 
     // Depends with the signedup Client
-    @Test
-    public void verify_Client_Available_to_Click_and_Navigate(){
-        String clientName = data.getValueByName("CompanyDetails_CompanyName");
-        wqamDashboardPage.step_user_clicks_Client(clientName);
+    @Test (enabled = true)
+    public void verify_Client_Available_to_Click_and_Navigate() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String clientName = data.getValueByName("AM_pendingClient");
+        wqamDashboardPage
+                .step_user_clicks_Client(clientName);
+        Thread.sleep(8000);
         String expectedTitle = data.getValueByName("BOVerifyPage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(), expectedTitle);
     }
 
     // Depends with the signedup Client
-    @Test
-    public void verify_CompanyDetails_In_VerifyPage(){
+    @Test (enabled = false)
+    public void verify_CompanyDetails_In_VerifyPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName1 = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName1);
+        //-----------------------
         String companyName = data.getValueByName("CompanyDetails_CompanyName");
         String busRegNumber = data.getValueByName("CompanyDetails_BusRegNumber");
         String address = data.getValueByName("CompanyDetails_Address");
@@ -92,8 +142,23 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     // Depends with the signedup Client
-    @Test
-    public void verify_ClientDetails_In_VerifyPage(){
+    @Test (enabled = false)
+    public void verify_ClientDetails_In_VerifyPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
         String clientName = data.getValueByName("ClientDetails_ClientName");
         String dirDial = data.getValueByName("ClientDetails_Dial");
         String eMail = data.getValueByName("ClientDetails_Email");
@@ -107,8 +172,23 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     // Depends with the signedup Client
-    @Test
-    public void verify_SoftwareExperience_In_VerifyPage(){
+    @Test (enabled = false)
+    public void verify_SoftwareExperience_In_VerifyPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
         String applicationName = data.getValueByName("Software_Application");
         String versionName = data.getValueByName("Software_Version");
         String moduleName = data.getValueByName("Software_Module");
@@ -120,23 +200,68 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     // Depends with the signedup Client
-    @Test
-    public void verify_VerifyButton_Available_In_VerifyPage(){
+    @Test (enabled = false)
+    public void verify_VerifyButton_Available_In_VerifyPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
         Assert.assertNotNull(wqamVerifyClientPage.check_VerifyButton_Available());
 
     }
 
     // Depends with the signedup Client
-    @Test
-    public void verify_VerifyButton_Text_Available_In_VerifyButton_In_VerifyPage(){
+    @Test (enabled = false)
+    public void verify_VerifyButton_Text_Available_In_VerifyButton_In_VerifyPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
         String verifyButtonText = data.getValueByName("verifyPage_verifyButton");
         Assert.assertEquals(wqamVerifyClientPage.check_VerifyButton_Text(), verifyButtonText);
 
     }
 
     // Depends with the signedup Client
-    @Test
+    @Test (enabled = false)
     public void verify_Click_VerifyButton_InVerifyPage_goesTo_AMDashboard() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
 
         /*String clientName = data.getValueByName("CompanyDetails_CompanyName");
         wqamDashboardPage.step_user_clicks_Client(clientName);*/
@@ -147,23 +272,68 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     // Depends with the signedup Client
-    @Test
-    public void verify_RejectButton_Available_InVerifyPage(){
+    @Test (enabled = false)
+    public void verify_RejectButton_Available_InVerifyPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
         Assert.assertNotNull(wqamVerifyClientPage.check_RejectButton_Available());
 
     }
 
     // Depends with the signedup Client
-    @Test
-    public void verify_RejectButton_Text_Available_In_RejectButton_In_VerifyPage(){
+    @Test (enabled = false)
+    public void verify_RejectButton_Text_Available_In_RejectButton_In_VerifyPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
         String rejectButtonText = data.getValueByName("verifyPage_rejectButton");
         Assert.assertEquals(wqamVerifyClientPage.check_RejectButton_Text(), rejectButtonText);
 
     }
 
     // Depends with the signedup Client
-    @Test
+    @Test (enabled = false)
     public void verify_Click_RejectButton_InVerifyPage_gives_Popup() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
         /*String clientName = data.getValueByName("CompanyDetails_CompanyName");
         wqamDashboardPage.step_user_clicks_Client(clientName);*/
         wqamVerifyClientPage.step_click_RejectButton();
@@ -172,70 +342,250 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     // Depends with the signedup Client
-    @Test
+    @Test (enabled = false)
     public void verify_Title_Available_In_RejectPopUp() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        //----------------------
         String rejectPopupTitle = data.getValueByName("RejectPopup_Title");
         Assert.assertEquals(wqamVerifyClientPage.validate_RejectPopup_Title(),rejectPopupTitle);
     }
 
     // Depends with the signedup Client
-    @Test
+    @Test (enabled = false)
     public void verify_CommentBox_Available_InRejectPopUp() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqamVerifyClientPage.check_RejectPopup_CommentBox());
     }
 
     // Depends with the signedup Client
-    @Test
+    @Test (enabled = false)
     public void verify_CommentBox_PlaceHolder_Available_InRejectPopUp() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        //----------------------
         String rejectPlaceHolderTextArea = data.getValueByName("RejectPopup_rejectTextArea_Placeholder");
         Assert.assertEquals(wqamVerifyClientPage.check_RejectPopup_CommentBox_Placeholder(),rejectPlaceHolderTextArea);
     }
 
     // Depends with the signedup Client
-    @Test
-    public void verify_Entering_Text_To_CommentBox_InRejectPopUp(){
+    @Test (enabled = false)
+    public void verify_Entering_Text_To_CommentBox_InRejectPopUp() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        //----------------------
         String textToEnter = data.getValueByName("AM_textToEnter");
         wqamVerifyClientPage.validate_Characters_Can_Enter(textToEnter);
     }
 
     // Depends with the signedup Client
-    @Test
-    public void verify_RejectButton_Available_InRejectPopUp(){
+    @Test (enabled = false)
+    public void verify_RejectButton_Available_InRejectPopUp() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqamVerifyClientPage.check_Rejectbutton_Available_inRejectPopup());
     }
 
     // Depends with the signedup Client
-    @Test
-    public void verify_Textof_RejectButton_InRejectPopUp(){
+    @Test (enabled = false)
+    public void verify_Textof_RejectButton_InRejectPopUp() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        //----------------------
         String rejectPopup_rejectButton_Text = data.getValueByName("RejectPopup_rejectButton_Text");
         Assert.assertEquals(wqamVerifyClientPage.check_RejectButton_Text_inRejectPopup(), rejectPopup_rejectButton_Text);
     }
 
     // Depends with the signedup Client
-    @Test
-    public void verify_Textof_CancelButton_InRejectPopUp(){
+    @Test (enabled = false)
+    public void verify_Textof_CancelButton_InRejectPopUp() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        //----------------------
         String rejectPopup_cancelButton_Text = data.getValueByName("RejectPopup_cancelButton_Text");
         Assert.assertEquals(wqamVerifyClientPage.check_cancelButton_Text_inRejectPopup(), rejectPopup_cancelButton_Text);
 
     }
 
     // Depends with the signedup Client
-    @Test
-    public void verify_CancelButton_Available_InRejectPopUp(){
+    @Test (enabled = false)
+    public void verify_CancelButton_Available_InRejectPopUp() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqamVerifyClientPage.check_Cancelbutton_Available_inRejectPopup());
 
     }
 
     // Depends with the signedup Client
-    @Test
+    @Test (enabled = false)
     public void verify_Close_Cross_Available_InRejectPopUp() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqamVerifyClientPage.check_closeCross_Available_inRejectPopup());
 
     }
 
     // Depends with the signedup Client
-    @Test
+    @Test (enabled = false)
     public void verify_Click_Close_Button_InRejectPopup_Goes_To_VerifyPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        //----------------------
         wqamVerifyClientPage.step_click_Close_Button();
         String aMVerifyPageBrowserTitle = data.getValueByName("BOVerifyPage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),aMVerifyPageBrowserTitle);
@@ -243,29 +593,63 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     // Depends with the signedup Client
-    @Test
-    public void verify_ClickReject_Button_Without_Reason_InRejectPopup_Gives_Error_Message(){
+    @Test (enabled = false)
+    public void verify_ClickReject_Button_Without_Reason_InRejectPopup_Gives_Error_Message() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        //----------------------
         wqamVerifyClientPage.clear_Rejectreason_TextArea();
         String rejectPopup_NullValue_ErrorMessage = data.getValueByName("RejectPopup_NullValue_ErrorMessage");
         wqamVerifyClientPage.step_click_Reject_Button();
         Assert.assertEquals(wqamVerifyClientPage.check_Error_Message(), rejectPopup_NullValue_ErrorMessage);
-        wqamVerifyClientPage.step_click_Cancel_Button();
+        //wqamVerifyClientPage.step_click_Cancel_Button();
 
     }
 
     // Depends with the signedup Client
-    @Test
+    @Test (enabled = false)
     public void verify_ClickCancel_Button_InRejectPopup_withText_Goes_To_VerifyPage() throws InterruptedException {
-
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        //----------------------
         /*wqPanel.check_User_goes_To_HomePage();
         verify_The_Home_Page_Browser_Title();
         String clientName = data.getValueByName("CompanyDetails_CompanyName");
-        wqamDashboardPage.step_user_clicks_Client(clientName);*/
+        wqamDashboardPage.step_user_clicks_Client(clientName);
         wqamVerifyClientPage.step_click_RejectButton();
         Thread.sleep(10000);
-        wqamVerifyClientPage.validate_user_gets_aPopup();
+        wqamVerifyClientPage.validate_user_gets_aPopup();*/
         String textToEnter = data.getValueByName("AM_textToEnter");
-        Thread.sleep(10000);
         wqamVerifyClientPage.validate_Characters_Can_Enter(textToEnter);
         wqamVerifyClientPage.step_click_Cancel_Button();
         Thread.sleep(10000);
@@ -275,16 +659,34 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     // Depends with the signedup Client
-    @Test
+    @Test (enabled = false)
     public void verify_ClickCancel_Button_InRejectPopup_withoutText_Goes_To_VerifyPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        //----------------------
         /*wqPanel.check_User_goes_To_HomePage();
         verify_The_Home_Page_Browser_Title();
         String clientName = data.getValueByName("CompanyDetails_CompanyName");
-        wqamDashboardPage.step_user_clicks_Client(clientName);*/
+        wqamDashboardPage.step_user_clicks_Client(clientName);
         wqamVerifyClientPage.step_click_RejectButton();
         Thread.sleep(10000);
         wqamVerifyClientPage.validate_user_gets_aPopup();
-        Thread.sleep(10000);
+        Thread.sleep(10000);*/
         wqamVerifyClientPage.clear_Rejectreason_TextArea();
         wqamVerifyClientPage.step_click_Cancel_Button();
         Thread.sleep(10000);
@@ -294,15 +696,33 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     // Depends with the signedup Client
-    @Test
+    @Test (enabled = false)
     public void verify_ClickReject_Button_With_Reason_InRejectPopup_GoesTo_AMDashboard() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //--------------
+        String companyName = data.getValueByName("CompanyDetails_CompanyName");
+        wqamDashboardPage
+                .step_user_clicks_Client(companyName);
+        //-----------------------
+        wqamVerifyClientPage.step_click_RejectButton();
+        Thread.sleep(10000);
+        //----------------------
         /*wqPanel.check_User_goes_To_HomePage();
         verify_The_Home_Page_Browser_Title();
         String clientName = data.getValueByName("CompanyDetails_CompanyName");
-        wqamDashboardPage.step_user_clicks_Client(clientName);*/
+        wqamDashboardPage.step_user_clicks_Client(clientName);
         wqamVerifyClientPage.step_click_RejectButton();
         Thread.sleep(10000);
-        wqamVerifyClientPage.validate_user_gets_aPopup();
+        wqamVerifyClientPage.validate_user_gets_aPopup();*/
         String textToEnter = data.getValueByName("AM_textToEnter");
         wqamVerifyClientPage.validate_Characters_Can_Enter(textToEnter);
         wqamVerifyClientPage.step_click_RejectButton();
@@ -314,8 +734,19 @@ public class WQAMDashboardTest extends TestBase {
 
     //------------------------------------------------------------
 
-    @Test
-    public void verify_The_Home_Page_Browser_Title(){
+    @Test (enabled = false)
+    public void verify_The_Home_Page_Browser_Title() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         /*wqPanel.check_User_goes_To_HomePage();
         verify_The_Home_Page_Browser_Title();*/
         String aMDashboardBrowserTitle = data.getValueByName("AM_HomePage");
@@ -323,25 +754,69 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
-    @Test
-    public void verify_HomeLink_IsHighlighted(){
+    @Test (enabled = false)
+    public void verify_HomeLink_IsHighlighted() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqPanel.validate_Homelink_is_highlighted());
     }
 
-    @Test
-    public void verify_SignedInAs_Name_Available(){
+    @Test (enabled = false)
+    public void verify_SignedInAs_Name_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         String signedInAs = data.getValueByName("AM_signedInAs");
         Assert.assertEquals(wqPanel.validate_signIn_As(),signedInAs);
 
     }
 
-    @Test
-    public void verify_SignOut_Link_Available(){
+    @Test (enabled = false)
+    public void verify_SignOut_Link_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqPanel.check_Signout_link_Is_Available());
     }
 
-    @Test
-    public void verify_FooterArea_Text_Available(){
+    @Test (enabled = false)
+    public void verify_FooterArea_Text_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         String footerText = data.getValueByName("AM_FooterAreaText");
         Assert.assertEquals(wqPanel.check_FooterArea_Text_Avaialble(),footerText);
 
@@ -349,208 +824,504 @@ public class WQAMDashboardTest extends TestBase {
 
     //Tile Area --Start--//
 
-    @Test
-    public void verify_ClientsTile_Available(){
+    @Test (enabled = false)
+    public void verify_ClientsTile_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqamDashboardPage.check_ClientsTile_Is_Available());
 
     }
 
-    @Test
-    public void verify_ClientsTile_TileText_Available(){
+    @Test (enabled = false)
+    public void verify_ClientsTile_TileText_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         String clientTile = data.getValueByName("AM_clientsTileText");
         Assert.assertEquals(wqamDashboardPage.validate_Clients_Tile_Text(),clientTile);
 
     }
 
-    @Test
-    public void verify_ClientsTile_Click_GoesTo_AssignedClientsPage(){
-        wqamDashboardPage.step_Click_Client_Tile();
+    @Test (enabled = false)
+    public void verify_ClientsTile_Click_GoesTo_AssignedClientsPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
+        wqamDashboardPage
+                .step_Click_Client_Tile();
         String clientTilePage = data.getValueByName("AM_ClientTilePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),clientTilePage);
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
-
     }
 
-    @Test
-    public void verify_SuspiciousConnections_Tile_Available(){
+    @Test (enabled = false)
+    public void verify_SuspiciousConnections_Tile_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqamDashboardPage.check_SuspiciousConnections_Tile_Is_Available());
 
     }
 
-    @Test
-    public void verify_SuspiciousConnections_Tile_TileText_Available(){
+    @Test (enabled = false)
+    public void verify_SuspiciousConnections_Tile_TileText_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         String SuspiciousConnectionsTile = data.getValueByName("AM_suspiciousTileText");
         Assert.assertEquals(wqamDashboardPage.validate_SuspiciousConnections_Tile_Text(),SuspiciousConnectionsTile);
 
     }
 
-    @Test
-    public void verify_SuspiciousConnections_Tile_Click_GoesTo_ConnectionSuspicious_Page(){
-        wqamDashboardPage.step_Click_SuspiciousConnections_Tile();
+    @Test (enabled = false)
+    public void verify_SuspiciousConnections_Tile_Click_GoesTo_ConnectionSuspicious_Page() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
+        wqamDashboardPage
+                .step_Click_SuspiciousConnections_Tile();
         String suspiciousTilePage = data.getValueByName("AM_suspiciousTilePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),suspiciousTilePage);
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
 
     }
 
-    @Test
-    public void verify_Contractor_Matching_Tile_Available(){
+    @Test (enabled = false)
+    public void verify_Contractor_Matching_Tile_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqamDashboardPage.check_Contractor_Matching_Tile_Is_Available());
 
     }
 
-    @Test
-    public void verify_Contractor_Matching_Tile_TileText_Available(){
+    @Test (enabled = false)
+    public void verify_Contractor_Matching_Tile_TileText_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         String contractor_MatchingTile = data.getValueByName("AM_contractorMatchTileText");
         Assert.assertEquals(wqamDashboardPage.validate_Contractor_Matching_Tile_Text(),contractor_MatchingTile);
 
     }
 
-    @Test
-    public void verify_Contractor_Matching_Tile_Click_GoesTo_ConsultantSearch_Page(){
-        wqamDashboardPage.step_Click_Contractor_Matching_Tile();
+    @Test (enabled = false)
+    public void verify_Contractor_Matching_Tile_Click_GoesTo_ConsultantSearch_Page() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
+        wqamDashboardPage
+                .step_Click_Contractor_Matching_Tile();
         String contractorMatchTilePage = data.getValueByName("AM_contractorMatchTilePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),contractorMatchTilePage);
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
-
     }
 
-    @Test
-    public void verify_Reports_Tile_Available(){
+    @Test (enabled = false)
+    public void verify_Reports_Tile_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqamDashboardPage.check_Reports_Tile_Is_Available());
 
     }
 
-    @Test
-    public void verify_Reports_Tile_TileText_Available(){
+    @Test (enabled = false)
+    public void verify_Reports_Tile_TileText_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         String reportsTileText = data.getValueByName("AM_reportsTileText");
         Assert.assertEquals(wqamDashboardPage.validate_Reports_Tile_Text(),reportsTileText);
 
     }
 
-    @Test
-    public void verify_Reports_Tile_Click_GoesTo_ViewReports_Page(){
-        wqamDashboardPage.step_Click_Reports_Tile();
+    @Test (enabled = false)
+    public void verify_Reports_Tile_Click_GoesTo_ViewReports_Page() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
+        wqamDashboardPage
+                .step_Click_Reports_Tile();
         String reportsTilePage = data.getValueByName("AM_reportsTilePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),reportsTilePage);
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
-
     }
 
-    @Test
-    public void verify_Assign_Users_Tile_Available(){
+    @Test (enabled = false)
+    public void verify_Assign_Users_Tile_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqamDashboardPage.check_Assign_Users_Tile_Is_Available());
 
     }
 
-    @Test
-    public void verify_Assign_Users_Tile_TileText_Available(){
+    @Test (enabled = false)
+    public void verify_Assign_Users_Tile_TileText_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         String assignUsersTileText = data.getValueByName("AM_assignUsersTileText");
         Assert.assertEquals(wqamDashboardPage.validate_Assign_Users_Tile_Text(),assignUsersTileText);
 
     }
 
-    @Test
-    public void verify_Assign_Users_Tile_Click_GoesTo_Assign_Users_Page(){
-        wqamDashboardPage.step_Click_Assign_Users_Tile();
+    @Test (enabled = false)
+    public void verify_Assign_Users_Tile_Click_GoesTo_Assign_Users_Page() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
+        wqamDashboardPage
+                .step_Click_Assign_Users_Tile();
         String assignUsersTilePage = data.getValueByName("AM_assignUsersTilePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),assignUsersTilePage);
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
-
     }
 
-    @Test
-    public void verify_Partners_Tile_Available(){
+    @Test (enabled = false)
+    public void verify_Partners_Tile_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqamDashboardPage.check_Partners_Tile_Is_Available());
 
     }
 
-    @Test
-    public void verify_Partners_Tile_TileText_Available(){
+    @Test (enabled = false)
+    public void verify_Partners_Tile_TileText_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         String partnersTileText = data.getValueByName("AM_partnersTileText");
         Assert.assertEquals(wqamDashboardPage.validate_Partners_Tile_Text(),partnersTileText);
 
     }
 
-    @Test
-    public void verify_Partners_Tile_Click_GoesTo_Partners_Page(){
-        wqamDashboardPage.step_Click_Partners_Tile();
+    @Test (enabled = false)
+    public void verify_Partners_Tile_Click_GoesTo_Partners_Page() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
+        wqamDashboardPage
+                .step_Click_Partners_Tile();
         String partnersTilePage = data.getValueByName("AM_partnersTilePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),partnersTilePage);
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
-
     }
 
-    @Test
-    public void verify_Contact_Client_Tile_Available(){
+    @Test (enabled = false)
+    public void verify_Contact_Client_Tile_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqamDashboardPage.check_Contact_Client_Tile_Is_Available());
 
     }
 
-    @Test
-    public void verify_Contact_Client_Tile_TileText_Available(){
+    @Test (enabled = false)
+    public void verify_Contact_Client_Tile_TileText_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         String contactClientTileText = data.getValueByName("AM_contactClientTileText");
         Assert.assertEquals(wqamDashboardPage.validate_Contact_Client_Tile_Text(),contactClientTileText);
 
     }
 
-    @Test
-    public void verify_Contact_Client_Tile_Click_GoesTo_Contact_Client_Page(){
-        wqamDashboardPage.step_Click_Contact_Client_Tile();
+    @Test (enabled = false)
+    public void verify_Contact_Client_Tile_Click_GoesTo_Contact_Client_Page() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
+        wqamDashboardPage
+                .step_Click_Contact_Client_Tile();
         String contactClientTilePage = data.getValueByName("AM_contactClientTilePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),contactClientTilePage);
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
 
     }
     //Tile Area finished
 
-    @Test
-    public void verify_EnterCompanyName_Label_Available(){
+    @Test (enabled = false)
+    public void verify_EnterCompanyName_Label_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqamDashboardPage.check_EnterCompanyName_Label_Is_Available());
 
     }
 
-    @Test
-    public void verify_EnterCompanyName_Label_Text_Available(){
+    @Test (enabled = false)
+    public void verify_EnterCompanyName_Label_Text_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         String enterCompanyName = data.getValueByName("AM_EnterCompanyNameLabel");
         Assert.assertEquals(wqamDashboardPage.check_EnterCompanyName_Label_Text(),enterCompanyName);
 
     }
 
-    @Test
-    public void verify_EnterCompanyName_TextBox_Available(){
+    @Test (enabled = false)
+    public void verify_EnterCompanyName_TextBox_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqamDashboardPage.check_EnterCompanyName_TextBox_Available());
 
     }
 
-    @Test
-    public void verify_EnteringCharacters_To_EnterCompanyName_TextBox(){
+    @Test (enabled = false)
+    public void verify_EnteringCharacters_To_EnterCompanyName_TextBox() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         String textToEnter = data.getValueByName("AM_textToEnter");
         wqamDashboardPage.validate_Characters_Can_Enter(textToEnter);
 
     }
 
-    @Test
-    public void verify_Go_Button_Available(){
+    @Test (enabled = false)
+    public void verify_Go_Button_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqamDashboardPage.check_Go_Button_Is_Available());
     }
 
-    @Test
-    public void verify_Go_Button_Text_Available(){
+    @Test (enabled = false)
+    public void verify_Go_Button_Text_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         String goButtonText = data.getValueByName("AM_goButton");
         Assert.assertEquals(wqamDashboardPage.check_GoButton_Text(), goButtonText);
 
     }
 
-    @Test
-    public void verify_Go_ButtonClick_WithoutAny_CompanyName_gives_ErrorMessage(){
+    @Test (enabled = false)
+    public void verify_Go_ButtonClick_WithoutAny_CompanyName_gives_ErrorMessage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         wqamDashboardPage.check_EnterCompanyName_TextBox_isEmpty();
         String errorMessage_WO_AnyValue = data.getValueByName("AM_errorMessage_WO_AnyValue");
         wqamDashboardPage.step_click_Go_Button();
@@ -558,8 +1329,19 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
-    @Test
-    public void verify_Go_ButtonClick_With_Invalid_CompanyName_gives_ErrorMessage(){
+    @Test (enabled = false)
+    public void verify_Go_ButtonClick_With_Invalid_CompanyName_gives_ErrorMessage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         wqamDashboardPage.check_EnterCompanyName_TextBox_isEmpty();
         String errorMessage_InvalidCompanyName = data.getValueByName("AM_errorMessage_InvalidCompanyName");
         String textToEnter = data.getValueByName("AM_textToEnter");
@@ -569,8 +1351,19 @@ public class WQAMDashboardTest extends TestBase {
 
     }
 
-    @Test
-    public void verify_Go_ButtonClick_With_Valid_CompanyName_gives_ListOf_Companies(){
+    @Test (enabled = false)
+    public void verify_Go_ButtonClick_With_Valid_CompanyName_gives_ListOf_Companies() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         wqamDashboardPage.check_EnterCompanyName_TextBox_isEmpty();
         String ClientName = data.getValueByName("AM_pendingClient");
         wqamDashboardPage.validate_Characters_Can_Enter(ClientName);
@@ -580,10 +1373,19 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     // Depends with the signedup Client
-    @Test
+    @Test (enabled = false)
     public void verify_Searching_aValidCompany_and_ClickaCompany_FromList_goesTo_ClientProfilePage() throws InterruptedException {
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         wqamDashboardPage.check_EnterCompanyName_TextBox_isEmpty();
         String ClientName = data.getValueByName("AM_pendingClient");
         wqamDashboardPage.validate_Characters_Can_Enter(ClientName);
@@ -592,38 +1394,79 @@ public class WQAMDashboardTest extends TestBase {
         wqamDashboardPage.step_user_clicks_aClient_from_SearchClient_Area(ClientName);
         String expectedTitle = data.getValueByName("AM_ClientEngagement_Page");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),expectedTitle);
-        wqPanel.check_User_goes_To_HomePage();
-        verify_The_Home_Page_Browser_Title();
-
     }
 
     //------------------------
 
     // Depends with the signedup Client who has rejected T&C
-    @Test
+    @Test (enabled = false)
     public void verify_TANDCRejectedClients_Table_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         Assert.assertNotNull(wqamDashboardPage.check_TANDCRejectedClients_Table_Available());
 
     }
 
     // Depends with the signedup Client who has rejected T&C
-    @Test
+    @Test (enabled = false)
     public void verify_TableHeaderText_TANDCRejectedClients_Table_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         String TandC_TableHeader = data.getValueByName("AM_TandC_TableHeader");
         Assert.assertEquals(wqamDashboardPage.check_TANDCRejectedClients_Table_HeaderText(),TandC_TableHeader);
 
     }
 
     // Depends with the signedup Client who has rejected T&C
-    @Test
+    @Test (enabled = false)
     public void verify_Client_In_TANDCRejectedClients_Table_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         String clientName = data.getValueByName("AM_rejectedTANDCClientName");
         Assert.assertEquals(wqamDashboardPage.split_TANDCRejectedClients_check_ClientAvailable_In_List(clientName),clientName);
     }
 
     // Depends with the signedup Client who has rejected T&C
-    @Test
-    public void verify_ClickingAClient_GoesTo_ClientEvaluationPage(){
+    @Test (enabled = false)
+    public void verify_ClickingAClient_GoesTo_ClientEvaluationPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
         String clientName = data.getValueByName("AM_rejectedTANDCClientName");
         wqamDashboardPage.step_user_clicks_TANDC_Rejected_Client(clientName);
         /*String expectedTitle = data.getValueByName("AM_ClientTermsEvaluationPage");
@@ -631,15 +1474,43 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     // Depends with the signedup Client who has rejected T&C
-    @Test
-    public void verify_BrowserTitle_Of_ClientEvaluationPage(){
+    @Test (enabled = false)
+    public void verify_BrowserTitle_Of_ClientEvaluationPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
+        String clientName = data.getValueByName("AM_rejectedTANDCClientName");
+        wqamDashboardPage.step_user_clicks_TANDC_Rejected_Client(clientName);
+        //--------------------------
         String expectedTitle = data.getValueByName("AM_ClientTermsEvaluationPage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(), expectedTitle);
     }
 
     // Depends with the signedup Client who has rejected T&C
-    @Test
-    public void verify_CompanyDetails_In_ClientTermsEvaluationPage(){
+    @Test (enabled = false)
+    public void verify_CompanyDetails_In_ClientTermsEvaluationPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
+        String clientName = data.getValueByName("AM_rejectedTANDCClientName");
+        wqamDashboardPage.step_user_clicks_TANDC_Rejected_Client(clientName);
+        //--------------------------
         String companyName = data.getValueByName("ClientTermsEvaluationPage_CompanyName");
         String busRegNumber = data.getValueByName("ClientTermsEvaluationPage_BusRegNumber");
         String address = data.getValueByName("ClientTermsEvaluationPage_Address");
@@ -663,14 +1534,28 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     // Depends with the signedup Client who has rejected T&C
-    @Test
-    public void verify_ClientDetails_In_ClientTermsEvaluationPage(){
-        String clientName = data.getValueByName("ClientTermsEvaluationPage_ClientName");
+    @Test (enabled = false)
+    public void verify_ClientDetails_In_ClientTermsEvaluationPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
+        String clientName = data.getValueByName("AM_rejectedTANDCClientName");
+        wqamDashboardPage.step_user_clicks_TANDC_Rejected_Client(clientName);
+        //--------------------------
+        String clientName1 = data.getValueByName("ClientTermsEvaluationPage_ClientName");
         String dirDial = data.getValueByName("ClientTermsEvaluationPage_Dial");
         String eMail = data.getValueByName("ClientTermsEvaluationPage_Email");
         String designation = data.getValueByName("ClientTermsEvaluationPage_Designation");
 
-        Assert.assertEquals(wqTermsEvaluationPage.check_ClientName_Client_Data_In_ClientTermsEvaluationPage(),clientName);
+        Assert.assertEquals(wqTermsEvaluationPage.check_ClientName_Client_Data_In_ClientTermsEvaluationPage(),clientName1);
         Assert.assertEquals(wqTermsEvaluationPage.check_DirectDial_Client_Data_In_ClientTermsEvaluationPage(),dirDial);
         Assert.assertEquals(wqTermsEvaluationPage.check_Email_Client_Data_In_ClientTermsEvaluationPage(),eMail);
         Assert.assertEquals(wqTermsEvaluationPage.check_Designation_Client_Data_In_ClientTermsEvaluationPage(),designation);
@@ -678,8 +1563,22 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     // Depends with the signedup Client who has rejected T&C
-    @Test
-    public void verify_SoftwareExperience_In_ClientTermsEvaluationPage(){
+    @Test (enabled = false)
+    public void verify_SoftwareExperience_In_ClientTermsEvaluationPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
+        String clientName = data.getValueByName("AM_rejectedTANDCClientName");
+        wqamDashboardPage.step_user_clicks_TANDC_Rejected_Client(clientName);
+        //--------------------------
         String applicationName = data.getValueByName("ClientTermsEvaluationPage_Software_Application");
         String versionName = data.getValueByName("ClientTermsEvaluationPage_Software_Version");
         String moduleName = data.getValueByName("ClientTermsEvaluationPage_Software_Module");
@@ -691,8 +1590,22 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     // Depends with the signedup Client who has rejected T&C
-    @Test
-    public void verify_RejectedReason_In_ClientTermsEvaluationPage(){
+    @Test (enabled = false)
+    public void verify_RejectedReason_In_ClientTermsEvaluationPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
+        String clientName = data.getValueByName("AM_rejectedTANDCClientName");
+        wqamDashboardPage.step_user_clicks_TANDC_Rejected_Client(clientName);
+        //--------------------------
         String rejectedReason = data.getValueByName("ClientTermsEvaluationPage_RejectedReason");
 
         Assert.assertEquals(wqTermsEvaluationPage.check_Rejected_Reason_In_ClientTermsEvaluationPage(),rejectedReason);
@@ -700,22 +1613,64 @@ public class WQAMDashboardTest extends TestBase {
     }
 
     // Depends with the signedup Client who has rejected T&C
-    @Test
-    public void verify_PromptAgainButton_Available_In_ClientEvaluationPage(){
+    @Test (enabled = false)
+    public void verify_PromptAgainButton_Available_In_ClientEvaluationPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
+        String clientName = data.getValueByName("AM_rejectedTANDCClientName");
+        wqamDashboardPage.step_user_clicks_TANDC_Rejected_Client(clientName);
+        //--------------------------
         Assert.assertNotNull(wqTermsEvaluationPage.check_PromptAgain_Button_Available());
     }
 
     // Depends with the signedup Client who has rejected T&C
-    @Test
-    public void verify_PromptAgainButton_Text_Available(){
+    @Test (enabled = false)
+    public void verify_PromptAgainButton_Text_Available() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
+        String clientName = data.getValueByName("AM_rejectedTANDCClientName");
+        wqamDashboardPage.step_user_clicks_TANDC_Rejected_Client(clientName);
+        //--------------------------
         String expectedButtonText = data.getValueByName("ClientTermsEvaluationPage_PromptAgain");
         Assert.assertEquals(wqTermsEvaluationPage.check_PromptAgain_Button_Text(),expectedButtonText);
     }
 
     // Depends with the signedup Client who has rejected T&C
-    @Test
-    public void verify_Click_PromptAgainButton_InClientEvaluationPage_goesTo_AMDashboardPage(){
-        wqTermsEvaluationPage.click_PromptAgain_Button();
+    @Test (enabled = false)
+    public void verify_Click_PromptAgainButton_InClientEvaluationPage_goesTo_AMDashboardPage() throws InterruptedException {
+        //-------------
+        String AMUsername = data.getValueByName("AM_Username");
+        String AMPassword = data.getValueByName("AM_Password");
+        String WindowsAuthOption = data.getValueByName("SignInOption1");
+        wqBackOfficeLoginPage
+                .action_Login_as_BOUser(AMUsername, AMPassword);
+        Thread.sleep(10000);
+        wqBackOfficeLoginPage
+                .action_selectAuthentication(WindowsAuthOption);
+        Thread.sleep(10000);
+        //----------------------
+        String clientName = data.getValueByName("AM_rejectedTANDCClientName");
+        wqamDashboardPage.step_user_clicks_TANDC_Rejected_Client(clientName);
+        //--------------------------
+        wqTermsEvaluationPage.step_click_PromptAgain_Button();
         String expectedTitle = data.getValueByName("AM_HomePage");
         Assert.assertEquals(wqamDashboardPage.validate_user_goesTo_Page(),expectedTitle);
     }

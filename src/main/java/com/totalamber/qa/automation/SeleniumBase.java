@@ -1,26 +1,25 @@
 package com.totalamber.qa.automation;
 
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.Keyboard;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static com.totalamber.qa.data.UI.elements.webQuarters.ElementHolder.*;
 
 
 public class SeleniumBase {
@@ -253,6 +252,8 @@ public class SeleniumBase {
 		textBox.sendKeys(textToEnter);
 
 	}
+
+
 
 	/**
 	 * @param cSS
@@ -810,12 +811,13 @@ public class SeleniumBase {
 
 
 	//Upload files
-	public void uploadFiles(String filePath, String elementName) {
-		// TODO Auto-generated method stub
-		WebElement element = driver.findElement(By.name(elementName));
-		element.sendKeys(filePath);
+	public void uploadFiles(String filePath, String xPath) {
+		WebElement upload = driver.findElement(By.xpath(xPath));
+		upload.sendKeys(filePath);
 
 	}
+
+
 
 
 	// Replace Texts
@@ -1065,6 +1067,8 @@ public class SeleniumBase {
         return value;
     }
 
+
+
     //read a Value attribute from Textbox
     public String readValueFromTextBox(String xpath){
 
@@ -1096,13 +1100,16 @@ public class SeleniumBase {
 		return checkLink;
 	}
 
+
 	//Check a value from a table is existing - WQ - koshi
+	//Tiresha
+	//Check a value from a table is existing - WQ
 	public String checkIsValueExistInArea(String tablePath, String value) {
 		WebElement table = driver.findElement(By.xpath(tablePath));
 		List<WebElement>  columns = table.findElements(By.tagName("td"));
 		String str = null;
 		for(WebElement cell : columns){
-			String clientName = splitTextGetNthWord(cell.getText()," - ", 1);
+			String clientName = splitTextGetNthWord(cell.getText()," -", 1);
 			System.out.println(clientName);
 			if(clientName.equals(value)){
 				System.out.println("Table Value : " +clientName+" is Matching with searching value : "+value);
@@ -1113,7 +1120,10 @@ public class SeleniumBase {
 		return str;
 	}
 
+
 	//Click a value from a table is existing - WQ - koshi
+	//Tiresha
+	//Click an existing value from a table - WQ
 	public String clickAValueExistsInArea(String tablePath, String value){
 		WebElement table = driver.findElement(By.xpath(tablePath));
 		List<WebElement>  columns = table.findElements(By.tagName("a"));
@@ -1224,6 +1234,9 @@ public class SeleniumBase {
 		}
 	}
 
+
+	//Tiresha
+	//MouseHovering an Element
 	public void mouseHoverAnElement(String xPath) {
 		WebElement element = driver.findElement(By.xpath(xPath));
 		Actions action = new Actions(driver);
@@ -1244,8 +1257,114 @@ public class SeleniumBase {
 		return bool;
 	}
 
+
+	//Coded By:Shammi
+	//Handle Unexpected alert windows
+	public boolean isAlertPresent(){
+		try{
+			driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+			Alert a=driver.switchTo().alert();
+			a.accept();
+			//System.out.println("Alert is present");
+			return true;
+		}
+		catch (NoAlertPresentException e) {
+			//System.out.println("Alert is not present");
+			return false;
+		}
+		finally{
+			driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		}
+	}
+
+
+	//Tiresha
+	//Loadthe URL in current Browser
+
 	public void loadURLInCurrentBrowser(String url){
 		driver.navigate().to(url);
+	}
+
+
+
+	//Coded By:Shammi
+	//Click on enter button
+	public void pressEnter() {
+		Keyboard kb = ((RemoteWebDriver) driver).getKeyboard();
+		kb.pressKey(Keys.RETURN);
+	}
+
+	//Tiresha
+	//Check a value from a table is existing - WQ
+	public String checkIsValueExistInTable(String tablePath, String value) {
+		WebElement table = driver.findElement(By.xpath(tablePath));
+		List<WebElement>  columns = table.findElements(By.tagName("td"));
+		String str = null;
+		for(WebElement cell : columns){
+			if(cell.getText().equals(value)){
+				System.out.println("Table Value : " +cell.getText()+" is Matching with searching value : "+value);
+				str = cell.getText();
+				break;
+			}
+		}
+		return str;
+	}
+
+	//Tiresha
+	// Select a Check Box from a Value List
+	public void selectCheckBoxFromAList(String tableXPath,String value) {
+
+		List<WebElement> checkBox = driver.findElements(By.xpath(tableXPath));
+
+		for (WebElement element : checkBox) {
+			if (element.getText().equals(value)) {
+				element.click();
+				break;
+			}
+		}
+	}
+
+
+	//Coded By:Shammi
+	//Used to overwrite the value
+	public void clear_Data_Feilds(String xpath)
+	{
+		WebElement element = driver.findElement(By.xpath(xpath));
+		element.clear();
+	}
+
+	//Tiresha
+	//Check the selected option exist in List box
+	public String checkDropdownTextValueInList(String xPath, String option) {
+		String value= null;
+		WebElement list = SeleniumBase.driver.findElement(By.xpath(xPath));
+		Select select = new Select(list);
+		List<WebElement> allOptions = select.getOptions();
+		for (int i=0; i<allOptions.size(); i++){
+			value = allOptions.get(i).getText();
+			if(option.equals(value)) {
+				System.out.println("Selected Option Value : " + option + " is existing in List as : " + value);
+				break;
+			}
+		}
+		return value;
+	}
+
+	//Tiresha
+	//Click the option exist in List box
+	public void clickTextValueInList(String xPath, String option) {
+		String value= null;
+		WebElement list = SeleniumBase.driver.findElement(By.xpath(xPath));
+		Select select = new Select(list);
+		List<WebElement> allOptions = select.getOptions();
+		for (int i=0; i<allOptions.size(); i++){
+			value = allOptions.get(i).getText();
+			if(option.equals(value)) {
+				System.out.println("Selected Option Value : " + option + " is existing in List as : " + value);
+				allOptions.get(i).click();
+				break;
+			}
+		}
 	}
 
 

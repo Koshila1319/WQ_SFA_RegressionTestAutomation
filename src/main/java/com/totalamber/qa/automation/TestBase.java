@@ -45,11 +45,16 @@ public class TestBase  {
 	public static String newSURoleByEmail = "";
 	public static String userAssignRequestedCompany = "";
 	public static String newSUTempPwByEmail = "";
-
-
 	public static final String clientEmail = "4f13c64d-e10f-4ca2-8c70-c16aa4cb8592@mailcatch.com";
 	public static final String newDMEmail = "596b2cf8-5fe3-4a42-95b0-2dc4845148c4@mailcatch.com";
 	public static final String SUEmail = "drftgyhu@mailcatch.com";
+	protected WQClientAssignPage wqClientAssignPage;
+	protected WQClientCompanyProfilePage wqClientCompanyProfilePage;
+	protected WQClientCompanyProfileUpdatePage wqClientCompanyProfileUpdatePage;
+	protected WQUserProfilePage wqUserProfilePage;
+	protected WQLicenseCategoryPage wqLicenseCategoryPage;
+	protected WQPackagePage wqPackagePage;
+	protected WQLicenseSuccessfulPage wqLicenseSuccessfulPage;
 
 
 
@@ -80,6 +85,14 @@ public class TestBase  {
 		wqClientProfileUpdatePage = new WQClientProfileUpdatePage(driver);
 		wqVerifyClientPage = new WQVerifyClientPage(driver);
 		wqUserProfileUpdatePage = new WQUserProfileUpdatePage(driver);
+		wqClientAssignPage = new WQClientAssignPage(driver);
+		wqClientCompanyProfilePage = new WQClientCompanyProfilePage(driver);
+		wqClientCompanyProfileUpdatePage=new WQClientCompanyProfileUpdatePage(driver);
+		wqUserProfilePage = new WQUserProfilePage(driver);
+		wqLicenseCategoryPage = new WQLicenseCategoryPage(driver);
+		wqPackagePage = new WQPackagePage(driver);
+		wqLicenseSuccessfulPage = new WQLicenseSuccessfulPage(driver);
+
 
 	}
 
@@ -89,6 +102,7 @@ public class TestBase  {
 	}
 
 	public void quitDriver() {
+
 		seleniumBase.endDriver();
 	}
 

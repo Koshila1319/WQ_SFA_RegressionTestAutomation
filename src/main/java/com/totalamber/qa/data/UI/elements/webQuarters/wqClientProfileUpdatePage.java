@@ -28,8 +28,107 @@ public interface wqClientProfileUpdatePage {
 
     //Application Information
 
-    public final String PROFILEUPDATE_PAGE_APPINFO_DELETE_BUTTON_XPATH = "//*[contains(@id,'client-update')]/div[1]/div[4]";
+    public final String PROFILEUPDATE_PAGE_APPINFO_TABLE_XPATH = "//table[contains(@id,'_ApplicationDetaisDataList')]";
+    public final String PROFILEUPDATE_PAGE_APPINFO_TABLE_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_APPINFO_DELETE_BUTTON_XPATH = "//*[contains(@name,'deleteButton')]";
     public final String PROFILEUPDATE_PAGE_APPINFO_DELETE_BUTTON_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_APPINFO_ADD_BUTTON_XPATH = "//*[contains(@name,'AddButton')]";
+    public final String PROFILEUPDATE_PAGE_APPINFO_ADD_BUTTON_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_DROPDOWN_XPATH = "//*[contains(@name,'ApplicationNameDropDownList')]";
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_DROPDOWN_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_DROPDOWN_SELECTED_XPATH = "//select[contains(@name,'ApplicationNameDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_DROPDOWN_SELECTED_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_ERRORPANEL_XPATH = "//*[contains(@id,'ApplicationDetaisDataList')][contains(@id,'ErrorPanel')]";
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_ERRORPANEL_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_MODULE_LIST_XPATH = "//table[contains(@id,'moduleNameCheckBoxList')]";
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_MODULE_LIST_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_MODULE_CHECKBOX_XPATH = "//label[contains(@for,'moduleNameCheckBoxList')]";
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_MODULE_CHECKBOX_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_VERSION_LIST_XPATH = "//label[contains(@for,'versionNameCheckBoxList')]";
+    public final String PROFILEUPDATE_PAGE_APPINFO_SW_VERSION_LIST_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_ERRORPANEL_XPATH = "//div[contains(@id,'_ctl00_ErrorPanel')]";
+    public final String PROFILEUPDATE_PAGE_ERRORPANEL_CSS  = "";
+
+
+    //Other Company Details
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_XPATH = "//*[contains(@name,'companyLogoUpload')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_LABEL_XPATH = "(//td[@class='w232'])[1]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_LABEL_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_ERROR_XPATH = "//span[contains(@id,'RegularExpressionValidator1')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_COMPANYLOGO_ERROR_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFILEPIC_XPATH = "//*[contains(@name,'profilePictureUpload')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFILEPIC_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFPIC_LABEL_XPATH = "(//td[@class='w232'])[2]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFPIC_LABEL_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFPIC_ERROR_XPATH = "//span[contains(@id,'RegularExpressionValidator2')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_UPLOAD_PROFPIC_ERROR_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COMPANYTYPE_XPATH = "//*[contains(@name,'typeDropDownList')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COMPANYTYPE_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COMPANYTYPE_SELECTED_XPATH = "//select[contains(@name,'typeDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COMPANYTYPE_SELECTED_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COMP_FORMAT_XPATH = "//*[contains(@name,'formatDropDownList')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COMP_FORMAT_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COMP_FORMAT_SELECTED_XPATH = "//select[contains(@name,'formatDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COMP_FORMAT_SELECTED_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_INDUSTRY_XPATH = "//*[contains(@name,'industryDropDownList')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_INDUSTRY_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_INDUSTRY_SELECTED_XPATH = "//select[contains(@name,'industryDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_INDUSTRY_SELECTED_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_SUBMARKET_XPATH = "//*[contains(@name,'subMarketDropDownList')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_SUBMARKET_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_SUBMARKET_SELECTED_XPATH = "//select[contains(@name,'subMarketDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_SUBMARKET_SELECTED_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_VERTICALMARKET_XPATH = "//*[contains(@name,'verticalMarketDropDownList')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_VERTICALMARKET_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_VERTICALMARKET_SELECTED_XPATH = "//select[contains(@name,'verticalMarketDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_VERTICALMARKET_SELECTED_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_STOCKPRICE_LABEL_XPATH = "//*[@class='other-Com-Det'][1]/following::tr[3]/td[1]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_STOCKPRICE_LABEL_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_STOCKPRICE_XPATH = "//*[contains(@name,'stockPriceTextBox')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_STOCKPRICE_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_XPATH = "//*[contains(@name,'countryServedDropDownList')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_SELECTED_XPATH = "//select[contains(@name,'countryServedDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_SELECTED_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_ADD_BUTTON_XPATH = "//*[contains(@name,'addCountryButton')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_ADD_BUTTON_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_REMOVE_BUTTON_XPATH = "//*[contains(@name,'removeCountryButton')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_REMOVE_BUTTON_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_COUNTRYSERVEDLIST_XPATH = "//*[contains(@name,'countryServedListBox')]";
+    public final String PROFILEUPDATE_PAGE_OCOMPANY_COUNTRY_COUNTRYSERVEDLIST_CSS  = "";
 
 
     //Company Details Section
@@ -76,6 +175,12 @@ public interface wqClientProfileUpdatePage {
     public final String PROFILEUPDATE_PAGE_ORGSIZE_XPATH = "//*[contains(@name,'organizationSizeDropDownList')]";
     public final String PROFILEUPDATE_PAGE_ORGSIZE_CSS  = "";
 
+    public final String PROFILEUPDATE_PAGE_COUNTRY_SELECTED_XPATH = "//select[contains(@name,'countryDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_COUNTRY_SELECTED_CSS  = "";
+
+    public final String PROFILEUPDATE_PAGE_ORGSIZE_SELECTED_XPATH = "//select[contains(@name,'organizationSizeDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_ORGSIZE_SELECTED_CSS  = "";
+
     public final String PROFILEUPDATE_PAGE_DESIGNATION_XPATH = "//*[contains(@name,'designationTextBox')]";
     public final String PROFILEUPDATE_PAGE_DESIGNATION_CSS  = "";
 
@@ -105,10 +210,26 @@ public interface wqClientProfileUpdatePage {
     public final String PROFILEUPDATE_PAGE_BILLING_COUNTRY_XPATH = "//*[contains(@name,'billingCountryDropDownList')]";
     public final String PROFILEUPDATE_PAGE_BILLING_COUNTRY_CSS  = "";
 
+    public final String PROFILEUPDATE_PAGE_BILLING_COUNTRY_SELECTED_XPATH = "//select[contains(@name,'billingCountryDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_BILLING_COUNTRY_SELECTED_CSS  = "";
+
     public final String PROFILEUPDATE_PAGE_BILLING_TURNOVER_XPATH = "//*[contains(@name,'turnoverDropDownList')]";
     public final String PROFILEUPDATE_PAGE_BILLING_TURNOVER_CSS  = "";
 
+    public final String PROFILEUPDATE_PAGE_BILLING_TURNOVER_SELECTED_XPATH = "//select[contains(@name,'turnoverDropDownList')]/option[(@selected='selected')]";
+    public final String PROFILEUPDATE_PAGE_BILLING_TURNOVER_SELECTED_CSS  = "";
+
     public final String PROFILEUPDATE_PAGE_BILLING_DESCRIPTION_XPATH = "//*[contains(@name,'descriptionTextBox')]";
     public final String PROFILEUPDATE_PAGE_BILLING_DESCRIPTION_CSS  = "";
+
+    //Update Button
+    public final String PROFILEUPDATE_PAGE_UPDATE_BUTTON_XPATH = "//*[contains(@name,'updateButton')]";
+    public final String PROFILEUPDATE_PAGE_UPDATE_BUTTON_CSS = "";
+
+    public final String PROFILEUPDATE_PAGE_ERROR_MSG_XPATH = "//div[contains(@class,'error')]";
+    public final String PROFILEUPDATE_PAGE_ERROR_MSG_CSS = "";
+
+
+
 
 }
