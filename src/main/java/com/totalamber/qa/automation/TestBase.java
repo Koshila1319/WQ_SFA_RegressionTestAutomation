@@ -60,7 +60,6 @@ public class TestBase  {
 
 
 
-
 	public void initDomainObjects(WebDriver driver) throws IOException {
 		data = new Dataprovider();
 		wqLoginPage = new WQLoginPage(driver);
