@@ -33,6 +33,9 @@ public class TestBase  {
 	protected WQTAndCInProgressPage wqTAndCInProgressPage;
 	protected WQTAndCAccepted wqTAndCAccepted;
 	protected WQClientProfileUpdatePage wqClientProfileUpdatePage;
+	protected WQClientAssignPage wqClientAssignPage;
+	protected WQClientCompanyProfilePage wqClientCompanyProfilePage;
+	protected WQClientCompanyProfileUpdatePage wqClientCompanyProfileUpdatePage;
 
 
 
@@ -57,6 +60,9 @@ public class TestBase  {
 		wqTAndCAccepted = new WQTAndCAccepted(driver);
 		wqClientProfileUpdatePage = new WQClientProfileUpdatePage(driver);
 		wqVerifyClientPage = new WQVerifyClientPage(driver);
+		wqClientAssignPage = new WQClientAssignPage(driver);
+		wqClientCompanyProfilePage = new WQClientCompanyProfilePage(driver);
+		wqClientCompanyProfileUpdatePage=new WQClientCompanyProfileUpdatePage(driver);
 
 	}
 
@@ -66,6 +72,7 @@ public class TestBase  {
 	}
 
 	public void quitDriver() {
+
 		seleniumBase.endDriver();
 	}
 

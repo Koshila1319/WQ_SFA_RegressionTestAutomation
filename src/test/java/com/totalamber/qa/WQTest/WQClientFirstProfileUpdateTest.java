@@ -1,13 +1,10 @@
 package com.totalamber.qa.WQTest;
 
 import com.totalamber.qa.automation.TestBase;
-import com.totalamber.qa.page.webQuarters.WQClientProfileUpdatePage;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import java.io.IOException;
 
 /**
  * Created by t.piyananda on 30/09/2017.
@@ -23,7 +20,7 @@ public class WQClientFirstProfileUpdateTest extends TestBase {
 
     @AfterClass
     public void endTestMethod() throws Throwable{
-        //quitDriver();
+       quitDriver();
     }
 
     @Test (enabled = false)
