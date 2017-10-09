@@ -52,12 +52,21 @@ public class TestBase  {
 	public static String newSURoleByEmail = "";
 	public static String userAssignRequestedCompany = "";
 	public static String newSUTempPwByEmail = "";
-	public static final String clientEmail = "4f13c64d-e10f-4ca2-8c70-c16aa4cb8592@mailcatch.com";
-	public static final String newDMEmail = "596b2cf8-5fe3-4a42-95b0-2dc4845148c4@mailcatch.com";
-	public static final String SUEmail = "drftgyhu@mailcatch.com";
+
+	//Request to assign DM as a SU
+	public static String DMEmailByEmail = "";
+	public static String DMRoleByEmail = "";
+	public static String DMOfAnotherCompanyEmail = "45e1f76d-0d60-4c85-957c-5acdefba3997@mailcatch.com";
+
+	//Deactivate support user and verify support dashboard
+	public static final String deactivateSU ="42a9bcf9-5a15-4696-8cd0-5cf9c6863d7a@mailcatch.com";
+	public static final String SU ="6a6a58be-b609-466d-8588-20ffc62bc40e@mailcatch.com";
+	public static final String CompanySU = "MYTEST_COM";
 
 
-
+	public static final String clientEmail = "605e5569-55f2-4fbd-a982-c274113ec83c@mailcatch.com";
+	public static String newDMEmail = "";
+	public static final String SUEmail = "newnewnew@mailcatch.com";
 
 
 	public void initDomainObjects(WebDriver driver) throws IOException {
