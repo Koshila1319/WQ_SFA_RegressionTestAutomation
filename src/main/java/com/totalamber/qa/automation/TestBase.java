@@ -36,6 +36,7 @@ public class TestBase  {
 	protected WQTAndCAccepted wqTAndCAccepted;
 	protected WQClientProfileUpdatePage wqClientProfileUpdatePage;
 	protected WQVerifyClientPage wqVerifyClientPage;
+	protected WQSUDashboardPage wqsuDashboardPage;
 	protected WQClientAssignPage wqClientAssignPage;
 	protected WQClientCompanyProfilePage wqClientCompanyProfilePage;
 	protected WQClientCompanyProfileUpdatePage wqClientCompanyProfileUpdatePage;
@@ -58,15 +59,17 @@ public class TestBase  {
 	public static String DMRoleByEmail = "";
 	public static String DMOfAnotherCompanyEmail = "45e1f76d-0d60-4c85-957c-5acdefba3997@mailcatch.com";
 
+
 	//Deactivate support user and verify support dashboard
 	public static final String deactivateSU ="42a9bcf9-5a15-4696-8cd0-5cf9c6863d7a@mailcatch.com";
 	public static final String SU ="6a6a58be-b609-466d-8588-20ffc62bc40e@mailcatch.com";
 	public static final String CompanySU = "MYTEST_COM";
 
-
 	public static final String clientEmail = "605e5569-55f2-4fbd-a982-c274113ec83c@mailcatch.com";
 	public static String newDMEmail = "";
 	public static final String SUEmail = "newnewnew@mailcatch.com";
+
+
 
 
 	public void initDomainObjects(WebDriver driver) throws IOException {
@@ -101,6 +104,8 @@ public class TestBase  {
 		wqLicenseCategoryPage = new WQLicenseCategoryPage(driver);
 		wqPackagePage = new WQPackagePage(driver);
 		wqLicenseSuccessfulPage = new WQLicenseSuccessfulPage(driver);
+		wqsuDashboardPage = new WQSUDashboardPage(driver);
+
 
 	}
 

@@ -50,4 +50,19 @@ public class WQAMAssignUsersPage extends TestBase implements wqAMAssignUsersPage
         Thread.sleep(3000);
         return this;
     }
+
+    //Reassign DM
+    public WQAMAssignUsersPage action_Reassign_New_DM(String email) {
+        seleniumBase.replaceText(WQ_AM_REASSIGN_DM_EMAIL_TEXTBOX_CSS, WQ_AM_REASSIGN_DM_EMAIL_TEXTBOX_XPATH, email);
+        return this;
+    }
+
+    public void action_Click_Reassign_Button() {
+        seleniumBase.click(WQ_AM_REASSIGN_DM_BUTTON_XPATH, WQ_AM_REASSIGN_DM_BUTTON_CSS);
+    }
+
+    public WQAMAssignUsersPage action_Reassign_Same_DM(String email) {
+        seleniumBase.replaceText(WQ_AM_REASSIGN_DM_EMAIL_TEXTBOX_CSS, WQ_AM_REASSIGN_DM_EMAIL_TEXTBOX_XPATH, email);
+        return this;
+    }
 }

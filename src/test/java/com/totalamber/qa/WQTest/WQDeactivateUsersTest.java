@@ -90,7 +90,7 @@ public class WQDeactivateUsersTest extends TestBase{
         wqamAssignUsersPage.
                 action_Select_Company(CompanySU);
         Thread.sleep(5000);
-        wqamAssignUsersPage.action_Click_Deactivate_Button(WQ_AM_ASSIGN_USERS_SELECTED_COMPANY_XPATH);
+      //  wqamAssignUsersPage.action_Click_Deactivate_Button(WQ_AM_ASSIGN_USERS_SELECTED_COMPANY_XPATH);
 
 
     }
