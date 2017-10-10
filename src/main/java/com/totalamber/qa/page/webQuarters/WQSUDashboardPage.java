@@ -26,6 +26,11 @@ public class WQSUDashboardPage extends TestBase implements wqDMDashboardPage {
         return seleniumBase.checkIsElementEnabled(elementXpath);
     }
 
+    public String verify_Data_Equals(String data) {
+        return seleniumBase.verifyDataEquals(data);
+    }
+
+
     public String check_Browser_Title() {
         return seleniumBase.getTitle();
     }

@@ -35,4 +35,7 @@ public class WQDMDashboardPage extends TestBase implements wqDMDashboardPage {
         return this;
     }
 
+    public String step_Get_Support_Dashboard_Status(String xpath) {
+        return seleniumBase.getClassValue(xpath);
+    }
 }

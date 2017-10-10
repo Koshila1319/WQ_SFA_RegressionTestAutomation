@@ -33,10 +33,6 @@ public interface wqAMAssignUsersPage {
     public final String WQ_AM_ASSIGN_USERS_EMAIL_USER_IN_SAME_GROUP_CSS = "";
 
 
-    public final String WQ_AM_DEACTIVATE_SU_BUTTON_XPATH = ".//*[@id='ctl00_ctl39_g_f54a3f45_8f0d_4f51_adc3_9e39c4866d23_ctl00_buttonActivateUser']";
-    public final String WQ_AM_DEACTIVATE_SU_BUTTON_CSS = "";
-
-
     //Reassign DM
     public final String WQ_AM_REASSIGN_DM_EMAIL_TEXTBOX_XPATH = "//*[@id='ctl00_ctl39_g_f54a3f45_8f0d_4f51_adc3_9e39c4866d23_ctl00_decisionMakerListView_ctrl0_emailTextBoxDecisionMaker']";
     public final String WQ_AM_REASSIGN_DM_EMAIL_TEXTBOX_CSS = "";
@@ -50,6 +46,20 @@ public interface wqAMAssignUsersPage {
     public final String WQ_AM_REASSIGN_DM_SUCCESS_MESSAGE_XPATH = "//*[@id='ctl00_ctl39_g_f54a3f45_8f0d_4f51_adc3_9e39c4866d23_ctl00_successDm']";
     public final String WQ_AM_REASSIGN_DM_SUCCESS_MESSAGE_CSS = "";
 
+   //Deactivate users
 
+    public final String WQ_AM_DEACTIVATE_SU_BUTTON_XPATH = "//*[@id='ctl00_ctl39_g_f54a3f45_8f0d_4f51_adc3_9e39c4866d23_ctl00_supportUsersListView_ctrl1_buttonDeactivateSupportUser1']";
+    public final String WQ_AM_DEACTIVATE_SU_BUTTON_CSS = "";
 
+    public final String WQ_AM_DEACTIVATE_SU_TEXTBOX_XPATH = "//*[@id='ctl00_ctl39_g_f54a3f45_8f0d_4f51_adc3_9e39c4866d23_ctl00_supportUsersListView_ctrl1_emailTextBoxSupportUser']";
+    public final String WQ_AM_DEACTIVATE_SU_TEXTBOX_CSS = "";
+
+    public final String WQ_AM_DEACTIVATE_DM_SU_BUTTON_XPATH = "//*[@id='ctl00_ctl39_g_f54a3f45_8f0d_4f51_adc3_9e39c4866d23_ctl00_supportUsersListView_ctrl0_buttonDeactivateSupportUser1']";
+    public final String WQ_AM_DEACTIVATE_DM_SU_BUTTON_CSS = "";
+
+    public final String WQ_AM_DEACTIVATE_DM_SU_TEXTBOX_XPATH = "//*[@id='ctl00_ctl39_g_f54a3f45_8f0d_4f51_adc3_9e39c4866d23_ctl00_supportUsersListView_ctrl0_emailTextBoxSupportUser']";
+    public final String WQ_AM_DEACTIVATE_DM_SU_TEXTBOX_CSS = "";
+
+    public final String WQ_AM_DEACTIVATE_SUCCESS_XPATH = "//*[@id='ctl00_ctl39_g_f54a3f45_8f0d_4f51_adc3_9e39c4866d23_ctl00_successSu']";
+    public final String WQ_AM_DEACTIVATE_SUCCESS_CSS = "";
 }

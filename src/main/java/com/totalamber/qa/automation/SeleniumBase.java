@@ -748,7 +748,7 @@ public class SeleniumBase {
 
 	}
 
-	//Hard reload the
+	//Hard reload the page - koshi
 	public void hardReaload() {
 		Keys.chord(Keys.CONTROL, Keys.SHIFT, "R");
 
@@ -762,13 +762,13 @@ public class SeleniumBase {
 		// ExpectedConditions.
 	}
 
-	//Switch to a popup
+	//Switch to a popup - koshi
 	public void swichToPopup(int frameIndex) throws InterruptedException {
 
 		driver.switchTo().frame(frameIndex);
 	}
 
-	//Check whether the element is enabled
+	//Check whether the element is enabled - koshi
 	public boolean checkIsElementEnabled(String elementPath) {
 
 		WebElement element = driver.findElement(By.xpath(elementPath));
@@ -786,7 +786,7 @@ public class SeleniumBase {
 
 	}
 
-	//Check whether the element is available
+	//Check whether the element is available - koshi
 	public boolean checkElementIsDisplayed(String elementPath) {
 
 		WebElement element = driver.findElement(By.xpath(elementPath));
@@ -799,42 +799,40 @@ public class SeleniumBase {
 		}
 
 		return isElementDisplayed;
-
 	}
 
-	//Check data equals
+	//Check data equals - koshi
 	public String verifyDataEquals(String data) {
 		// TODO Auto-generated method stub
 		return getText("", data);
 
 	}
 
-
-	//Upload files
+	//Upload files - koshi
 	public void uploadFiles(String filePath, String xPath) {
 		WebElement upload = driver.findElement(By.xpath(xPath));
 		upload.sendKeys(filePath);
 
 	}
 
-
-
-
-	// Replace Texts
+	// Replace Texts - koshi
 	public void replaceText(String cSS, String xPath, String textToReplace) {
 		getElement(cSS, xPath).sendKeys(Keys.chord(Keys.CONTROL, "a"), textToReplace);
 	}
 
+	//click browser back button - koshi
 	public void clickBrowserBackButton() {
 		// TODO Auto-generated method stub
 		driver.navigate().back();
 	}
 
+	//Back to main window - koshi
 	public void backToMain() {
 		// TODO Auto-generated method stub
 		driver.switchTo().defaultContent();
 	}
 
+	//switch ti new tab - koshi
 	public void switchToNewTab() {
 		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs2.get(1));
@@ -859,13 +857,14 @@ public class SeleniumBase {
 		driver.findElement(By.xpath("//li[contains(text(),'" + textValue + "')][@class='option_" + optionValue + "_option']")).click();
 	}
 
+	//calculate total time(SysAid) - koshi
 	public Integer calculateTotalTime(int startTime, int endTime) {
 
 		int total = endTime - startTime;
 		return total;
 	}
 
-	// Spit words and replace
+	// Spit words and replace - koshi
 	public String splitReplaceConcatText(String word, String delimiter, String concatValue) {
 
 		String[] sp = word.split(delimiter);
@@ -881,22 +880,22 @@ public class SeleniumBase {
 
 	}
 
-	//Get alert text
+	//Get alert text - koshi
 	public String getAlertText() {
 		return driver.switchTo().alert().getText();
 	}
 
-	//Dismiss alert
+	//Dismiss alert - koshi
 	public void dismissAlert() {
 		driver.switchTo().alert().dismiss();
 	}
 
-	//Get alert Text
+	//Get alert Text- koshi
 	public void acceptAlert() {
 		driver.switchTo().alert().accept();
 	}
 
-	//Send text to alert
+	//Send text to alert - koshi
 	public void sentTextToAlert() {
 		driver.switchTo().alert().sendKeys("Text");
 	}
@@ -1074,6 +1073,13 @@ public class SeleniumBase {
 
         return driver.findElement(By.xpath(xpath)).getAttribute("value");
     }
+
+    /////////////////
+
+	public String getClassValue(String xpath){
+
+		return driver.findElement(By.xpath(xpath)).getAttribute("class");
+	}
 
     public String splitTextGetNthWord(String word, String delimeter, Integer nthWord){
 

@@ -65,4 +65,13 @@ public class WQAMAssignUsersPage extends TestBase implements wqAMAssignUsersPage
         seleniumBase.replaceText(WQ_AM_REASSIGN_DM_EMAIL_TEXTBOX_CSS, WQ_AM_REASSIGN_DM_EMAIL_TEXTBOX_XPATH, email);
         return this;
     }
+
+    public void action_Click_Deactivate_Button(String xpath) {
+        seleniumBase.click(xpath, "");
+    }
+
+    public String step_Get_Deactivated_Email(String xpath) {
+    //   return seleniumBase.getText("",xpath);
+        return seleniumBase.readValueFromTextBox(xpath);
+    }
 }

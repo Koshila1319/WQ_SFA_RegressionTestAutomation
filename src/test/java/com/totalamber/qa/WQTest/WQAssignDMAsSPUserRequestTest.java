@@ -33,9 +33,9 @@ public class WQAssignDMAsSPUserRequestTest extends TestBase {
         wqLoginPage.step_User_Click_Login_Button();
         wqdmDashboardPage.step_Click_Home_Button();
 
-        DMEmailByEmail = clientEmail;
+     /*   DMEmailByEmail = clientEmail;
         DMRoleByEmail = "Support User";
-        userAssignRequestedCompany = "39_TAQA";
+        userAssignRequestedCompany = "39_TAQA";*/
       }
 
     @AfterMethod

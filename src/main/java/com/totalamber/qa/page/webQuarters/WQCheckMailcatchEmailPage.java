@@ -78,7 +78,6 @@ public class WQCheckMailcatchEmailPage extends TestBase implements wqCheckMailCa
 
     public String step_Get_Email_User_Details_Texts(String xpath) {
         return seleniumBase.splitTextGetNthWord(seleniumBase.getText("", xpath), ": ", 1);
-
     }
 
     public String check_Email_Subject() {

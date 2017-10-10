@@ -65,8 +65,8 @@
 			</class>-->
 
 			<!--Replace DM  -->
-			<class name ="com.totalamber.qa.WQTest.WQReassignDMUserRequestTest">
-				<methods>
+		<!--	<class name ="com.totalamber.qa.WQTest.WQReassignDMUserRequestTest">
+				<methods>-->
 					<!--Request To Change DM&ndash;&gt;
 					<include name = "verify_Assign_Users_Tile_Is_Available"/>
 					<include name = "verify_Clicking_Assign_Users_Tile_Leads_To_Manage_User_Requests_Page"/>
@@ -203,10 +203,25 @@
 				<!--</methods>
 			</class>-->
 
+			<!--<class name ="com.totalamber.qa.WQTest.WQDeactivateUsersTest">
+				<methods>-->
+					<!--<include name = "verify_AM_Navigate_To_Assign_Users_Page"/>
+					<include name = "verify_Selecting_Company"/>-->
 
+					<!--Deactivate SU-->
+			<!--		<include name = "verify_Successfully_Deactivate_SU"/>
+					<include name = "verify_Role_Ended_Email_In_Inbox_SU"/>
+					<include name = "verify_Role_Ended_Email_Content_SU"/>
+					<include name = "verify_Access_Denied_To_SU"/>-->
 
-
-
+					<!--Deactivate DM-->
+				<!--	<include name = "verify_Successfully_Deactivate_DM"/>
+					<include name = "verify_Role_Ended_Email_In_Inbox_DM"/>
+					<include name = "verify_Role_Ended_Email_Content_DM"/>
+					<include name = "verify_Support_Dashboard_Is_Desabled_To_DM"/>-->
+				<!--</methods>
+			</class>
+-->
 
 		</classes>
         </test>

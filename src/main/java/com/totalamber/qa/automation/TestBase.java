@@ -59,17 +59,19 @@ public class TestBase  {
 	public static String DMRoleByEmail = "";
 	public static String DMOfAnotherCompanyEmail = "45e1f76d-0d60-4c85-957c-5acdefba3997@mailcatch.com";
 
-
 	//Deactivate support user and verify support dashboard
-	public static final String deactivateSU ="42a9bcf9-5a15-4696-8cd0-5cf9c6863d7a@mailcatch.com";
-	public static final String SU ="6a6a58be-b609-466d-8588-20ffc62bc40e@mailcatch.com";
+	public static String deactivateSUEmail ="";
+	public static String deactivateDMEmail ="";
 	public static final String CompanySU = "MYTEST_COM";
 
+	//Verify support dashboard
+	public static final String SU ="testsupport546@mailcatch.com";
+	public static final String SUCompany ="October";
+
+
+	//Common
 	public static final String clientEmail = "605e5569-55f2-4fbd-a982-c274113ec83c@mailcatch.com";
-	public static String newDMEmail = "";
 	public static final String SUEmail = "newnewnew@mailcatch.com";
-
-
 
 
 	public void initDomainObjects(WebDriver driver) throws IOException {
