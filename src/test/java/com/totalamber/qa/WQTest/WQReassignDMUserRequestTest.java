@@ -30,9 +30,10 @@ public class WQReassignDMUserRequestTest extends TestBase {
     public void NavigateToPage() throws Exception {
         initDomainObjects(DRIVER);
         String siteUrl = data.getValueByName("url");
+        String passwordSU = data.getValueByName("SU_Password");
         setSiteURL(siteUrl);
         wqHomePage.action_Navigate_To_LoginPage();
-        wqLoginPage.step_User_Enter_Given_Credentials(clientEmail,"asdf1234%");
+        wqLoginPage.step_User_Enter_Given_Credentials(clientEmail,passwordSU);
         wqLoginPage.step_User_Click_Login_Button();
         wqdmDashboardPage.step_Click_Home_Button();
     }
@@ -585,7 +586,7 @@ public class WQReassignDMUserRequestTest extends TestBase {
     @Test
     public void verify_Previous_DM_Login_To_Account_Successfully() throws Exception {
         String passwordSU = data.getValueByName("SU_Password");
-        String supportDashboardLink = data.getValueByName("SU_DashboardPage_SupportDashboardLink");
+        String supportDashboardBrowserTitle = data.getValueByName("SU_DashboardPage_SupportDashboardBrowserTitle");
 
         setSiteURL("http://qa.webquarters.com:33366/_layouts/15/TA.WQ.Web/Login.aspx");
 
@@ -596,7 +597,7 @@ public class WQReassignDMUserRequestTest extends TestBase {
 
         Assert.assertEquals(wqsuDashboardPage.verify_Element_Is_Available(WQ_SUPPORT_DASHBOARD_LINK_XPATH),true, "Support Dashboard available !");
         Assert.assertEquals(wqsuDashboardPage.verify_Element_Is_Enabled(WQ_SUPPORT_TILE_XPATH),true, "24x7 Support tile is enabled !");
-        Assert.assertEquals(wqsuDashboardPage.check_Browser_Title(),supportDashboardLink, "Role as a DM ended verified !");
+        Assert.assertEquals(wqsuDashboardPage.check_Browser_Title(),supportDashboardBrowserTitle, "Role as a DM ended verified !");
     }
 
    

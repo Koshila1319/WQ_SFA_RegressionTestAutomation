@@ -45,7 +45,12 @@ public class TestBase  {
 	protected WQPackagePage wqPackagePage;
 	protected WQLicenseSuccessfulPage wqLicenseSuccessfulPage;
 
+	//Common
+	public static final String clientEmail = "605e5569-55f2-4fbd-a982-c274113ec83c@mailcatch.com";
+	public static final String SUEmail = "newnewnew@mailcatch.com";
+
 	//Request to change DM
+	public static String newDMEmail = SUEmail;
 	public static String newDmEmailByEmail = "";
 
 	//Request to add new SU
@@ -65,13 +70,8 @@ public class TestBase  {
 	public static final String CompanySU = "MYTEST_COM";
 
 	//Verify support dashboard
-	public static final String SU ="testsupport546@mailcatch.com";
+	public static final String SU ="596b2cf8-5fe3-4a42-95b0-2dc4845148c4@mailcatch.com";
 	public static final String SUCompany ="October";
-
-
-	//Common
-	public static final String clientEmail = "605e5569-55f2-4fbd-a982-c274113ec83c@mailcatch.com";
-	public static final String SUEmail = "newnewnew@mailcatch.com";
 
 
 	public void initDomainObjects(WebDriver driver) throws IOException {

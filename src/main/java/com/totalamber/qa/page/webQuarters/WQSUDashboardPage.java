@@ -5,15 +5,19 @@ import com.totalamber.qa.automation.TestBase;
 import com.totalamber.qa.data.UI.elements.webQuarters.wqDMDashboardPage;
 import org.openqa.selenium.WebDriver;
 
+import static com.totalamber.qa.data.UI.elements.webQuarters.wqSUDashboardPage.WQ_SU_DASHBOARD_LINK_CSS;
+import static com.totalamber.qa.data.UI.elements.webQuarters.wqSUDashboardPage.WQ_SU_DASHBOARD_LINK_XPATH;
+
 /**
- * Created by e.koshila on 9/18/2017.
+ * Created by e.koshila on 10/10/2017.
  */
 public class WQSUDashboardPage extends TestBase implements wqDMDashboardPage {
 
     SeleniumBase seleniumBase;
-    public WQSUDashboardPage(WebDriver driver) {seleniumBase = new SeleniumBase(driver);}
+    public WQSUDashboardPage(WebDriver driver) {
+        seleniumBase = new SeleniumBase(driver);
+    }
 
-    //Move to WQMainPage
     public void step_Click_Home_Button() {
         seleniumBase.click(HOME_TILE_XPATH,HOME_TILE_CSS);
     }
@@ -30,7 +34,6 @@ public class WQSUDashboardPage extends TestBase implements wqDMDashboardPage {
         return seleniumBase.verifyDataEquals(data);
     }
 
-
     public String check_Browser_Title() {
         return seleniumBase.getTitle();
     }
@@ -40,4 +43,7 @@ public class WQSUDashboardPage extends TestBase implements wqDMDashboardPage {
         return this;
     }
 
+    public void step_Click_Support_dsahboard_Link() {
+        seleniumBase.click(WQ_SU_DASHBOARD_LINK_XPATH, WQ_SU_DASHBOARD_LINK_CSS);
+    }
 }

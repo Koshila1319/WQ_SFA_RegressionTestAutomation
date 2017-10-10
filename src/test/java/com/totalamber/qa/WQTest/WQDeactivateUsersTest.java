@@ -237,7 +237,7 @@ public class WQDeactivateUsersTest extends TestBase{
 
     //Login to deactivated DM Account
     @Test
-    public void  verify_Support_Dashboard_Is_Desabled_To_DM() throws Exception {
+    public void  verify_Support_Dashboard_Is_Disabled_To_DM() throws Exception {
         String siteUrl = data.getValueByName("url");
         String passwordSU = data.getValueByName("SU_Password");
         setSiteURL(siteUrl);

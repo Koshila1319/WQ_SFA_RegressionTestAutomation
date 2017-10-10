@@ -218,7 +218,7 @@
 				<!--	<include name = "verify_Successfully_Deactivate_DM"/>
 					<include name = "verify_Role_Ended_Email_In_Inbox_DM"/>
 					<include name = "verify_Role_Ended_Email_Content_DM"/>
-					<include name = "verify_Support_Dashboard_Is_Desabled_To_DM"/>-->
+					<include name = "verify_Support_Dashboard_Is_Disabled_To_DM"/>-->
 				<!--</methods>
 			</class>
 -->
