@@ -5,6 +5,9 @@ import com.totalamber.qa.automation.TestBase;
 import com.totalamber.qa.data.UI.elements.webQuarters.wqDMDashboardPage;
 import org.openqa.selenium.WebDriver;
 
+import static com.totalamber.qa.data.UI.elements.webQuarters.wqSUDashboardPage.WQ_SU_DASHBOARD_LINK_CSS;
+import static com.totalamber.qa.data.UI.elements.webQuarters.wqSUDashboardPage.WQ_SU_DASHBOARD_LINK_XPATH;
+
 /**
  * Created by e.koshila on 9/18/2017.
  */
@@ -38,4 +41,11 @@ public class WQDMDashboardPage extends TestBase implements wqDMDashboardPage {
     public String step_Get_Support_Dashboard_Status(String xpath) {
         return seleniumBase.getClassValue(xpath);
     }
+
+    public WQDMDashboardPage action_Click_Support_dsahboard_Link() {
+        seleniumBase.click(WQ_SU_DASHBOARD_LINK_XPATH, WQ_SU_DASHBOARD_LINK_CSS);
+         return this;
+    }
+
+
 }
