@@ -72,6 +72,7 @@ public class TestBase  {
 	//Verify support dashboard
 	public static final String SU ="596b2cf8-5fe3-4a42-95b0-2dc4845148c4@mailcatch.com";
 	public static final String SUCompany ="October";
+	public static final String searchCaseId ="49092";
 
 
 	public void initDomainObjects(WebDriver driver) throws IOException {

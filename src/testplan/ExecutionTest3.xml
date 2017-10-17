@@ -225,8 +225,12 @@
 
 			<class name ="com.totalamber.qa.WQTest.WQSupportDashboardTest">
 				<methods>
-				<!--	<include name = "verify_Support_Dashboard_Link_IsAvailable"/>
+					<!--<include name = "verify_Support_Dashboard_Link_IsAvailable"/>
 					<include name = "verify_Support_Dashboard_Link_Text"/>
+					<include name = "verify_Company_Profile_Link_IsAvailable"/>
+					<include name = "verify_Company_Profile_Link_Text"/>
+					<include name = "verify_User_Profile_Link_IsAvailable"/>
+					<include name = "verify_User_Profile_Link_Text"/>
 					<include name = "verify_Clicking_Support_Dashboard_Link_Leads_To_Support_Dashboard_Of_The_User"/>
 					<include name = "verify_24x7Support_Tab_IsEnabled"/>
 					<include name = "verify_Clicking_24x7Support_Tab_Leads_To_Create_New_Case_Page"/>
@@ -236,7 +240,7 @@
 					<include name = "verify_Approve_Billable_Hours_Tile_Text_IsAvailable"/>
 					<include name = "verify_Clicking_Approve_Billable_Hours_Tile_Leads_To_Resolved_Cases_Page"/>
 					<include name = "verify_Open_Cases_Tile_IsAvailable"/>
-					<include name = "verify_Open_Cases_Tile_Text_IsAvailable"/>-->
+					<include name = "verify_Open_Cases_Tile_Text_IsAvailable"/>
 					<include name = "verify_Clicking_Open_Cases_Tile_Leads_To_New_Cases_Page"/>
 					<include name = "verify_Response_Required_Tile_IsAvailable"/>
 					<include name = "verify_Response_Required_Tile_Text_IsAvailable"/>
@@ -247,10 +251,30 @@
 					<include name = "verify_All_Cases_Tile_IsAvailable"/>
 					<include name = "verify_All_Cases_Tile_Text_IsAvailable"/>
 					<include name = "verify_All_Closed_Cases_Tile_Leads_To_All_Cases_Page"/>
+					<include name = "verify_Buy_more_Button_IsAvailable"/>
+					<include name = "verify_Buy_more_Button_Text"/>
+					<include name = "verify_Support_Hours_Remaining_Text"/>
+					<include name = "verify_Support_Hours_Remaining_Slider_IsAvailable"/>
+					<include name = "verify_Contact_WQ_Support_Consultant_Button_IsAvailable"/>
+					<include name = "verify_Contact_WQ_Support_Consultant_Button_Text"/>
+					<include name = "verify_Clicking_Contact_WQ_Support_Consultant_Button_Leads_To_Contact_Web_Quarters_Page"/>
+					<include name = "verify_Support_Cases_Heading_Text"/>
+					<include name = "verify_Case_Search_Box_IsAvailable"/>
+					<include name = "verify_Case_Search_Button_IsAvailable"/>
+					<include name = "verify_Created_By_Dropdown_IsAvailable"/>
+					<include name = "verify_Case_Type_Dropdown_IsAvailable"/>
+					<include name = "verify_Priority_Dropdown_IsAvailable"/>
+					<include name = "verify_Status_Dropdown_IsAvailable"/>
+					<include name = "verify_Urgency_Dropdown_IsAvailable"/>
+					<include name = "verify_Case_Created_Date_Dropdown_IsAvailable"/>
+					<include name = "verify_Filter_Button_IsAvailable"/>
+					<include name = "verify_Clear_Button_IsAvailable"/>
+					<include name = "verify_Case_Result_Table_IsAvailable"/>
+					<include name = "verify_User_Able_To_Search_Cases"/>
+					<include name = "verify_Case_Results_Table_Column_Header_Texts"/>-->
+
 				</methods>
 			</class>
-
-
 
 
 		</classes>

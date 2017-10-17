@@ -900,7 +900,7 @@ public class SeleniumBase {
 		driver.switchTo().alert().sendKeys("Text");
 	}
 
-	//Check whether the element is enabled
+	//Check whether the value is exist
 	public String checkIsValueExist(String tablePath, String value) {
 		String str = null;
 		WebElement table = driver.findElement(By.xpath(tablePath));
@@ -916,27 +916,78 @@ public class SeleniumBase {
 		return str;
 	}
 
+	// Get no of rows in a table - koshi
+	public Integer getNoOfRowsInATable(String xpathVal) {
+
+		List<WebElement> ElementCollectionHead = driver.findElements(By.xpath(xpathVal+"/tbody/tr"));
+		int rowCount = ElementCollectionHead.size();
+
+		System.out.println("rows = " + rowCount);
+
+		return rowCount;
+	}
+
+	// Get no of columns in a table - koshi
+	public Integer getNoOfColumnsInATable(String xpathVal) {
+
+		List<WebElement> ElementCollectionHead = driver.findElements(By.xpath(xpathVal+"/tbody/tr"));
+		int rowCount = ElementCollectionHead.size();
+
+		System.out.println("rows = " + rowCount);
+
+		List<WebElement> ElementCollectionHead1 = ElementCollectionHead.get(0).findElements(By.tagName("td"));
+		int columnCount = ElementCollectionHead1.size();
+
+		System.out.println("columns = " + columnCount);
+
+		return columnCount;
+	}
+
 	//Retrieve row values match with a given value - koshi
 	public List<String> matchWithRowValue(String xpathToTable, String value) {
 
+
+		int row = getNoOfRowsInATable(xpathToTable);
+		int column = getNoOfColumnsInATable(xpathToTable);
+
 		List<String> list = new ArrayList<String>();
 
-		for (int i = 1; i <= 1; i++) {
+		for (int i=1;i<=row;i++){
 			String sValue = null;
 			String sRowValue = null;
 
-			sValue = driver.findElement(By.xpath(xpathToTable + "/tbody/tr[" + i + "]")).getText();
+			sValue = driver.findElement(By.xpath(xpathToTable+"/tbody/tr["+i+"]/td[1]")).getText();
 
-			if (sValue.equalsIgnoreCase(value)) {
+			if(sValue.equalsIgnoreCase(value)) {
 
-				for (int j = 1; j <= 6; j++) {
-					list.add(sRowValue = driver.findElement(By.xpath(xpathToTable + "/tbody/tr[" + i + "]/td[" + j + "]")).getText());
+				for (int j = 1; j <= column; j++) {
+					list.add(sRowValue = driver.findElement(By.xpath(xpathToTable+"/tbody/tr["+i+"]/td[" + j + "]")).getText());
 
 					System.out.println(sRowValue);
 				}
-				break;
+				//break;
 			}
 		}
+		System.out.println(list);
+		return list;
+	}
+
+
+	//Retrieve table header values - koshi
+	public List<String> matchWithTableHeaderValue(String xpathToTable) {
+
+		int column = getNoOfColumnsInATable(xpathToTable);
+
+		List<String> list = new ArrayList<String>();
+
+			String sColValue = null;
+
+				for (int j = 1; j <= column; j++) {
+					list.add(sColValue = driver.findElement(By.xpath(xpathToTable+"/thead/tr/th[" + j + "]")).getText());
+
+					System.out.println(sColValue);
+				}
+
 		System.out.println(list);
 		return list;
 	}
@@ -1066,15 +1117,11 @@ public class SeleniumBase {
         return value;
     }
 
-
-
     //read a Value attribute from Textbox
     public String readValueFromTextBox(String xpath){
 
         return driver.findElement(By.xpath(xpath)).getAttribute("value");
     }
-
-    /////////////////
 
 	public String getClassValue(String xpath){
 

@@ -5,6 +5,8 @@ import com.totalamber.qa.automation.TestBase;
 import com.totalamber.qa.data.UI.elements.webQuarters.wqDMDashboardPage;
 import org.openqa.selenium.WebDriver;
 
+import java.util.List;
+
 import static com.totalamber.qa.data.UI.elements.webQuarters.wqSUDashboardPage.*;
 
 /**
@@ -74,4 +76,28 @@ public class WQSUDashboardPage extends TestBase implements wqDMDashboardPage {
         return this;
     }
 
+    public void action_Click_Contact_WQ_Support_Consultant_Button() {
+        seleniumBase.click(WQ_SU_CONTACT_WQ_SUPPORT_CONSULTANT_XPATH, WQ_SU_CONTACT_WQ_SUPPORT_CONSULTANT_CSS);
+    }
+
+    public WQSUDashboardPage step_Enter_Case_Id(String caseId) {
+        seleniumBase.type(WQ_SU_CASE_SEARCH_BOX_CSS,WQ_SU_CASE_SEARCH_BOX_XPATH, caseId);
+        return this;
+    }
+
+    public void action_Click_search_Button() {
+        seleniumBase.click(WQ_SU_CASE_SEARCH_BUTTON_XPATH, WQ_SU_CASE_SEARCH_BUTTON_CSS);
+    }
+
+    public List<String> step_Get_Filter_DropDown_Text(String xpath) {
+       return seleniumBase.listDropdownOptions(xpath);
+    }
+
+    public List<String> check_Search_Case_Id (String xpath, String data) {
+      return seleniumBase.matchWithRowValue(xpath, data);
+    }
+
+    public List<String> check_Case_Table_Column_Headers (String xpath) {
+      return seleniumBase.matchWithTableHeaderValue(xpath);
+    }
 }
