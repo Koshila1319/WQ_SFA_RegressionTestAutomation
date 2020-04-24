@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test form">
+	<test name="AccountActivation">
+		<classes>
+			<class name ="com.webQuarters.qa.test.SFAAccountActivationTest">
+				<methods>
+					<!--<include name = "verify_The_Activation_Page_UI_View"/>
+					<include name = "verify_Account_Activation_With_Incorrect_Activation_Code"/>
+					<include name = "verify_Account_Activation_With_Empty_Activation_Code"/>
+					<include name = "verify_Account_Activation_With_Invalid_Activation_Code"/>
+					<include name = "verify_Account_Activation_With_Empty_Password"/>
+					<include name = "verify_Account_Activation_With_Invalid_Password"/>
+					<include name = "verify_Account_Activation_With_Unmatching_Confirm_Password"/>-->
+					<include name = "verify_Account_Activation_With_Valid_Details"/>
+				</methods>
+			</class>
+			</classes>
+        </test>
+    </suite>
+
+
+

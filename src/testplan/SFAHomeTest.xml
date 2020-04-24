@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test form">
+	<test name="Home">
+		<classes>
+			<class name ="com.webQuarters.qa.test.SFAHomeTest">
+				<methods>
+					<!--Verify Links Available-->
+
+					<include name = "verify_The_WQ_Logo_Is_Available"/>
+					<include name = "verify_The_WQ_Logo_Is_Available"/>
+					<include name = "verify_The_Home_Page_Browser_Title"/>
+					<include name = "verify_The_Home_Page_Profile_Details"/>
+					<include name = "verify_Company_Name_Details"/>
+
+					<include name = "check_Administration_Section_Text"/>
+					<include name = "check_Account_Master_Menu_Title"/>
+					<include name = "check_Account_Link"/>
+					<include name = "check_Account_Branch_Link"/>
+					<include name = "check_Department_Link"/>
+					<include name = "check_Designation_Link"/>
+					<include name = "check_Employee_Link"/>
+					<include name = "check_Employee_Role_Mapping_Link"/>
+					<include name = "check_Supervisor_Employee_Mapping_Link"/>
+
+					<include name = "check_Security_Section_Text"/>
+					<include name = "check_Security_Master_Menu_Title"/>
+					<include name = "check_System_User_Link"/>
+					<include name = "check_User_Groups_Link"/>
+					<include name = "check_Access_Control_Menu_Title"/>
+					<include name = "check_Group_Users_Link"/>
+					<include name = "check_Group_Access_Link"/>
+					<include name = "check_User_Branch_Access_Link"/>
+					<include name = "check_Access_Delegation_Link"/>
+					<include name = "check_Mobile_Access_Link"/>
+
+					<include name = "check_Product_Master_Section_Text"/>
+					<include name = "check_Product_Menu_Title"/>
+					<include name = "check_UOM_Link"/>
+					<include name = "check_Item_Category_Link"/>
+					<include name = "check_Item_Link"/>
+
+					<include name = "check_Transaction_Section_Text"/>
+					<include name = "check_Sales_Menu_Title"/>
+					<include name = "check_Sales_Area_Link"/>
+					<include name = "check_Sales_Route_Link"/>
+					<include name = "check_Employee_Sales_Route_Link"/>
+					<include name = "check_Sales_Visit_Plan_Link"/>
+					<include name = "check_Vehicle_Link"/>
+					<include name = "check_Sales_Order_Link"/>
+					<include name = "check_Sales_Tax_Link"/>
+					<include name = "check_Sales_Tax_Class_Link"/>
+					<include name = "check_Sales_Tax_Class_Mapping_Link"/>
+					<include name = "check_Invoice_Link"/>
+					<include name = "check_Vehicle_Load_Request_Link"/>
+					<include name = "check_Dispatch_Note_Link"/>
+					<include name = "check_Supervisor_Sales_Area_Link"/>
+
+					<!--Verify Page Navigation-->
+
+					<include name = "validate_Navigation_To_Account_Page"/>
+					<include name = "validate_Navigation_To_Account_Branch_Page"/>
+					<include name = "validate_Navigation_To_Department_Page"/>
+					<include name = "validate_Navigation_To_Designation_Page"/>
+					<include name = "validate_Navigation_To_Employee_Page"/>
+					<include name = "validate_Navigation_To_Employee_Role_Mapping_Page"/>
+					<include name = "validate_Navigation_To_Supervisor_Employee_Mapping_Page"/>
+
+					<include name = "validate_Navigation_To_System_User_Page"/>
+					<include name = "validate_Navigation_To_User_Groups_Page"/>
+					<include name = "validate_Navigation_To_Group_Users_Page"/>
+					<include name = "validate_Navigation_To_Group_Access_Page"/>
+					<include name = "validate_Navigation_To_User_Branch_Access_Page"/>
+					<include name = "validate_Navigation_To_Access_Delegation_Page"/>
+					<include name = "validate_Navigation_To_Mobile_Access_Page"/>
+
+					<include name = "validate_Navigation_To_UOM_Page"/>
+					<include name = "validate_Navigation_To_Item_Category_Page"/>
+					<include name = "validate_Navigation_To_Item_Page"/>
+
+					<include name = "validate_Navigation_To_Sales_Area_Page"/>
+					<include name = "validate_Navigation_To_Sales_Route_Page"/>
+					<include name = "validate_Navigation_To_Employee_Sales_Route_Page"/>
+					<include name = "validate_Navigation_To_Sales_Visit_Plan_Page"/>
+					<include name = "validate_Navigation_To_Vehicle_Page"/>
+					<include name = "validate_Navigation_To_Sales_Order_Page"/>
+					<include name = "validate_Navigation_To_Sales_Tax_Page"/>s
+					<include name = "validate_Navigation_To_Sales_Tax_Class_Page"/>
+					<!--<include name = "validate_Navigation_To_Sales_Tax_Class_Mapping_Page"/>-->
+					<include name = "validate_Navigation_To_Invoice_Page"/>
+					<include name = "validate_Navigation_To_Vehicle_Load_Request_Page"/>
+					<include name = "validate_Navigation_To_Dispatch_Note_Page"/>
+					<include name = "validate_Navigation_To_Supervisor_Sales_Area_Page"/>
+
+				</methods>
+			</class>
+			</classes>
+        </test>
+    </suite>
+
+
+
+
+
+
+
+
+

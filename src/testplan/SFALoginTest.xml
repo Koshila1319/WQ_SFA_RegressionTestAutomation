@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test form">
+	<test name="Login">
+		<classes>
+			<class name ="com.webQuarters.qa.test.SFALoginTest">
+				<methods>
+					<include name = "verify_The_WQ_Logo_Is_Available"/>
+					<include name = "verify_The_Login_Page_Browser_Title"/>
+					<include name = "check_Login_Page_Title"/>
+					<include name = "check_Login_Page_Text"/>
+					<include name = "verify_The_Username_Field_Is_Available"/>
+					<include name = "verify_The_Username_Icon_Is_Available"/>
+					<include name = "verify_The_Username_PlaceHolder_Text"/>
+					<include name = "verify_The_Password_Field_Is_Available"/>
+					<include name = "verify_The_Password_Icon_Is_Available"/>
+					<include name = "verify_The_Password_PlaceHolder_Text"/>
+					<include name = "check_Login_Button_Is_Available"/>
+					<include name = "check_Login_Button_Text"/>
+					<include name = "check_Forgot_Password_Link_Is_Available"/>
+					<include name = "check_Forgot_Password_Link_Text"/>
+					<include name = "verify_The_Username_Field_Enter_Text_Types"/>
+					<include name = "verify_The_Password_Is_Display_Set_Secured"/>
+					<include name = "verify_The_Login_Button_With_Valid_UserName_Password"/>
+					<include name = "verify_The_Login_Button_With_Invalid_UserName_Valid_Password"/>
+					<include name = "verify_The_Login_Button_With_Incorrect_UserName_Valid_Password"/>
+					<include name = "verify_The_Login_Button_With_Valid_UserName_Invalid_Password"/>
+					<include name = "verify_The_Login_Button_With_Valid_UserName_Incorrect_Password"/>
+					<include name = "verify_The_Login_Button_With_Incorrect_UserName_Incorrect_Password"/>
+					<include name = "verify_The_Login_Button_With_Empty_UserName_Password"/>
+				</methods>
+			</class>
+			</classes>
+        </test>
+    </suite>
+
+
+
+
+
+
+
+
+
+
+
+    <!--
+    <?xml version="1.0" encoding="UTF-8"?>
+    <suite name="Test form">
+        <test name="Cases">
+            <classes>
+                <class name="com.totalamber.qa.SysAidTestTest.SysAidLoginTest">
+                    <methods>
+                        <include name="AssignCase"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
+    </suite>
+    -->
+
+
+
+
+
+

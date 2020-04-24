@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test form">
+	<test name="Designation">
+		<classes>
+			<!--<class name ="com.webQuarters.qa.test.Designation.SFADesignationTest">
+				<methods>
+					&lt;!&ndash;UI view&ndash;&gt;
+					<include name = "check_Designation_Page_Title"/>
+					<include name = "check_Designation_Page_Breadcrumb_Is_Available"/>
+					<include name = "check_Add_New_Designation_Button_Is_Available"/>
+					<include name = "check_Advance_Search_Section"/>
+					<include name = "check_List_of_Designation_Section"/>
+					<include name = "check_Pagination_Section_Is_Disabled_When_No_Data_In_Data_Table"/>
+
+					&lt;!&ndash;Functional&ndash;&gt;
+					<include name = "check_Pagination_Section_Is_Disabled_When_No_Data_In_Data_Table"/>
+					<include name = "check_And_Validate_Company_Name_Is_Required_In_Advanced_Search_Section"/>
+					<include name = "check_And_Validate_User_Able_To_Search_Designations"/>
+					&lt;!&ndash;<include name = "check_And_Validate_User_Able_To_Reset_Search_Field_Data"/>&ndash;&gt;
+					<include name = "check_And_Validate_Text_Based_Search_In_The_Data_Table"/>
+					<include name = "check_And_Validate_User_Able_To_Copy_Print_PDF_And_Excel_Data"/>
+					<include name = "check_And_Validate_User_Able_To_Sort_Data_Ascending_And_Descending"/>
+					<include name = "check_And_Validate_Behaviour_Of_The_Pagination_Section"/>
+
+				</methods>
+			</class>-->
+
+
+			<!--<class name ="com.webQuarters.qa.test.Designation.SFAAddDesignationTest">
+				<methods>
+				&lt;!&ndash;UI view&ndash;&gt;
+
+					<include name = "check_And_Validate_Navigation_To_Add_New_Designation_Info_Popup"/>
+					<include name = "check_Add_New_Designation_Info_Popup_Title"/>
+					<include name = "check_Add_New_Designation_Info_Popup_Fields"/>
+
+					&lt;!&ndash;Functional&ndash;&gt;
+
+					<include name = "check_And_Validate_Required_Fields_When_Adding_New_Designation"/>
+					<include name = "check_And_Validate_User_Able_To_Add_New_Designation_Successfully"/>
+					<include name = "check_And_Validate_User_Able_To_Close_Add_New_Designation_Info_popup"/>
+					<include name = "check_And_Validate_System_Not_Allow_To_Add_Duplicate_Designation_Names"/>
+
+				</methods>
+			</class>-->
+
+
+
+			<!--<class name ="com.webQuarters.qa.test.Designation.SFAEditDesignationTest">
+			<methods>
+
+			&lt;!&ndash;UI view&ndash;&gt;
+
+				<include name = "check_And_Validate_Navigation_To_Edit_Designation_Info_Popup"/>
+                <include name = "check_Edit_Designation_Info_Popup_Title"/>
+                <include name = "check_Edit_Designation_Info_Popup_Fields"/>
+
+			&lt;!&ndash;Functional&ndash;&gt;
+
+				<include name = "check_And_Validate_Required_Fields_When_Editing_Designation"/>
+                <include name = "check_And_Validate_System_Not_Allow_To_Add_Duplicate_Designation_Names_When_Editing"/>
+                <include name = "check_And_Validate_User_Able_To_Edit_Designation"/>
+                <include name = "check_And_Validate_User_Able_To_Close_Edit_Designation_Info_popup"/>
+
+            </methods>
+		</class>
+-->
+			<!--<class name ="com.webQuarters.qa.test.Designation.SFARemoveDesignationTest">
+				<methods>
+					&lt;!&ndash;Functional&ndash;&gt;
+
+					<include name = "check_And_Validate_User_Able_To_Remove_Designation"/>
+					<include name = "check_And_Validate_User_Able_To_Cancel_Remove_Designation"/>
+				</methods>
+			</class>-->
+
+			</classes>
+        </test>
+    </suite>
+
+
+
